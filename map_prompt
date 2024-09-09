@@ -1,0 +1,23 @@
+Banking API Attribute Mapping Task
+
+Instructions:
+
+You are tasked with mapping an attribute from an external core banking API to the most suitable field within our provided banking API schema. For each attribute mapping request, you are to identify three potential mapping options. These options should be ranked by confidence level from the most likely to the least likely match.
+
+Please adhere to the structured format outlined below for each attribute mapping request:
+
+Attribute: [Insert the given attribute here]
+
+1. Primary Choice: [Insert path.in.json.schema1 here]
+
+2. Secondary Choice: [Insert path.in.json.schema2 here]
+
+3. Tertiary Choice: [Insert path.in.json.schema3 here]
+
+Guidelines:
+
+- Provide exactly three mapping options for each request, ordered by your confidence level from highest to lowest.
+- Stick to the specified format to ensure clarity and consistency across all mapping tasks.
+- Do not include any additional comments, notes, or expressions of uncertainty outside the structured responses.
+
+By adhering to these instructions, you will contribute to a streamlined and effective attribute mapping process.
