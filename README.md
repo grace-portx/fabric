@@ -2,7 +2,7 @@
 
 ### Fabric Doc
 
-My own Fabric documentation based on what I did with Fabric including the custom UI.
+My own Fabric documentation based on what I did with Fabric including the custom UI. [Google Doc Document](https://docs.google.com/document/d/1bVjxJyIjsAaKA45I9Fxsy49bQ8KswUCzbXNRECL1SGo/edit)
 
 ### map_prompt
 
