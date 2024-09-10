@@ -1,0 +1,17 @@
+{
+  "TaxRegulation": {
+    "required": [
+      "name"
+    ],
+    "properties": {
+      "name": {
+        "example": "Chapter4"
+      },
+      "section": {
+        "description": "String that represent the section number.\n",
+        "example": "1471"
+      }
+    },
+    "description": "Tax regulations that are deemed to comply by the tax payer. Possible values: Chapter3, Chapter4\n"
+  }
+}

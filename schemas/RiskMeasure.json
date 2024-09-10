@@ -1,0 +1,51 @@
+{
+  "RiskMeasure": {
+    "properties": {
+      "name": {
+        "CreditRankingScaleName": {
+          "description": "Most commonly used credit ranking scales. Possible Values: StandardAndPoors, MoodysInvestors. Also other values: Original, 1, 2, 3, Current. \n",
+          "example": "StandardAndPoors"
+        }
+      },
+      "level": {
+        "RiskLevel": {
+          "description": "Specifies the customer\u2019s money laundering risk. Possible values: High, Medium, Low, NotDetermined\n",
+          "example": "Permanent"
+        }
+      },
+      "date": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "codes": {
+        "description": "Additional risk measure codes. Possible values: RiskRatingCode\n",
+        "items": {
+          "GenericCode": {
+            "required": [
+              "name",
+              "value"
+            ],
+            "properties": {
+              "name": {
+                "description": "Name of the code in PascalCase.\n",
+                "example": "AccountingGroup"
+              },
+              "value": {
+                "description": "Code value.",
+                "example": "195"
+              },
+              "description": {
+                "Title": {
+                  "example": "This is a Title."
+                }
+              }
+            },
+            "description": "Generic code definition."
+          }
+        }
+      }
+    },
+    "description": "Laundary risk measure of an individual. \n"
+  }
+}

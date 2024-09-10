@@ -1,0 +1,6 @@
+{
+  "TaxType": {
+    "description": "Specifies the type of tax. Possible ISO values are:\nValueAddedTaxOfZeroRate, Provincial, NationalTax, StateTax, WithholdingTax, CapitalGainTax, InterimProfitTax, StampDuty, WealthTax, InheritanceTax, SolidaritySurcharge, TaxCredit, Equalisation, GiftTax, ConsumptionTax, AlternativeMinimumTax, LocalTax, NationalFederalTax, PaymentLevyTax, StockExchangeTax, TransactionTax, TransferTax, ValueAddedTax, LocalBrokerCommission, ExecutingBrokerCommission, EUTaxRetention, Aktiengewinn1, Aktiengewinn2, Zwischengewinn, CustomsTax, Mietgewinn, GermanLocalTax3, GermanLocalTax4, GermanLocalTax2, WithholdingOfForeignTax, WithholdingOfLocalTax, CapitalLossCredit, FederalWithholding, StatelWithholding.\n",
+    "example": "TaxCredit"
+  }
+}

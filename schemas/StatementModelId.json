@@ -1,0 +1,6 @@
+{
+  "StatementModelId": {
+    "description": "Model used to calculate customer profitability. This is an external id provided by the account servicer. \n",
+    "example": "1"
+  }
+}

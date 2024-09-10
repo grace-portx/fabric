@@ -1,0 +1,6 @@
+{
+  "SecuredAccountType": {
+    "description": "Indicates how the account is secured. Possible Values: Collateral, Agent\n",
+    "example": "Collateral"
+  }
+}

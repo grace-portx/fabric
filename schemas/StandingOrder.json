@@ -1,0 +1,1122 @@
+{
+  "StandingOrder": {
+    "description": "Instruction given by an account holder to an account servicer to make regular transfers on given dates to the same beneficiary.\n",
+    "StandingOrderRequest": {
+      "properties": {
+        "paymentType": {
+          "PaymentType": {
+            "description": "Specifies the type of Payment. Possible values: LiquidityTransfer, OnUs, ACH, Wire, NotOnUs.   \n",
+            "example": "OnUs"
+          }
+        },
+        "standingOrderType": {
+          "StandingOrderType": {
+            "description": "Standing order category. Possible values: OneTime, Recurring, Predefined.\n",
+            "example": "OneTime"
+          }
+        },
+        "amountType": {
+          "StandingOrderAmountType": {
+            "description": "Type of amount of the payment. \n  Possible values: MinimumDue, CurrentBalance, FullStatement, FixedAmount.\n",
+            "example": "OneTime"
+          }
+        },
+        "recurrenceDateType": {
+          "StandingOrderDateType": {
+            "description": "Type of recurrence date of the payment. Possible values: \n OnTimeDue, SpecificDay.\n",
+            "example": "OneTime"
+          }
+        },
+        "orderSequence": {
+          "description": "Specifies the sequence in which the system will execute the liquidity transfers standing order within the set.\n",
+          "example": 1
+        },
+        "frequency": {
+          "description": "Dates during which the standing order is in effect\n",
+          "Frequency": {
+            "description": "Specifies an event frequency",
+            "DatePeriod": {
+              "properties": {
+                "fromDateTime": {
+                  "description": "Date and time at which the period starts.",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "upToDateTime": {
+                  "description": "Date and time at which the period ends.",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                }
+              }
+            },
+            "properties": {
+              "cycleType": {
+                "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+              },
+              "cycle": {
+                "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+                "example": "Monthly"
+              },
+              "every": {
+                "maximum": 999,
+                "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+                "example": 15
+              },
+              "weekDay": {
+                "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+                "example": "Tuesday"
+              },
+              "weekNumbers": {
+                "items": {
+                  "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                  "example": "1st"
+                }
+              },
+              "days": {
+                "items": {
+                  "description": "Day of the Month\n",
+                  "Day": {
+                    "maximum": 31,
+                    "description": "Specifies the date in a month.",
+                    "example": 30
+                  }
+                }
+              },
+              "months": {
+                "items": {
+                  "description": "Month of the Year within an Annual cycle.\n",
+                  "Month": {
+                    "description": "Specifies a month number.",
+                    "example": "12"
+                  }
+                }
+              },
+              "startDay": {
+                "MonthDay": {
+                  "description": "A particular point in the year expressed in the MM-DD format.",
+                  "example": "04-17"
+                }
+              },
+              "numberOfTimes": {
+                "description": "Number of times the event will be repeated.\n",
+                "example": 4
+              }
+            }
+          }
+        },
+        "eventDescription": {
+          "description": "Describes the event which triggers the exercise of a standing order for instance the reception of a report or the closing of an account.\n",
+          "Description": {
+            "example": "This is a description."
+          }
+        },
+        "timeOfDay": {
+          "description": "Specifies the hour of the day for the time event.\n",
+          "TimeOfTheDay": {
+            "properties": {
+              "hour": {
+                "example": "12"
+              },
+              "timeZone": {
+                "TimeZone": {
+                  "description": "A time zone is an area which observes a uniform standard time for legal, commercial and social purposes. Some possible values: Pacific, Mountain, Central, Eastern, GreenwichMean\n",
+                  "example": "Pacific"
+                }
+              },
+              "timeOfTheDay": {
+                "description": "Time of the day. Possible Values: AfterMidnight, after midnight and  before business day; AfterBusinessDay, after business day and before midnight.\n"
+              }
+            }
+          }
+        },
+        "paymentInstruction": {
+          "CreditTransferDetail": {
+            "required": [
+              "paymentMethod",
+              "paymentType"
+            ],
+            "description": "Further details on the credit transfer instruction",
+            "PaymentIdentifiers": {
+              "properties": {
+                "identifiers": {
+                  "items": {
+                    "PaymentIdentification": {
+                      "required": [
+                        "number"
+                      ],
+                      "properties": {
+                        "number": {
+                          "description": "Unique and unambiguous identification of a payment."
+                        },
+                        "schemeName": {
+                          "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                          "example": "UETR"
+                        },
+                        "issuer": {
+                          "description": "Entity that assigns the identification.",
+                          "example": "Banc of California"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "description": "Set of elements used to reference a payment instruction."
+            },
+            "properties": {
+              "paymentMethod": {
+                "PaymentMethod": {
+                  "description": "Specifies the means of payment that will be used to move the amount of money. Possible values are:  Check, CreditTransfer. More specific values: ECheck, CreditCard, CommercialCreditCard, CheckCard, BusinessCheck, PinlessDebit, PINDebit, POS, Cash, ACHCredit, LockBox, RemoteCapture, EFTCredit, FedWire, ACHDebit, EFT, MoneyOrder, Coupon.\n",
+                  "example": "CreditTransfer"
+                }
+              },
+              "paymentType": {
+                "PaymentType": {
+                  "description": "Specifies the type of Payment. Possible values: LiquidityTransfer, OnUs, ACH, Wire, NotOnUs.   \n",
+                  "example": "OnUs"
+                }
+              },
+              "amount": {
+                "description": "Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.\n",
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              },
+              "taxAmount": {
+                "description": "Tax amount to be deducted.\n",
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              },
+              "creditorAccountId": {
+                "AccountId": {
+                  "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+                  "example": "033-DDA-123456"
+                }
+              },
+              "paymentProcessing": {
+                "PaymentProcessingDetail": {
+                  "properties": {
+                    "instructionPriority": {
+                      "InstructionPriority": {
+                        "description": "Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply to the processing of the instruction. Possible ISO Complaiant values are: High, Normal.\n",
+                        "example": "123456789"
+                      }
+                    },
+                    "serviceLevel": {
+                      "ServiceLevel": {
+                        "description": "Specifies a pre-agreed service between the parties. Some ISO complaiant values from ExternalServiceLevel1Code are:\nBookTransaction, TrackedCustomerCreditTransfer, TrackedStopAndRecall, TrackedOutboundCorporateTransfer, TrackedFinancialInstitutionTransfe, NonurgentPriorityPayment, NonurgentPayment, EBAPriorityService, SameDayValue, DomesticChequeClearingAndSettlement, UrgentPayment, UrgentPaymentNetSettlement, InstantCreditTransferOrInstantDirectDebit, ServiceRequestToPay, ScheckVerarbeitungAustria, TrackedCaseManagement, TrackedInboundCustomerCreditTransfer, TrackedInstantCustomerCreditTransfer, TrackedLowValueCrossBorderCustomerCreditTransfer.\n",
+                        "example": "BookTransaction"
+                      }
+                    },
+                    "clearingChannel": {
+                      "ClearingSystem": {
+                        "description": "Specifies the clearing system identification. Some ISO complaiant values from ExternalCashClearingSystem1Code are:\n USFedACH, USFedNow, USFedwireFunds, ACH, EBAEuro1Step1, CanadaACSS, Albania, Austrian, NewZealand, Azerbaijan, BosniaHerzegovina, SwedenBGC, Ecuador, Barbados, Belgium, Bulgaria, Bahamas, Botswana, Finland, BankOfJapanNet, Italy, Philippines, CanadaCAD, SpainCAM, CentralBankOfArubaCSM, CentraleBankVanCura\u00e7aoEnSintMaartenCSM, Ireland, Peru, USTCHChips,UnitedKingdom, China, CentralInteroperabilityService, ColumbiaCEDEC, ColumbiaCENIT, ColumbiaCUD, DenmarkDDK,Denmark, EBAEuro1, GermanyELS, Germany, ECB, USTCHEPN, EBAStep1, ForeignExchangeYenClearing, FasterPaymentsServices, Ghana, HongKongCHAT, HongKongFPS, Croatia, Greece, Hungary, SpainIberpayInstantPayments, DEandNLEquens, IndiaImmediatePaymentService, Jordan, Kenya, Luxemburg, SriLanka, Latvia, CanadaLVTS, LynxCanada, Singapore, SouthAfrica, MacaoRTGS, Malta, Mauritius, Namibia, Norway, NorwayNICSReal, AustraliaNPP, USNSS, NewZealandRTGS, Switzerland, AustraliaPDS, Egypt, FrancePNS, AustrianCSM, Angola, Venezuela, RomaniaEPO, RomaniaGSRS, RTGS, GermanyRTGSPlus, RTRCanada, RPSAndSEPAClearer, Chili, SwedenSEC, euroSIC, SIC, SICIP, Slovania, SpainES, Portugal, SwedenSSK, EBAClearingSTEP2, UnitedKingdomGBP, FranceFR, USTCHRealTime, Target, Thailand, Thailand-NITMX, Tanzania, Netherlands, TrinidadAndTobago, CanadaUSBE, Uganda, IndiaUnifiedPaymentsInterface, VocaLink, EBASTEP2XCT, Zengin, Zimbabwe, Zambia, Iceland, NorwayRTGS, NGInterswitch, P27RealTime, P27, UnitedKingdomUKD, SingaporeSCRIPS, RIXRTGSSverigesRiksbank\n",
+                        "example": "ACH"
+                      }
+                    },
+                    "localInstrument": {
+                      "LocalInstrument": {
+                        "description": "This element is used to specify a local clearing option and/or qualify the service or service level. For ACH service Level offers more detailed information about the authorization method of the ACH transaction. Posible values for ACH Entry Class or SEC code: PPD, CCD, CTX\n",
+                        "example": "CCD"
+                      }
+                    },
+                    "categoryPurpose": {
+                      "CategoryPurpose": {
+                        "description": "Specifies the high level purpose of the instruction based on a set of pre-defined categories.\n Usage: This is used by the initiating party to provide information concerning the processing of the payment. It is likely to trigger special processing by any of the agents involved in the payment chain. Some ISO complaiant values are from ExternalCategoryPurpose1Code: \n  BonusPayment, CashManagementTransfer, CardBulkClearing, CreditCardPayment, TradeSettlementPayment, DebitCardPayment, Dividend, DeliverAgainstPayment, Epayment,FeeCollectionAndInterest, FeeCollection,PersontoPersonPayment, GovernmentPayment, Hedging, IrrevocableCreditCardPayment, IrrevocableDebitCardPayment, IntraCompanyPayment, Interest, LockboxTransactions, Loan, Commercial, Consumer, PensionPayment, Represented, ReimbursementReceivedCreditTransfer, ReceiveAgainstPayment, SalaryPayment, Securities, SocialSecurityBenefit, SupplierPayment, TaxPayment, Trade, TreasuryPayment, ValueAddedTaxPayment, WithHolding, CashManagementSweepAccount, CashManagementTopAccount, CashManagementZeroBalanceAccount\n",
+                        "example": "SalaryPayment"
+                      }
+                    }
+                  },
+                  "description": "Provides further details of the type of payment."
+                }
+              },
+              "chargeBearerType": {
+                "ChargeBearerType": {
+                  "description": "Specifies which party(ies) will pay charges due for processing of the instruction.\nBorneByDebtor, BorneByCreditor,  Shared, FollowingServiceLevel\n",
+                  "example": "Shared"
+                }
+              },
+              "creditor": {
+                "PartyIdentification": {
+                  "properties": {
+                    "name": {
+                      "PartyName": {
+                        "description": "Name by which a party is known and which is usually used to identify that party.",
+                        "example": "Jane Birkin"
+                      }
+                    },
+                    "account": {
+                      "PaymentAccount": {
+                        "properties": {
+                          "name": {
+                            "AccountName": {
+                              "description": "Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.",
+                              "example": "Hermes PD_CA 0002"
+                            }
+                          },
+                          "currency": {
+                            "CurrencyCode": {
+                              "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                              "example": "USD"
+                            }
+                          },
+                          "accountBranchId": {
+                            "ServicerBranchId": {
+                              "description": "Identification of the account servicer institution at branch level or center level. To overlay the codes to produce a unique identifier the following expresion is used: BranchRegionCode-BranchSubdivisionCode.\n",
+                              "example": "SEA_1"
+                            }
+                          },
+                          "accountNumber": {
+                            "AccountNumber": {
+                              "description": "The account number or Basic Bank Account Number (BBAN). A Basic Bank Account Number (BBAN) is a bank account number that includes the domestic bank code, branch identifier, and account number. It is a unique identifier for a bank account within a specific country.\n",
+                              "example": "012345678"
+                            }
+                          },
+                          "accountType": {
+                            "AccountType": {
+                              "description": "Type of the account. Some possible ISO 20022 compliant values are: \n Checking,\n CardAccount,\n CashPayment, \n Charges, \n CashIncome, \n Commission, \n ClearingParticipantSettlementAccount,\n LimitedLiquiditySavingsAccount,\n MarginalLending, \n MoneyMarket, \n NonResidentExternal, \n Overdraft, \n OverNightDeposit, \n Settlement, \n Salary, \n Savings, \n Tax, \n TransactingAccount,\n CashTrading,\n VirtualAccount,\n CreditCard,\n DebitCard,\n Universal, \n Investment, \n EpurseCard,\n CertificateOfDeposit,\n MoneyMarketChecking, \n RetirementAccount, \n StockOrBond,\n PrePaid, \n FleetCard, \n Cash, \n DebitAccount, \n CreditAccount, \n Benefit,\n HealthSavingsAccount,\n FlexibleSpendingAccount,\n ForBenefitOf,\n Estate,\n ClientTrustAccount, \n LawyersTrustAccount,\n KeoghPlanAccount,\n UniformTransfersToMinorsAct,\n UniformGiftsToMinorsAct,\n ReserveFunds,\n SelfDirectedBrokerage,\n IRA,\n Annuity,\n ExternalAccount,\n Loan.\n",
+                              "example": "Checking"
+                            }
+                          },
+                          "routingNumber": {
+                            "ABANumber": {
+                              "description": "The routing number (sometimes referred to as an ABA routing number, regarding the American Bankers Association) is a sequence of nine digits used by banks to identify specific financial institutions within the United States.  \n",
+                              "example": "012345678"
+                            }
+                          },
+                          "identifiers": {
+                            "items": {
+                              "AccountIdentification": {
+                                "properties": {
+                                  "number": {
+                                    "description": "Identification assigned by an institution or internally to connect to other applications.\n"
+                                  },
+                                  "schemeName": {
+                                    "description": "Name of the identification scheme, in PascalCase. Possible ISO 20022 compliant values names are:\nIssuerIdentificationNumber, BBANIdentifier, CHIPSUniversalIdentifier, UPICIdentifier, IBANIdentifier. Other possible values: CreditBackIdentification, UniversalLoanIdentifier, CommitmentNumber, RecordNumber, FlexDataRecordNumber, RegistrationNumber, ExternalAccountId\n",
+                                    "example": "BBANIdentifier"
+                                  },
+                                  "issuer": {
+                                    "description": "Entity that assigns the identification."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "postalAddress": {
+                      "PostalAddress": {
+                        "properties": {
+                          "addressCode": {
+                            "description": "This code is used to identify parties that share the same address or to associate an existing address with a specific party. Providing this code eliminates the need to separately enter the address details.\n"
+                          },
+                          "addressBookIndicator": {
+                            "description": "If true, the address is kept in the system even if the person is no longer a customer.\n"
+                          },
+                          "addressType": {
+                            "description": "Specifies the type of address, in PascalCase form. Possible values are:  PhysicalAddress, Postal, POBox, Residential, Permanent, Temporary, Business\n",
+                            "example": "Postal"
+                          },
+                          "addressPurpose": {
+                            "description": "Specifies the purpose of an address, in PascalCase form. Possible values are: \nMailTo, \nDeliveryTo,\nBilling,\nTax,\nForeignTaxRecipient\nPlaceOfOperation,\nPlaceOfRegistration,\nMarketing, Statements, Business, Administrative, PreviousPlace, Headquarter, BranchStore, Property, Military, Secondary, Personal.\n",
+                            "example": "Billing"
+                          },
+                          "primaryIndicator": {
+                            "PrimaryContactIndicator": {
+                              "description": "Indicates whether the contact informacion is primary. \n"
+                            }
+                          },
+                          "careOf": {
+                            "description": "Identifies an addressee that is accepting the correspondence for the intended recipient. Using care of ensures the correspondence reaches the right recipient rather than getting returned to the sender.\n",
+                            "example": "C/O Company Name"
+                          },
+                          "department": {
+                            "description": "Identification of a division of a large Organization or building.",
+                            "example": "A"
+                          },
+                          "subDepartment": {
+                            "description": "Identification of a sub-division of a large Organization or building.",
+                            "example": "B"
+                          },
+                          "streetName": {
+                            "description": "Name of a street or thoroughfare.",
+                            "example": "First Street"
+                          },
+                          "firstCrossStreetName": {
+                            "description": "Name of a the first cross street."
+                          },
+                          "secondCrossStreetName": {
+                            "description": "Name of a the second cross street.",
+                            "example": "Second Street"
+                          },
+                          "buildingNumber": {
+                            "description": "Number that identifies the position of a building or house on a street.",
+                            "example": "11407"
+                          },
+                          "buildingName": {
+                            "description": "Name of the building or house.",
+                            "example": "Tall Tower"
+                          },
+                          "floor": {
+                            "description": "Floor or storey within a building.",
+                            "example": "20"
+                          },
+                          "postBox": {
+                            "description": "Numbered box in a post office, assigned to a person or Organization, where letters are kept until called for.",
+                            "example": "MY779"
+                          },
+                          "room": {
+                            "description": "Building room number.",
+                            "example": "22"
+                          },
+                          "postCode": {
+                            "PostCode": {
+                              "description": "Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail. In US may consists of two parts: the five-digit ZIP Code '97062' and the ZIP+4 Code '6884'.\n",
+                              "example": "97062-6884"
+                            }
+                          },
+                          "carrierRoute": {
+                            "CarrierRoute": {
+                              "description": "A Carrier Route is a designated geographic area assigned to individual postal carriers by the United States Postal Service (USPS) to facilitate efficient mail delivery within specific regions.\n",
+                              "example": "C001"
+                            }
+                          },
+                          "censusTract": {
+                            "CensusTract": {
+                              "description": "A census tract, census area, census district or meshblock is a geographic region defined for the purpose of taking a census\n",
+                              "example": "12345"
+                            }
+                          },
+                          "censusBlock": {
+                            "CensusBlock": {
+                              "description": "Census blocks are used to partition counties into smaller areas for the purpose of collecting and presenting census data.\n",
+                              "example": "1234"
+                            }
+                          },
+                          "cBSACode": {
+                            "CBSACode": {
+                              "description": "Core-based statistical area. Metropolitan statistical area (MSA) is the formal definition of a region that consists of a city and surrounding communities that are linked by social and economic factors. Micropolitan Statistical Areas (MISA) are CBSAs associated with at least one urban cluster that has a population of at least 10,000, but less than 50,000.  The micropolitan statistical area comprises the central county or counties or equivalent entities containing the core, plus adjacent outlying counties having a high degree of social and economic integration with the central county as measured through commuting.\n",
+                              "example": "49780"
+                            }
+                          },
+                          "cBSAType": {
+                            "CBSAType": {
+                              "description": "Type of Core-based statistical area. Possible values: MSA, MISA\n",
+                              "example": "MSA"
+                            }
+                          },
+                          "foreignIndicator": {
+                            "description": "Indicates whether the postal address is from a foreing country."
+                          },
+                          "townName": {
+                            "TownName": {
+                              "description": "Name of a built-up area, with defined boundaries, and a local government. Also city name.\n",
+                              "example": "San Diego"
+                            }
+                          },
+                          "townLocationName": {
+                            "description": "Specific location name within the town.",
+                            "example": "Clackamas"
+                          },
+                          "districtName": {
+                            "description": "Identifies a subdivision within a country sub-division.",
+                            "example": "Columbia"
+                          },
+                          "countyName": {
+                            "description": "Identifies a county within a country sub-division.",
+                            "example": "Cook"
+                          },
+                          "countrySubDivision": {
+                            "CountrySubdivision": {
+                              "description": "Name of a country subdivision such as state, region, county.",
+                              "example": "Oregon"
+                            }
+                          },
+                          "countrySubDivisionCode": {
+                            "CountrySubdivisionCode": {
+                              "description": "Code to identify a name of a unit resulting from the division of a country, dependency, or other area of special geopolitical interest contained in ISO 3166-1, on the basis of country names obtained from the United Nations (ISO 3166-2: Country subdivision code).\n",
+                              "example": "AR-B"
+                            }
+                          },
+                          "country": {
+                            "CountryCode": {
+                              "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+                              "example": "US"
+                            }
+                          },
+                          "addressLine": {
+                            "description": "Information that locates and identifies a specific address, as defined by postal services, presented in free format text.",
+                            "items": {
+                              "example": "11407 Sw Amu st, Suite MY777"
+                            }
+                          },
+                          "temporaryIndicator": {
+                            "description": "Indicates whether the address is temporary or not.",
+                            "example": true
+                          },
+                          "period": {
+                            "description": "The period of use of the address information. Could be also used as a recurring anual period.\n",
+                            "DatePeriod": {
+                              "properties": {
+                                "fromDateTime": {
+                                  "description": "Date and time at which the period starts.",
+                                  "DateAndTime": {
+                                    "example": "2022-04-17T08:00:00Z"
+                                  }
+                                },
+                                "upToDateTime": {
+                                  "description": "Date and time at which the period ends.",
+                                  "DateAndTime": {
+                                    "example": "2022-04-17T08:00:00Z"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "codes": {
+                            "description": "Codes related to postal address or internal handling codes asociated with the address. Possible Values: HandlingCode, HandlingCodeOption.\n",
+                            "items": {
+                              "GenericCode": {
+                                "required": [
+                                  "name",
+                                  "value"
+                                ],
+                                "properties": {
+                                  "name": {
+                                    "description": "Name of the code in PascalCase.\n",
+                                    "example": "AccountingGroup"
+                                  },
+                                  "value": {
+                                    "description": "Code value.",
+                                    "example": "195"
+                                  },
+                                  "description": {
+                                    "Title": {
+                                      "example": "This is a Title."
+                                    }
+                                  }
+                                },
+                                "description": "Generic code definition."
+                              }
+                            }
+                          },
+                          "identifiers": {
+                            "description": "Postal address identifiers are used to identify parties that share the same address or to associate an existing address with a specific party. Possible scheme name values: AddressIdentifier.\n",
+                            "items": {
+                              "GenericIdentification": {
+                                "required": [
+                                  "number",
+                                  "schemeName"
+                                ],
+                                "properties": {
+                                  "number": {
+                                    "description": "Unique and unambiguous identification.",
+                                    "example": "123-45-6789"
+                                  },
+                                  "schemeName": {
+                                    "description": "Name of the identification scheme.\n"
+                                  },
+                                  "issuer": {
+                                    "description": "Entity that assigns the identification.",
+                                    "example": "UnitedStates"
+                                  },
+                                  "issueDate": {
+                                    "Date": {
+                                      "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                      "example": "2022-04-17"
+                                    }
+                                  },
+                                  "expirationDate": {
+                                    "Date": {
+                                      "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                      "example": "2022-04-17"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "description": "Information that locates and identifies a specific address, as defined by postal services.\n"
+                      }
+                    },
+                    "agent": {
+                      "FinancialInstitution": {
+                        "OrganizationIdentifiers": {
+                          "properties": {
+                            "identifiers": {
+                              "items": {
+                                "OrganizationIdentification": {
+                                  "description": "Unique and unambiguous way to identify an Organization.",
+                                  "PartyIdInformation": {
+                                    "properties": {
+                                      "number": {
+                                        "description": "Unique and unambiguous identification.",
+                                        "example": "123-45-6789"
+                                      },
+                                      "issuer": {
+                                        "description": "Entity that assigns the identification.",
+                                        "example": "Baltimore"
+                                      },
+                                      "country": {
+                                        "CountryCode": {
+                                          "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+                                          "example": "US"
+                                        }
+                                      },
+                                      "countrySubdivisionCode": {
+                                        "CountrySubdivisionCode": {
+                                          "description": "Code to identify a name of a unit resulting from the division of a country, dependency, or other area of special geopolitical interest contained in ISO 3166-1, on the basis of country names obtained from the United Nations (ISO 3166-2: Country subdivision code).\n",
+                                          "example": "AR-B"
+                                        }
+                                      },
+                                      "issueDate": {
+                                        "Date": {
+                                          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                          "example": "2022-04-17"
+                                        }
+                                      },
+                                      "applyDate": {
+                                        "Date": {
+                                          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                          "example": "2022-04-17"
+                                        }
+                                      },
+                                      "expirationDate": {
+                                        "Date": {
+                                          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                          "example": "2022-04-17"
+                                        }
+                                      },
+                                      "verificationDate": {
+                                        "description": "Verification or certification date.\n",
+                                        "Date": {
+                                          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                          "example": "2022-04-17"
+                                        }
+                                      },
+                                      "foreingIDIndicator": {
+                                        "description": "Indicates whether the identifications is from a foreing country."
+                                      },
+                                      "taxIDIndicator": {
+                                        "description": "Indicates whether the identifications is Tax Id."
+                                      },
+                                      "displayOption": {
+                                        "PartyDisplayOption": {
+                                          "description": "Indicates display options for party attributes. Possible Values: TaxIdMasked\n"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "properties": {
+                                    "schemeName": {
+                                      "description": "Name of the identification scheme, in PascalCase form. Possible values are: \nBankPartyIdentification\nCentralBankIdentificationNumber\nClearingIdentificationNumber\nCertificateOfIncorporationNumber\nCountryIdentificationCode\nCustomerNumber\nDataUniversalNumberingSystem\nEmployerIdentificationNumber\nGS1GLNIdentifier\nSIREN\nSIRET\nTaxIdentificationNumber\nBusinessDomainIdentifier\nBusinessOtherIdentification\nEmployerIdentificationNumber\nBICIdentifier\nLEIIdentifier\nExternalOrganizationNumber,\nExternalOrganizationType, \nExternalOrganizationId,\nMemberNumber.\n",
+                                      "example": "TaxIdentificationNumber"
+                                    },
+                                    "issuer": {
+                                      "description": "Entity that assigns the identification.",
+                                      "example": "UnitedStates"
+                                    },
+                                    "issueDate": {
+                                      "Date": {
+                                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                        "example": "2022-04-17"
+                                      }
+                                    },
+                                    "expirationDate": {
+                                      "Date": {
+                                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                        "example": "2022-04-17"
+                                      }
+                                    },
+                                    "displayOption": {
+                                      "PartyDisplayOption": {
+                                        "description": "Indicates display options for party attributes. Possible Values: TaxIdMasked\n"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "properties": {
+                          "clearingSystemMemberIdentification": {
+                            "ClearingSystemIdentification": {
+                              "description": "Specifies the clearing system member identification. Some ISO complaiant values from ExternalCashClearingSystem1Code are:\n UnitedStatesRoutingNumberFedwireNACHA, \n AustrianBankleitzahl, AustralianBankStateBranchCodeBSB,CanadianPaymentsAssociationPaymentRoutingNumber,SwissFinancialInstitutionIdentificationShort,SwissFinancialInstitutionIdentificationLong,CNAPSIdentifier, GermanBankleitzahl, SpanishDomesticInterbankingCode, UKDomesticSortCode, HelenicBankIdentificationCode, HongKongBankCode, IrishNationalClearingCode, IndianFinancialSystemCode, ItalianDomesticIdentificationCode, JapanZenginClearingCode, NewZealandNationalClearingCode, PolishNationalClearingCode, PortugueseNationalClearingCode, RussianCentralBankIdentificationCode, SwedenBankgiroClearingCode, IBGSortCode, ThaiCentralBankIdentificationCode, FinancialInstitutionCode, CHIPSParticipantIdentifier, SouthAfricanNationalClearingCode, NewZealandRTGSClearingCode\n",
+                              "example": "UnitedStatesRoutingNumberFedwireNACHA"
+                            }
+                          },
+                          "memberIdentification": {},
+                          "name": {},
+                          "postalAddress": {
+                            "PostalAddress": {
+                              "properties": {
+                                "addressCode": {
+                                  "description": "This code is used to identify parties that share the same address or to associate an existing address with a specific party. Providing this code eliminates the need to separately enter the address details.\n"
+                                },
+                                "addressBookIndicator": {
+                                  "description": "If true, the address is kept in the system even if the person is no longer a customer.\n"
+                                },
+                                "addressType": {
+                                  "description": "Specifies the type of address, in PascalCase form. Possible values are:  PhysicalAddress, Postal, POBox, Residential, Permanent, Temporary, Business\n",
+                                  "example": "Postal"
+                                },
+                                "addressPurpose": {
+                                  "description": "Specifies the purpose of an address, in PascalCase form. Possible values are: \nMailTo, \nDeliveryTo,\nBilling,\nTax,\nForeignTaxRecipient\nPlaceOfOperation,\nPlaceOfRegistration,\nMarketing, Statements, Business, Administrative, PreviousPlace, Headquarter, BranchStore, Property, Military, Secondary, Personal.\n",
+                                  "example": "Billing"
+                                },
+                                "primaryIndicator": {
+                                  "PrimaryContactIndicator": {
+                                    "description": "Indicates whether the contact informacion is primary. \n"
+                                  }
+                                },
+                                "careOf": {
+                                  "description": "Identifies an addressee that is accepting the correspondence for the intended recipient. Using care of ensures the correspondence reaches the right recipient rather than getting returned to the sender.\n",
+                                  "example": "C/O Company Name"
+                                },
+                                "department": {
+                                  "description": "Identification of a division of a large Organization or building.",
+                                  "example": "A"
+                                },
+                                "subDepartment": {
+                                  "description": "Identification of a sub-division of a large Organization or building.",
+                                  "example": "B"
+                                },
+                                "streetName": {
+                                  "description": "Name of a street or thoroughfare.",
+                                  "example": "First Street"
+                                },
+                                "firstCrossStreetName": {
+                                  "description": "Name of a the first cross street."
+                                },
+                                "secondCrossStreetName": {
+                                  "description": "Name of a the second cross street.",
+                                  "example": "Second Street"
+                                },
+                                "buildingNumber": {
+                                  "description": "Number that identifies the position of a building or house on a street.",
+                                  "example": "11407"
+                                },
+                                "buildingName": {
+                                  "description": "Name of the building or house.",
+                                  "example": "Tall Tower"
+                                },
+                                "floor": {
+                                  "description": "Floor or storey within a building.",
+                                  "example": "20"
+                                },
+                                "postBox": {
+                                  "description": "Numbered box in a post office, assigned to a person or Organization, where letters are kept until called for.",
+                                  "example": "MY779"
+                                },
+                                "room": {
+                                  "description": "Building room number.",
+                                  "example": "22"
+                                },
+                                "postCode": {
+                                  "PostCode": {
+                                    "description": "Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail. In US may consists of two parts: the five-digit ZIP Code '97062' and the ZIP+4 Code '6884'.\n",
+                                    "example": "97062-6884"
+                                  }
+                                },
+                                "carrierRoute": {
+                                  "CarrierRoute": {
+                                    "description": "A Carrier Route is a designated geographic area assigned to individual postal carriers by the United States Postal Service (USPS) to facilitate efficient mail delivery within specific regions.\n",
+                                    "example": "C001"
+                                  }
+                                },
+                                "censusTract": {
+                                  "CensusTract": {
+                                    "description": "A census tract, census area, census district or meshblock is a geographic region defined for the purpose of taking a census\n",
+                                    "example": "12345"
+                                  }
+                                },
+                                "censusBlock": {
+                                  "CensusBlock": {
+                                    "description": "Census blocks are used to partition counties into smaller areas for the purpose of collecting and presenting census data.\n",
+                                    "example": "1234"
+                                  }
+                                },
+                                "cBSACode": {
+                                  "CBSACode": {
+                                    "description": "Core-based statistical area. Metropolitan statistical area (MSA) is the formal definition of a region that consists of a city and surrounding communities that are linked by social and economic factors. Micropolitan Statistical Areas (MISA) are CBSAs associated with at least one urban cluster that has a population of at least 10,000, but less than 50,000.  The micropolitan statistical area comprises the central county or counties or equivalent entities containing the core, plus adjacent outlying counties having a high degree of social and economic integration with the central county as measured through commuting.\n",
+                                    "example": "49780"
+                                  }
+                                },
+                                "cBSAType": {
+                                  "CBSAType": {
+                                    "description": "Type of Core-based statistical area. Possible values: MSA, MISA\n",
+                                    "example": "MSA"
+                                  }
+                                },
+                                "foreignIndicator": {
+                                  "description": "Indicates whether the postal address is from a foreing country."
+                                },
+                                "townName": {
+                                  "TownName": {
+                                    "description": "Name of a built-up area, with defined boundaries, and a local government. Also city name.\n",
+                                    "example": "San Diego"
+                                  }
+                                },
+                                "townLocationName": {
+                                  "description": "Specific location name within the town.",
+                                  "example": "Clackamas"
+                                },
+                                "districtName": {
+                                  "description": "Identifies a subdivision within a country sub-division.",
+                                  "example": "Columbia"
+                                },
+                                "countyName": {
+                                  "description": "Identifies a county within a country sub-division.",
+                                  "example": "Cook"
+                                },
+                                "countrySubDivision": {
+                                  "CountrySubdivision": {
+                                    "description": "Name of a country subdivision such as state, region, county.",
+                                    "example": "Oregon"
+                                  }
+                                },
+                                "countrySubDivisionCode": {
+                                  "CountrySubdivisionCode": {
+                                    "description": "Code to identify a name of a unit resulting from the division of a country, dependency, or other area of special geopolitical interest contained in ISO 3166-1, on the basis of country names obtained from the United Nations (ISO 3166-2: Country subdivision code).\n",
+                                    "example": "AR-B"
+                                  }
+                                },
+                                "country": {
+                                  "CountryCode": {
+                                    "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+                                    "example": "US"
+                                  }
+                                },
+                                "addressLine": {
+                                  "description": "Information that locates and identifies a specific address, as defined by postal services, presented in free format text.",
+                                  "items": {
+                                    "example": "11407 Sw Amu st, Suite MY777"
+                                  }
+                                },
+                                "temporaryIndicator": {
+                                  "description": "Indicates whether the address is temporary or not.",
+                                  "example": true
+                                },
+                                "period": {
+                                  "description": "The period of use of the address information. Could be also used as a recurring anual period.\n",
+                                  "DatePeriod": {
+                                    "properties": {
+                                      "fromDateTime": {
+                                        "description": "Date and time at which the period starts.",
+                                        "DateAndTime": {
+                                          "example": "2022-04-17T08:00:00Z"
+                                        }
+                                      },
+                                      "upToDateTime": {
+                                        "description": "Date and time at which the period ends.",
+                                        "DateAndTime": {
+                                          "example": "2022-04-17T08:00:00Z"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "codes": {
+                                  "description": "Codes related to postal address or internal handling codes asociated with the address. Possible Values: HandlingCode, HandlingCodeOption.\n",
+                                  "items": {
+                                    "GenericCode": {
+                                      "required": [
+                                        "name",
+                                        "value"
+                                      ],
+                                      "properties": {
+                                        "name": {
+                                          "description": "Name of the code in PascalCase.\n",
+                                          "example": "AccountingGroup"
+                                        },
+                                        "value": {
+                                          "description": "Code value.",
+                                          "example": "195"
+                                        },
+                                        "description": {
+                                          "Title": {
+                                            "example": "This is a Title."
+                                          }
+                                        }
+                                      },
+                                      "description": "Generic code definition."
+                                    }
+                                  }
+                                },
+                                "identifiers": {
+                                  "description": "Postal address identifiers are used to identify parties that share the same address or to associate an existing address with a specific party. Possible scheme name values: AddressIdentifier.\n",
+                                  "items": {
+                                    "GenericIdentification": {
+                                      "required": [
+                                        "number",
+                                        "schemeName"
+                                      ],
+                                      "properties": {
+                                        "number": {
+                                          "description": "Unique and unambiguous identification.",
+                                          "example": "123-45-6789"
+                                        },
+                                        "schemeName": {
+                                          "description": "Name of the identification scheme.\n"
+                                        },
+                                        "issuer": {
+                                          "description": "Entity that assigns the identification.",
+                                          "example": "UnitedStates"
+                                        },
+                                        "issueDate": {
+                                          "Date": {
+                                            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                            "example": "2022-04-17"
+                                          }
+                                        },
+                                        "expirationDate": {
+                                          "Date": {
+                                            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                            "example": "2022-04-17"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "description": "Information that locates and identifies a specific address, as defined by postal services.\n"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "placeAndDateOfBirth": {
+                      "PlaceAndDateOfBirth": {
+                        "description": "Date and place of birth of a person.",
+                        "Place": {
+                          "properties": {
+                            "countrySubdivision": {
+                              "CountrySubdivision": {
+                                "description": "Name of a country subdivision such as state, region, county.",
+                                "example": "Oregon"
+                              }
+                            },
+                            "townName": {
+                              "TownName": {
+                                "description": "Name of a built-up area, with defined boundaries, and a local government. Also city name.\n",
+                                "example": "San Diego"
+                              }
+                            },
+                            "country": {
+                              "CountryCode": {
+                                "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+                                "example": "US"
+                              }
+                            }
+                          },
+                          "description": "Town, CountrySubdivision and Country ."
+                        },
+                        "properties": {
+                          "birthDate": {
+                            "description": "Date on which a person is born.",
+                            "Date": {
+                              "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                              "example": "2022-04-17"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "contact": {
+                      "PaymentPartyContactDetails": {
+                        "properties": {
+                          "contactMethods": {
+                            "items": {
+                              "GenericContact": {
+                                "properties": {
+                                  "channelType": {
+                                    "description": "Communication device number or electronic address used for communication: Fax, Email, Mobile, Phone.\n",
+                                    "CommunicationChannelName": {
+                                      "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                                      "example": "Email"
+                                    }
+                                  },
+                                  "identification": {
+                                    "CommunicationChannelIdentification": {
+                                      "description": "Communication value such as phone number or email address.",
+                                      "example": "011-02010020202"
+                                    }
+                                  }
+                                },
+                                "description": "Communication device number or electronic address used for communication."
+                              }
+                            }
+                          },
+                          "preferredMethod": {
+                            "description": "Preferred method used to reach the contact, in PascalCase form. Possible values are:  \nLetter, Email, Phone, Fax, MobileOrCellPhone.\n",
+                            "example": "Email"
+                          },
+                          "preferredLanguage": {
+                            "PreferredLanguage": {
+                              "description": "Language of the contact person. Names according to the language list provided in the ISO 639-1 codes. Some possible values: Chinese, Spanish, French, English, Japanese, Italian, German, Default.\n",
+                              "example": "English"
+                            }
+                          }
+                        },
+                        "description": "Specifies the contact details of a person."
+                      }
+                    },
+                    "identifiers": {
+                      "items": {
+                        "PartyGenericIdentification": {
+                          "required": [
+                            "number",
+                            "schemeName"
+                          ],
+                          "properties": {
+                            "number": {
+                              "description": "Unique and unambiguous identification of an organization.",
+                              "example": "123-45-6789"
+                            },
+                            "schemeName": {
+                              "PartySchemeName": {
+                                "description": "Name of the identification scheme, in PascalCase form. Possible values are: \nBankPartyIdentification\nCentralBankIdentificationNumber\nClearingIdentificationNumber\nCertificateOfIncorporationNumber\nCountryIdentificationCode\nCustomerNumber\nDataUniversalNumberingSystem\nEmployerIdentificationNumber\nGS1GLNIdentifier\nSIREN\nSIRET\nBusinessDomainIdentifier\nBusinessOtherIdentification\nAlienRegistrationNumber\nPassportNumber\nCustomerIdentificationNumber\nDriversLicenseNumber\nEmployeeIdentificationNumber\nNationalIdentityNumber\nSocialSecurityNumber\nTelephoneNumber\nTaxIdentificationNumber\nPersonCommercialIdentification\nLEIIdentifier\nBICIdentifier\n",
+                                "example": "TaxIdentificationNumber"
+                              }
+                            },
+                            "issuer": {
+                              "description": "Entity that assigns the identification.",
+                              "example": "UnitedStates"
+                            },
+                            "issueDate": {
+                              "Date": {
+                                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                "example": "2022-04-17"
+                              }
+                            },
+                            "expirationDate": {
+                              "Date": {
+                                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                "example": "2022-04-17"
+                              }
+                            }
+                          },
+                          "description": "Unique and unambiguous way to identify a party."
+                        }
+                      }
+                    },
+                    "countryOfResidence": {
+                      "CountryCode": {
+                        "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+                        "example": "US"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "lastPaymentDate": {
+          "description": "Date of the last payment.\n",
+          "DateAndTime": {
+            "example": "2022-04-17T08:00:00Z"
+          }
+        },
+        "failedCount": {
+          "description": "The number of times a standing order payment has failed to be processed.\n"
+        },
+        "authorizationChannel": {
+          "CommunicationChannelName": {
+            "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+            "example": "Email"
+          }
+        },
+        "paymentMethod": {
+          "PaymentMethod": {
+            "description": "Specifies the means of payment that will be used to move the amount of money. Possible values are:  Check, CreditTransfer. More specific values: ECheck, CreditCard, CommercialCreditCard, CheckCard, BusinessCheck, PinlessDebit, PINDebit, POS, Cash, ACHCredit, LockBox, RemoteCapture, EFTCredit, FedWire, ACHDebit, EFT, MoneyOrder, Coupon.\n",
+            "example": "CreditTransfer"
+          }
+        },
+        "convenienceFeeRefundAmount": {
+          "description": "A convenience fee refund amount refers to the money that is returned to a customer when a convenience fee is refunded. A convenience fee is an additional charge for making a payment through a particular method, such as online or over the phone, as opposed to a standard method like cash or check.\n",
+          "Amount": {
+            "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+            "example": "100"
+          }
+        },
+        "enableIndicator": {
+          "description": "Indicates whether the standing order is enabled."
+        },
+        "status": {
+          "StandingOrderStatus": {
+            "description": "Specifies the status of a standing order request. Possible values: Cancelled, Pending, Sent.\n",
+            "example": "Sent"
+          }
+        },
+        "statusReasonDescription": {
+          "Description": {
+            "example": "This is a description."
+          }
+        },
+        "statusReason": {
+          "StatusReason": {
+            "description": "Reason for the status. Possible Values: AbortedClearingTimeout, AbortedClearingFatalError, AbortedSettlementTimeout, AbortedSettlementFatalError,TimeoutCreditorAgent, TimeoutInstructedAgent, OfflineAgent, OfflineCreditorAgent, ErrorCreditorAgent, ErrorInstructedAgent, TimeoutDebtorAgent,IncorrectAccountNumber, InvalidDebtorAccountNumber,InvalidCreditorAccountNumber, ClosedAccountNumber,ClosedDebtorAccountNumber, BlockedAccount,ClosedCreditorAccountNumber, InvalidBranchCode,InvalidAccountCurrency, InvalidDebtorAccountCurrency,InvalidCreditorAccountCurrency, InvalidAccountType,InvalidDebtorAccountType,InvalidCreditorAccountType,AccountDetailsChanged, CardNumberInvalid, TransactionForbidden, InvalidBankOperationCode, TransactionNotSupported, InvalidAgentCountry, InvalidDebtorAgentCountry, InvalidCreditorAgentCountry, UnsuccesfulDirectDebit, InvalidAccessRights,PaymentNotReceived, AgentSuspended,CreditorAgentSuspended, NotAllowedBookTransfer, ForbiddenReturnPayment, IncorrectAgent, ZeroAmount, NotAllowedAmount, NotAllowedCurrency, InsufficientFunds, Duplication, TooLowAmount, BlockedAmount, WrongAmount, InvalidControlSum, InvalidTransactionCurrency, InvalidAmount, AmountExceedsClearingSystemLimit, AmountExceedsAgreedLimit, AmountBelowClearingSystemMinimum, InvalidGroupControlSum, InvalidPaymentInfoControlSum, InvalidNumberOfTransactions,InvalidGroupNumberOfTransactions, InvalidPaymentInfoNumberOfTransactions, LimitExceeded, ZeroAmountNotApplied, AmountExceedsSettlementLimit, InconsistenWithEndCustomer, MissingCreditorAddress, UnrecognisedInitiatingParty, UnknownEndCustomer, MissingDebtorAddress, MissingDebtorName, InvalidCountry, InvalidDebtorCountry, InvalidCreditorCountry, InvalidCountryOfResidence, InvalidDebtorCountryOfResidence, InvalidCreditorCountryOfResidence, InvalidIdentificationCode, InvalidDebtorIdentificationCode, InvalidCreditorIdentificationCode, InvalidContactDetails, InvalidChargeBearerCode, InvalidNameLength, MissingName, MissingCreditorName, AccountProxyInvalid, CheckERI, RequestedExecutionDateOrRequestedCollectionDateTooFarInFuture, RequestedExecutionDateOrRequestedCollectionDateTooFarInPast, ElementIsNotToBeUsedAtB-andC-Level, MandateChangesNotAllowed, InformationOnMandateChangesMissing, CreditorIdentifierIncorrect, CreditorIdentifierNotUnambiguouslyAtTransaction-Level, OriginalDebtorAccountIsNotToBeUsed, OriginalDebtorAgentIsNotToBeUsed, ElementContentIncludesMoreThan140Characters, ElementContentFormallyIncorrect, ElementNotAdmitted, ValuesWillBeSetToNextTARGETday, DecimalPointsNotCompatibleWithCurrency, RequiredCompulsoryElementMissing, COREandB2BwithinOnemessage, ChequeSettledOnCreditorAccount, CreditorBankIsNotRegistered, IncorrectCurrency, RequestedByCustomer, DebtorBankIsNotRegistered,ElectronicSignaturesCorrect, OrderCancelled, OrderNotCancelled, OrderRejected, OrderForwardedForPostprocessing, TransferOrder, ProcessingOK, DecompressionError, DecryptionError, DataSignRequested, UnknownDataSignFormat, SignerCertificateRevoked, SignerCertificateNotValid, IncorrectSignerCertificate, SignerCertificationAuthoritySignerNotValid, NotAllowedPayment, NotAllowedAccount, NotAllowedNumberOfTransaction, Signer1CertificateRevoked, Signer1CertificateNotValid, IncorrectSigner1Certificate, SignerCertificationAuthoritySigner1NotValid, UserDoesNotExist, IdenticalSignatureFound, PublicKeyVersionIncorrect, DifferentOrderDataInSignatures, RepeatOrder, ElectronicSignatureRightsInsufficient, Signer2CertificateRevoked, Signer2CertificateNotValid, IncorrectSigner2Certificate, SignerCertificationAuthoritySigner2NotValid, WaitingTimeExpired, OrderFileDeleted, UserSignedMultipleTimes, UserNotYetActivated, InvalidDate, InvalidCreationDate, InvalidNonProcessingDate, FutureDateNotSupported, InvalidCutOffDate, ExecutionDateChanged, DuplicateMessageID, DuplicatePaymentInformationID, DuplicateTransaction, DuplicateEndToEndID, DuplicateInstructionID, DuplicatePayment, CorrespondentBankNotPossible, BalanceInfoRequest, SettlementFailed, SettlementSystemNotAvailable, ERIOptionNotSupported, InvalidFileFormat, SyntaxError, InvalidPaymentTypeInformation, InvalidServiceLevelCode, InvalidLocalInstrumentCode, InvalidCategoryPurposeCode, InvalidPurpose, InvalidEndToEndId, InvalidChequeNumber, BankSystemProcessingError, ClearingRequestAborted, PaymentTransferredAndTracked, PaymentTransferredAndNotTracked, CreditDebitNotConfirmed, CreditPendingDocuments, CreditPendingFunds, DeliveredWithServiceLevel, DeliveredWIthoutServiceLevel, CorrespondingOriginalFileStillNotSent, NoMandate, MissingMandatoryInformationInMandate, CollectionNotDue, RefundRequestByEndCustomer, EndCustomerDeceased, NotSpecifiedReasonCustomerGenerated, NotSpecifiedReasonAgentGenerated, Narrative, NoERI, BankIdentifierIncorrect, InvalidBankIdentifier, InvalidDebtorBankIdentifier, InvalidCreditorBankIdentifier, InvalidBICIdentifier, InvalidDebtorBICIdentifier, InvalidCreditorBICIdentifier, InvalidClearingSystemMemberIdentifier, InvalidDebtorClearingSystemMemberIdentifier, InvalidCreditorClearingSystemMemberIdentifier, InvalidIntermediaryAgent, MissingCreditorSchemeId, RMessageConflict, ReceiverCustomerInformation,NotUniqueTransactionReference, MissingDebtorAccountOrIdentification, MissingDebtorNameOrAddress, MissingCreditorNameOrAddress, RegulatoryReason, RegulatoryInformationInvalid, TaxInformationInvalid, RemittanceInformationInvalid, RemittanceInformationTruncated, InvalidStructuredCreditorReference, InvalidCharacterSet, InvalidDebtorAgentServiceID, InvalidPartyID, ValidRequestForCancellationAcknowledged, UETRFlaggedForCancellation, NetworkStopOfUETR, RequestForCancellationForwarded, RequestForCancellationDeliveryAcknowledgement, SpecificServiceOfferedByDebtorAgent, SpecificServiceOfferedByCreditorAgent, ServiceofClearingSystem, CreditorNotOnWhitelistOfDebtor, CreditorOnBlacklistOfDebtor, MaximumNumberOfDirectDebitTransactionsExceeded, MaximumDirectDebitTransactionAmountExceeded, TransmissonAborted, NoDataAvailable, FileNonReadable, IncorrectFileStructure, TokenInvalid, SenderTokenNotFound, ReceiverTokenNotFound, TokenMissing, TokenCounterpartyMismatch, TokenSingleUse, TokenSuspended, TokenValueLimitExceeded, TokenExpired, InvalidCutOffTime, TransmissionSuccessful, TransferToSignByHand, AuthorisationCancelled, FollowingCancellationRequest, Fraud, NotCompliantGeneric, NoAnswerFromCustomer, ReturnUponUnableToApply, UnduePayment, AlreadyAcceptedRTP, AlreadyExpiredRTP, AlreadyRefusedRTP, AlreadyRejectedRTP, AttachementsNotSupported, ExpiryDateTimeReached, ExpiryDateTooLong, FraudulentOrigin, IncorrectExpiryDateTime, InitialRTPNeverReceived, NonAgreedRTP, NoPaymentGuarantee, PayerOrPayerRTPSPNotReachable, RTPNotSupportedForDebtor, RTPReceivedCanBeProcessed, RTPServiceProviderIdentifierIncorrect, TypeOfPaymentInstrumentNotSupported, UnknownCreditor, OriginalTransactionNotEligibleForRequestedReturn, RequestForCancellationNotFound, SettlementNotReceived\n",
+            "example": "BlockedAccount"
+          }
+        },
+        "codes": {
+          "description": "Codes related to the standing order. Possible values: ACHRecurringCalendarDay, AutoPaymentChargeDda, AutoPaymentEnrollType.\n",
+          "items": {
+            "GenericCode": {
+              "required": [
+                "name",
+                "value"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the code in PascalCase.\n",
+                  "example": "AccountingGroup"
+                },
+                "value": {
+                  "description": "Code value.",
+                  "example": "195"
+                },
+                "description": {
+                  "Title": {
+                    "example": "This is a Title."
+                  }
+                }
+              },
+              "description": "Generic code definition."
+            }
+          }
+        }
+      },
+      "description": "Instruction given by an account holder to an account servicer to make regular transfers on given dates to the same beneficiary.\n"
+    },
+    "properties": {
+      "standingOrderId": {
+        "description": "Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.\n",
+        "readOnly": true,
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "statusDateAndTime": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "cancellationReason": {
+        "Description": {
+          "example": "This is a description."
+        }
+      }
+    }
+  }
+}

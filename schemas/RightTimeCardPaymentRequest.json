@@ -1,0 +1,86 @@
+{
+  "RightTimeCardPaymentRequest": {
+    "properties": {
+      "amount": {
+        "PositiveAmount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+          "example": "100"
+        }
+      },
+      "paymentDate": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "cardNumber": {
+        "PrimaryAccountNumber": {
+          "description": "Primary Account Number (PAN) of the card.\n",
+          "example": "1234567890123456789"
+        }
+      },
+      "identifiers": {
+        "description": "Payment identifification",
+        "items": {
+          "PaymentIdentification": {
+            "required": [
+              "number"
+            ],
+            "properties": {
+              "number": {
+                "description": "Unique and unambiguous identification of a payment."
+              },
+              "schemeName": {
+                "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                "example": "UETR"
+              },
+              "issuer": {
+                "description": "Entity that assigns the identification.",
+                "example": "Banc of California"
+              }
+            }
+          }
+        }
+      },
+      "paymentChannel": {
+        "CommunicationChannelName": {
+          "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+          "example": "Email"
+        }
+      },
+      "paymentMethod": {
+        "PaymentMethod": {
+          "description": "Specifies the means of payment that will be used to move the amount of money. Possible values are:  Check, CreditTransfer. More specific values: ECheck, CreditCard, CommercialCreditCard, CheckCard, BusinessCheck, PinlessDebit, PINDebit, POS, Cash, ACHCredit, LockBox, RemoteCapture, EFTCredit, FedWire, ACHDebit, EFT, MoneyOrder, Coupon.\n",
+          "example": "CreditTransfer"
+        }
+      },
+      "codes": {
+        "description": "Codes to link the payment, with other systems or to classify the payment.\n",
+        "items": {
+          "GenericCode": {
+            "required": [
+              "name",
+              "value"
+            ],
+            "properties": {
+              "name": {
+                "description": "Name of the code in PascalCase.\n",
+                "example": "AccountingGroup"
+              },
+              "value": {
+                "description": "Code value.",
+                "example": "195"
+              },
+              "description": {
+                "Title": {
+                  "example": "This is a Title."
+                }
+              }
+            },
+            "description": "Generic code definition."
+          }
+        }
+      }
+    },
+    "description": "Payment processed to temporarily adjust the member's credit and delinquency attributes without waiting for nightly processing.\n"
+  }
+}

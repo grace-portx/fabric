@@ -1,0 +1,6 @@
+{
+  "ServicerBranchId": {
+    "description": "Identification of the account servicer institution at branch level or center level. To overlay the codes to produce a unique identifier the following expresion is used: BranchRegionCode-BranchSubdivisionCode.\n",
+    "example": "SEA_1"
+  }
+}

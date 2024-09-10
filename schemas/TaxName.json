@@ -1,0 +1,6 @@
+{
+  "TaxName": {
+    "description": "Name of the tax in PascalCase. Possible values: Sales.\n",
+    "example": "Sales"
+  }
+}

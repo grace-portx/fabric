@@ -1,0 +1,33 @@
+{
+  "WithholdingTax": {
+    "required": [
+      "withholdingTaxType"
+    ],
+    "properties": {
+      "withholdingTaxType": {
+        "WithholdingTaxType": {
+          "description": "Type of Withholding. Possible Values:\nForeignAccountTaxComplianceAct, NonResidentAlienTax, BackUpWithholding, VoluntaryWithholding, Federal, State, Local, W-4, NRATax, Chapter3, Chapter4.\n",
+          "example": "NonResidentAlienTax"
+        }
+      },
+      "withholdingRate": {
+        "description": "Rate applied on a basis amount to calculate the withholding.\n",
+        "Percentage": {
+          "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+          "example": "25"
+        }
+      },
+      "taxStatus": {
+        "description": "Exempt, Expired, Certified, Retain.\n"
+      },
+      "withholdingAmount": {
+        "description": "Withholding amount.\n",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      }
+    },
+    "description": "Withholding is a tax that is levied on income, at an established tax rate\n"
+  }
+}

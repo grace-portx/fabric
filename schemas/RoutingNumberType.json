@@ -1,0 +1,6 @@
+{
+  "RoutingNumberType": {
+    "description": "Different types of payments may require different bank routing numbers. Some possible values: ACH, WIRE, ElectronicCheck, PaperCheck\n",
+    "example": "ACH"
+  }
+}

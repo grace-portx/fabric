@@ -1,0 +1,6 @@
+{
+  "TimeZone": {
+    "description": "A time zone is an area which observes a uniform standard time for legal, commercial and social purposes. Some possible values: Pacific, Mountain, Central, Eastern, GreenwichMean\n",
+    "example": "Pacific"
+  }
+}

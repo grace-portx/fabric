@@ -1,0 +1,6 @@
+{
+  "StatementTemplateId": {
+    "description": "Template used to create the statement document. This is an external code provided by the account servicer. \n",
+    "example": "1"
+  }
+}

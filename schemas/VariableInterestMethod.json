@@ -1,0 +1,6 @@
+{
+  "VariableInterestMethod": {
+    "description": "Specifies the variable interest method. Possible Values:  PointSpread, FactorSpread, PercentageVariance, NotPercentageVariance.\n",
+    "example": "PointSpread"
+  }
+}

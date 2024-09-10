@@ -1,0 +1,6 @@
+{
+  "TransactionId": {
+    "description": "Unique reference as assigned by the account servicing institution to unambiguously identify the transaction.",
+    "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+  }
+}

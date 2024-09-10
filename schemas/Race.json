@@ -1,0 +1,6 @@
+{
+  "Race": {
+    "description": "Categorization of humans based on shared physical qualities.\nPossible Values:  NativeAmerican, African, Hispanic, White, Asian, NativeHawaiian, NativeAlaskan, Mixed.\n  \n",
+    "example": "Director"
+  }
+}

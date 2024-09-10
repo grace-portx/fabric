@@ -1,0 +1,40 @@
+{
+  "TaxForm": {
+    "required": [
+      "formName"
+    ],
+    "properties": {
+      "formName": {
+        "description": "Form name requested. Possible Values: W-8BEN, W-8BEN-E, W-8ECI, W-8EXP, W-8IMY, W-9, W-8, 1042-S, 1099-INT, 1099-OID.\n",
+        "example": "W-8"
+      },
+      "taxRate": {
+        "description": "Indicates the tax rate provided by the IRS on the form.",
+        "PositiveAmount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+          "example": "100"
+        }
+      },
+      "onFileIndicator": {
+        "description": "Indicates weather the bank establish the appropriate tax treatment of any interest or other income earned on the account related to the form.\n"
+      },
+      "taxStatus": {
+        "description": "Exempt, Expired, Certified, Signed\n",
+        "example": "Exempt"
+      },
+      "certificationDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "expirationDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      }
+    },
+    "description": "Information of the form requested by the tax payer. \n"
+  }
+}

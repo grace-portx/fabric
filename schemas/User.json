@@ -1,0 +1,91 @@
+{
+  "User": {
+    "properties": {
+      "personId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "userId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "userName": {
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      },
+      "purpose": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "audit": {
+        "Audit": {
+          "properties": {
+            "status": {
+              "AuditStatus": {
+                "description": "Maintenance status of a resource. Possible values: Requested, Created, Changed, Deleted\n"
+              }
+            },
+            "creationDate": {
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "lastModificacionChannel": {
+              "CommunicationChannelName": {
+                "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                "example": "Email"
+              }
+            },
+            "lastModificationDate": {
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "channels": {
+              "description": "Activity audit throught communication channles",
+              "items": {
+                "AuditChannel": {
+                  "properties": {
+                    "lastActivityDate": {
+                      "Date": {
+                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                        "example": "2022-04-17"
+                      }
+                    },
+                    "name": {
+                      "CommunicationChannelName": {
+                        "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                        "example": "Email"
+                      }
+                    },
+                    "activityType": {
+                      "AuditActivityType": {
+                        "description": "Maintenance activity of a resource. Possible values: Transaction, Modification, Deposit, Withdrawal, Creation, DirectDeposit, CardActivation, CardActivationByCallerId, CardActivationByCodeAndCallerId, Closure\n"
+                      }
+                    },
+                    "amount": {
+                      "PositiveAmount": {
+                        "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                        "example": "100"
+                      }
+                    }
+                  },
+                  "description": "Audit Information by Channel. Captures data, activity and maintenance details.\n"
+                }
+              }
+            }
+          },
+          "description": "Resource Audit Information. Captures the creation, modification and maintenance details.\n"
+        }
+      }
+    },
+    "description": "User information of a person."
+  }
+}

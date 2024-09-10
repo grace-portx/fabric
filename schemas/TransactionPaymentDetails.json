@@ -1,0 +1,133 @@
+{
+  "TransactionPaymentDetails": {
+    "properties": {
+      "paymentId": {
+        "PaymentId": {
+          "description": "Identification of the Payment.",
+          "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+        }
+      },
+      "reversalIndicator": {
+        "ReversalIndicator": {
+          "description": "Indicates whether or not the transaction is the result of a reversal.\nUsage: This element should only be present if the entry is the result of a reversal.\nIf the CreditDebitIndicator is Credit and ReversalIndicator is Yes, the original operation was a debit entry.\nIf the CreditDebitIndicator is Debit and ReversalIndicator is Yes, the original operation was a credit entry.\n"
+        }
+      },
+      "remittanceInformation": {
+        "RemittanceInformation": {
+          "required": [
+            "documentType",
+            "remittanceNumber"
+          ],
+          "properties": {
+            "remittanceNumber": {
+              "description": "Unique and unambiguous identification of the remittance document\n"
+            },
+            "documentType": {
+              "description": "Specifies a type of financial or commercial document. Possible values are: MeteredServiceInvoice, CreditNoteRelatedToFinancialAdjustment, DebitNoteRelatedToFinancialAdjustment, CommercialInvoice, CreditNote, DebitNote, HireInvoice, SelfBilledInvoice, CommercialContract, StatementOfAccount, DispatchAdvice, BillOfLading, Voucher, AccountReceivableOpenItem, TradeServicesUtilityTransaction, PurchaseOrded\n"
+            }
+          },
+          "description": "Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system.\n"
+        }
+      },
+      "identifiers": {
+        "items": {
+          "PaymentIdentification": {
+            "required": [
+              "number"
+            ],
+            "properties": {
+              "number": {
+                "description": "Unique and unambiguous identification of a payment."
+              },
+              "schemeName": {
+                "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                "example": "UETR"
+              },
+              "issuer": {
+                "description": "Entity that assigns the identification.",
+                "example": "Banc of California"
+              }
+            }
+          }
+        }
+      },
+      "valueDate": {
+        "description": "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit entry.\n  Usage: If entry status is pending and value date is present, then the value date refers to an expected/requested value date.\n",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "bookingDate": {
+        "description": "Date and time when an entry is posted to an account on the account servicer's books.\nUsage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.\n",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "charges": {
+        "description": "All charges and taxes applied to the transaction. Also can include interests if the bank does not discrimate between them. \n",
+        "items": {
+          "TransactionCharge": {
+            "required": [
+              "amount",
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "ChargeName": {
+                  "description": "Name of the charge calculation in PascalCase. Possible values: Fee, Overdraft, CardLatePayment, CashAdvance, LatePayment, CashWithdrawal, EarlyWithdrawal, Dormant, EIM, ATM, BillPayment, FDIC, Overdraft, OverdraftInterest, OverdraftCourtesy. Service Charge values: AutomaticActivityCharge, MaintenanceActivityCharge, MaintenanceServiceCharge. ServiceCharge, ServiceChargeCreditBack. Also other external codes to identify the charge. \n",
+                  "example": "CardLatePayment"
+                }
+              },
+              "description": {
+                "Description": {
+                  "example": "This is a description."
+                }
+              },
+              "amount": {
+                "description": "Amount of payment aplied to principal, if the adjustment value is included; otherwise the total amount of the charge.\n",
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              },
+              "adjustment": {
+                "description": "Amount of payment aplied to charges.\n",
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              }
+            },
+            "description": "Provides information on a charge included in the entry amount.\n"
+          }
+        }
+      },
+      "interests": {
+        "description": "All interests included in the transaction amount.",
+        "items": {
+          "TransactionInterest": {
+            "required": [
+              "amount",
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "InterestName": {
+                  "description": "Name in PascalCase of the interest that applies to the account. For instance, Deposit. Also identifications of the interest or charge.\n",
+                  "example": "Deposit"
+                }
+              },
+              "amount": {
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              }
+            },
+            "description": "Provides information on an interest included in the entry amount.\n"
+          }
+        }
+      }
+    }
+  }
+}

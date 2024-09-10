@@ -1,0 +1,6 @@
+{
+  "StandingOrderDateType": {
+    "description": "Type of recurrence date of the payment. Possible values: \n OnTimeDue, SpecificDay.\n",
+    "example": "OneTime"
+  }
+}

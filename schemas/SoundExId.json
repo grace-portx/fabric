@@ -1,0 +1,6 @@
+{
+  "SoundExId": {
+    "description": "Identification of a SoundEx method develop for search attribute. SoundEx is a method used to find strings when the sound is known but the precise spelling is not. It searches out words with similar sounds based on phonetic assumptions about how certain letters are pronounced. It can be used to search names in a database, for example, where spellings and pronunciations for similar names may vary. \n\n\n \n",
+    "example": "1"
+  }
+}

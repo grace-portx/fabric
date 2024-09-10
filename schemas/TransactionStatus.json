@@ -1,0 +1,6 @@
+{
+  "TransactionStatus": {
+    "description": "Specifies the status of an entry on the books of the account servicer. Some possible ISO 20022 compliant values are: \n Booked, Future, Information, Pending.\n",
+    "example": "Booked"
+  }
+}

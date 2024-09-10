@@ -1,0 +1,18 @@
+{
+  "RoutingNumber": {
+    "properties": {
+      "number": {
+        "ABANumber": {
+          "description": "The routing number (sometimes referred to as an ABA routing number, regarding the American Bankers Association) is a sequence of nine digits used by banks to identify specific financial institutions within the United States.  \n",
+          "example": "012345678"
+        }
+      },
+      "routingNumberType": {
+        "RoutingNumberType": {
+          "description": "Different types of payments may require different bank routing numbers. Some possible values: ACH, WIRE, ElectronicCheck, PaperCheck\n",
+          "example": "ACH"
+        }
+      }
+    }
+  }
+}

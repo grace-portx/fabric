@@ -1,0 +1,5 @@
+{
+  "SupplementaryData": {
+    "description": "Additional information that cannot be captured in the structured elements and/or any other specific block. If this information need to be converted in ISO Messages, must be ISO 20022 compliant: it requires development of a compliant message extension model and its components must be registered in the ISO 20022 Data Dictionary. https://www.iso20022.org/catalogue-messages/additional-content-messages/supplementary-data\n"
+  }
+}

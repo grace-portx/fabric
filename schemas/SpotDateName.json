@@ -1,0 +1,6 @@
+{
+  "SpotDateName": {
+    "description": "Possible values por projected dates: Forecast, Expiration, LastNonFinancial, Escheat. Possible values for past dates: IRALastRollOver. Other possible values: EffectiveDate, ResponseByDate.\n",
+    "example": "Expiration"
+  }
+}

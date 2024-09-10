@@ -1,0 +1,21 @@
+{
+  "TemporalDuration": {
+    "required": [
+      "unit"
+    ],
+    "properties": {
+      "unit": {
+        "description": "Unit that describes the duration.",
+        "TemporalUnit": {
+          "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+          "example": "Months"
+        }
+      },
+      "value": {
+        "maximum": 999,
+        "description": "Value of the duration in number of units."
+      }
+    },
+    "description": "Describes a temporal duration.\n"
+  }
+}

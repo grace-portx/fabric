@@ -1,0 +1,6 @@
+{
+  "ServiceLevel": {
+    "description": "Specifies a pre-agreed service between the parties. Some ISO complaiant values from ExternalServiceLevel1Code are:\nBookTransaction, TrackedCustomerCreditTransfer, TrackedStopAndRecall, TrackedOutboundCorporateTransfer, TrackedFinancialInstitutionTransfe, NonurgentPriorityPayment, NonurgentPayment, EBAPriorityService, SameDayValue, DomesticChequeClearingAndSettlement, UrgentPayment, UrgentPaymentNetSettlement, InstantCreditTransferOrInstantDirectDebit, ServiceRequestToPay, ScheckVerarbeitungAustria, TrackedCaseManagement, TrackedInboundCustomerCreditTransfer, TrackedInstantCustomerCreditTransfer, TrackedLowValueCrossBorderCustomerCreditTransfer.\n",
+    "example": "BookTransaction"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "RemittanceInformation": {
+    "required": [
+      "documentType",
+      "remittanceNumber"
+    ],
+    "properties": {
+      "remittanceNumber": {
+        "description": "Unique and unambiguous identification of the remittance document\n"
+      },
+      "documentType": {
+        "description": "Specifies a type of financial or commercial document. Possible values are: MeteredServiceInvoice, CreditNoteRelatedToFinancialAdjustment, DebitNoteRelatedToFinancialAdjustment, CommercialInvoice, CreditNote, DebitNote, HireInvoice, SelfBilledInvoice, CommercialContract, StatementOfAccount, DispatchAdvice, BillOfLading, Voucher, AccountReceivableOpenItem, TradeServicesUtilityTransaction, PurchaseOrded\n"
+      }
+    },
+    "description": "Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system.\n"
+  }
+}

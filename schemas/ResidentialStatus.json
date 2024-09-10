@@ -1,0 +1,6 @@
+{
+  "ResidentialStatus": {
+    "description": "Residential status of an individual. Possible values: Rents, Owns, Lease.\n",
+    "example": "Permanent"
+  }
+}

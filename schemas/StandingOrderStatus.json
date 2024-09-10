@@ -1,0 +1,6 @@
+{
+  "StandingOrderStatus": {
+    "description": "Specifies the status of a standing order request. Possible values: Cancelled, Pending, Sent.\n",
+    "example": "Sent"
+  }
+}

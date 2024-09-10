@@ -1,0 +1,6 @@
+{
+  "YearMonth": {
+    "description": "Month within a particular calendar year represented by YYYY-MM (ISO 8601).\n",
+    "example": "2022-12"
+  }
+}

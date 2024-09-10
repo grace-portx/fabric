@@ -1,0 +1,6 @@
+{
+  "URL": {
+    "description": "The address of a web page.",
+    "example": "http://portx.io"
+  }
+}

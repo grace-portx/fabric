@@ -1,0 +1,146 @@
+{
+  "VariableInterestCalculation": {
+    "properties": {
+      "referenceRateName": {
+        "description": "Identifies the reference index for the debt instrument.\n",
+        "BenchmarkCurve": {
+          "description": "Specifies a benchmark curve name. Possible ISO 20022 compliant values are: WIBOR, Treasury, TIBOR, TELBOR, SWAP, STIBOR, PRIBOR, Pfandbriefe, NIBOR, MuniAAA, MOSPRIM, LIBOR, LIBID, JIBAR, ISDAFIX, GCFRepo, FutureSWAP, EuroSwiss, EURODOLLAR, Euribor, EONIASwaps, EONIA, CIBOR, CDOR, BUBOR, BBSW\n\n\n   \n"
+        }
+      },
+      "rateType": {
+        "InterestRateType": {
+          "description": "Specifies the type of interest rate. Some ISO 20022 compliant values are: Fixed, Forfeit, Variable, StepUp, Scheduled, Unscheduled, Discount, FixedRateUnderlyingExposureForLife, FixedRateUnderlyingExposureWithCompulsoryFutureSwitchToFloating, FixedWithFuturePeriodicResets, FloatingLinkedToIndex, FloatingRateUnderlyingExposureForLife, FloatingRateUnderlyingExposureWithCap, FloatingRateUnderlyingExposureWithFloor, FloatingRateUnderlyingExposureWithFloorAndCap, Modular, ObligorSwapped, SwicthOptionality, Tiered, StepFrequency, RateIndex, IndexFrequency.\n",
+          "example": "Fixed"
+        }
+      },
+      "calculationMethod": {
+        "VariableInterestMethod": {
+          "description": "Specifies the variable interest method. Possible Values:  PointSpread, FactorSpread, PercentageVariance, NotPercentageVariance.\n",
+          "example": "PointSpread"
+        }
+      },
+      "spread": {
+        "description": "Percentage factor used to calculate the rate changes. If the spread entered is 13.000 and the rate in the specification is 11.0000%, the rate over will be 12.4300% (11 x 1.13). If the spread entered is -13.000, the rate over will be 9.5700% (11 x .87).\n",
+        "Percentage": {
+          "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+          "example": "25"
+        }
+      },
+      "basisPointSpread": {
+        "description": "Provides the number of basis points added to (if positive) or deducted from (if negative) the underlying reference rate to calculate the actual interest rate applicable. Basis points are a unit of measurement used to describe the change in interest rates. One basis point is equal to 0.01%, or one hundredth of a percent. Therefore, 50 basis points is equivalent to 0.50%, and 100 basis points is equivalent to 1%.\n"
+      },
+      "pointSpread": {
+        "description": "Percentage to be added to or deducted from the index rate to calculate the effective rate. If the point spread entered is 1.5000 and the rate in the specification is 11.0000%, the rate over will be 12.5000%. If the point spread entered is -1.5000, the rate over will be 9.5000%. \n",
+        "Percentage": {
+          "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+          "example": "25"
+        }
+      },
+      "productId": {
+        "ProductId": {
+          "description": "Identification of the product offered by a financial institution to its customers.\n",
+          "example": "PD_CA_0002"
+        }
+      },
+      "effectiveDate": {
+        "description": "Date on which the new interest rate change will be effective.\n",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "frequency": {
+        "description": "Date on which the new interest rate change will be effective.\n",
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "increaseOnlyIndicator": {
+        "description": "Indicates whether the rate only increases.\n"
+      },
+      "ceilingRate": {
+        "description": "Rate of interest finalized from the higher range of rates.\n",
+        "PositivePercentage": {
+          "description": "Value expressed as a positive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+          "example": "25"
+        }
+      },
+      "floorRate": {
+        "description": "Rate of interest finalized from the lower range of rates.\n",
+        "PositivePercentage": {
+          "description": "Value expressed as a positive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+          "example": "25"
+        }
+      }
+    },
+    "description": "Specifies the parameters to be used for variable interest.\n"
+  }
+}

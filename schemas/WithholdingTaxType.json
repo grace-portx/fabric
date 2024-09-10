@@ -1,0 +1,6 @@
+{
+  "WithholdingTaxType": {
+    "description": "Type of Withholding. Possible Values:\nForeignAccountTaxComplianceAct, NonResidentAlienTax, BackUpWithholding, VoluntaryWithholding, Federal, State, Local, W-4, NRATax, Chapter3, Chapter4.\n",
+    "example": "NonResidentAlienTax"
+  }
+}

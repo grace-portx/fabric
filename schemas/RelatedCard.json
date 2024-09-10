@@ -1,0 +1,29 @@
+{
+  "RelatedCard": {
+    "required": [
+      "cardHolderName",
+      "cardId"
+    ],
+    "properties": {
+      "cardId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "cardHolderName": {
+        "readOnly": true,
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      },
+      "cardHolderType": {
+        "readOnly": true,
+        "CardHolderType": {
+          "description": "Specifies the card holder type of payment card. Possible Values: Primary, Additional, Authorized, Guarantor.\n",
+          "example": "Primary"
+        }
+      }
+    }
+  }
+}

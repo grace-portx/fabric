@@ -1,0 +1,36 @@
+{
+  "TransactionCharge": {
+    "required": [
+      "amount",
+      "name"
+    ],
+    "properties": {
+      "name": {
+        "ChargeName": {
+          "description": "Name of the charge calculation in PascalCase. Possible values: Fee, Overdraft, CardLatePayment, CashAdvance, LatePayment, CashWithdrawal, EarlyWithdrawal, Dormant, EIM, ATM, BillPayment, FDIC, Overdraft, OverdraftInterest, OverdraftCourtesy. Service Charge values: AutomaticActivityCharge, MaintenanceActivityCharge, MaintenanceServiceCharge. ServiceCharge, ServiceChargeCreditBack. Also other external codes to identify the charge. \n",
+          "example": "CardLatePayment"
+        }
+      },
+      "description": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "amount": {
+        "description": "Amount of payment aplied to principal, if the adjustment value is included; otherwise the total amount of the charge.\n",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "adjustment": {
+        "description": "Amount of payment aplied to charges.\n",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      }
+    },
+    "description": "Provides information on a charge included in the entry amount.\n"
+  }
+}

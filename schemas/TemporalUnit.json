@@ -1,0 +1,6 @@
+{
+  "TemporalUnit": {
+    "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+    "example": "Months"
+  }
+}

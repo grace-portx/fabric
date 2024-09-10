@@ -1,0 +1,5 @@
+{
+  "ReversalIndicator": {
+    "description": "Indicates whether or not the transaction is the result of a reversal.\nUsage: This element should only be present if the entry is the result of a reversal.\nIf the CreditDebitIndicator is Credit and ReversalIndicator is Yes, the original operation was a debit entry.\nIf the CreditDebitIndicator is Debit and ReversalIndicator is Yes, the original operation was a credit entry.\n"
+  }
+}

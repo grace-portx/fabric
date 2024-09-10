@@ -1,0 +1,6 @@
+{
+  "RateName": {
+    "description": "Specifies the name of the rate. Possible values: Prior, Original, Actual, LastAnniversary, Effective, Current, Future, Base, Floor, Ceiling, OverSplit, UnderSplit.\n",
+    "example": "Actual"
+  }
+}

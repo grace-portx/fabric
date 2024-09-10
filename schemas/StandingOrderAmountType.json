@@ -1,0 +1,6 @@
+{
+  "StandingOrderAmountType": {
+    "description": "Type of amount of the payment. \n  Possible values: MinimumDue, CurrentBalance, FullStatement, FixedAmount.\n",
+    "example": "OneTime"
+  }
+}

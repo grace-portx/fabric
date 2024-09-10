@@ -1,0 +1,6 @@
+{
+  "RepaymentBillStatus": {
+    "description": "Indicates whether a payment will be recalculated, rebilled and notified to the customer. Possible values: NoRequest, RebillRequest, ReNotifyCustomer.\n\n    \n",
+    "example": "RebillRequest"
+  }
+}

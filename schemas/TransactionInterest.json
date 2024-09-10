@@ -1,0 +1,23 @@
+{
+  "TransactionInterest": {
+    "required": [
+      "amount",
+      "name"
+    ],
+    "properties": {
+      "name": {
+        "InterestName": {
+          "description": "Name in PascalCase of the interest that applies to the account. For instance, Deposit. Also identifications of the interest or charge.\n",
+          "example": "Deposit"
+        }
+      },
+      "amount": {
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      }
+    },
+    "description": "Provides information on an interest included in the entry amount.\n"
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "TaxPartyInformation": {
+    "properties": {
+      "tIN": {
+        "description": "A Taxpayer Identification Number\n",
+        "example": "778-62-8144"
+      },
+      "taxIdType": {
+        "description": "Identifies what type of tax ID is in the TIN field. Possible Values: SocialSecurityNumber,  EmployerIdentificationNumber, IndividualTaxpayerIdentificationNumber, AdoptionTaxpayerIdentificationNumber, PreparerTaxpayerIdentificationNumber, ForeignTaxID\n",
+        "example": "SocialSecurityNumber"
+      },
+      "financialReportingIndicator": {
+        "description": "Whether the financial income for this party should be reported to the U.S. government (IRS) when related to an account in a way which requires reporting (for example, primary, joint ownership). Defaults to true if not specified. "
+      },
+      "taxReportingIndicator": {
+        "description": "Account tax reporting typically involves obtaining and submitting records related to your tax obligations. For individuals, this may include income, qualifying deductions, and investment gains or losses. Businesses, on the other hand, have additional complexities, such as tracking funds directed towards specific business expenses and shareholders.\n"
+      },
+      "interestReportingIndicator": {
+        "description": "Indicates whether or interest should be reported.\n"
+      },
+      "tINStatus": {
+        "description": "'The tax ID has been verified by the IRS. Possible values: Valid, NotValid, NotVerified, IRSWarning, TINApplied.\n",
+        "example": "Valid"
+      },
+      "tINVerification": {
+        "TINVerification": {
+          "properties": {
+            "verificationAttemps": {
+              "maximum": 10,
+              "description": "The Tax Identification Verification Attempts is the number of times attempts have been made to verify the tax ID number.\n",
+              "example": 1
+            },
+            "bNoticeDates": {
+              "items": {
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              }
+            },
+            "tINResultCode": {
+              "description": "TIN matching result codes"
+            },
+            "verificationDate": {
+              "description": "Verification or certification date.\n",
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "applicationDate": {
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "expirationDate": {
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            }
+          },
+          "description": "IRS information about the TIN provided.\n"
+        }
+      },
+      "taxStatus": {
+        "description": "Exempt, Retain, ExemptExpired, VoluntaryWithholding, Chapter3, Chapter4, C-Corp, S-Corp, NonProfit, Government.\n",
+        "example": "Exempt"
+      },
+      "exemptionCode": {
+        "description": "Indicates the reason why taxes were not withheld from the gross income being reported for a NRA. These codes are used to specify the type of income, the applicable tax treaty, or the Internal Revenue Code section that allows for the exemption from withholding. The use of these codes is subject to certain conditions and limitations, and withholding agents are responsible for verifying the NRA's eligibility for the exemption and for reporting the income and exemption codes accurately to the IRS. \n",
+        "example": "0"
+      },
+      "exemptionReason": {
+        "description": "Human readable reason why taxes were not withheld. \n",
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "forms": {
+        "description": "Forms applied by the party",
+        "items": {
+          "TaxForm": {
+            "required": [
+              "formName"
+            ],
+            "properties": {
+              "formName": {
+                "description": "Form name requested. Possible Values: W-8BEN, W-8BEN-E, W-8ECI, W-8EXP, W-8IMY, W-9, W-8, 1042-S, 1099-INT, 1099-OID.\n",
+                "example": "W-8"
+              },
+              "taxRate": {
+                "description": "Indicates the tax rate provided by the IRS on the form.",
+                "PositiveAmount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                  "example": "100"
+                }
+              },
+              "onFileIndicator": {
+                "description": "Indicates weather the bank establish the appropriate tax treatment of any interest or other income earned on the account related to the form.\n"
+              },
+              "taxStatus": {
+                "description": "Exempt, Expired, Certified, Signed\n",
+                "example": "Exempt"
+              },
+              "certificationDate": {
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              },
+              "expirationDate": {
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              }
+            },
+            "description": "Information of the form requested by the tax payer. \n"
+          }
+        }
+      },
+      "regulations": {
+        "items": {
+          "TaxRegulation": {
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "example": "Chapter4"
+              },
+              "section": {
+                "description": "String that represent the section number.\n",
+                "example": "1471"
+              }
+            },
+            "description": "Tax regulations that are deemed to comply by the tax payer. Possible values: Chapter3, Chapter4\n"
+          }
+        }
+      },
+      "withholdings": {
+        "items": {
+          "WithholdingTax": {
+            "required": [
+              "withholdingTaxType"
+            ],
+            "properties": {
+              "withholdingTaxType": {
+                "WithholdingTaxType": {
+                  "description": "Type of Withholding. Possible Values:\nForeignAccountTaxComplianceAct, NonResidentAlienTax, BackUpWithholding, VoluntaryWithholding, Federal, State, Local, W-4, NRATax, Chapter3, Chapter4.\n",
+                  "example": "NonResidentAlienTax"
+                }
+              },
+              "withholdingRate": {
+                "description": "Rate applied on a basis amount to calculate the withholding.\n",
+                "Percentage": {
+                  "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                  "example": "25"
+                }
+              },
+              "taxStatus": {
+                "description": "Exempt, Expired, Certified, Retain.\n"
+              },
+              "withholdingAmount": {
+                "description": "Withholding amount.\n",
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              }
+            },
+            "description": "Withholding is a tax that is levied on income, at an established tax rate\n"
+          }
+        }
+      },
+      "foreignIndicator": {
+        "description": "Indicates whether the party is a non-residen alien or a foreign entity.\n"
+      },
+      "codes": {
+        "description": "Codes provided by the IRS on forms.",
+        "items": {
+          "TaxFormCode": {
+            "properties": {
+              "name": {
+                "TaxFormName": {
+                  "description": "Indicates a code name provided by the IRS on the form. Possible Values:\nChapter3, Chapter4, Income, Exempt, Province, CountryResidence, AmendedNumber, CountryTax \n"
+                }
+              },
+              "value": {
+                "description": "Indicates the code number provided by the IRS on the form."
+              }
+            },
+            "description": "Indicates a code provided by the IRS on the form."
+          }
+        }
+      },
+      "recipientGIIN": {
+        "GIIN": {
+          "description": "Global intermediary identification number (GIIN).\n",
+          "example": "ADN123.FG4FE3.LE.999"
+        }
+      },
+      "recipientPostCode": {
+        "description": "Code provided by the IRS on forms."
+      },
+      "recipientTownName": {
+        "TownName": {
+          "description": "Name of a built-up area, with defined boundaries, and a local government. Also city name.\n",
+          "example": "San Diego"
+        }
+      },
+      "countrySubDivisionCode": {
+        "CountrySubdivisionCode": {
+          "description": "Code to identify a name of a unit resulting from the division of a country, dependency, or other area of special geopolitical interest contained in ISO 3166-1, on the basis of country names obtained from the United Nations (ISO 3166-2: Country subdivision code).\n",
+          "example": "AR-B"
+        }
+      },
+      "country": {
+        "description": "IRS country code table."
+      },
+      "supplementaryData": {
+        "SupplementaryData": {
+          "description": "Additional information that cannot be captured in the structured elements and/or any other specific block. If this information need to be converted in ISO Messages, must be ISO 20022 compliant: it requires development of a compliant message extension model and its components must be registered in the ISO 20022 Data Dictionary. https://www.iso20022.org/catalogue-messages/additional-content-messages/supplementary-data\n"
+        }
+      }
+    },
+    "description": "Taxation parameters which apply to an individual person or to an organization.\n"
+  }
+}

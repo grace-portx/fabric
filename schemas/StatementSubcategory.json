@@ -1,0 +1,6 @@
+{
+  "StatementSubcategory": {
+    "description": "Used to subcategorize the statement. Possible Values: Cash, AccountReceivable, Inventory, CurrentAssets\n",
+    "example": "Cash"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "RiskLevel": {
+    "description": "Specifies the customer\u2019s money laundering risk. Possible values: High, Medium, Low, NotDetermined\n",
+    "example": "Permanent"
+  }
+}

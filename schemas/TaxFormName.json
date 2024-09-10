@@ -1,0 +1,5 @@
+{
+  "TaxFormName": {
+    "description": "Indicates a code name provided by the IRS on the form. Possible Values:\nChapter3, Chapter4, Income, Exempt, Province, CountryResidence, AmendedNumber, CountryTax \n"
+  }
+}

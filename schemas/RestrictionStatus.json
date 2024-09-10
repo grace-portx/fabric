@@ -1,0 +1,6 @@
+{
+  "RestrictionStatus": {
+    "description": "Specifies the status of a restriction enablement request. Possible values: Enable, Pending, InquiryOnly, Disable, Requested.\n    \n",
+    "example": "Pending"
+  }
+}

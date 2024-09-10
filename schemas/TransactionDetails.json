@@ -1,0 +1,94 @@
+{
+  "TransactionDetails": {
+    "required": [
+      "creationDate",
+      "transactionId"
+    ],
+    "properties": {
+      "transactionId": {
+        "TransactionId": {
+          "description": "Unique reference as assigned by the account servicing institution to unambiguously identify the transaction.",
+          "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+        }
+      },
+      "creationDate": {
+        "description": "Date and time at which the transaction is created.\n",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "amount": {
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "creditDebitIndicator": {
+        "CreditDebitIndicator": {
+          "description": "Specifies if an operation is an increase or a decrease. Possible values names are:\nCredit,\nDebit.\n",
+          "example": "Credit"
+        }
+      },
+      "description": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "status": {
+        "TransactionStatus": {
+          "description": "Specifies the status of an entry on the books of the account servicer. Some possible ISO 20022 compliant values are: \n Booked, Future, Information, Pending.\n",
+          "example": "Booked"
+        }
+      },
+      "statusDescription": {
+        "Title": {
+          "example": "This is a Title."
+        }
+      },
+      "codes": {
+        "description": "Transaction codes.",
+        "items": {
+          "GenericTransactionCode": {
+            "required": [
+              "code",
+              "codeName",
+              "codeType"
+            ],
+            "properties": {
+              "codeType": {
+                "description": "Code type in PascalCase form. Possible values are: DetailBAI, SummaryBAI, TransactionCode.\n",
+                "example": "DetailBAI"
+              },
+              "name": {
+                "description": "Name of the code in PascalCase. Possible values: ResponseCode, PromotionCode, Domain, Family, Subfamily, MT940, SourceCode, TaxDeferredContributionCode.\n"
+              },
+              "value": {
+                "description": "Code value.",
+                "example": "195"
+              },
+              "description": {
+                "Title": {
+                  "example": "This is a Title."
+                }
+              }
+            },
+            "description": "Generic transaction code definition."
+          }
+        }
+      },
+      "currentBalance": {
+        "description": "The current balance at the transaction creation date.",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "supplementaryData": {
+        "SupplementaryData": {
+          "description": "Additional information that cannot be captured in the structured elements and/or any other specific block. If this information need to be converted in ISO Messages, must be ISO 20022 compliant: it requires development of a compliant message extension model and its components must be registered in the ISO 20022 Data Dictionary. https://www.iso20022.org/catalogue-messages/additional-content-messages/supplementary-data\n"
+        }
+      }
+    },
+    "description": "Common transaction details.\n"
+  }
+}

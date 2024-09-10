@@ -1,0 +1,50 @@
+{
+  "Restriction": {
+    "required": [
+      "name"
+    ],
+    "properties": {
+      "name": {
+        "description": "Name of the restriction in PascalCase. Possible values: TransferIn, TransferOut, WireTransferIn, WireTransferOut, \nACHTransferIn, ACHTransferOut, ForeignIncomingWires, ForeignOutgoingWires, ACHTransfers, InternetBankingTransfer, InternetView, InternetInquiry, ForeignOutgoingIran, Withdrawals, Renew, Transfers, AdvanceTransfer, ElectronicBanking, InvestmentAllowed, InvestmentSetUpAllowed, DebitCardAllowed, CheckOrderAllowed, AutomaticSweep, AccountMangement\n",
+        "example": "WireTransferIn"
+      },
+      "restrictionPurpose": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "enableIndicator": {
+        "description": "Indicates whether the capability is allowed or not.",
+        "example": true
+      },
+      "disableConditions": {
+        "description": "Conditions that disabel the restriction.\n",
+        "items": {
+          "ConditionName": {
+            "description": "Specifies the name of a condition. Possible values: \nLessThanMinAmount, MoreThanMaximumCredit, PastDueXDays.\n\n    \n",
+            "example": "LessThanMinAmount"
+          }
+        }
+      },
+      "validFrom": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "validUntil": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "status": {
+        "RestrictionStatus": {
+          "description": "Specifies the status of a restriction enablement request. Possible values: Enable, Pending, InquiryOnly, Disable, Requested.\n    \n",
+          "example": "Pending"
+        }
+      }
+    },
+    "description": "Restriction on capabilities allowed."
+  }
+}

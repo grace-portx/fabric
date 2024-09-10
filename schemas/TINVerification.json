@@ -1,0 +1,42 @@
+{
+  "TINVerification": {
+    "properties": {
+      "verificationAttemps": {
+        "maximum": 10,
+        "description": "The Tax Identification Verification Attempts is the number of times attempts have been made to verify the tax ID number.\n",
+        "example": 1
+      },
+      "bNoticeDates": {
+        "items": {
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        }
+      },
+      "tINResultCode": {
+        "description": "TIN matching result codes"
+      },
+      "verificationDate": {
+        "description": "Verification or certification date.\n",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "applicationDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "expirationDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      }
+    },
+    "description": "IRS information about the TIN provided.\n"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "StructuredName": {
+    "required": [
+      "firstName",
+      "lastName"
+    ],
+    "properties": {
+      "firstName": {
+        "description": "Person given first name.\n",
+        "example": "Mary"
+      },
+      "middleName": {
+        "description": "Person given middle name.\n",
+        "example": "Joe"
+      },
+      "lastName": {
+        "description": "Person surname.\n",
+        "example": "Smith"
+      },
+      "middleInitial": {
+        "description": "Person middle initial.\n",
+        "example": "J."
+      },
+      "suffix": {
+        "description": "A name suffix in the Western English-Language naming tradition, follows a person's full name and provides additional information about the person. Possible Values:  PhD, Snr, Jnr. Generation order should be expressed with roman numerals: I, II, III, IV, V.\n",
+        "example": "PhD"
+      },
+      "prefix": {
+        "description": "Name prefixes are typically Dr., Mr., Mrs., Ms.\n",
+        "example": "Dr."
+      }
+    },
+    "description": "The structured name is used to initialize the person name with the format <firstName middleName lastName>\n"
+  }
+}

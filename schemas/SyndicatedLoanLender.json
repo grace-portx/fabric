@@ -1,0 +1,37 @@
+{
+  "SyndicatedLoanLender": {
+    "required": [
+      "lenderId",
+      "lenderType"
+    ],
+    "properties": {
+      "lenderId": {
+        "description": "Party which provides an amount of money available to others to borrow.\n",
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "lenderType": {
+        "PartyType": {
+          "description": "Possible values are:\n Person,\n Organization. Also other types of servicer entities: ServicerOfficer, ExternalOrganization\n",
+          "example": "Person"
+        }
+      },
+      "amount": {
+        "description": "Amount of the part in the syndicated loan.\n",
+        "PositiveAmount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+          "example": "100"
+        }
+      },
+      "share": {
+        "description": "Share part in the syndicated loan.\n",
+        "PositivePercentage": {
+          "description": "Value expressed as a positive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+          "example": "25"
+        }
+      }
+    },
+    "description": "Loan offered by a group of lenders (called a syndicate) who work together to lend an amount of money to a single borrower.\n"
+  }
+}

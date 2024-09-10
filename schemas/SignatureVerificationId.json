@@ -1,0 +1,6 @@
+{
+  "SignatureVerificationId": {
+    "description": "This field contains the key of the CISA validation record. \n",
+    "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+  }
+}

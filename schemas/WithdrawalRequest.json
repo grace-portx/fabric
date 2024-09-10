@@ -1,0 +1,125 @@
+{
+  "WithdrawalRequest": {
+    "required": [
+      "amount"
+    ],
+    "properties": {
+      "transactionType": {
+        "WithdrawalTransactionType": {
+          "description": "Type of Debit Transaction: Cash\n",
+          "example": "Cash"
+        }
+      },
+      "amount": {
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "check": {
+        "Check": {
+          "properties": {
+            "checkType": {
+              "description": "Specifies the type of the check. Possible values are: \nCustomerCheque, CertifiedCustomerCheque, BankCheque, Draft, ElectronicDraft.\n"
+            },
+            "amount": {
+              "description": "Check amount\n",
+              "PositiveAmount": {
+                "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                "example": "100"
+              }
+            },
+            "currency": {
+              "description": "Check currency\n",
+              "CurrencyCode": {
+                "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                "example": "USD"
+              }
+            },
+            "checkNumber": {
+              "description": "The number on the face of the check indicating the id of that check in a series.\n"
+            },
+            "issuer": {
+              "description": "Party that issued the check.",
+              "example": "Jhon Smith"
+            },
+            "availabilityDate": {
+              "description": "Indicates when the amount of money will become available. Usage: This type of information is used in the US and is linked to particular instruments such as cheques.\n Example: When a cheque is deposited, it will be booked on the deposit day, but the amount of money will only be accessible as of the indicated availability day (according to national banking regulations).\n",
+              "DateAndTime": {
+                "example": "2022-04-17T08:00:00Z"
+              }
+            },
+            "availabilityFloat": {
+              "description": "It refers to the time delay between when a check is deposited and when the funds become available for withdrawal. Possible Values: ImmediateWithdrawal, LocalCheck, NonLocalCheck\n"
+            },
+            "identifiers": {
+              "description": "Check identifiers. Possible scheme names: Reference.\n",
+              "items": {
+                "GenericIdentification": {
+                  "required": [
+                    "number",
+                    "schemeName"
+                  ],
+                  "properties": {
+                    "number": {
+                      "description": "Unique and unambiguous identification.",
+                      "example": "123-45-6789"
+                    },
+                    "schemeName": {
+                      "description": "Name of the identification scheme.\n"
+                    },
+                    "issuer": {
+                      "description": "Entity that assigns the identification.",
+                      "example": "UnitedStates"
+                    },
+                    "issueDate": {
+                      "Date": {
+                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                        "example": "2022-04-17"
+                      }
+                    },
+                    "expirationDate": {
+                      "Date": {
+                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                        "example": "2022-04-17"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "codes": {
+              "description": "Codes to clasify the check. Possible code names: AccountCode\n",
+              "items": {
+                "GenericCode": {
+                  "required": [
+                    "name",
+                    "value"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the code in PascalCase.\n",
+                      "example": "AccountingGroup"
+                    },
+                    "value": {
+                      "description": "Code value.",
+                      "example": "195"
+                    },
+                    "description": {
+                      "Title": {
+                        "example": "This is a Title."
+                      }
+                    }
+                  },
+                  "description": "Generic code definition."
+                }
+              }
+            }
+          },
+          "description": "Characteristics of a check"
+        }
+      }
+    },
+    "description": "Debit transaction request to an account for cash, check deposits, or merchandise payments.\n"
+  }
+}

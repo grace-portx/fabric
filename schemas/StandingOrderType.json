@@ -1,0 +1,6 @@
+{
+  "StandingOrderType": {
+    "description": "Standing order category. Possible values: OneTime, Recurring, Predefined.\n",
+    "example": "OneTime"
+  }
+}

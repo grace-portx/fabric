@@ -1,0 +1,6 @@
+{
+  "StatementCategory": {
+    "description": "Used to categorize the statement. Possible Values: BalanceSheet, ProfitAndLoss\n",
+    "example": "BalanceSheet"
+  }
+}

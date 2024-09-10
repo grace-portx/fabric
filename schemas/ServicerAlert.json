@@ -1,0 +1,33 @@
+{
+  "ServicerAlert": {
+    "properties": {
+      "alertName": {
+        "AlertName": {
+          "description": "Service alert human readable identifier in Pascal case. An alert notification received by the bank. Possible values: CreditBureauAlert, CustomerAlert,  PaymentCard, LostBook, TwoSignaturesRequired, PledgedAsCollateral, DeathOnAccount, Bankruptcy, NoDisclosure, Caution, DuplicateBookIssued, PowerOfAttorney, DoNotReopen.\n",
+          "example": "CreditBureauAlert"
+        }
+      },
+      "alertType": {
+        "AlertType": {
+          "description": "An alert notification type. Possible values: Warning, Urgent, Teller.\n",
+          "example": "Warning"
+        }
+      },
+      "alertCode": {
+        "description": "Service alert identifier or code, used to arrange multiple alerts and warnings in a sequence.\n"
+      },
+      "message": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "lastAlertDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      }
+    },
+    "description": "Customer alerts to be received by the account servicer.\n"
+  }
+}

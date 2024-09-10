@@ -1,0 +1,115 @@
+{
+  "TransferSettlement": {
+    "properties": {
+      "postingDate": {
+        "description": "Future transfer posting date. If the posting date is left blank, it will be assumed to be the current date. When creating a MemoPost for an outgoing payment, after this date, the memo record is automatically expired. You can see this change from the status, which is changed from MemoPosted to Expired.\n",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "postingType": {
+        "description": "Indicates the type of posting. Possible values: MemoPosted, HardPosted.\n",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "time": {
+        "description": "Time of the day of the posting date.\n",
+        "TimeOfTheDay": {
+          "properties": {
+            "hour": {
+              "example": "12"
+            },
+            "timeZone": {
+              "TimeZone": {
+                "description": "A time zone is an area which observes a uniform standard time for legal, commercial and social purposes. Some possible values: Pacific, Mountain, Central, Eastern, GreenwichMean\n",
+                "example": "Pacific"
+              }
+            },
+            "timeOfTheDay": {
+              "description": "Time of the day. Possible Values: AfterMidnight, after midnight and  before business day; AfterBusinessDay, after business day and before midnight.\n"
+            }
+          }
+        }
+      },
+      "frequency": {
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "memopostedIndicator": {
+        "description": "Indicates whether the internal transfer has been memoposted.\n"
+      }
+    },
+    "description": "Transfer settlement information."
+  }
+}

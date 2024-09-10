@@ -1,0 +1,6 @@
+{
+  "VIPStatus": {
+    "description": "Very Important People Program Status. Possible Values: Novice, Pro, Elite\n",
+    "example": "Elite"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "TotalAmount": {
+    "properties": {
+      "name": {},
+      "period": {
+        "Period": {
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "periodNumber": {
+              "description": "Sequence number of the period."
+            },
+            "periodName": {
+              "PeriodName": {
+                "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+              }
+            }
+          }
+        }
+      },
+      "amount": {
+        "description": "Total of the transaction amounts.",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      }
+    },
+    "description": "Total amount of transactions labeled by a name."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "WithdrawalTransactionType": {
+    "description": "Type of Debit Transaction: Cash\n",
+    "example": "Cash"
+  }
+}

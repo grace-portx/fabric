@@ -1,0 +1,18 @@
+{
+  "TimeOfTheDay": {
+    "properties": {
+      "hour": {
+        "example": "12"
+      },
+      "timeZone": {
+        "TimeZone": {
+          "description": "A time zone is an area which observes a uniform standard time for legal, commercial and social purposes. Some possible values: Pacific, Mountain, Central, Eastern, GreenwichMean\n",
+          "example": "Pacific"
+        }
+      },
+      "timeOfTheDay": {
+        "description": "Time of the day. Possible Values: AfterMidnight, after midnight and  before business day; AfterBusinessDay, after business day and before midnight.\n"
+      }
+    }
+  }
+}
