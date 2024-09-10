@@ -1,0 +1,6 @@
+{
+  "CBSAType": {
+    "description": "Type of Core-based statistical area. Possible values: MSA, MISA\n",
+    "example": "MSA"
+  }
+}

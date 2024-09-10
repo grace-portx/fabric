@@ -1,0 +1,47 @@
+{
+  "CustomerRelationshipLoan": {
+    "required": [
+      "accountId",
+      "accountRelationType",
+      "accountType"
+    ],
+    "properties": {
+      "accountRelationType": {
+        "AccountRelationType": {
+          "description": "Account relation role. Possible values are:\n   Parent,\n   Child, AssociatedAccount, IRAAccount, CombinedStatement, SecondaryCombinedStatement, SummaryAccount, CompesatingAccount. Payment related values: Authorized \n",
+          "example": "Child"
+        }
+      },
+      "accountId": {
+        "AccountId": {
+          "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+          "example": "033-DDA-123456"
+        }
+      },
+      "accountNumber": {
+        "readOnly": true,
+        "AccountNumber": {
+          "description": "The account number or Basic Bank Account Number (BBAN). A Basic Bank Account Number (BBAN) is a bank account number that includes the domestic bank code, branch identifier, and account number. It is a unique identifier for a bank account within a specific country.\n",
+          "example": "012345678"
+        }
+      },
+      "loanType": {
+        "readOnly": true,
+        "LoanType": {
+          "description": "Type of the account. Possible BIAN compliant values are: \n Loan,\n Personal,\n Consumer,  \n Corporate, \n Lease, \n Syndicated, \n Mortgage,\n Conforming,\n Merchandising,\n LineOfCredit,\n RevolvingCredit,\n LoanAgainstSecurities,\n DirectDepositAdvance\n",
+          "example": "Personal"
+        }
+      },
+      "accountName": {
+        "readOnly": true,
+        "AccountName": {
+          "description": "Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.",
+          "example": "Hermes PD_CA 0002"
+        }
+      },
+      "primaryIndicator": {
+        "description": "Indicates whether the account related is primary. \n"
+      }
+    }
+  }
+}

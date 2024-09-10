@@ -1,0 +1,6 @@
+{
+  "CardFundingSourceType": {
+    "description": "Specifies the funding source type of payment card. Possible Values: Credit, Debit, Prepaid, Charge, DeferredDebit, CreditGateway.\n",
+    "example": "Credit"
+  }
+}

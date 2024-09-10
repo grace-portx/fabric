@@ -1,0 +1,6 @@
+{
+  "CountrySubdivision": {
+    "description": "Name of a country subdivision such as state, region, county.",
+    "example": "Oregon"
+  }
+}

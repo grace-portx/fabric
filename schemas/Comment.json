@@ -1,0 +1,13 @@
+{
+  "Comment": {
+    "properties": {
+      "name": {},
+      "text": {
+        "Description": {
+          "example": "This is a description."
+        }
+      }
+    },
+    "description": "Free text labeled with a name.\n"
+  }
+}

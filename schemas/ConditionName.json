@@ -1,0 +1,6 @@
+{
+  "ConditionName": {
+    "description": "Specifies the name of a condition. Possible values: \nLessThanMinAmount, MoreThanMaximumCredit, PastDueXDays.\n\n    \n",
+    "example": "LessThanMinAmount"
+  }
+}

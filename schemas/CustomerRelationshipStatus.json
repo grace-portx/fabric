@@ -1,0 +1,6 @@
+{
+  "CustomerRelationshipStatus": {
+    "description": "Specifies the status al a customer relationship. Some possible values are:  Active, Closed, Inactive, Prospect, Restricted\n",
+    "example": "Active"
+  }
+}

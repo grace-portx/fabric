@@ -1,0 +1,6 @@
+{
+  "ChargeStatus": {
+    "description": "Specifies the current status of the charge. \n       Possible values are: Charged, Waived, AnalysisAddenda, AddendaCharged, AddendaChargedOnCycleDay.\n",
+    "example": "Charged"
+  }
+}

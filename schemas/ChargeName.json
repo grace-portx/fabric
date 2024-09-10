@@ -1,0 +1,6 @@
+{
+  "ChargeName": {
+    "description": "Name of the charge calculation in PascalCase. Possible values: Fee, Overdraft, CardLatePayment, CashAdvance, LatePayment, CashWithdrawal, EarlyWithdrawal, Dormant, EIM, ATM, BillPayment, FDIC, Overdraft, OverdraftInterest, OverdraftCourtesy. Service Charge values: AutomaticActivityCharge, MaintenanceActivityCharge, MaintenanceServiceCharge. ServiceCharge, ServiceChargeCreditBack. Also other external codes to identify the charge. \n",
+    "example": "CardLatePayment"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "CardProductName": {
+    "description": "Specifies the product name of payment card.\n",
+    "example": "Visa Classic"
+  }
+}

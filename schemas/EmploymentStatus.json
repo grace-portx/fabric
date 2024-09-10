@@ -1,0 +1,5 @@
+{
+  "EmploymentStatus": {
+    "description": "Represents available individual employment status. Possible values: Contract, Employed, Homemaker, Retired, SelfEmployed, Student, Temporary, Unemployed, BankEmployed.\n"
+  }
+}

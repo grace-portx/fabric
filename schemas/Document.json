@@ -1,0 +1,40 @@
+{
+  "Document": {
+    "properties": {
+      "documentId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "documentReference": {
+        "description": "Document location."
+      },
+      "title": {
+        "Title": {
+          "example": "This is a Title."
+        }
+      },
+      "version": {
+        "description": "Document version indentification."
+      },
+      "signOffDate": {
+        "description": "Signoff date of the document.",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "issueDate": {
+        "description": "Issue date of the document.",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "purpose": {
+        "description": "Specifies the function of the document."
+      }
+    },
+    "description": "General information that unambiguously identifies a document, such as identification number and issue date time.\n"
+  }
+}

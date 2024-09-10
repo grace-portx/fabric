@@ -1,0 +1,6 @@
+{
+  "ChargeBearerType": {
+    "description": "Specifies which party(ies) will pay charges due for processing of the instruction.\nBorneByDebtor, BorneByCreditor,  Shared, FollowingServiceLevel\n",
+    "example": "Shared"
+  }
+}

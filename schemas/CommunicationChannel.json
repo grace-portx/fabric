@@ -1,0 +1,126 @@
+{
+  "CommunicationChannel": {
+    "properties": {
+      "channel": {
+        "CommunicationChannelName": {
+          "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+          "example": "Email"
+        }
+      },
+      "channelIdentification": {
+        "CommunicationChannelIdentification": {
+          "description": "Communication value such as phone number or email address.",
+          "example": "011-02010020202"
+        }
+      },
+      "channelPurpose": {
+        "CommunicationChannelPurpose": {
+          "description": "Communication purpose of the channel. Possible values: Alerts, PrivacyNotices, NegativeBalance, OverdraftProtection, ACHNotice, ChargeBack, BalanceOnReceipt, RegulationCCNotice, RateChange, MaturityNotice, InterestNotice, RegularNotice, PastDueNotice, HUDNotice, PaymentChange, AutomaticPayment, PastDueFirstNotice, PastDueSecondNotice, PastDueNoticeGuarantor, ElectronicStatement.\n",
+          "example": "PrivacyNotices"
+        }
+      },
+      "codeWord": {
+        "description": "A party is asked for a codeword to verify their identity trought a communication channel\n"
+      },
+      "alertIndicator": {
+        "description": "Indicates whether the channel is used for enterprise alerts to the customer.\n"
+      },
+      "personId": {
+        "description": "The party authorized to use the communcation channel\n",
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "codes": {
+        "description": "Codes to determine configurarion options for alerts and notifications. Possible code names: NoticeOption.\n",
+        "items": {
+          "GenericCode": {
+            "required": [
+              "name",
+              "value"
+            ],
+            "properties": {
+              "name": {
+                "description": "Name of the code in PascalCase.\n",
+                "example": "AccountingGroup"
+              },
+              "value": {
+                "description": "Code value.",
+                "example": "195"
+              },
+              "description": {
+                "Title": {
+                  "example": "This is a Title."
+                }
+              }
+            },
+            "description": "Generic code definition."
+          }
+        }
+      },
+      "status": {
+        "AlertStatus": {
+          "description": "Alert status. Possible values: Sent, SentLastNight, Pending, Enable, Disable, FraudAlert. Possible values for CreditBureauAlert: IdentityTheft.\n",
+          "example": "Warning"
+        }
+      },
+      "primaryIndicator": {
+        "PrimaryContactIndicator": {
+          "description": "Indicates whether the contact informacion is primary. \n"
+        }
+      },
+      "leadTime": {
+        "description": "The lead time between the event and the alert notification.\n",
+        "TemporalDuration": {
+          "required": [
+            "unit"
+          ],
+          "properties": {
+            "unit": {
+              "description": "Unit that describes the duration.",
+              "TemporalUnit": {
+                "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+                "example": "Months"
+              }
+            },
+            "value": {
+              "maximum": 999,
+              "description": "Value of the duration in number of units."
+            }
+          },
+          "description": "Describes a temporal duration.\n"
+        }
+      },
+      "alertText": {
+        "description": "Text to appear in alerts and notices.\n",
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "contactDates": {
+        "items": {
+          "SpotDate": {
+            "properties": {
+              "name": {
+                "SpotDateName": {
+                  "description": "Possible values por projected dates: Forecast, Expiration, LastNonFinancial, Escheat. Possible values for past dates: IRALastRollOver. Other possible values: EffectiveDate, ResponseByDate.\n",
+                  "example": "Expiration"
+                }
+              },
+              "date": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            },
+            "description": "Relevant date"
+          }
+        }
+      },
+      "contactCount": {
+        "description": "Number of contacts."
+      }
+    },
+    "description": "Channel used to communicate with a party.\n"
+  }
+}

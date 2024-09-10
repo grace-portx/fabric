@@ -1,0 +1,48 @@
+{
+  "CreditRankingScale": {
+    "properties": {
+      "name": {
+        "CreditRankingScaleName": {
+          "description": "Most commonly used credit ranking scales. Possible Values: StandardAndPoors, MoodysInvestors. Also other values: Original, 1, 2, 3, Current. \n",
+          "example": "StandardAndPoors"
+        }
+      },
+      "score": {
+        "example": "AAA"
+      },
+      "date": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "codes": {
+        "description": "Additional ranking scale codes. Possible values: RiskRatingCode\n",
+        "items": {
+          "GenericCode": {
+            "required": [
+              "name",
+              "value"
+            ],
+            "properties": {
+              "name": {
+                "description": "Name of the code in PascalCase.\n",
+                "example": "AccountingGroup"
+              },
+              "value": {
+                "description": "Code value.",
+                "example": "195"
+              },
+              "description": {
+                "Title": {
+                  "example": "This is a Title."
+                }
+              }
+            },
+            "description": "Generic code definition."
+          }
+        }
+      }
+    },
+    "description": "A Credit Ranking Scale is a system used to evaluate the creditworthiness of a borrower, which can be an individual, a business, a government, or a corporation.\n"
+  }
+}

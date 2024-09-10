@@ -1,0 +1,6 @@
+{
+  "ChargeType": {
+    "description": "Type of service for which a charge is asked or paid. Some possible ISO 20022 compliant values are:\n    BrokerageFee, Commission, BackEndLoad, FrontEndLoad, Switch, DilutionLevy, Discount, ManagementFee, TransferFee, MatchingFees, PostageCharge, RegulatoryFee, ShippingCharge, ServiceProvisionFee, SpecialConcessions, PartAcquis, Penalty, ContingencyDeferredSalesCharge, Equalisation, CorrespondentBankCharge, Premium, Initial, AdvisoryFee, CustodyFee, PublicationFee, AccountingFee, SignatureService, StorageAtDestination, StorageAtOrigin, Packaging, PickUp, DangerousGoodsFee, SecurityCharge, InsurancePremium, CollectFreight, ClearanceAndHandlingAtOrigin, ClearanceAndHandlingAtDestination, AirWayBillFee, TransportCharges, UCITSCommission, SpeciallyAgreedFrontEndLoad, ADRFee, IssuanceCancellationFee, MiscellaneousFee, IssuanceFee, Fee, Insurance, NonTaxable, Recurring, Taxable.\n    \n    \n",
+    "example": "ManagementFee"
+  }
+}

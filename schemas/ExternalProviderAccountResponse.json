@@ -1,0 +1,190 @@
+{
+  "ExternalProviderAccountResponse": {
+    "properties": {
+      "accountId": {
+        "AccountId": {
+          "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+          "example": "033-DDA-123456"
+        }
+      },
+      "accountNumber": {
+        "AccountNumber": {
+          "description": "The account number or Basic Bank Account Number (BBAN). A Basic Bank Account Number (BBAN) is a bank account number that includes the domestic bank code, branch identifier, and account number. It is a unique identifier for a bank account within a specific country.\n",
+          "example": "012345678"
+        }
+      },
+      "accountType": {
+        "AccountType": {
+          "description": "Type of the account. Some possible ISO 20022 compliant values are: \n Checking,\n CardAccount,\n CashPayment, \n Charges, \n CashIncome, \n Commission, \n ClearingParticipantSettlementAccount,\n LimitedLiquiditySavingsAccount,\n MarginalLending, \n MoneyMarket, \n NonResidentExternal, \n Overdraft, \n OverNightDeposit, \n Settlement, \n Salary, \n Savings, \n Tax, \n TransactingAccount,\n CashTrading,\n VirtualAccount,\n CreditCard,\n DebitCard,\n Universal, \n Investment, \n EpurseCard,\n CertificateOfDeposit,\n MoneyMarketChecking, \n RetirementAccount, \n StockOrBond,\n PrePaid, \n FleetCard, \n Cash, \n DebitAccount, \n CreditAccount, \n Benefit,\n HealthSavingsAccount,\n FlexibleSpendingAccount,\n ForBenefitOf,\n Estate,\n ClientTrustAccount, \n LawyersTrustAccount,\n KeoghPlanAccount,\n UniformTransfersToMinorsAct,\n UniformGiftsToMinorsAct,\n ReserveFunds,\n SelfDirectedBrokerage,\n IRA,\n Annuity,\n ExternalAccount,\n Loan.\n",
+          "example": "Checking"
+        }
+      },
+      "ownershipType": {
+        "AccountOwnershipType": {
+          "description": "Specifies the type of account ownership. Possible ISO 20022 compliant values names are:\n JointAccountWithSurvivorshipRights, JointAccountInCommon, CustodialAccount, SingleOwnerAccount, JointAccount, Corporation, Organization, Business, FormalPartnership, FormalTrust, Nominee, NonProfitOrganization, NotForProfitOrganization, ForProfit, EUResidualEntity, USGovernmentOrganization, GovernmentOrganization, LimitedLiabilityCompany, RegisteredInvestmentCompany, Entrepreneurial, Unincorporated, LimitedPartnership, LimitedLiabilityPartnership, BareOwner, Usufructuary, Fiduciary, ServicerEmployeeAccount, BusinessTrust, FamilyTrust, Estate, PublicFunds, NonUSGovernmentOrganization, Church, Club. More general possible values: Direct, Indirect. \n",
+          "example": "SingleOwnerAccount"
+        }
+      },
+      "accounts": {
+        "items": {
+          "ExternalProviderAccount": {
+            "description": "An external provider account refers to the process of creating a user account with a payment network provider. This account allows the customer to access and use the provider's services. For instance: Paypoint. \n",
+            "AccountIdentifiers": {
+              "properties": {
+                "accountBranchId": {
+                  "ServicerBranchId": {
+                    "description": "Identification of the account servicer institution at branch level or center level. To overlay the codes to produce a unique identifier the following expresion is used: BranchRegionCode-BranchSubdivisionCode.\n",
+                    "example": "SEA_1"
+                  }
+                },
+                "accountNumber": {
+                  "AccountNumber": {
+                    "description": "The account number or Basic Bank Account Number (BBAN). A Basic Bank Account Number (BBAN) is a bank account number that includes the domestic bank code, branch identifier, and account number. It is a unique identifier for a bank account within a specific country.\n",
+                    "example": "012345678"
+                  }
+                },
+                "accountType": {
+                  "AccountType": {
+                    "description": "Type of the account. Some possible ISO 20022 compliant values are: \n Checking,\n CardAccount,\n CashPayment, \n Charges, \n CashIncome, \n Commission, \n ClearingParticipantSettlementAccount,\n LimitedLiquiditySavingsAccount,\n MarginalLending, \n MoneyMarket, \n NonResidentExternal, \n Overdraft, \n OverNightDeposit, \n Settlement, \n Salary, \n Savings, \n Tax, \n TransactingAccount,\n CashTrading,\n VirtualAccount,\n CreditCard,\n DebitCard,\n Universal, \n Investment, \n EpurseCard,\n CertificateOfDeposit,\n MoneyMarketChecking, \n RetirementAccount, \n StockOrBond,\n PrePaid, \n FleetCard, \n Cash, \n DebitAccount, \n CreditAccount, \n Benefit,\n HealthSavingsAccount,\n FlexibleSpendingAccount,\n ForBenefitOf,\n Estate,\n ClientTrustAccount, \n LawyersTrustAccount,\n KeoghPlanAccount,\n UniformTransfersToMinorsAct,\n UniformGiftsToMinorsAct,\n ReserveFunds,\n SelfDirectedBrokerage,\n IRA,\n Annuity,\n ExternalAccount,\n Loan.\n",
+                    "example": "Checking"
+                  }
+                },
+                "routingNumbers": {
+                  "items": {
+                    "RoutingNumber": {
+                      "properties": {
+                        "number": {
+                          "ABANumber": {
+                            "description": "The routing number (sometimes referred to as an ABA routing number, regarding the American Bankers Association) is a sequence of nine digits used by banks to identify specific financial institutions within the United States.  \n",
+                            "example": "012345678"
+                          }
+                        },
+                        "routingNumberType": {
+                          "RoutingNumberType": {
+                            "description": "Different types of payments may require different bank routing numbers. Some possible values: ACH, WIRE, ElectronicCheck, PaperCheck\n",
+                            "example": "ACH"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "identifiers": {
+                  "items": {
+                    "AccountIdentification": {
+                      "properties": {
+                        "number": {
+                          "description": "Identification assigned by an institution or internally to connect to other applications.\n"
+                        },
+                        "schemeName": {
+                          "description": "Name of the identification scheme, in PascalCase. Possible ISO 20022 compliant values names are:\nIssuerIdentificationNumber, BBANIdentifier, CHIPSUniversalIdentifier, UPICIdentifier, IBANIdentifier. Other possible values: CreditBackIdentification, UniversalLoanIdentifier, CommitmentNumber, RecordNumber, FlexDataRecordNumber, RegistrationNumber, ExternalAccountId\n",
+                          "example": "BBANIdentifier"
+                        },
+                        "issuer": {
+                          "description": "Entity that assigns the identification."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "properties": {
+              "externalAccountId": {
+                "description": "External Provider Account Id \n",
+                "Id": {
+                  "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+                }
+              },
+              "structuredName": {
+                "StructuredName": {
+                  "required": [
+                    "firstName",
+                    "lastName"
+                  ],
+                  "properties": {
+                    "firstName": {
+                      "description": "Person given first name.\n",
+                      "example": "Mary"
+                    },
+                    "middleName": {
+                      "description": "Person given middle name.\n",
+                      "example": "Joe"
+                    },
+                    "lastName": {
+                      "description": "Person surname.\n",
+                      "example": "Smith"
+                    },
+                    "middleInitial": {
+                      "description": "Person middle initial.\n",
+                      "example": "J."
+                    },
+                    "suffix": {
+                      "description": "A name suffix in the Western English-Language naming tradition, follows a person's full name and provides additional information about the person. Possible Values:  PhD, Snr, Jnr. Generation order should be expressed with roman numerals: I, II, III, IV, V.\n",
+                      "example": "PhD"
+                    },
+                    "prefix": {
+                      "description": "Name prefixes are typically Dr., Mr., Mrs., Ms.\n",
+                      "example": "Dr."
+                    }
+                  },
+                  "description": "The structured name is used to initialize the person name with the format <firstName middleName lastName>\n"
+                }
+              },
+              "name": {
+                "description": "Customer complete name",
+                "PartyName": {
+                  "description": "Name by which a party is known and which is usually used to identify that party.",
+                  "example": "Jane Birkin"
+                }
+              },
+              "authorizationChannel": {
+                "CommunicationChannelName": {
+                  "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                  "example": "Email"
+                }
+              },
+              "paymentMethod": {
+                "PaymentMethod": {
+                  "description": "Specifies the means of payment that will be used to move the amount of money. Possible values are:  Check, CreditTransfer. More specific values: ECheck, CreditCard, CommercialCreditCard, CheckCard, BusinessCheck, PinlessDebit, PINDebit, POS, Cash, ACHCredit, LockBox, RemoteCapture, EFTCredit, FedWire, ACHDebit, EFT, MoneyOrder, Coupon.\n",
+                  "example": "CreditTransfer"
+                }
+              },
+              "agreedToTermsIndicator": {
+                "description": "Indicates whether the customer agreed the terms of  third party payment company."
+              },
+              "codes": {
+                "description": "Codes related to the external provider account. Possible Values: LookUpReference\n",
+                "items": {
+                  "GenericCode": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the code in PascalCase.\n",
+                        "example": "AccountingGroup"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic code definition."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "description": "An external provider account refers to the process of creating a user account with a payment network provider that is linked to a system record account. This account allows the customer to access and use the provider's services. For instance: Paypoint. \n"
+  }
+}

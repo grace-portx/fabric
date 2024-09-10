@@ -1,0 +1,5 @@
+{
+  "CheckPrintOption": {
+    "description": "Options to indicate the multiple lists of account owner names. Possible Values: JointAnd, JointOr.\n"
+  }
+}

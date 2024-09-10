@@ -1,0 +1,38 @@
+{
+  "CustomerRelationshipParty": {
+    "required": [
+      "partyId",
+      "partyRelationType",
+      "partyType"
+    ],
+    "properties": {
+      "partyId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "partyType": {
+        "PartyType": {
+          "description": "Possible values are:\n Person,\n Organization. Also other types of servicer entities: ServicerOfficer, ExternalOrganization\n",
+          "example": "Person"
+        }
+      },
+      "partyName": {
+        "readOnly": true,
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      },
+      "partyRelationType": {
+        "PartyRelationType": {
+          "description": "Type of relation between parties.  Possible values Between Organizations and persons are: ResponsibleParty, Owner, ControlPerson, BeneficialOwner, PrimaryContact, SecondaryContact, VicePresident, President, Treasurer, Secretary, Partner. Between Persons and Organizations: Business, Organization. For Trusts: Trustor, Trustee.  Between organizations: Subsidiary, ParentOrganization, Branch. Between parties and external entities: AccountOpenningOfficer, CustomerServiceOfficer, PrimaryServicerOfficer,  SecondaryServicerOfficer, SalesPerson, ReferralOfficer. Between financial institutions: AffiliateFinancialInstitution, HoldingCompany. Between persons: Spouse, Aunt, Brother, Companion, Daugther, Father, Friend, Granddaugther, Grandmother, Grandfather, Grandson, Husband, Mother, Nephew, Niece, Sister, Son, Uncle, Wife, Child, Grandparent. Grandchild, Sibling, Parent, Partner.\n",
+          "example": "PrimaryServicerOfficer"
+        }
+      },
+      "priorityIndicator": {
+        "description": "Indicates whether the related party is a priority.\n"
+      }
+    }
+  }
+}

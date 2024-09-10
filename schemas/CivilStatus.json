@@ -1,0 +1,6 @@
+{
+  "CivilStatus": {
+    "description": "Specifies the civil status of a person. Possible ISO 20022 compliant values names are:\nSingle,\nMarried,\nLegallyDivorced,\nDivorced,\nWidowed,\nStableUnion\n",
+    "example": "Single"
+  }
+}

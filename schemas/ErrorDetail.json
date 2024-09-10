@@ -1,0 +1,22 @@
+{
+  "ErrorDetail": {
+    "required": [
+      "code",
+      "message"
+    ],
+    "properties": {
+      "code": {
+        "description": "A short string indicating the error code reported. Safe for programmatic use.\n",
+        "example": "InvalidRequest"
+      },
+      "message": {
+        "description": "A human-readable representation of the error. This may change over time and is not safe for programmatic use.\n",
+        "example": "Invalid Request"
+      },
+      "target": {
+        "description": "The target of the error.\n",
+        "example": "Invalid Request"
+      }
+    }
+  }
+}

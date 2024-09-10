@@ -1,0 +1,6 @@
+{
+  "Date": {
+    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+    "example": "2022-04-17"
+  }
+}

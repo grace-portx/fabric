@@ -1,0 +1,6 @@
+{
+  "ClearingSystemIdentification": {
+    "description": "Specifies the clearing system member identification. Some ISO complaiant values from ExternalCashClearingSystem1Code are:\n UnitedStatesRoutingNumberFedwireNACHA, \n AustrianBankleitzahl, AustralianBankStateBranchCodeBSB,CanadianPaymentsAssociationPaymentRoutingNumber,SwissFinancialInstitutionIdentificationShort,SwissFinancialInstitutionIdentificationLong,CNAPSIdentifier, GermanBankleitzahl, SpanishDomesticInterbankingCode, UKDomesticSortCode, HelenicBankIdentificationCode, HongKongBankCode, IrishNationalClearingCode, IndianFinancialSystemCode, ItalianDomesticIdentificationCode, JapanZenginClearingCode, NewZealandNationalClearingCode, PolishNationalClearingCode, PortugueseNationalClearingCode, RussianCentralBankIdentificationCode, SwedenBankgiroClearingCode, IBGSortCode, ThaiCentralBankIdentificationCode, FinancialInstitutionCode, CHIPSParticipantIdentifier, SouthAfricanNationalClearingCode, NewZealandRTGSClearingCode\n",
+    "example": "UnitedStatesRoutingNumberFedwireNACHA"
+  }
+}

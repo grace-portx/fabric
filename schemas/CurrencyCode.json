@@ -1,0 +1,6 @@
+{
+  "CurrencyCode": {
+    "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+    "example": "USD"
+  }
+}

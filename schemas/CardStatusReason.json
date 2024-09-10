@@ -1,0 +1,6 @@
+{
+  "CardStatusReason": {
+    "description": "Specifies the status reason of payment card. Some possible values are:\nActivationBeforeAvailableDate, CardRecordNotFound, CardLostOrStolen, NoActivationRequired, ActivationRequired, ExpDateNotMatch, AlreadyActivated, AttemptAfterDeadline, MaxAttemprsExceeded, CallerIdInvalid, ActivationCodeInvalid, PinCheckNotPerformed, InvalidActivationMethod, IvrAuthorizationFailed, FirstPinId\n",
+    "example": "Active"
+  }
+}

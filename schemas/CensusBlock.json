@@ -1,0 +1,6 @@
+{
+  "CensusBlock": {
+    "description": "Census blocks are used to partition counties into smaller areas for the purpose of collecting and presenting census data.\n",
+    "example": "1234"
+  }
+}

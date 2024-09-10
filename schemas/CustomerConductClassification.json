@@ -1,0 +1,5 @@
+{
+  "CustomerConductClassification": {
+    "description": "Assessment of the customer\u2019s behaviour at the time of the account opening application. Possible Values: Standard, NonStandard, Reluctant. \n"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "Citizenship": {
+    "Period": {
+      "DatePeriod": {
+        "properties": {
+          "fromDateTime": {
+            "description": "Date and time at which the period starts.",
+            "DateAndTime": {
+              "example": "2022-04-17T08:00:00Z"
+            }
+          },
+          "upToDateTime": {
+            "description": "Date and time at which the period ends.",
+            "DateAndTime": {
+              "example": "2022-04-17T08:00:00Z"
+            }
+          }
+        }
+      },
+      "properties": {
+        "periodNumber": {
+          "description": "Sequence number of the period."
+        },
+        "periodName": {
+          "PeriodName": {
+            "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+          }
+        }
+      }
+    },
+    "description": "Specifies the country and a period where a person is legally accepted as belonging to the country.",
+    "properties": {
+      "country": {
+        "CountryCode": {
+          "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+          "example": "US"
+        }
+      }
+    }
+  }
+}

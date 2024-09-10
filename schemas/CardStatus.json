@@ -1,0 +1,6 @@
+{
+  "CardStatus": {
+    "description": "Specifies the status of payment card. Some possible values are:\nAssignPIN, Active, Blocked, Closed, Expedite, Expired, HotCarded, Renewed, Inactive, Issued, Lost, Restricted, Stolen, Suspended.\n",
+    "example": "Active"
+  }
+}

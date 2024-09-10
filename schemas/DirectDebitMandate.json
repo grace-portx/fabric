@@ -1,0 +1,117 @@
+{
+  "DirectDebitMandate": {
+    "properties": {
+      "mandateId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "dateOfSignature": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "digitalSignature": {
+        "DigitalSignature": {
+          "description": "Binary data of 10K maximum, base64 encoded.\n",
+          "example": "U21GdVpTQkNhWEpyYVc0PQ=="
+        }
+      },
+      "firstCollectionDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "finalCollectionDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "frequency": {
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "trackingDays": {
+        "Day": {
+          "maximum": 31,
+          "description": "Specifies the date in a month.",
+          "example": 30
+        }
+      }
+    },
+    "description": "Authorization in favour of the creditor given by the debtor to debit its own account. Provides details related to a direct debit mandate signed between the creditor and the debtor."
+  }
+}

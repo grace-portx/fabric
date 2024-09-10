@@ -1,0 +1,6 @@
+{
+  "CreditQuality": {
+    "description": "Credit quality rating of an issuer or financial obligation. Possible Values: DefaultImminent, ExtremelySpeculative, HighGrade, HighlySpeculative, InDefault, LowerMediumGrade, NonInvestmentGradeSpeculative, Prime, SubstantialRisk, UpperMediumGrade\n",
+    "example": "UpperMediumGrade"
+  }
+}

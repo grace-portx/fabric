@@ -1,0 +1,6 @@
+{
+  "DepositTransactionType": {
+    "description": "Type of Credit Transaction: Cash, Check, Merchandise\n",
+    "example": "Cash"
+  }
+}

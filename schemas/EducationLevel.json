@@ -1,0 +1,6 @@
+{
+  "EducationLevel": {
+    "description": "Possible education levels: NoFormalEducation, ElementarySchool, MiddleSchool, HighSchool, VocationalSchool, AssociateDegree, BachelorDegree, MasterDegree, DoctorateDegree, ProfessionalDegree, LessThanHighSchool, College\n",
+    "example": null
+  }
+}

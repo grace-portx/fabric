@@ -1,0 +1,6 @@
+{
+  "CommunicationChannelIdentification": {
+    "description": "Communication value such as phone number or email address.",
+    "example": "011-02010020202"
+  }
+}

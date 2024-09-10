@@ -1,0 +1,5 @@
+{
+  "CountryCallingCode": {
+    "description": "Country calling codes, country dial-in codes, international subscriber dialing (ISD) codes, or most commonly, telephone country codes. Country codes are defined by the International Telecommunication Union (ITU) in ITU-T standards E.123 and E.164. The prefixes enable international direct dialing (IDD).\n"
+  }
+}

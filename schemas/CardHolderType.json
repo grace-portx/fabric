@@ -1,0 +1,6 @@
+{
+  "CardHolderType": {
+    "description": "Specifies the card holder type of payment card. Possible Values: Primary, Additional, Authorized, Guarantor.\n",
+    "example": "Primary"
+  }
+}

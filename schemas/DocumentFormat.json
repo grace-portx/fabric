@@ -1,0 +1,6 @@
+{
+  "DocumentFormat": {
+    "description": "Specifies a choice of format for a document. Possible Values: PDF, HTML\n",
+    "example": "PDF"
+  }
+}

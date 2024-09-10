@@ -1,0 +1,6 @@
+{
+  "CertificateDocumentName": {
+    "description": "Specifies the type of certificate. Possible values: AntiMoneyLaundering, DrivingLicense, DueFormationAndOrganisation, GoodStanding, IdentityCard, Incumbency, LetterOfReference, Passport, ProofOfAddress, PublicKeyInfrastructureCertificate\n",
+    "example": "IdentityCard"
+  }
+}

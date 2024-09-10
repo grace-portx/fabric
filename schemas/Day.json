@@ -1,0 +1,7 @@
+{
+  "Day": {
+    "maximum": 31,
+    "description": "Specifies the date in a month.",
+    "example": 30
+  }
+}

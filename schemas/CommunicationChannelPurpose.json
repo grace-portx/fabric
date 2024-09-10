@@ -1,0 +1,6 @@
+{
+  "CommunicationChannelPurpose": {
+    "description": "Communication purpose of the channel. Possible values: Alerts, PrivacyNotices, NegativeBalance, OverdraftProtection, ACHNotice, ChargeBack, BalanceOnReceipt, RegulationCCNotice, RateChange, MaturityNotice, InterestNotice, RegularNotice, PastDueNotice, HUDNotice, PaymentChange, AutomaticPayment, PastDueFirstNotice, PastDueSecondNotice, PastDueNoticeGuarantor, ElectronicStatement.\n",
+    "example": "PrivacyNotices"
+  }
+}

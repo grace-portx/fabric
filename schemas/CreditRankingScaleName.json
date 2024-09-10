@@ -1,0 +1,6 @@
+{
+  "CreditRankingScaleName": {
+    "description": "Most commonly used credit ranking scales. Possible Values: StandardAndPoors, MoodysInvestors. Also other values: Original, 1, 2, 3, Current. \n",
+    "example": "StandardAndPoors"
+  }
+}

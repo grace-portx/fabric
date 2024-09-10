@@ -1,0 +1,168 @@
+{
+  "CreditReview": {
+    "properties": {
+      "frequency": {
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "lastReviewDate": {
+        "description": "Date and time if the last credit review.\n",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "nextReviewDate": {
+        "description": "Date and time if the next credit review.\n",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "creditQuality": {
+        "CreditQuality": {
+          "description": "Credit quality rating of an issuer or financial obligation. Possible Values: DefaultImminent, ExtremelySpeculative, HighGrade, HighlySpeculative, InDefault, LowerMediumGrade, NonInvestmentGradeSpeculative, Prime, SubstantialRisk, UpperMediumGrade\n",
+          "example": "UpperMediumGrade"
+        }
+      },
+      "creditRankingScales": {
+        "items": {
+          "CreditRankingScale": {
+            "properties": {
+              "name": {
+                "CreditRankingScaleName": {
+                  "description": "Most commonly used credit ranking scales. Possible Values: StandardAndPoors, MoodysInvestors. Also other values: Original, 1, 2, 3, Current. \n",
+                  "example": "StandardAndPoors"
+                }
+              },
+              "score": {
+                "example": "AAA"
+              },
+              "date": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "codes": {
+                "description": "Additional ranking scale codes. Possible values: RiskRatingCode\n",
+                "items": {
+                  "GenericCode": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the code in PascalCase.\n",
+                        "example": "AccountingGroup"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic code definition."
+                  }
+                }
+              }
+            },
+            "description": "A Credit Ranking Scale is a system used to evaluate the creditworthiness of a borrower, which can be an individual, a business, a government, or a corporation.\n"
+          }
+        }
+      },
+      "creditReportAddressIndicatorCode": {
+        "description": "is a code or marker used by credit reporting agencies to indicate a match or mismatch between the address supplied in an inquiry and the address they have on file for a consumer.\n"
+      },
+      "creditReportAddressIndicatorDate": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "consumerCreditReportInformation": {
+        "description": "Information provided by the Consumer Credit Report.\n",
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "consumerCreditReportDate": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      }
+    },
+    "description": "A credit review is a periodic assessment of an individual\u2019s or businesses' credit profile.\n"
+  }
+}

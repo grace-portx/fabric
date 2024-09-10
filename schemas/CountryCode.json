@@ -1,0 +1,6 @@
+{
+  "CountryCode": {
+    "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+    "example": "US"
+  }
+}

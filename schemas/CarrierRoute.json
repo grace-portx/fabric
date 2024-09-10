@@ -1,0 +1,6 @@
+{
+  "CarrierRoute": {
+    "description": "A Carrier Route is a designated geographic area assigned to individual postal carriers by the United States Postal Service (USPS) to facilitate efficient mail delivery within specific regions.\n",
+    "example": "C001"
+  }
+}

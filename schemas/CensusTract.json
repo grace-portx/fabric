@@ -1,0 +1,6 @@
+{
+  "CensusTract": {
+    "description": "A census tract, census area, census district or meshblock is a geographic region defined for the purpose of taking a census\n",
+    "example": "12345"
+  }
+}

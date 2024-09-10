@@ -1,0 +1,18 @@
+{
+  "DatePeriod": {
+    "properties": {
+      "fromDateTime": {
+        "description": "Date and time at which the period starts.",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "upToDateTime": {
+        "description": "Date and time at which the period ends.",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      }
+    }
+  }
+}

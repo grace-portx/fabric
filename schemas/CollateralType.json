@@ -1,0 +1,5 @@
+{
+  "CollateralType": {
+    "description": "Specifies the type of collateral. Some possible values are:  LetterOfCredit, Cash, Securities, PhysicalEntities, Insurance, StockCertificate, Bond, BankGuarantee, Commodity, Automobile, IndustrialVehicle, CommercialTruck, RailVehicle, NauticalCommercialVehicle, NauticalLeisureVehicle, Aeroplane, MachineTool, IndustrialEquipment, OfficeEquipment, ITEquipment, MedicalEquipment, EnergyRelatedEquipment, CommercialBuilding, ResidentialBuilding. IndustrialBuilding, OtherVehicle, OtherEquipment, OtherRealEstate, OtherGoodsOrInventory, Guarantee, OtherFinancialAsset, MixedCategories.\n"
+  }
+}

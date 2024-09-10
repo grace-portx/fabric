@@ -1,0 +1,23 @@
+{
+  "CardProviderOffer": {
+    "required": [
+      "offerId",
+      "offerTitle"
+    ],
+    "properties": {
+      "offerId": {
+        "OfferId": {
+          "description": "Card provider unique reference to the card payment offer.\n",
+          "example": "101854"
+        }
+      },
+      "offerTitle": {
+        "OfferTitle": {
+          "description": "Short description of the offer\n",
+          "example": "Save 20%"
+        }
+      }
+    },
+    "description": "Card Payment Offer."
+  }
+}

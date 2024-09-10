@@ -1,0 +1,6 @@
+{
+  "CommunicationChannelName": {
+    "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+    "example": "Email"
+  }
+}

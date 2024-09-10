@@ -1,0 +1,6 @@
+{
+  "DigitalSignature": {
+    "description": "Binary data of 10K maximum, base64 encoded.\n",
+    "example": "U21GdVpTQkNhWEpyYVc0PQ=="
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "CollateralStatus": {
+    "description": "Specifies the collateral status. Possible Values: Secured, UnderSecured, OverSecured, Repossessed, PartiallySecured.\n",
+    "example": "Secured"
+  }
+}

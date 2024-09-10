@@ -1,0 +1,12 @@
+{
+  "CreditTransferCancellationRequest": {
+    "properties": {
+      "cancellationReason": {
+        "Description": {
+          "example": "This is a description."
+        }
+      }
+    },
+    "description": "Request the cancellation of a credit transfer instruction. \n"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "ChargeOptions": {
+    "description": "Specifies charge options for NSF and Notices in PascalCase. Possible values names are: NSFDefault, NSFRemainPosted, PostedNonNSFDisregarded, NSFPaid, NonPostedNSFReturned, PostedNSFReturned, NonPostedNSFPaid, OneNotice, PrintCurrentBalance, SeparateNotices, NoNoticeForChargeBacks. ExemptNSFFees, ExemptNegativeBalanceFees, ExemptExcessDebitFees.\n",
+    "example": "NSFDefault"
+  }
+}

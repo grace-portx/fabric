@@ -1,0 +1,6 @@
+{
+  "CategoryPurpose": {
+    "description": "Specifies the high level purpose of the instruction based on a set of pre-defined categories.\n Usage: This is used by the initiating party to provide information concerning the processing of the payment. It is likely to trigger special processing by any of the agents involved in the payment chain. Some ISO complaiant values are from ExternalCategoryPurpose1Code: \n  BonusPayment, CashManagementTransfer, CardBulkClearing, CreditCardPayment, TradeSettlementPayment, DebitCardPayment, Dividend, DeliverAgainstPayment, Epayment,FeeCollectionAndInterest, FeeCollection,PersontoPersonPayment, GovernmentPayment, Hedging, IrrevocableCreditCardPayment, IrrevocableDebitCardPayment, IntraCompanyPayment, Interest, LockboxTransactions, Loan, Commercial, Consumer, PensionPayment, Represented, ReimbursementReceivedCreditTransfer, ReceiveAgainstPayment, SalaryPayment, Securities, SocialSecurityBenefit, SupplierPayment, TaxPayment, Trade, TreasuryPayment, ValueAddedTaxPayment, WithHolding, CashManagementSweepAccount, CashManagementTopAccount, CashManagementZeroBalanceAccount\n",
+    "example": "SalaryPayment"
+  }
+}

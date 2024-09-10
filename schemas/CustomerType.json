@@ -1,0 +1,6 @@
+{
+  "CustomerType": {
+    "description": "A customer type of a bank account can be classified into different categories based on the account's features, purpose, and benefits. Possible Values: Personal, Business, Consumer, Organization, ThirdParty, Estate, Employer.\n",
+    "example": "Consumer"
+  }
+}

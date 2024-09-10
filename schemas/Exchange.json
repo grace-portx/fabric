@@ -1,0 +1,19 @@
+{
+  "Exchange": {
+    "properties": {
+      "currency": {
+        "description": "Currency in which the rate of exchange is expressed in a currency exchange.\n",
+        "CurrencyCode": {
+          "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+          "example": "USD"
+        }
+      },
+      "exchangeFactor": {
+        "BaseOneRate": {
+          "description": "Rate expressed as a decimal, for example, 0.7 is 7/10 and 70%.\n       total number of digits: 11\n       number of digits in fractional part: 10\n       base value: 1\n",
+          "example": "0.7"
+        }
+      }
+    }
+  }
+}

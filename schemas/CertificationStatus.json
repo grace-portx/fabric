@@ -1,0 +1,6 @@
+{
+  "CertificationStatus": {
+    "description": "Customer Identification Program (CIP) status. Designates the type of verification used for Customer Identification. This status could be obtained from a specific software the bank is using. Possible Values: NotCertified, CertifiedLevel1, CertifiedLevel2, CertifiedLevel3, FraudCheckOnly, Level1Check, Level2FraudCheck.\n",
+    "example": "CertifiedLevel1"
+  }
+}

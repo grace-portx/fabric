@@ -1,0 +1,398 @@
+{
+  "CreditCardStatement": {
+    "description": "Credit Card statement details.",
+    "Statement": {
+      "properties": {
+        "frequency": {
+          "description": "The frequency of the regular statement.\n",
+          "Frequency": {
+            "description": "Specifies an event frequency",
+            "DatePeriod": {
+              "properties": {
+                "fromDateTime": {
+                  "description": "Date and time at which the period starts.",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "upToDateTime": {
+                  "description": "Date and time at which the period ends.",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                }
+              }
+            },
+            "properties": {
+              "cycleType": {
+                "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+              },
+              "cycle": {
+                "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+                "example": "Monthly"
+              },
+              "every": {
+                "maximum": 999,
+                "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+                "example": 15
+              },
+              "weekDay": {
+                "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+                "example": "Tuesday"
+              },
+              "weekNumbers": {
+                "items": {
+                  "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                  "example": "1st"
+                }
+              },
+              "days": {
+                "items": {
+                  "description": "Day of the Month\n",
+                  "Day": {
+                    "maximum": 31,
+                    "description": "Specifies the date in a month.",
+                    "example": 30
+                  }
+                }
+              },
+              "months": {
+                "items": {
+                  "description": "Month of the Year within an Annual cycle.\n",
+                  "Month": {
+                    "description": "Specifies a month number.",
+                    "example": "12"
+                  }
+                }
+              },
+              "startDay": {
+                "MonthDay": {
+                  "description": "A particular point in the year expressed in the MM-DD format.",
+                  "example": "04-17"
+                }
+              },
+              "numberOfTimes": {
+                "description": "Number of times the event will be repeated.\n",
+                "example": 4
+              }
+            }
+          }
+        },
+        "communicationMethod": {
+          "CommunicationChannelName": {
+            "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+            "example": "Email"
+          }
+        },
+        "codes": {
+          "description": "Codes related to statements or internal handling codes asociated with the statement. Possible Values: CombinedCode, SpecialStatement, DetailsFormat, StatementGroup, ProfitabilityOption.\n",
+          "items": {
+            "GenericCode": {
+              "required": [
+                "name",
+                "value"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the code in PascalCase.\n",
+                  "example": "AccountingGroup"
+                },
+                "value": {
+                  "description": "Code value.",
+                  "example": "195"
+                },
+                "description": {
+                  "Title": {
+                    "example": "This is a Title."
+                  }
+                }
+              },
+              "description": "Generic code definition."
+            }
+          }
+        },
+        "identifiers": {
+          "description": "Identification of statement instances and related. Possible values: schemeName: LastCombinedStatement, CombinedStatementAccountId\n",
+          "items": {
+            "GenericIdentification": {
+              "required": [
+                "number",
+                "schemeName"
+              ],
+              "properties": {
+                "number": {
+                  "description": "Unique and unambiguous identification.",
+                  "example": "123-45-6789"
+                },
+                "schemeName": {
+                  "description": "Name of the identification scheme.\n"
+                },
+                "issuer": {
+                  "description": "Entity that assigns the identification.",
+                  "example": "UnitedStates"
+                },
+                "issueDate": {
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                },
+                "expirationDate": {
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "templateCode": {
+          "StatementTemplateId": {
+            "description": "Template used to create the statement document. This is an external code provided by the account servicer. \n",
+            "example": "1"
+          }
+        },
+        "lastStatementPeriod": {
+          "Period": {
+            "DatePeriod": {
+              "properties": {
+                "fromDateTime": {
+                  "description": "Date and time at which the period starts.",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "upToDateTime": {
+                  "description": "Date and time at which the period ends.",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                }
+              }
+            },
+            "properties": {
+              "periodNumber": {
+                "description": "Sequence number of the period."
+              },
+              "periodName": {
+                "PeriodName": {
+                  "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                }
+              }
+            }
+          }
+        },
+        "nextStatementPeriod": {
+          "Period": {
+            "DatePeriod": {
+              "properties": {
+                "fromDateTime": {
+                  "description": "Date and time at which the period starts.",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "upToDateTime": {
+                  "description": "Date and time at which the period ends.",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                }
+              }
+            },
+            "properties": {
+              "periodNumber": {
+                "description": "Sequence number of the period."
+              },
+              "periodName": {
+                "PeriodName": {
+                  "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                }
+              }
+            }
+          }
+        },
+        "lastStatementDate": {
+          "description": "The date of the last statement.\n",
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        },
+        "previousStatementDate": {
+          "description": "The date of the statement previous from the last.\n",
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        },
+        "lastRegularStatementDate": {
+          "description": "The date of the last regular statement.\n",
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        },
+        "truncationOptions": {
+          "items": {
+            "description": "Options to indicate if the physical items are enclosed with an account statement. Possible Values:  ItemsIncluded, ItemsNotIncluded, CIPModuleOnly, NotIcludedDiscrepancyReport, ChecksNotIncluded, DepositsNotIncluded, HandFile\n",
+            "example": "ItemsIncluded"
+          }
+        },
+        "accountNameIndicator": {
+          "description": "Indicates whether the account name is printed on the statement."
+        },
+        "balances": {
+          "description": "Statement total amounts",
+          "readOnly": true,
+          "items": {
+            "Balance": {
+              "required": [
+                "balanceName"
+              ],
+              "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+              "Period": {
+                "DatePeriod": {
+                  "properties": {
+                    "fromDateTime": {
+                      "description": "Date and time at which the period starts.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    },
+                    "upToDateTime": {
+                      "description": "Date and time at which the period ends.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    }
+                  }
+                },
+                "properties": {
+                  "periodNumber": {
+                    "description": "Sequence number of the period."
+                  },
+                  "periodName": {
+                    "PeriodName": {
+                      "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                    }
+                  }
+                }
+              },
+              "properties": {
+                "balanceName": {
+                  "BalanceName": {
+                    "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                    "example": "Available"
+                  }
+                },
+                "amount": {
+                  "Amount": {
+                    "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                    "example": "100"
+                  }
+                },
+                "count": {
+                  "description": "Number of transactions added to the amount.\n"
+                },
+                "currency": {
+                  "CurrencyCode": {
+                    "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                    "example": "USD"
+                  }
+                },
+                "calculationDate": {
+                  "description": "Specifies the date and time at which the balance is calculated.",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "codes": {
+                  "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                  "items": {
+                    "GenericCode": {
+                      "required": [
+                        "name",
+                        "value"
+                      ],
+                      "properties": {
+                        "name": {
+                          "description": "Name of the code in PascalCase.\n",
+                          "example": "AccountingGroup"
+                        },
+                        "value": {
+                          "description": "Code value.",
+                          "example": "195"
+                        },
+                        "description": {
+                          "Title": {
+                            "example": "This is a Title."
+                          }
+                        }
+                      },
+                      "description": "Generic code definition."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "preferredLanguage": {
+          "PreferredLanguage": {
+            "description": "Language of the contact person. Names according to the language list provided in the ISO 639-1 codes. Some possible values: Chinese, Spanish, French, English, Japanese, Italian, German, Default.\n",
+            "example": "English"
+          }
+        },
+        "combineType": {
+          "description": "Indicates whether account transactions are printed on a combined statement. Possible combinations: CheckingStatement, SavingsSatement, PrimaryAccount, SecondaryAccount.\n",
+          "example": "SavingsSatement"
+        }
+      },
+      "description": "Specifies statement details. How often statements will be sent, in which format.\n"
+    },
+    "properties": {
+      "statementBalance": {
+        "description": "The balance calculated at the end of the billing cycle up to the payment closing date.\n",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "paymentClosingDate": {
+        "description": "Last day of your billing cycle.",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "paymentDueDate": {
+        "description": "The date by which is needed to pay the issuer to avoid interest charges.\n",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "minimumPayment": {
+        "description": "The minimum monthly payment is the lowest amount a customer can pay on their revolving credit account per month to remain in good standing with the credit card company.\n",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "lastPaymentDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "lastPaymentAmount": {
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      }
+    }
+  }
+}

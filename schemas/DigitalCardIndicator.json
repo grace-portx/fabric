@@ -1,0 +1,5 @@
+{
+  "DigitalCardIndicator": {
+    "description": "Indicates whether the payment card is digital or physical.    \n"
+  }
+}

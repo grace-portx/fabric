@@ -1,0 +1,6 @@
+{
+  "CalculationBasis": {
+    "description": "Specifies the calculation basis of a charge or fee. Some possible ISO 20022 compliant values are:\n    Average, Daily, Monthly, Annual, FullTerm, RemainingTerm, Monthly78th\n\n    \n    \n    \n",
+    "example": "Monthly"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "ComercialLogo": {
+    "description": "Commercial logo of the organization. Max length of 32K, base64 encoded. \n"
+  }
+}
