@@ -1,0 +1,5 @@
+{
+  "AuditActivityType": {
+    "description": "Maintenance activity of a resource. Possible values: Transaction, Modification, Deposit, Withdrawal, Creation, DirectDeposit, CardActivation, CardActivationByCallerId, CardActivationByCodeAndCallerId, Closure\n"
+  }
+}

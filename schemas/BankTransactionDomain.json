@@ -1,0 +1,6 @@
+{
+  "BankTransactionDomain": {
+    "description": "Specifies the bank transaction code domain. Some possible ISO 20022 compliant values are: \n Payments, CashManagement, Loans, Deposits, TradeServices, Syndications, Securities, \n AccountManagement, \n",
+    "example": "Payments"
+  }
+}

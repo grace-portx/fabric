@@ -1,0 +1,6 @@
+{
+  "AccountName": {
+    "description": "Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.",
+    "example": "Hermes PD_CA 0002"
+  }
+}

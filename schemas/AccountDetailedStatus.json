@@ -1,0 +1,159 @@
+{
+  "AccountDetailedStatus": {
+    "properties": {
+      "statusName": {
+        "AccountStatus": {
+          "description": "Specifies the current primary status of an account. Possible values are:\n Enabled, \n Dormant,\n Disable,\n Deleted,\n Pending, \n Form.\n Pending, \n Denied, \n Review,\n Approve,\n ChargeOff,\n Active,\n PaymentPastDue,\n Bankruptcy,\n AuthorizationProhibited,\n InterestProhibited,\n Closed, Restricted.\n",
+          "example": "Active"
+        }
+      },
+      "statusDateAndTime": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "reason": {
+        "StatusReason": {
+          "description": "Reason for the status. Possible Values: AbortedClearingTimeout, AbortedClearingFatalError, AbortedSettlementTimeout, AbortedSettlementFatalError,TimeoutCreditorAgent, TimeoutInstructedAgent, OfflineAgent, OfflineCreditorAgent, ErrorCreditorAgent, ErrorInstructedAgent, TimeoutDebtorAgent,IncorrectAccountNumber, InvalidDebtorAccountNumber,InvalidCreditorAccountNumber, ClosedAccountNumber,ClosedDebtorAccountNumber, BlockedAccount,ClosedCreditorAccountNumber, InvalidBranchCode,InvalidAccountCurrency, InvalidDebtorAccountCurrency,InvalidCreditorAccountCurrency, InvalidAccountType,InvalidDebtorAccountType,InvalidCreditorAccountType,AccountDetailsChanged, CardNumberInvalid, TransactionForbidden, InvalidBankOperationCode, TransactionNotSupported, InvalidAgentCountry, InvalidDebtorAgentCountry, InvalidCreditorAgentCountry, UnsuccesfulDirectDebit, InvalidAccessRights,PaymentNotReceived, AgentSuspended,CreditorAgentSuspended, NotAllowedBookTransfer, ForbiddenReturnPayment, IncorrectAgent, ZeroAmount, NotAllowedAmount, NotAllowedCurrency, InsufficientFunds, Duplication, TooLowAmount, BlockedAmount, WrongAmount, InvalidControlSum, InvalidTransactionCurrency, InvalidAmount, AmountExceedsClearingSystemLimit, AmountExceedsAgreedLimit, AmountBelowClearingSystemMinimum, InvalidGroupControlSum, InvalidPaymentInfoControlSum, InvalidNumberOfTransactions,InvalidGroupNumberOfTransactions, InvalidPaymentInfoNumberOfTransactions, LimitExceeded, ZeroAmountNotApplied, AmountExceedsSettlementLimit, InconsistenWithEndCustomer, MissingCreditorAddress, UnrecognisedInitiatingParty, UnknownEndCustomer, MissingDebtorAddress, MissingDebtorName, InvalidCountry, InvalidDebtorCountry, InvalidCreditorCountry, InvalidCountryOfResidence, InvalidDebtorCountryOfResidence, InvalidCreditorCountryOfResidence, InvalidIdentificationCode, InvalidDebtorIdentificationCode, InvalidCreditorIdentificationCode, InvalidContactDetails, InvalidChargeBearerCode, InvalidNameLength, MissingName, MissingCreditorName, AccountProxyInvalid, CheckERI, RequestedExecutionDateOrRequestedCollectionDateTooFarInFuture, RequestedExecutionDateOrRequestedCollectionDateTooFarInPast, ElementIsNotToBeUsedAtB-andC-Level, MandateChangesNotAllowed, InformationOnMandateChangesMissing, CreditorIdentifierIncorrect, CreditorIdentifierNotUnambiguouslyAtTransaction-Level, OriginalDebtorAccountIsNotToBeUsed, OriginalDebtorAgentIsNotToBeUsed, ElementContentIncludesMoreThan140Characters, ElementContentFormallyIncorrect, ElementNotAdmitted, ValuesWillBeSetToNextTARGETday, DecimalPointsNotCompatibleWithCurrency, RequiredCompulsoryElementMissing, COREandB2BwithinOnemessage, ChequeSettledOnCreditorAccount, CreditorBankIsNotRegistered, IncorrectCurrency, RequestedByCustomer, DebtorBankIsNotRegistered,ElectronicSignaturesCorrect, OrderCancelled, OrderNotCancelled, OrderRejected, OrderForwardedForPostprocessing, TransferOrder, ProcessingOK, DecompressionError, DecryptionError, DataSignRequested, UnknownDataSignFormat, SignerCertificateRevoked, SignerCertificateNotValid, IncorrectSignerCertificate, SignerCertificationAuthoritySignerNotValid, NotAllowedPayment, NotAllowedAccount, NotAllowedNumberOfTransaction, Signer1CertificateRevoked, Signer1CertificateNotValid, IncorrectSigner1Certificate, SignerCertificationAuthoritySigner1NotValid, UserDoesNotExist, IdenticalSignatureFound, PublicKeyVersionIncorrect, DifferentOrderDataInSignatures, RepeatOrder, ElectronicSignatureRightsInsufficient, Signer2CertificateRevoked, Signer2CertificateNotValid, IncorrectSigner2Certificate, SignerCertificationAuthoritySigner2NotValid, WaitingTimeExpired, OrderFileDeleted, UserSignedMultipleTimes, UserNotYetActivated, InvalidDate, InvalidCreationDate, InvalidNonProcessingDate, FutureDateNotSupported, InvalidCutOffDate, ExecutionDateChanged, DuplicateMessageID, DuplicatePaymentInformationID, DuplicateTransaction, DuplicateEndToEndID, DuplicateInstructionID, DuplicatePayment, CorrespondentBankNotPossible, BalanceInfoRequest, SettlementFailed, SettlementSystemNotAvailable, ERIOptionNotSupported, InvalidFileFormat, SyntaxError, InvalidPaymentTypeInformation, InvalidServiceLevelCode, InvalidLocalInstrumentCode, InvalidCategoryPurposeCode, InvalidPurpose, InvalidEndToEndId, InvalidChequeNumber, BankSystemProcessingError, ClearingRequestAborted, PaymentTransferredAndTracked, PaymentTransferredAndNotTracked, CreditDebitNotConfirmed, CreditPendingDocuments, CreditPendingFunds, DeliveredWithServiceLevel, DeliveredWIthoutServiceLevel, CorrespondingOriginalFileStillNotSent, NoMandate, MissingMandatoryInformationInMandate, CollectionNotDue, RefundRequestByEndCustomer, EndCustomerDeceased, NotSpecifiedReasonCustomerGenerated, NotSpecifiedReasonAgentGenerated, Narrative, NoERI, BankIdentifierIncorrect, InvalidBankIdentifier, InvalidDebtorBankIdentifier, InvalidCreditorBankIdentifier, InvalidBICIdentifier, InvalidDebtorBICIdentifier, InvalidCreditorBICIdentifier, InvalidClearingSystemMemberIdentifier, InvalidDebtorClearingSystemMemberIdentifier, InvalidCreditorClearingSystemMemberIdentifier, InvalidIntermediaryAgent, MissingCreditorSchemeId, RMessageConflict, ReceiverCustomerInformation,NotUniqueTransactionReference, MissingDebtorAccountOrIdentification, MissingDebtorNameOrAddress, MissingCreditorNameOrAddress, RegulatoryReason, RegulatoryInformationInvalid, TaxInformationInvalid, RemittanceInformationInvalid, RemittanceInformationTruncated, InvalidStructuredCreditorReference, InvalidCharacterSet, InvalidDebtorAgentServiceID, InvalidPartyID, ValidRequestForCancellationAcknowledged, UETRFlaggedForCancellation, NetworkStopOfUETR, RequestForCancellationForwarded, RequestForCancellationDeliveryAcknowledgement, SpecificServiceOfferedByDebtorAgent, SpecificServiceOfferedByCreditorAgent, ServiceofClearingSystem, CreditorNotOnWhitelistOfDebtor, CreditorOnBlacklistOfDebtor, MaximumNumberOfDirectDebitTransactionsExceeded, MaximumDirectDebitTransactionAmountExceeded, TransmissonAborted, NoDataAvailable, FileNonReadable, IncorrectFileStructure, TokenInvalid, SenderTokenNotFound, ReceiverTokenNotFound, TokenMissing, TokenCounterpartyMismatch, TokenSingleUse, TokenSuspended, TokenValueLimitExceeded, TokenExpired, InvalidCutOffTime, TransmissionSuccessful, TransferToSignByHand, AuthorisationCancelled, FollowingCancellationRequest, Fraud, NotCompliantGeneric, NoAnswerFromCustomer, ReturnUponUnableToApply, UnduePayment, AlreadyAcceptedRTP, AlreadyExpiredRTP, AlreadyRefusedRTP, AlreadyRejectedRTP, AttachementsNotSupported, ExpiryDateTimeReached, ExpiryDateTooLong, FraudulentOrigin, IncorrectExpiryDateTime, InitialRTPNeverReceived, NonAgreedRTP, NoPaymentGuarantee, PayerOrPayerRTPSPNotReachable, RTPNotSupportedForDebtor, RTPReceivedCanBeProcessed, RTPServiceProviderIdentifierIncorrect, TypeOfPaymentInstrumentNotSupported, UnknownCreditor, OriginalTransactionNotEligibleForRequestedReturn, RequestForCancellationNotFound, SettlementNotReceived\n",
+          "example": "BlockedAccount"
+        }
+      },
+      "reasonDescription": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "details": {
+        "description": "Detailed account status. Possible Values: RegulationDD, Analysis, NewClassCode\n",
+        "items": {
+          "GenericStatus": {
+            "properties": {
+              "statusType": {
+                "description": "Pascal case status type. Possible Values: NSFInstruction, RegulationDD, IRA. Pays, InBox, CashReserve, ChargeOff, RestrictedAccount, AccountVerification, ClassCode, LegalEntity, PrivacyNoticed\n",
+                "example": "RegulationDD"
+              },
+              "statusName": {
+                "description": "Pascal case status name. Possibles Values for IRA status type: NotEligible, Eligible, DistributionDisability, DistributionDeath, DistributionNormal, AccountLinked, AccountNotLinked. Possible values for Pays: Enable, Disable; InBox: NewMessage, Empty; CashReserve: HasCashReserve, DoNotHave; RestrictedAccount: IsRestricted, NotRestricted; ChargeOff: BankSubmitted, Automatic, IntegratedProcessingAutomatic, IntegratedProcessingClosed. PassbookSavings: NotOnline, Online, Manual. AccountVerification: Valid, NotValid. OverdraftProtection: Enable, Disable. ClassCode: New, NotNew. DefaultStatus: Inminent, NotDefault. LegalEntity: LegalEntityCustomer. PrivacyNoticed:  CustomerCanBeDisclosed, CustomerOptOut, CustomerNotOptOut\n",
+                "example": "Active"
+              },
+              "dateAndTime": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "reasonComment": {
+                "Description": {
+                  "example": "This is a description."
+                }
+              },
+              "statusReason": {
+                "description": "Pascal case status reason. Possible Values: NSFInstruction, RegulationDD, IRA.\n",
+                "example": "RegulationDD"
+              }
+            },
+            "description": "Generic status definition."
+          }
+        }
+      },
+      "processEvents": {
+        "description": "Account process event list defined by the account servicer.\n",
+        "items": {
+          "ProcessEvent": {
+            "properties": {
+              "name": {
+                "description": "Human readable pascal case identifier of the process event. Possible list values: YearEndProcessed, MonthEndProcessed, ManuallyControlled\n"
+              },
+              "description": {
+                "Title": {
+                  "example": "This is a Title."
+                }
+              },
+              "spotDates": {
+                "items": {
+                  "SpotDate": {
+                    "properties": {
+                      "name": {
+                        "SpotDateName": {
+                          "description": "Possible values por projected dates: Forecast, Expiration, LastNonFinancial, Escheat. Possible values for past dates: IRALastRollOver. Other possible values: EffectiveDate, ResponseByDate.\n",
+                          "example": "Expiration"
+                        }
+                      },
+                      "date": {
+                        "DateAndTime": {
+                          "example": "2022-04-17T08:00:00Z"
+                        }
+                      }
+                    },
+                    "description": "Relevant date"
+                  }
+                }
+              },
+              "codes": {
+                "description": "Codes related to the external provider account. Possible Values: LookUpReference\n",
+                "items": {
+                  "GenericCode": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the code in PascalCase.\n",
+                        "example": "AccountingGroup"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic code definition."
+                  }
+                }
+              }
+            },
+            "description": "Account process event list defined by the account servicer.\n"
+          }
+        }
+      },
+      "openDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "closeDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "externalAccountIndicator": {
+        "description": "Indicates whether an account is an external entity."
+      },
+      "collateralIndicator": {
+        "description": "Indicates whether an account has been pledged as collateral."
+      },
+      "negotiableIndicator": {
+        "description": "Indicates whether an account is a negotiable instrument."
+      },
+      "closeOption": {
+        "description": "Option for closing an account. Possible Values: DoNotCloseAutomatically, CloseAutomatically\n"
+      },
+      "profitabilityAnalysisStatus": {
+        "description": "Profit analysis status. Possible values: Hight, Low, NotAnalyzed, Analyzed, SystemClosed. \n"
+      },
+      "nonSufficientFundsInstruction": {
+        "description": "Manual NSF decision.\n"
+      },
+      "nonSufficientFunds": {
+        "description": "Automatic NSF decision.\n"
+      }
+    },
+    "description": "Specifies the current state of an account."
+  }
+}

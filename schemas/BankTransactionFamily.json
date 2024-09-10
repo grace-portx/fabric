@@ -1,0 +1,6 @@
+{
+  "BankTransactionFamily": {
+    "description": "Specifies the bank transaction family. Some possible ISO 20022 compliant values are: \n For Payments domain: CustomerCardTransactions, MerchantCardTransactions, IssuedCreditTransfers\n",
+    "example": "CustomerCardTransactions"
+  }
+}

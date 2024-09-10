@@ -1,0 +1,6 @@
+{
+  "BankTransactionSubfamily": {
+    "description": "Specifies the bank transaction subfamily. Some possible ISO 20022 compliant values are: \n For CustomerCardTransactions family: CashDeposit, CashWithdrawal, SmartCardPayment, PointOfSalePaymentDebitCard, CreditCardPayment, CrossBorderCreditCardPayment, CrossBorderCashWithdrawal, InternalBookTransfer, PrincipalPayment, LoanAdvance, \n",
+    "example": "CreditCardPayment"
+  }
+}

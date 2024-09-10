@@ -1,0 +1,18 @@
+{
+  "BankruptcyProfile": {
+    "properties": {
+      "chapter": {
+        "description": "The section on the Bankruptcy Code that sets out the rules and procedures for a particular type of bankruptcy. Possible Values: 7, 11, 13, 12, and 9.\n",
+        "example": "11"
+      },
+      "status": {
+        "description": "Bankruptcy status. Possible values: Petition, Discharged, DebtReaffirmation, DebtReaffirmationRescinded, PlanConfirmed, PlanCompleted, Withdrawn.\n",
+        "example": "Petition"
+      },
+      "statementOption": {
+        "description": "Statement option. Possible Values: RegularBillingStatement,  BankruptcyBillingStatement\n",
+        "example": "RegularBillingStatement"
+      }
+    }
+  }
+}

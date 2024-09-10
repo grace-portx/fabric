@@ -1,0 +1,19 @@
+{
+  "Algorithm": {
+    "properties": {
+      "name": {
+        "description": "Name to describe the algorithm provided. Possible Values: ICSF\n"
+      },
+      "target": {
+        "description": "Attribute name of the algorithm. Possible Values: pIN\n"
+      },
+      "enableIndicator": {
+        "description": "Indicates whether the offset has been calculated."
+      },
+      "offset": {
+        "description": "An attribute offset is a value that is the difference between two attributes. For example, a PIN offset may be the difference between a PIN that is chosen by the customer and one that is assigned by an institution.\n"
+      }
+    },
+    "description": "Algorithm calculus parameters to verify and protect personal identification, numbers or PINs of the card holder or the account holder.\n"
+  }
+}

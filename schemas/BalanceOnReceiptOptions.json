@@ -1,0 +1,5 @@
+{
+  "BalanceOnReceiptOptions": {
+    "description": "Indicates whether the account balance is printed on teller terminal and ATM receipts. Possible Values: PrintWhenPositive, PrintWhenNegative, AllwaysPrint, NotPrint\n\n    \n"
+  }
+}

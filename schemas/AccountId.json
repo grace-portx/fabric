@@ -1,0 +1,6 @@
+{
+  "AccountId": {
+    "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+    "example": "033-DDA-123456"
+  }
+}

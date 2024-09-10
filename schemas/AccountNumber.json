@@ -1,0 +1,6 @@
+{
+  "AccountNumber": {
+    "description": "The account number or Basic Bank Account Number (BBAN). A Basic Bank Account Number (BBAN) is a bank account number that includes the domestic bank code, branch identifier, and account number. It is a unique identifier for a bank account within a specific country.\n",
+    "example": "012345678"
+  }
+}

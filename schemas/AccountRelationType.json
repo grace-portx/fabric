@@ -1,0 +1,6 @@
+{
+  "AccountRelationType": {
+    "description": "Account relation role. Possible values are:\n   Parent,\n   Child, AssociatedAccount, IRAAccount, CombinedStatement, SecondaryCombinedStatement, SummaryAccount, CompesatingAccount. Payment related values: Authorized \n",
+    "example": "Child"
+  }
+}

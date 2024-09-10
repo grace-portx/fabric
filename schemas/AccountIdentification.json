@@ -1,0 +1,16 @@
+{
+  "AccountIdentification": {
+    "properties": {
+      "number": {
+        "description": "Identification assigned by an institution or internally to connect to other applications.\n"
+      },
+      "schemeName": {
+        "description": "Name of the identification scheme, in PascalCase. Possible ISO 20022 compliant values names are:\nIssuerIdentificationNumber, BBANIdentifier, CHIPSUniversalIdentifier, UPICIdentifier, IBANIdentifier. Other possible values: CreditBackIdentification, UniversalLoanIdentifier, CommitmentNumber, RecordNumber, FlexDataRecordNumber, RegistrationNumber, ExternalAccountId\n",
+        "example": "BBANIdentifier"
+      },
+      "issuer": {
+        "description": "Entity that assigns the identification."
+      }
+    }
+  }
+}

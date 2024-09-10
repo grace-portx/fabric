@@ -1,0 +1,6 @@
+{
+  "AccountPayoutName": {
+    "description": "Payout nature of the Account. Possible Values: ClubPay.\n",
+    "example": "ClubPay"
+  }
+}

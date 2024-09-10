@@ -1,0 +1,57 @@
+{
+  "AccountPrintOptions": {
+    "properties": {
+      "accountTitle": {
+        "Title": {
+          "example": "This is a Title."
+        }
+      },
+      "accountTitleOption": {
+        "AccountTitlePrintOption": {
+          "description": "Options to indicate the multiple lists of account owner names. Possible Values: TitleNotPrinted, TitlePrintsBeforeNames, TitlePrintsAfterNames\n"
+        }
+      },
+      "checkNameOption": {
+        "CheckPrintOption": {
+          "description": "Options to indicate the multiple lists of account owner names. Possible Values: JointAnd, JointOr.\n"
+        }
+      },
+      "balanceOnReceiptOverride": {
+        "BalanceOnReceiptOptions": {
+          "description": "Indicates whether the account balance is printed on teller terminal and ATM receipts. Possible Values: PrintWhenPositive, PrintWhenNegative, AllwaysPrint, NotPrint\n\n    \n"
+        }
+      },
+      "nameIndicator": {
+        "description": "Indicates whether the account name is printed on account statements.\n"
+      },
+      "handlingLevels": {
+        "items": {
+          "PrintHandlingLevel": {
+            "description": "Indicates the handling level established. \n"
+          }
+        }
+      },
+      "printOptions": {
+        "items": {
+          "GenericPrintOption": {
+            "properties": {
+              "name": {
+                "PrintOptionName": {
+                  "description": "Name of the print Option. Possible Values: ACHTransaction\n"
+                }
+              },
+              "options": {
+                "items": {
+                  "PrintOption": {
+                    "description": "Print Option. Possible Values for ACHTransaction: Name, SocialSecurityNumber. \n"
+                  }
+                }
+              }
+            },
+            "description": "Print options for the account or parties"
+          }
+        }
+      }
+    }
+  }
+}

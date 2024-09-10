@@ -1,0 +1,23 @@
+{
+  "AccountContractRelatedParty": {
+    "properties": {
+      "partyId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "partyType": {
+        "PartyType": {
+          "description": "Possible values are:\n Person,\n Organization. Also other types of servicer entities: ServicerOfficer, ExternalOrganization\n",
+          "example": "Person"
+        }
+      },
+      "partyName": {
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      }
+    }
+  }
+}

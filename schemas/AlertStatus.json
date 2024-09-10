@@ -1,0 +1,6 @@
+{
+  "AlertStatus": {
+    "description": "Alert status. Possible values: Sent, SentLastNight, Pending, Enable, Disable, FraudAlert. Possible values for CreditBureauAlert: IdentityTheft.\n",
+    "example": "Warning"
+  }
+}

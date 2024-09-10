@@ -1,0 +1,6 @@
+{
+  "AccountOwnershipType": {
+    "description": "Specifies the type of account ownership. Possible ISO 20022 compliant values names are:\n JointAccountWithSurvivorshipRights, JointAccountInCommon, CustodialAccount, SingleOwnerAccount, JointAccount, Corporation, Organization, Business, FormalPartnership, FormalTrust, Nominee, NonProfitOrganization, NotForProfitOrganization, ForProfit, EUResidualEntity, USGovernmentOrganization, GovernmentOrganization, LimitedLiabilityCompany, RegisteredInvestmentCompany, Entrepreneurial, Unincorporated, LimitedPartnership, LimitedLiabilityPartnership, BareOwner, Usufructuary, Fiduciary, ServicerEmployeeAccount, BusinessTrust, FamilyTrust, Estate, PublicFunds, NonUSGovernmentOrganization, Church, Club. More general possible values: Direct, Indirect. \n",
+    "example": "SingleOwnerAccount"
+  }
+}

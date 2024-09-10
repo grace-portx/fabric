@@ -1,0 +1,5 @@
+{
+  "AccountPayoutOption": {
+    "description": "Distinguishes options in payouts products. Possible values: Fixed, Variable\n"
+  }
+}

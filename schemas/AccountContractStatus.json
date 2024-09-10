@@ -1,0 +1,6 @@
+{
+  "AccountContractStatus": {
+    "description": "Specifies the current status of an account contract. Possible values are:\n Active, Expired, GracePeriod, Terminated, Waiver.\n",
+    "example": "Active"
+  }
+}

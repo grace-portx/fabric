@@ -1,0 +1,1491 @@
+{
+  "AccountPayment": {
+    "properties": {
+      "numberOfPayments": {
+        "description": "Number of payments."
+      },
+      "next": {
+        "RepaymentSchedule": {
+          "TransactionCodes": {
+            "properties": {
+              "domain": {
+                "BankTransactionDomain": {
+                  "description": "Specifies the bank transaction code domain. Some possible ISO 20022 compliant values are: \n Payments, CashManagement, Loans, Deposits, TradeServices, Syndications, Securities, \n AccountManagement, \n",
+                  "example": "Payments"
+                }
+              },
+              "family": {
+                "BankTransactionFamily": {
+                  "description": "Specifies the bank transaction family. Some possible ISO 20022 compliant values are: \n For Payments domain: CustomerCardTransactions, MerchantCardTransactions, IssuedCreditTransfers\n",
+                  "example": "CustomerCardTransactions"
+                }
+              },
+              "subFamily": {
+                "BankTransactionSubfamily": {
+                  "description": "Specifies the bank transaction subfamily. Some possible ISO 20022 compliant values are: \n For CustomerCardTransactions family: CashDeposit, CashWithdrawal, SmartCardPayment, PointOfSalePaymentDebitCard, CreditCardPayment, CrossBorderCreditCardPayment, CrossBorderCashWithdrawal, InternalBookTransfer, PrincipalPayment, LoanAdvance, \n",
+                  "example": "CreditCardPayment"
+                }
+              },
+              "codes": {
+                "description": "Additional transaction codes.",
+                "items": {
+                  "GenericTransactionCode": {
+                    "required": [
+                      "code",
+                      "codeName",
+                      "codeType"
+                    ],
+                    "properties": {
+                      "codeType": {
+                        "description": "Code type in PascalCase form. Possible values are: DetailBAI, SummaryBAI, TransactionCode.\n",
+                        "example": "DetailBAI"
+                      },
+                      "name": {
+                        "description": "Name of the code in PascalCase. Possible values: ResponseCode, PromotionCode, Domain, Family, Subfamily, MT940, SourceCode, TaxDeferredContributionCode.\n"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic transaction code definition."
+                  }
+                }
+              }
+            },
+            "description": "Generic transaction code definition."
+          },
+          "properties": {
+            "repaymentScheduleId": {
+              "description": "Unique and unambiguous identification of the payment schedule.\n",
+              "Id": {
+                "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+              }
+            },
+            "amount": {
+              "description": "Amount to be paid \n",
+              "PositiveAmount": {
+                "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                "example": "100"
+              }
+            },
+            "minimumDueAmount": {
+              "description": "Minimum payment amount due for the account\n",
+              "PositiveAmount": {
+                "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                "example": "100"
+              }
+            },
+            "expectedDate": {
+              "description": "Expected date whereby the amount must be paid.\n",
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "dueDate": {
+              "description": "Latest date whereby the amount of money must be paid.\n",
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "repaymentType": {
+              "LoanPaymentType": {
+                "description": "Possible values are: \n Interest,\n Principal,\n Curtailment.\n",
+                "example": "Principal"
+              }
+            },
+            "identifiers": {
+              "items": {
+                "PaymentIdentification": {
+                  "required": [
+                    "number"
+                  ],
+                  "properties": {
+                    "number": {
+                      "description": "Unique and unambiguous identification of a payment."
+                    },
+                    "schemeName": {
+                      "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                      "example": "UETR"
+                    },
+                    "issuer": {
+                      "description": "Entity that assigns the identification.",
+                      "example": "Banc of California"
+                    }
+                  }
+                }
+              }
+            },
+            "balances": {
+              "description": "Other payment amounts",
+              "items": {
+                "Balance": {
+                  "required": [
+                    "balanceName"
+                  ],
+                  "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+                  "Period": {
+                    "DatePeriod": {
+                      "properties": {
+                        "fromDateTime": {
+                          "description": "Date and time at which the period starts.",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        },
+                        "upToDateTime": {
+                          "description": "Date and time at which the period ends.",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        }
+                      }
+                    },
+                    "properties": {
+                      "periodNumber": {
+                        "description": "Sequence number of the period."
+                      },
+                      "periodName": {
+                        "PeriodName": {
+                          "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "balanceName": {
+                      "BalanceName": {
+                        "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                        "example": "Available"
+                      }
+                    },
+                    "amount": {
+                      "Amount": {
+                        "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                        "example": "100"
+                      }
+                    },
+                    "count": {
+                      "description": "Number of transactions added to the amount.\n"
+                    },
+                    "currency": {
+                      "CurrencyCode": {
+                        "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                        "example": "USD"
+                      }
+                    },
+                    "calculationDate": {
+                      "description": "Specifies the date and time at which the balance is calculated.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    },
+                    "codes": {
+                      "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                      "items": {
+                        "GenericCode": {
+                          "required": [
+                            "name",
+                            "value"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the code in PascalCase.\n",
+                              "example": "AccountingGroup"
+                            },
+                            "value": {
+                              "description": "Code value.",
+                              "example": "195"
+                            },
+                            "description": {
+                              "Title": {
+                                "example": "This is a Title."
+                              }
+                            }
+                          },
+                          "description": "Generic code definition."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "An amount that must be paid no sooner than the expected payment date and no later than the due date.\n"
+        }
+      },
+      "last": {
+        "Repayment": {
+          "RepaymentSchedule": {
+            "TransactionCodes": {
+              "properties": {
+                "domain": {
+                  "BankTransactionDomain": {
+                    "description": "Specifies the bank transaction code domain. Some possible ISO 20022 compliant values are: \n Payments, CashManagement, Loans, Deposits, TradeServices, Syndications, Securities, \n AccountManagement, \n",
+                    "example": "Payments"
+                  }
+                },
+                "family": {
+                  "BankTransactionFamily": {
+                    "description": "Specifies the bank transaction family. Some possible ISO 20022 compliant values are: \n For Payments domain: CustomerCardTransactions, MerchantCardTransactions, IssuedCreditTransfers\n",
+                    "example": "CustomerCardTransactions"
+                  }
+                },
+                "subFamily": {
+                  "BankTransactionSubfamily": {
+                    "description": "Specifies the bank transaction subfamily. Some possible ISO 20022 compliant values are: \n For CustomerCardTransactions family: CashDeposit, CashWithdrawal, SmartCardPayment, PointOfSalePaymentDebitCard, CreditCardPayment, CrossBorderCreditCardPayment, CrossBorderCashWithdrawal, InternalBookTransfer, PrincipalPayment, LoanAdvance, \n",
+                    "example": "CreditCardPayment"
+                  }
+                },
+                "codes": {
+                  "description": "Additional transaction codes.",
+                  "items": {
+                    "GenericTransactionCode": {
+                      "required": [
+                        "code",
+                        "codeName",
+                        "codeType"
+                      ],
+                      "properties": {
+                        "codeType": {
+                          "description": "Code type in PascalCase form. Possible values are: DetailBAI, SummaryBAI, TransactionCode.\n",
+                          "example": "DetailBAI"
+                        },
+                        "name": {
+                          "description": "Name of the code in PascalCase. Possible values: ResponseCode, PromotionCode, Domain, Family, Subfamily, MT940, SourceCode, TaxDeferredContributionCode.\n"
+                        },
+                        "value": {
+                          "description": "Code value.",
+                          "example": "195"
+                        },
+                        "description": {
+                          "Title": {
+                            "example": "This is a Title."
+                          }
+                        }
+                      },
+                      "description": "Generic transaction code definition."
+                    }
+                  }
+                }
+              },
+              "description": "Generic transaction code definition."
+            },
+            "properties": {
+              "repaymentScheduleId": {
+                "description": "Unique and unambiguous identification of the payment schedule.\n",
+                "Id": {
+                  "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+                }
+              },
+              "amount": {
+                "description": "Amount to be paid \n",
+                "PositiveAmount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                  "example": "100"
+                }
+              },
+              "minimumDueAmount": {
+                "description": "Minimum payment amount due for the account\n",
+                "PositiveAmount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                  "example": "100"
+                }
+              },
+              "expectedDate": {
+                "description": "Expected date whereby the amount must be paid.\n",
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              },
+              "dueDate": {
+                "description": "Latest date whereby the amount of money must be paid.\n",
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              },
+              "repaymentType": {
+                "LoanPaymentType": {
+                  "description": "Possible values are: \n Interest,\n Principal,\n Curtailment.\n",
+                  "example": "Principal"
+                }
+              },
+              "identifiers": {
+                "items": {
+                  "PaymentIdentification": {
+                    "required": [
+                      "number"
+                    ],
+                    "properties": {
+                      "number": {
+                        "description": "Unique and unambiguous identification of a payment."
+                      },
+                      "schemeName": {
+                        "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                        "example": "UETR"
+                      },
+                      "issuer": {
+                        "description": "Entity that assigns the identification.",
+                        "example": "Banc of California"
+                      }
+                    }
+                  }
+                }
+              },
+              "balances": {
+                "description": "Other payment amounts",
+                "items": {
+                  "Balance": {
+                    "required": [
+                      "balanceName"
+                    ],
+                    "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+                    "Period": {
+                      "DatePeriod": {
+                        "properties": {
+                          "fromDateTime": {
+                            "description": "Date and time at which the period starts.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          },
+                          "upToDateTime": {
+                            "description": "Date and time at which the period ends.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          }
+                        }
+                      },
+                      "properties": {
+                        "periodNumber": {
+                          "description": "Sequence number of the period."
+                        },
+                        "periodName": {
+                          "PeriodName": {
+                            "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                          }
+                        }
+                      }
+                    },
+                    "properties": {
+                      "balanceName": {
+                        "BalanceName": {
+                          "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                          "example": "Available"
+                        }
+                      },
+                      "amount": {
+                        "Amount": {
+                          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                          "example": "100"
+                        }
+                      },
+                      "count": {
+                        "description": "Number of transactions added to the amount.\n"
+                      },
+                      "currency": {
+                        "CurrencyCode": {
+                          "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                          "example": "USD"
+                        }
+                      },
+                      "calculationDate": {
+                        "description": "Specifies the date and time at which the balance is calculated.",
+                        "DateAndTime": {
+                          "example": "2022-04-17T08:00:00Z"
+                        }
+                      },
+                      "codes": {
+                        "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                        "items": {
+                          "GenericCode": {
+                            "required": [
+                              "name",
+                              "value"
+                            ],
+                            "properties": {
+                              "name": {
+                                "description": "Name of the code in PascalCase.\n",
+                                "example": "AccountingGroup"
+                              },
+                              "value": {
+                                "description": "Code value.",
+                                "example": "195"
+                              },
+                              "description": {
+                                "Title": {
+                                  "example": "This is a Title."
+                                }
+                              }
+                            },
+                            "description": "Generic code definition."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "An amount that must be paid no sooner than the expected payment date and no later than the due date.\n"
+          },
+          "TransactionPaymentDetails": {
+            "properties": {
+              "paymentId": {
+                "PaymentId": {
+                  "description": "Identification of the Payment.",
+                  "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+                }
+              },
+              "reversalIndicator": {
+                "ReversalIndicator": {
+                  "description": "Indicates whether or not the transaction is the result of a reversal.\nUsage: This element should only be present if the entry is the result of a reversal.\nIf the CreditDebitIndicator is Credit and ReversalIndicator is Yes, the original operation was a debit entry.\nIf the CreditDebitIndicator is Debit and ReversalIndicator is Yes, the original operation was a credit entry.\n"
+                }
+              },
+              "remittanceInformation": {
+                "RemittanceInformation": {
+                  "required": [
+                    "documentType",
+                    "remittanceNumber"
+                  ],
+                  "properties": {
+                    "remittanceNumber": {
+                      "description": "Unique and unambiguous identification of the remittance document\n"
+                    },
+                    "documentType": {
+                      "description": "Specifies a type of financial or commercial document. Possible values are: MeteredServiceInvoice, CreditNoteRelatedToFinancialAdjustment, DebitNoteRelatedToFinancialAdjustment, CommercialInvoice, CreditNote, DebitNote, HireInvoice, SelfBilledInvoice, CommercialContract, StatementOfAccount, DispatchAdvice, BillOfLading, Voucher, AccountReceivableOpenItem, TradeServicesUtilityTransaction, PurchaseOrded\n"
+                    }
+                  },
+                  "description": "Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system.\n"
+                }
+              },
+              "identifiers": {
+                "items": {
+                  "PaymentIdentification": {
+                    "required": [
+                      "number"
+                    ],
+                    "properties": {
+                      "number": {
+                        "description": "Unique and unambiguous identification of a payment."
+                      },
+                      "schemeName": {
+                        "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                        "example": "UETR"
+                      },
+                      "issuer": {
+                        "description": "Entity that assigns the identification.",
+                        "example": "Banc of California"
+                      }
+                    }
+                  }
+                }
+              },
+              "valueDate": {
+                "description": "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit entry.\n  Usage: If entry status is pending and value date is present, then the value date refers to an expected/requested value date.\n",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "bookingDate": {
+                "description": "Date and time when an entry is posted to an account on the account servicer's books.\nUsage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.\n",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "charges": {
+                "description": "All charges and taxes applied to the transaction. Also can include interests if the bank does not discrimate between them. \n",
+                "items": {
+                  "TransactionCharge": {
+                    "required": [
+                      "amount",
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "ChargeName": {
+                          "description": "Name of the charge calculation in PascalCase. Possible values: Fee, Overdraft, CardLatePayment, CashAdvance, LatePayment, CashWithdrawal, EarlyWithdrawal, Dormant, EIM, ATM, BillPayment, FDIC, Overdraft, OverdraftInterest, OverdraftCourtesy. Service Charge values: AutomaticActivityCharge, MaintenanceActivityCharge, MaintenanceServiceCharge. ServiceCharge, ServiceChargeCreditBack. Also other external codes to identify the charge. \n",
+                          "example": "CardLatePayment"
+                        }
+                      },
+                      "description": {
+                        "Description": {
+                          "example": "This is a description."
+                        }
+                      },
+                      "amount": {
+                        "description": "Amount of payment aplied to principal, if the adjustment value is included; otherwise the total amount of the charge.\n",
+                        "Amount": {
+                          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                          "example": "100"
+                        }
+                      },
+                      "adjustment": {
+                        "description": "Amount of payment aplied to charges.\n",
+                        "Amount": {
+                          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                          "example": "100"
+                        }
+                      }
+                    },
+                    "description": "Provides information on a charge included in the entry amount.\n"
+                  }
+                }
+              },
+              "interests": {
+                "description": "All interests included in the transaction amount.",
+                "items": {
+                  "TransactionInterest": {
+                    "required": [
+                      "amount",
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "InterestName": {
+                          "description": "Name in PascalCase of the interest that applies to the account. For instance, Deposit. Also identifications of the interest or charge.\n",
+                          "example": "Deposit"
+                        }
+                      },
+                      "amount": {
+                        "Amount": {
+                          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                          "example": "100"
+                        }
+                      }
+                    },
+                    "description": "Provides information on an interest included in the entry amount.\n"
+                  }
+                }
+              }
+            }
+          },
+          "properties": {
+            "paymentDate": {
+              "description": "Original date on which the payment was posted to the account.\n",
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "cycleDate": {
+              "description": "Date of the billing cycle for the account.\n",
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "paymentReason": {
+              "PaymentPurpose": {
+                "description": "Underlying reason for the payment transaction.\nUsage: Purpose is used to provide information concerning the nature of the payment. Possible Values: BillerSubscriberIdentification, BankLoanDelayedDrawFunding, BankLoanFees, BankLoanFundingMemo, BankLoanAccruedInterestPayment, BankLoanPrincipalPaydown, CardBulkClearing, CardPaymentWithCashBack, CashDisbursementCashSettlement, CashDisbursementWithSurcharging, CardDeferredPayment, OriginalCredit, QuasiCash, EPurseTopUp, FeeCollection, MobileTopUp, AccountManagement, CashManagementTransfer, CollectionPayment, CashDisbursementCashManagement, Deposit, IntraCompanyPayment, IntraPartyPayment, LiquidityManagement, Netting, BondForward, CrossCurrencyIRS, CCPClearedInitialMargin, CCPClearedVariationMargin, CCPClearedInitialMarginSegregatedCash, CreditDefaultSwap, CrossProduct, CreditSupport, CreditLine, EquityOption, EquitySwap, ExoticOption, ExchangeTradedDerivatives, FixedIncome, ForwardBrokerOwnedCashCollateral, ForwardClientOwnedCashCollateral, ForwardBrokerOwnedCashCollateralSegregated, ForwardClientOwnedSegregatedCashCollateral, DailyMarginOnListedDerivatives, MBSBrokerOwnedCashCollateral, MBSClientOwnedCashCollateral, FuturesInitialMargin, FuturesInitialMarginClientOwnedSegregatedCashCollateral, ClientOwnedOCCPledgedCollateral, OTCOptionBrokerOwnedCashCollateral, OTCOptionClientOwnedCashCollateral,  OTCOptionBrokerOwnedSegregatedCashCollateral, OTCOptionClientOwnedCashSegregatedCashCollateral, FXOption, OTCDerivatives, RepurchaseAgreement, BilateralRepoBrokerOwnedCollateral, RepoClientOwnedCollateral, BilateralRepoBrokerOwnedSegregatedCashCollateral, BilateralRepoClientOwnedSegregatedCashCollateral, ReverseRepurchaseAgreement, SecuritiesBuySellSellBuyBack, SingleCurrencyIRSExotic, SingleCurrencyIRS, SecuritiesCrossProducts, BrokerOwnedCollateralShortSale, ClientOwnedCollateralShortSale, ShortSell, SecuritiesLendingAndBorrowing, SecuredLoan, SwapBrokerOwnedCashCollateral, SwapClientOwnedCashCollateral, Swaption, SwapsBrokerOwnedSegregatedCashCollateral, SwapsClientOwnedSegregatedCashCollateral, ToBeAnnounced, TBABrokerOwnedCashCollateral, TBAClientOwnedCashCollateral, TreasuryCrossProduct, AgriculturalTransfer, AccountsReceivablesEntry, BusinessExpenses, BackOfficeConversionEntry, CommercialPayment, Copyright, PurchaseSaleOfGoods, PurchaseSaleOfGoodsAndServices, PurchaseSaleOfGoodsAndServicesWithCashBack, LicenseFee, MobileP2BPayment, PointOfPurchaseEntry, Royalties, PurchaseSaleOfServices, ServiceCharges, Subscription, SupplierPayment, Commercial, CharityPayment, ConsumerThirdPartyConsolidatedPayment, MobileP2PPayment, GuaranteedEPayment, EPaymentReturn, NonGuaranteedEPayment, Epayment, CarLoanPrincipalRepayment, CompensationPayment, DebitCollectionPayment, GovernmentInsurance, PropertyLoanRepayment, PropertyLoanSettlement, InsurancePremiumCar, InsurancePremiumRefund, PaymentOfInsuranceClaim, InsurancePremium, Interest, LaborInsurance, LifeInsurance, Loan, LoanRepayment, PaymentBasedOnEnforcementOrder, PropertyInsurance, RentalLeaseGeneral, RecurringInstallmentPayment, TrustFund, ForwardForeignExchange, ForeignExchangeRelatedNetting, AdministrativeManagement, AdvancePayment, BearerCheckDomestic, BearerCheckForeign, BuildingMaintenance, BondForwardNetting, CapitalBuilding, CapitalBuildingRetirement, CreditCardPayment, CreditCardBill, CancellationFee, CardGeneratedDirectDebit, TradeSettlementPayment, Costs, CarparkCharges, DebitCardPayment, PrintedOrderDisbursement, DeliverAgainstPayment, Education, FactorUpdateRelatedPayment, FinancialAidInCaseOfNaturalDisaster, LatePaymentOfFeesAndCharges, PaymentOfFees, Gift, GovernmentPayment, IrrevocableCreditCardPayment, IrrevocableDebitCardPayment, InstalmentHirePurchaseAgreement, Installment, InvoicePayment, MultiCurrenyCheckDomestic, MultiCurrenyCheckForeign, MultipleServiceTypes, NotOtherwiseSpecified, OrderChequeDomestic, OrderChequeForeign, OpeningFee, PreauthorizedDebit, PaymentTerms, RepresentedCheckEntry, ReceiptPayment, Rebate, Refund, Rent, AccountOverdraftRepayment, ReimbursementOfAPreviousErroneousTransaction, BilateralRepoInternetNetting, RoundRobin, ReimbursementReceivedCreditTransfer, RelatedRequestToPay, ReceiveAgainstPayment, PaymentSlipInstruction, SplitPayments, Study, TBAPairOffNetting, TelecommunicationsBill, TownCouncilServiceCharges, TelephoneInitiatedTransaction, TMPGClaimPayment, TriPartyRepoInterest, TriPartyRepoNetting, TruncatedPaymentSlip, TravellerCheque, InternetInitiatedTransaction, InstantPayments, InstantPaymentsCancellation, InstantPaymentsForDonations, InstantPaymentsInECommerceWithoutAddressData, InstantPaymentsInECommerceWithAddressData, InstantPaymentsInECommerce, InstantPaymentsAtPOS, InstantPaymentsReturn, InstantPaymentsUnattendedVendingMachineWith2FA, InstantPaymentsUnattendedVendingMachineWithout2FA, Annuity, CustodianManagementFeeInhouse, CapitalFallingDueInhouse, CommodityTransfer, Derivatives, Dividend, ForeignExchange, Hedging, InvestmentAndSecurities, PreciousMetal, Savings, Securities, SecuritiesPurchaseInhouse, TreasuryPayment, UnitTrustPurchase, FuturesNettingPayment, Futures, AnesthesiaServices, ConvalescentCareFacility, DurableMedicaleEquipment, DentalServices, HomeHealthCare, HealthInsurance, HospitalCare, IntermediateCareFacility, LongTermCareFacility, MedicalAidFundContribution, MedicalAidRefund, MedicalServices, VisionCare, CreditDefaultEventPayment, SwapContractFinalPayment, SwapContractPartialPayment, SwapContractResetPayment, SwapContractUpfrontPayment, AdvisoryDonationCopyrightServices, ActiveEmploymentPolicy, Allowance, AlimonyPayment, BabyBonusScheme, ChildBenefit, UnemploymentDisabilityBenefit, BonusPayment, CashCompensationHelplessnessDisability, Commission, CompanySocialLoanPaymentToBank, GuaranteeFundRightsPayment, GovermentWarLegislationTransfer, HousingRelatedContribution, Payroll, PensionFundContribution, PensionPayment, PricePayment, RehabilitationSupport, SalaryPayment, SalaryPensionSumPayment, SocialSecurityBenefit, LendingBuyInNetting, LendingCashCollateralFreeMovement, LendingFees, LendingEquityMarkedToMarketCashCollateral, LendingFixedIncomeMarkedToMarketCashCollateral, LendingUnspecifiedTypeOfMarkedToMarketCashCollateral, LendingRebatePayments, LendingRevenuePayments, LendingClaimPayment, EstateTax, ForeignWorkerLevy, GoodsServicesTax, HousingTax, IncomeTax, NetIncomeTax, PropertyTax, RoadTax, TaxPayment, ValueAddedTaxPayment, WithHolding, TaxRefund, TrailerFeePayment, TrailerFeeRebate, NonUSMutualFundTrailerFeePayment, NonUSMutualFundTrailerFeeRebatePayment, Air, Bus, Ferry, Railway, RoadPricing, CableTVBill, ElectricityBill, Energies, GasBill, NetworkCharge, NetworkCommunication, OtherTelecomRelatedBill, TelephoneBill, Utilities, WaterBill, Bonds, CorporateActions-Bonds, CorporateActions-Equities, CreditCard, DebitCard, Diners, Equities, FleetCard, LowValueCredit, LowValueDebit, MoneyMarket, RapidPaymentInstruction, GamblingOrWageringPayment, LotteryPayment, Amex, ATM, AuthenticatedCollections, PropertyCompletionPayment, PropertyDeposit, PropertyLoanDisbursement, PropertyLoanRefinancing, GovernmentFamilyAllowance, GovernmentHousingAllowance, CashPenalties.\n",
+                "example": "CashManagementTransfer"
+              }
+            },
+            "paymentName": {
+              "description": "Human readable pascal case identifier of the payment concept. Possible values: CurrentLoanNextPayment.\n"
+            },
+            "delinquentDays": {
+              "description": "Number of days delinquent."
+            },
+            "balances": {
+              "description": "Balances status at payment date",
+              "items": {
+                "Balance": {
+                  "required": [
+                    "balanceName"
+                  ],
+                  "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+                  "Period": {
+                    "DatePeriod": {
+                      "properties": {
+                        "fromDateTime": {
+                          "description": "Date and time at which the period starts.",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        },
+                        "upToDateTime": {
+                          "description": "Date and time at which the period ends.",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        }
+                      }
+                    },
+                    "properties": {
+                      "periodNumber": {
+                        "description": "Sequence number of the period."
+                      },
+                      "periodName": {
+                        "PeriodName": {
+                          "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "balanceName": {
+                      "BalanceName": {
+                        "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                        "example": "Available"
+                      }
+                    },
+                    "amount": {
+                      "Amount": {
+                        "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                        "example": "100"
+                      }
+                    },
+                    "count": {
+                      "description": "Number of transactions added to the amount.\n"
+                    },
+                    "currency": {
+                      "CurrencyCode": {
+                        "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                        "example": "USD"
+                      }
+                    },
+                    "calculationDate": {
+                      "description": "Specifies the date and time at which the balance is calculated.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    },
+                    "codes": {
+                      "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                      "items": {
+                        "GenericCode": {
+                          "required": [
+                            "name",
+                            "value"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the code in PascalCase.\n",
+                              "example": "AccountingGroup"
+                            },
+                            "value": {
+                              "description": "Code value.",
+                              "example": "195"
+                            },
+                            "description": {
+                              "Title": {
+                                "example": "This is a Title."
+                              }
+                            }
+                          },
+                          "description": "Generic code definition."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "An amount that was already paid.\n"
+        }
+      },
+      "payments": {
+        "description": "All the payments done, scheduled or not. \n",
+        "items": {
+          "Repayment": {
+            "RepaymentSchedule": {
+              "TransactionCodes": {
+                "properties": {
+                  "domain": {
+                    "BankTransactionDomain": {
+                      "description": "Specifies the bank transaction code domain. Some possible ISO 20022 compliant values are: \n Payments, CashManagement, Loans, Deposits, TradeServices, Syndications, Securities, \n AccountManagement, \n",
+                      "example": "Payments"
+                    }
+                  },
+                  "family": {
+                    "BankTransactionFamily": {
+                      "description": "Specifies the bank transaction family. Some possible ISO 20022 compliant values are: \n For Payments domain: CustomerCardTransactions, MerchantCardTransactions, IssuedCreditTransfers\n",
+                      "example": "CustomerCardTransactions"
+                    }
+                  },
+                  "subFamily": {
+                    "BankTransactionSubfamily": {
+                      "description": "Specifies the bank transaction subfamily. Some possible ISO 20022 compliant values are: \n For CustomerCardTransactions family: CashDeposit, CashWithdrawal, SmartCardPayment, PointOfSalePaymentDebitCard, CreditCardPayment, CrossBorderCreditCardPayment, CrossBorderCashWithdrawal, InternalBookTransfer, PrincipalPayment, LoanAdvance, \n",
+                      "example": "CreditCardPayment"
+                    }
+                  },
+                  "codes": {
+                    "description": "Additional transaction codes.",
+                    "items": {
+                      "GenericTransactionCode": {
+                        "required": [
+                          "code",
+                          "codeName",
+                          "codeType"
+                        ],
+                        "properties": {
+                          "codeType": {
+                            "description": "Code type in PascalCase form. Possible values are: DetailBAI, SummaryBAI, TransactionCode.\n",
+                            "example": "DetailBAI"
+                          },
+                          "name": {
+                            "description": "Name of the code in PascalCase. Possible values: ResponseCode, PromotionCode, Domain, Family, Subfamily, MT940, SourceCode, TaxDeferredContributionCode.\n"
+                          },
+                          "value": {
+                            "description": "Code value.",
+                            "example": "195"
+                          },
+                          "description": {
+                            "Title": {
+                              "example": "This is a Title."
+                            }
+                          }
+                        },
+                        "description": "Generic transaction code definition."
+                      }
+                    }
+                  }
+                },
+                "description": "Generic transaction code definition."
+              },
+              "properties": {
+                "repaymentScheduleId": {
+                  "description": "Unique and unambiguous identification of the payment schedule.\n",
+                  "Id": {
+                    "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+                  }
+                },
+                "amount": {
+                  "description": "Amount to be paid \n",
+                  "PositiveAmount": {
+                    "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                    "example": "100"
+                  }
+                },
+                "minimumDueAmount": {
+                  "description": "Minimum payment amount due for the account\n",
+                  "PositiveAmount": {
+                    "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                    "example": "100"
+                  }
+                },
+                "expectedDate": {
+                  "description": "Expected date whereby the amount must be paid.\n",
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                },
+                "dueDate": {
+                  "description": "Latest date whereby the amount of money must be paid.\n",
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                },
+                "repaymentType": {
+                  "LoanPaymentType": {
+                    "description": "Possible values are: \n Interest,\n Principal,\n Curtailment.\n",
+                    "example": "Principal"
+                  }
+                },
+                "identifiers": {
+                  "items": {
+                    "PaymentIdentification": {
+                      "required": [
+                        "number"
+                      ],
+                      "properties": {
+                        "number": {
+                          "description": "Unique and unambiguous identification of a payment."
+                        },
+                        "schemeName": {
+                          "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                          "example": "UETR"
+                        },
+                        "issuer": {
+                          "description": "Entity that assigns the identification.",
+                          "example": "Banc of California"
+                        }
+                      }
+                    }
+                  }
+                },
+                "balances": {
+                  "description": "Other payment amounts",
+                  "items": {
+                    "Balance": {
+                      "required": [
+                        "balanceName"
+                      ],
+                      "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+                      "Period": {
+                        "DatePeriod": {
+                          "properties": {
+                            "fromDateTime": {
+                              "description": "Date and time at which the period starts.",
+                              "DateAndTime": {
+                                "example": "2022-04-17T08:00:00Z"
+                              }
+                            },
+                            "upToDateTime": {
+                              "description": "Date and time at which the period ends.",
+                              "DateAndTime": {
+                                "example": "2022-04-17T08:00:00Z"
+                              }
+                            }
+                          }
+                        },
+                        "properties": {
+                          "periodNumber": {
+                            "description": "Sequence number of the period."
+                          },
+                          "periodName": {
+                            "PeriodName": {
+                              "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                            }
+                          }
+                        }
+                      },
+                      "properties": {
+                        "balanceName": {
+                          "BalanceName": {
+                            "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                            "example": "Available"
+                          }
+                        },
+                        "amount": {
+                          "Amount": {
+                            "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                            "example": "100"
+                          }
+                        },
+                        "count": {
+                          "description": "Number of transactions added to the amount.\n"
+                        },
+                        "currency": {
+                          "CurrencyCode": {
+                            "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                            "example": "USD"
+                          }
+                        },
+                        "calculationDate": {
+                          "description": "Specifies the date and time at which the balance is calculated.",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        },
+                        "codes": {
+                          "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                          "items": {
+                            "GenericCode": {
+                              "required": [
+                                "name",
+                                "value"
+                              ],
+                              "properties": {
+                                "name": {
+                                  "description": "Name of the code in PascalCase.\n",
+                                  "example": "AccountingGroup"
+                                },
+                                "value": {
+                                  "description": "Code value.",
+                                  "example": "195"
+                                },
+                                "description": {
+                                  "Title": {
+                                    "example": "This is a Title."
+                                  }
+                                }
+                              },
+                              "description": "Generic code definition."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "description": "An amount that must be paid no sooner than the expected payment date and no later than the due date.\n"
+            },
+            "TransactionPaymentDetails": {
+              "properties": {
+                "paymentId": {
+                  "PaymentId": {
+                    "description": "Identification of the Payment.",
+                    "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+                  }
+                },
+                "reversalIndicator": {
+                  "ReversalIndicator": {
+                    "description": "Indicates whether or not the transaction is the result of a reversal.\nUsage: This element should only be present if the entry is the result of a reversal.\nIf the CreditDebitIndicator is Credit and ReversalIndicator is Yes, the original operation was a debit entry.\nIf the CreditDebitIndicator is Debit and ReversalIndicator is Yes, the original operation was a credit entry.\n"
+                  }
+                },
+                "remittanceInformation": {
+                  "RemittanceInformation": {
+                    "required": [
+                      "documentType",
+                      "remittanceNumber"
+                    ],
+                    "properties": {
+                      "remittanceNumber": {
+                        "description": "Unique and unambiguous identification of the remittance document\n"
+                      },
+                      "documentType": {
+                        "description": "Specifies a type of financial or commercial document. Possible values are: MeteredServiceInvoice, CreditNoteRelatedToFinancialAdjustment, DebitNoteRelatedToFinancialAdjustment, CommercialInvoice, CreditNote, DebitNote, HireInvoice, SelfBilledInvoice, CommercialContract, StatementOfAccount, DispatchAdvice, BillOfLading, Voucher, AccountReceivableOpenItem, TradeServicesUtilityTransaction, PurchaseOrded\n"
+                      }
+                    },
+                    "description": "Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system.\n"
+                  }
+                },
+                "identifiers": {
+                  "items": {
+                    "PaymentIdentification": {
+                      "required": [
+                        "number"
+                      ],
+                      "properties": {
+                        "number": {
+                          "description": "Unique and unambiguous identification of a payment."
+                        },
+                        "schemeName": {
+                          "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                          "example": "UETR"
+                        },
+                        "issuer": {
+                          "description": "Entity that assigns the identification.",
+                          "example": "Banc of California"
+                        }
+                      }
+                    }
+                  }
+                },
+                "valueDate": {
+                  "description": "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit entry.\n  Usage: If entry status is pending and value date is present, then the value date refers to an expected/requested value date.\n",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "bookingDate": {
+                  "description": "Date and time when an entry is posted to an account on the account servicer's books.\nUsage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.\n",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "charges": {
+                  "description": "All charges and taxes applied to the transaction. Also can include interests if the bank does not discrimate between them. \n",
+                  "items": {
+                    "TransactionCharge": {
+                      "required": [
+                        "amount",
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "ChargeName": {
+                            "description": "Name of the charge calculation in PascalCase. Possible values: Fee, Overdraft, CardLatePayment, CashAdvance, LatePayment, CashWithdrawal, EarlyWithdrawal, Dormant, EIM, ATM, BillPayment, FDIC, Overdraft, OverdraftInterest, OverdraftCourtesy. Service Charge values: AutomaticActivityCharge, MaintenanceActivityCharge, MaintenanceServiceCharge. ServiceCharge, ServiceChargeCreditBack. Also other external codes to identify the charge. \n",
+                            "example": "CardLatePayment"
+                          }
+                        },
+                        "description": {
+                          "Description": {
+                            "example": "This is a description."
+                          }
+                        },
+                        "amount": {
+                          "description": "Amount of payment aplied to principal, if the adjustment value is included; otherwise the total amount of the charge.\n",
+                          "Amount": {
+                            "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                            "example": "100"
+                          }
+                        },
+                        "adjustment": {
+                          "description": "Amount of payment aplied to charges.\n",
+                          "Amount": {
+                            "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                            "example": "100"
+                          }
+                        }
+                      },
+                      "description": "Provides information on a charge included in the entry amount.\n"
+                    }
+                  }
+                },
+                "interests": {
+                  "description": "All interests included in the transaction amount.",
+                  "items": {
+                    "TransactionInterest": {
+                      "required": [
+                        "amount",
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "InterestName": {
+                            "description": "Name in PascalCase of the interest that applies to the account. For instance, Deposit. Also identifications of the interest or charge.\n",
+                            "example": "Deposit"
+                          }
+                        },
+                        "amount": {
+                          "Amount": {
+                            "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                            "example": "100"
+                          }
+                        }
+                      },
+                      "description": "Provides information on an interest included in the entry amount.\n"
+                    }
+                  }
+                }
+              }
+            },
+            "properties": {
+              "paymentDate": {
+                "description": "Original date on which the payment was posted to the account.\n",
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              },
+              "cycleDate": {
+                "description": "Date of the billing cycle for the account.\n",
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              },
+              "paymentReason": {
+                "PaymentPurpose": {
+                  "description": "Underlying reason for the payment transaction.\nUsage: Purpose is used to provide information concerning the nature of the payment. Possible Values: BillerSubscriberIdentification, BankLoanDelayedDrawFunding, BankLoanFees, BankLoanFundingMemo, BankLoanAccruedInterestPayment, BankLoanPrincipalPaydown, CardBulkClearing, CardPaymentWithCashBack, CashDisbursementCashSettlement, CashDisbursementWithSurcharging, CardDeferredPayment, OriginalCredit, QuasiCash, EPurseTopUp, FeeCollection, MobileTopUp, AccountManagement, CashManagementTransfer, CollectionPayment, CashDisbursementCashManagement, Deposit, IntraCompanyPayment, IntraPartyPayment, LiquidityManagement, Netting, BondForward, CrossCurrencyIRS, CCPClearedInitialMargin, CCPClearedVariationMargin, CCPClearedInitialMarginSegregatedCash, CreditDefaultSwap, CrossProduct, CreditSupport, CreditLine, EquityOption, EquitySwap, ExoticOption, ExchangeTradedDerivatives, FixedIncome, ForwardBrokerOwnedCashCollateral, ForwardClientOwnedCashCollateral, ForwardBrokerOwnedCashCollateralSegregated, ForwardClientOwnedSegregatedCashCollateral, DailyMarginOnListedDerivatives, MBSBrokerOwnedCashCollateral, MBSClientOwnedCashCollateral, FuturesInitialMargin, FuturesInitialMarginClientOwnedSegregatedCashCollateral, ClientOwnedOCCPledgedCollateral, OTCOptionBrokerOwnedCashCollateral, OTCOptionClientOwnedCashCollateral,  OTCOptionBrokerOwnedSegregatedCashCollateral, OTCOptionClientOwnedCashSegregatedCashCollateral, FXOption, OTCDerivatives, RepurchaseAgreement, BilateralRepoBrokerOwnedCollateral, RepoClientOwnedCollateral, BilateralRepoBrokerOwnedSegregatedCashCollateral, BilateralRepoClientOwnedSegregatedCashCollateral, ReverseRepurchaseAgreement, SecuritiesBuySellSellBuyBack, SingleCurrencyIRSExotic, SingleCurrencyIRS, SecuritiesCrossProducts, BrokerOwnedCollateralShortSale, ClientOwnedCollateralShortSale, ShortSell, SecuritiesLendingAndBorrowing, SecuredLoan, SwapBrokerOwnedCashCollateral, SwapClientOwnedCashCollateral, Swaption, SwapsBrokerOwnedSegregatedCashCollateral, SwapsClientOwnedSegregatedCashCollateral, ToBeAnnounced, TBABrokerOwnedCashCollateral, TBAClientOwnedCashCollateral, TreasuryCrossProduct, AgriculturalTransfer, AccountsReceivablesEntry, BusinessExpenses, BackOfficeConversionEntry, CommercialPayment, Copyright, PurchaseSaleOfGoods, PurchaseSaleOfGoodsAndServices, PurchaseSaleOfGoodsAndServicesWithCashBack, LicenseFee, MobileP2BPayment, PointOfPurchaseEntry, Royalties, PurchaseSaleOfServices, ServiceCharges, Subscription, SupplierPayment, Commercial, CharityPayment, ConsumerThirdPartyConsolidatedPayment, MobileP2PPayment, GuaranteedEPayment, EPaymentReturn, NonGuaranteedEPayment, Epayment, CarLoanPrincipalRepayment, CompensationPayment, DebitCollectionPayment, GovernmentInsurance, PropertyLoanRepayment, PropertyLoanSettlement, InsurancePremiumCar, InsurancePremiumRefund, PaymentOfInsuranceClaim, InsurancePremium, Interest, LaborInsurance, LifeInsurance, Loan, LoanRepayment, PaymentBasedOnEnforcementOrder, PropertyInsurance, RentalLeaseGeneral, RecurringInstallmentPayment, TrustFund, ForwardForeignExchange, ForeignExchangeRelatedNetting, AdministrativeManagement, AdvancePayment, BearerCheckDomestic, BearerCheckForeign, BuildingMaintenance, BondForwardNetting, CapitalBuilding, CapitalBuildingRetirement, CreditCardPayment, CreditCardBill, CancellationFee, CardGeneratedDirectDebit, TradeSettlementPayment, Costs, CarparkCharges, DebitCardPayment, PrintedOrderDisbursement, DeliverAgainstPayment, Education, FactorUpdateRelatedPayment, FinancialAidInCaseOfNaturalDisaster, LatePaymentOfFeesAndCharges, PaymentOfFees, Gift, GovernmentPayment, IrrevocableCreditCardPayment, IrrevocableDebitCardPayment, InstalmentHirePurchaseAgreement, Installment, InvoicePayment, MultiCurrenyCheckDomestic, MultiCurrenyCheckForeign, MultipleServiceTypes, NotOtherwiseSpecified, OrderChequeDomestic, OrderChequeForeign, OpeningFee, PreauthorizedDebit, PaymentTerms, RepresentedCheckEntry, ReceiptPayment, Rebate, Refund, Rent, AccountOverdraftRepayment, ReimbursementOfAPreviousErroneousTransaction, BilateralRepoInternetNetting, RoundRobin, ReimbursementReceivedCreditTransfer, RelatedRequestToPay, ReceiveAgainstPayment, PaymentSlipInstruction, SplitPayments, Study, TBAPairOffNetting, TelecommunicationsBill, TownCouncilServiceCharges, TelephoneInitiatedTransaction, TMPGClaimPayment, TriPartyRepoInterest, TriPartyRepoNetting, TruncatedPaymentSlip, TravellerCheque, InternetInitiatedTransaction, InstantPayments, InstantPaymentsCancellation, InstantPaymentsForDonations, InstantPaymentsInECommerceWithoutAddressData, InstantPaymentsInECommerceWithAddressData, InstantPaymentsInECommerce, InstantPaymentsAtPOS, InstantPaymentsReturn, InstantPaymentsUnattendedVendingMachineWith2FA, InstantPaymentsUnattendedVendingMachineWithout2FA, Annuity, CustodianManagementFeeInhouse, CapitalFallingDueInhouse, CommodityTransfer, Derivatives, Dividend, ForeignExchange, Hedging, InvestmentAndSecurities, PreciousMetal, Savings, Securities, SecuritiesPurchaseInhouse, TreasuryPayment, UnitTrustPurchase, FuturesNettingPayment, Futures, AnesthesiaServices, ConvalescentCareFacility, DurableMedicaleEquipment, DentalServices, HomeHealthCare, HealthInsurance, HospitalCare, IntermediateCareFacility, LongTermCareFacility, MedicalAidFundContribution, MedicalAidRefund, MedicalServices, VisionCare, CreditDefaultEventPayment, SwapContractFinalPayment, SwapContractPartialPayment, SwapContractResetPayment, SwapContractUpfrontPayment, AdvisoryDonationCopyrightServices, ActiveEmploymentPolicy, Allowance, AlimonyPayment, BabyBonusScheme, ChildBenefit, UnemploymentDisabilityBenefit, BonusPayment, CashCompensationHelplessnessDisability, Commission, CompanySocialLoanPaymentToBank, GuaranteeFundRightsPayment, GovermentWarLegislationTransfer, HousingRelatedContribution, Payroll, PensionFundContribution, PensionPayment, PricePayment, RehabilitationSupport, SalaryPayment, SalaryPensionSumPayment, SocialSecurityBenefit, LendingBuyInNetting, LendingCashCollateralFreeMovement, LendingFees, LendingEquityMarkedToMarketCashCollateral, LendingFixedIncomeMarkedToMarketCashCollateral, LendingUnspecifiedTypeOfMarkedToMarketCashCollateral, LendingRebatePayments, LendingRevenuePayments, LendingClaimPayment, EstateTax, ForeignWorkerLevy, GoodsServicesTax, HousingTax, IncomeTax, NetIncomeTax, PropertyTax, RoadTax, TaxPayment, ValueAddedTaxPayment, WithHolding, TaxRefund, TrailerFeePayment, TrailerFeeRebate, NonUSMutualFundTrailerFeePayment, NonUSMutualFundTrailerFeeRebatePayment, Air, Bus, Ferry, Railway, RoadPricing, CableTVBill, ElectricityBill, Energies, GasBill, NetworkCharge, NetworkCommunication, OtherTelecomRelatedBill, TelephoneBill, Utilities, WaterBill, Bonds, CorporateActions-Bonds, CorporateActions-Equities, CreditCard, DebitCard, Diners, Equities, FleetCard, LowValueCredit, LowValueDebit, MoneyMarket, RapidPaymentInstruction, GamblingOrWageringPayment, LotteryPayment, Amex, ATM, AuthenticatedCollections, PropertyCompletionPayment, PropertyDeposit, PropertyLoanDisbursement, PropertyLoanRefinancing, GovernmentFamilyAllowance, GovernmentHousingAllowance, CashPenalties.\n",
+                  "example": "CashManagementTransfer"
+                }
+              },
+              "paymentName": {
+                "description": "Human readable pascal case identifier of the payment concept. Possible values: CurrentLoanNextPayment.\n"
+              },
+              "delinquentDays": {
+                "description": "Number of days delinquent."
+              },
+              "balances": {
+                "description": "Balances status at payment date",
+                "items": {
+                  "Balance": {
+                    "required": [
+                      "balanceName"
+                    ],
+                    "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+                    "Period": {
+                      "DatePeriod": {
+                        "properties": {
+                          "fromDateTime": {
+                            "description": "Date and time at which the period starts.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          },
+                          "upToDateTime": {
+                            "description": "Date and time at which the period ends.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          }
+                        }
+                      },
+                      "properties": {
+                        "periodNumber": {
+                          "description": "Sequence number of the period."
+                        },
+                        "periodName": {
+                          "PeriodName": {
+                            "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                          }
+                        }
+                      }
+                    },
+                    "properties": {
+                      "balanceName": {
+                        "BalanceName": {
+                          "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                          "example": "Available"
+                        }
+                      },
+                      "amount": {
+                        "Amount": {
+                          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                          "example": "100"
+                        }
+                      },
+                      "count": {
+                        "description": "Number of transactions added to the amount.\n"
+                      },
+                      "currency": {
+                        "CurrencyCode": {
+                          "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                          "example": "USD"
+                        }
+                      },
+                      "calculationDate": {
+                        "description": "Specifies the date and time at which the balance is calculated.",
+                        "DateAndTime": {
+                          "example": "2022-04-17T08:00:00Z"
+                        }
+                      },
+                      "codes": {
+                        "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                        "items": {
+                          "GenericCode": {
+                            "required": [
+                              "name",
+                              "value"
+                            ],
+                            "properties": {
+                              "name": {
+                                "description": "Name of the code in PascalCase.\n",
+                                "example": "AccountingGroup"
+                              },
+                              "value": {
+                                "description": "Code value.",
+                                "example": "195"
+                              },
+                              "description": {
+                                "Title": {
+                                  "example": "This is a Title."
+                                }
+                              }
+                            },
+                            "description": "Generic code definition."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": "An amount that was already paid.\n"
+          }
+        }
+      },
+      "frequency": {
+        "description": "How often principal payments are due.\n",
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "interestFrequency": {
+        "description": "How often interest payments are due.\n",
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "draftDayAdjuster": {
+        "description": "Number of days before or after an automatic payment is debited from an account.\n",
+        "Day": {
+          "maximum": 31,
+          "description": "Specifies the date in a month.",
+          "example": 30
+        }
+      },
+      "automaticIndicator": {
+        "description": "Indicates whether, prior to the loan going past due, a payment is automatic generated.\n"
+      },
+      "paymentType": {
+        "PaymentType": {
+          "description": "Specifies the type of Payment. Possible values: LiquidityTransfer, OnUs, ACH, Wire, NotOnUs.   \n",
+          "example": "OnUs"
+        }
+      },
+      "firstPaymentDate": {
+        "description": "First payment date\n",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "bill": {
+        "RepaymentBillDetails": {
+          "properties": {
+            "billingDay": {
+              "description": "Identifies the day of the month that billing statements are generated. \n",
+              "Day": {
+                "maximum": 31,
+                "description": "Specifies the date in a month.",
+                "example": 30
+              }
+            },
+            "rebillStatus": {
+              "RepaymentBillStatus": {
+                "description": "Indicates whether a payment will be recalculated, rebilled and notified to the customer. Possible values: NoRequest, RebillRequest, ReNotifyCustomer.\n\n    \n",
+                "example": "RebillRequest"
+              }
+            },
+            "rebillInterestIndicator": {
+              "description": "Indicates whether interest will be rebilled  when transactions occur during the forecast period.\n"
+            },
+            "leadDays": {
+              "description": "Identifies the time between creating a receivable and the due date.\n"
+            },
+            "interestFromDate": {
+              "description": "The statement date interest was billed.\n",
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "interestToDate": {
+              "description": "The due date of the next interest payment due that is not past due.\n",
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "balances": {
+              "description": "Bill balances",
+              "items": {
+                "Balance": {
+                  "required": [
+                    "balanceName"
+                  ],
+                  "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+                  "Period": {
+                    "DatePeriod": {
+                      "properties": {
+                        "fromDateTime": {
+                          "description": "Date and time at which the period starts.",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        },
+                        "upToDateTime": {
+                          "description": "Date and time at which the period ends.",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        }
+                      }
+                    },
+                    "properties": {
+                      "periodNumber": {
+                        "description": "Sequence number of the period."
+                      },
+                      "periodName": {
+                        "PeriodName": {
+                          "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "balanceName": {
+                      "BalanceName": {
+                        "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                        "example": "Available"
+                      }
+                    },
+                    "amount": {
+                      "Amount": {
+                        "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                        "example": "100"
+                      }
+                    },
+                    "count": {
+                      "description": "Number of transactions added to the amount.\n"
+                    },
+                    "currency": {
+                      "CurrencyCode": {
+                        "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                        "example": "USD"
+                      }
+                    },
+                    "calculationDate": {
+                      "description": "Specifies the date and time at which the balance is calculated.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    },
+                    "codes": {
+                      "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                      "items": {
+                        "GenericCode": {
+                          "required": [
+                            "name",
+                            "value"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the code in PascalCase.\n",
+                              "example": "AccountingGroup"
+                            },
+                            "value": {
+                              "description": "Code value.",
+                              "example": "195"
+                            },
+                            "description": {
+                              "Title": {
+                                "example": "This is a Title."
+                              }
+                            }
+                          },
+                          "description": "Generic code definition."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Billing information of the payment\n"
+        }
+      }
+    },
+    "description": "Account payment information."
+  }
+}

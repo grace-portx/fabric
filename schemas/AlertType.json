@@ -1,0 +1,6 @@
+{
+  "AlertType": {
+    "description": "An alert notification type. Possible values: Warning, Urgent, Teller.\n",
+    "example": "Warning"
+  }
+}

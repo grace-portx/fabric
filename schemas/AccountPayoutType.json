@@ -1,0 +1,5 @@
+{
+  "AccountPayoutType": {
+    "description": "Account payout can be classified into two main categories: immediate and deferred. Possible Values: Inmediate, Deferred.\n"
+  }
+}

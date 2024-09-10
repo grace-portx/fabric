@@ -1,0 +1,5 @@
+{
+  "AccountRenewalType": {
+    "description": "The renewal type indicates whether an account automatically renews at maturity. Possible Values: NoTerm, indicates the account has no term; Automatic, indicates automatically renewal; SingleMaturity, indicates not automatically renewed; NoRenewalAllowed.\n"
+  }
+}

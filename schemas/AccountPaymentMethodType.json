@@ -1,0 +1,6 @@
+{
+  "AccountPaymentMethodType": {
+    "description": "Specifies the type of interest payment. Possible values are: Compound, Checking, Savings, Check, Capitalize, TransferToAccount, CertificateOfDeposit, Deposit, DepositLoan, Loan.\n",
+    "example": "Compound"
+  }
+}

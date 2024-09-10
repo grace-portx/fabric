@@ -1,0 +1,532 @@
+{
+  "Agreement": {
+    "description": "Contractual details related to an agreement between parties",
+    "Document": {
+      "properties": {
+        "documentId": {
+          "Id": {
+            "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+          }
+        },
+        "documentReference": {
+          "description": "Document location."
+        },
+        "title": {
+          "Title": {
+            "example": "This is a Title."
+          }
+        },
+        "version": {
+          "description": "Document version indentification."
+        },
+        "signOffDate": {
+          "description": "Signoff date of the document.",
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        },
+        "issueDate": {
+          "description": "Issue date of the document.",
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        },
+        "purpose": {
+          "description": "Specifies the function of the document."
+        }
+      },
+      "description": "General information that unambiguously identifies a document, such as identification number and issue date time.\n"
+    },
+    "DatePeriod": {
+      "properties": {
+        "fromDateTime": {
+          "description": "Date and time at which the period starts.",
+          "DateAndTime": {
+            "example": "2022-04-17T08:00:00Z"
+          }
+        },
+        "upToDateTime": {
+          "description": "Date and time at which the period ends.",
+          "DateAndTime": {
+            "example": "2022-04-17T08:00:00Z"
+          }
+        }
+      }
+    },
+    "properties": {
+      "jurisdiction": {
+        "Jurisdiction": {
+          "description": "Area with a set of laws under the control of a system which are different from neighbouring areas\n",
+          "Place": {
+            "properties": {
+              "countrySubdivision": {
+                "CountrySubdivision": {
+                  "description": "Name of a country subdivision such as state, region, county.",
+                  "example": "Oregon"
+                }
+              },
+              "townName": {
+                "TownName": {
+                  "description": "Name of a built-up area, with defined boundaries, and a local government. Also city name.\n",
+                  "example": "San Diego"
+                }
+              },
+              "country": {
+                "CountryCode": {
+                  "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+                  "example": "US"
+                }
+              }
+            },
+            "description": "Town, CountrySubdivision and Country ."
+          }
+        }
+      },
+      "contact": {
+        "ContactDetails": {
+          "properties": {
+            "structuredName": {
+              "StructuredName": {
+                "required": [
+                  "firstName",
+                  "lastName"
+                ],
+                "properties": {
+                  "firstName": {
+                    "description": "Person given first name.\n",
+                    "example": "Mary"
+                  },
+                  "middleName": {
+                    "description": "Person given middle name.\n",
+                    "example": "Joe"
+                  },
+                  "lastName": {
+                    "description": "Person surname.\n",
+                    "example": "Smith"
+                  },
+                  "middleInitial": {
+                    "description": "Person middle initial.\n",
+                    "example": "J."
+                  },
+                  "suffix": {
+                    "description": "A name suffix in the Western English-Language naming tradition, follows a person's full name and provides additional information about the person. Possible Values:  PhD, Snr, Jnr. Generation order should be expressed with roman numerals: I, II, III, IV, V.\n",
+                    "example": "PhD"
+                  },
+                  "prefix": {
+                    "description": "Name prefixes are typically Dr., Mr., Mrs., Ms.\n",
+                    "example": "Dr."
+                  }
+                },
+                "description": "The structured name is used to initialize the person name with the format <firstName middleName lastName>\n"
+              }
+            },
+            "name": {
+              "description": "Preferred name to contact the person",
+              "PartyName": {
+                "description": "Name by which a party is known and which is usually used to identify that party.",
+                "example": "Jane Birkin"
+              }
+            },
+            "firstContactDate": {
+              "DateAndTime": {
+                "example": "2022-04-17T08:00:00Z"
+              }
+            },
+            "lastContactDate": {
+              "DateAndTime": {
+                "example": "2022-04-17T08:00:00Z"
+              }
+            },
+            "phones": {
+              "items": {
+                "Phone": {
+                  "required": [
+                    "number"
+                  ],
+                  "properties": {
+                    "number": {
+                      "PhoneNumber": {
+                        "description": "The collection of information which identifies a specific phone or FAX number as defined by telecom services.",
+                        "example": "+1-555-1234567"
+                      }
+                    },
+                    "extension": {
+                      "description": "Phone Number Extension."
+                    },
+                    "country": {
+                      "CountryCallingCode": {
+                        "description": "Country calling codes, country dial-in codes, international subscriber dialing (ISD) codes, or most commonly, telephone country codes. Country codes are defined by the International Telecommunication Union (ITU) in ITU-T standards E.123 and E.164. The prefixes enable international direct dialing (IDD).\n"
+                      }
+                    },
+                    "phoneType": {
+                      "description": "Type of phone address. Possible values are:  \nMobile, Landline, Fax, Pager, Modem.\n"
+                    },
+                    "phonePurpose": {
+                      "description": "Purpose of the phone address. Possible values are:   Business, Personal, International.\n"
+                    },
+                    "foreignIndicator": {
+                      "description": "Indicates whether is a foreign phone number"
+                    },
+                    "primaryIndicator": {
+                      "PrimaryContactIndicator": {
+                        "description": "Indicates whether the contact informacion is primary. \n"
+                      }
+                    },
+                    "preferredHourOfDay": {
+                      "TimeOfTheDay": {
+                        "properties": {
+                          "hour": {
+                            "example": "12"
+                          },
+                          "timeZone": {
+                            "TimeZone": {
+                              "description": "A time zone is an area which observes a uniform standard time for legal, commercial and social purposes. Some possible values: Pacific, Mountain, Central, Eastern, GreenwichMean\n",
+                              "example": "Pacific"
+                            }
+                          },
+                          "timeOfTheDay": {
+                            "description": "Time of the day. Possible Values: AfterMidnight, after midnight and  before business day; AfterBusinessDay, after business day and before midnight.\n"
+                          }
+                        }
+                      }
+                    },
+                    "comment": {
+                      "Description": {
+                        "example": "This is a description."
+                      }
+                    },
+                    "period": {
+                      "description": "The period of use of the phone information.",
+                      "DatePeriod": {
+                        "properties": {
+                          "fromDateTime": {
+                            "description": "Date and time at which the period starts.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          },
+                          "upToDateTime": {
+                            "description": "Date and time at which the period ends.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "codes": {
+                      "items": {
+                        "GenericCode": {
+                          "required": [
+                            "name",
+                            "value"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the code in PascalCase.\n",
+                              "example": "AccountingGroup"
+                            },
+                            "value": {
+                              "description": "Code value.",
+                              "example": "195"
+                            },
+                            "description": {
+                              "Title": {
+                                "example": "This is a Title."
+                              }
+                            }
+                          },
+                          "description": "Generic code definition."
+                        }
+                      }
+                    },
+                    "identifiers": {
+                      "description": "Phone identifiers are used to identify parties that share the same phone or to associate an existing phones with a specific party. Possible scheme name values: PhoneIdentifier.\n",
+                      "items": {
+                        "GenericIdentification": {
+                          "required": [
+                            "number",
+                            "schemeName"
+                          ],
+                          "properties": {
+                            "number": {
+                              "description": "Unique and unambiguous identification.",
+                              "example": "123-45-6789"
+                            },
+                            "schemeName": {
+                              "description": "Name of the identification scheme.\n"
+                            },
+                            "issuer": {
+                              "description": "Entity that assigns the identification.",
+                              "example": "UnitedStates"
+                            },
+                            "issueDate": {
+                              "Date": {
+                                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                "example": "2022-04-17"
+                              }
+                            },
+                            "expirationDate": {
+                              "Date": {
+                                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                "example": "2022-04-17"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lastUpdatedDate": {
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    }
+                  },
+                  "description": "Collection of information that identifies a phone address."
+                }
+              }
+            },
+            "emails": {
+              "items": {
+                "Email": {
+                  "properties": {
+                    "emailAddress": {
+                      "description": "Address for electronic mail (e-mail)."
+                    },
+                    "emailPurpose": {
+                      "description": "Purpose of the e-mail address. Possible values:   Marketing, Statements, Business, Administrative, Personal\n",
+                      "example": "Statements"
+                    },
+                    "primaryIndicator": {
+                      "PrimaryContactIndicator": {
+                        "description": "Indicates whether the contact informacion is primary. \n"
+                      }
+                    },
+                    "identifiers": {
+                      "description": "Email identifiers are used to identify parties that share the same email or to associate an existing email with a specific party. Possible scheme name values: EmailIdentifier.\n",
+                      "items": {
+                        "GenericIdentification": {
+                          "required": [
+                            "number",
+                            "schemeName"
+                          ],
+                          "properties": {
+                            "number": {
+                              "description": "Unique and unambiguous identification.",
+                              "example": "123-45-6789"
+                            },
+                            "schemeName": {
+                              "description": "Name of the identification scheme.\n"
+                            },
+                            "issuer": {
+                              "description": "Entity that assigns the identification.",
+                              "example": "UnitedStates"
+                            },
+                            "issueDate": {
+                              "Date": {
+                                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                "example": "2022-04-17"
+                              }
+                            },
+                            "expirationDate": {
+                              "Date": {
+                                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                "example": "2022-04-17"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "lastUpdatedDate": {
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    }
+                  },
+                  "description": "Collection of information that identifies an electronic mail address."
+                }
+              }
+            },
+            "jobTitle": {
+              "JobTitle": {
+                "description": "Title of the function in an organization.",
+                "example": "Head of Documentation"
+              }
+            },
+            "department": {
+              "description": "Identification of a division of a large Organization or building.",
+              "example": "Sales"
+            },
+            "communicationChannels": {
+              "items": {
+                "CommunicationChannel": {
+                  "properties": {
+                    "channel": {
+                      "CommunicationChannelName": {
+                        "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                        "example": "Email"
+                      }
+                    },
+                    "channelIdentification": {
+                      "CommunicationChannelIdentification": {
+                        "description": "Communication value such as phone number or email address.",
+                        "example": "011-02010020202"
+                      }
+                    },
+                    "channelPurpose": {
+                      "CommunicationChannelPurpose": {
+                        "description": "Communication purpose of the channel. Possible values: Alerts, PrivacyNotices, NegativeBalance, OverdraftProtection, ACHNotice, ChargeBack, BalanceOnReceipt, RegulationCCNotice, RateChange, MaturityNotice, InterestNotice, RegularNotice, PastDueNotice, HUDNotice, PaymentChange, AutomaticPayment, PastDueFirstNotice, PastDueSecondNotice, PastDueNoticeGuarantor, ElectronicStatement.\n",
+                        "example": "PrivacyNotices"
+                      }
+                    },
+                    "codeWord": {
+                      "description": "A party is asked for a codeword to verify their identity trought a communication channel\n"
+                    },
+                    "alertIndicator": {
+                      "description": "Indicates whether the channel is used for enterprise alerts to the customer.\n"
+                    },
+                    "personId": {
+                      "description": "The party authorized to use the communcation channel\n",
+                      "Id": {
+                        "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+                      }
+                    },
+                    "codes": {
+                      "description": "Codes to determine configurarion options for alerts and notifications. Possible code names: NoticeOption.\n",
+                      "items": {
+                        "GenericCode": {
+                          "required": [
+                            "name",
+                            "value"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the code in PascalCase.\n",
+                              "example": "AccountingGroup"
+                            },
+                            "value": {
+                              "description": "Code value.",
+                              "example": "195"
+                            },
+                            "description": {
+                              "Title": {
+                                "example": "This is a Title."
+                              }
+                            }
+                          },
+                          "description": "Generic code definition."
+                        }
+                      }
+                    },
+                    "status": {
+                      "AlertStatus": {
+                        "description": "Alert status. Possible values: Sent, SentLastNight, Pending, Enable, Disable, FraudAlert. Possible values for CreditBureauAlert: IdentityTheft.\n",
+                        "example": "Warning"
+                      }
+                    },
+                    "primaryIndicator": {
+                      "PrimaryContactIndicator": {
+                        "description": "Indicates whether the contact informacion is primary. \n"
+                      }
+                    },
+                    "leadTime": {
+                      "description": "The lead time between the event and the alert notification.\n",
+                      "TemporalDuration": {
+                        "required": [
+                          "unit"
+                        ],
+                        "properties": {
+                          "unit": {
+                            "description": "Unit that describes the duration.",
+                            "TemporalUnit": {
+                              "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+                              "example": "Months"
+                            }
+                          },
+                          "value": {
+                            "maximum": 999,
+                            "description": "Value of the duration in number of units."
+                          }
+                        },
+                        "description": "Describes a temporal duration.\n"
+                      }
+                    },
+                    "alertText": {
+                      "description": "Text to appear in alerts and notices.\n",
+                      "Description": {
+                        "example": "This is a description."
+                      }
+                    },
+                    "contactDates": {
+                      "items": {
+                        "SpotDate": {
+                          "properties": {
+                            "name": {
+                              "SpotDateName": {
+                                "description": "Possible values por projected dates: Forecast, Expiration, LastNonFinancial, Escheat. Possible values for past dates: IRALastRollOver. Other possible values: EffectiveDate, ResponseByDate.\n",
+                                "example": "Expiration"
+                              }
+                            },
+                            "date": {
+                              "DateAndTime": {
+                                "example": "2022-04-17T08:00:00Z"
+                              }
+                            }
+                          },
+                          "description": "Relevant date"
+                        }
+                      }
+                    },
+                    "contactCount": {
+                      "description": "Number of contacts."
+                    }
+                  },
+                  "description": "Channel used to communicate with a party.\n"
+                }
+              }
+            },
+            "preferredMethod": {
+              "CommunicationChannelName": {
+                "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                "example": "Email"
+              }
+            },
+            "preferredLanguage": {
+              "PreferredLanguage": {
+                "description": "Language of the contact person. Names according to the language list provided in the ISO 639-1 codes. Some possible values: Chinese, Spanish, French, English, Japanese, Italian, German, Default.\n",
+                "example": "English"
+              }
+            }
+          },
+          "description": "Specifies the contact details of a person."
+        }
+      },
+      "parties": {
+        "AccountContractRelatedParty": {
+          "properties": {
+            "partyId": {
+              "Id": {
+                "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+              }
+            },
+            "partyType": {
+              "PartyType": {
+                "description": "Possible values are:\n Person,\n Organization. Also other types of servicer entities: ServicerOfficer, ExternalOrganization\n",
+                "example": "Person"
+              }
+            },
+            "partyName": {
+              "PartyName": {
+                "description": "Name by which a party is known and which is usually used to identify that party.",
+                "example": "Jane Birkin"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

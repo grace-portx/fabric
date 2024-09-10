@@ -1,0 +1,223 @@
+{
+  "AccountProfile": {
+    "properties": {
+      "profileType": {
+        "description": "Account profile category. Possible Values: Personal, NonPersonal. \n",
+        "example": "Personal"
+      },
+      "riskLevel": {
+        "description": "Loundery risk level",
+        "RiskLevel": {
+          "description": "Specifies the customer\u2019s money laundering risk. Possible values: High, Medium, Low, NotDetermined\n",
+          "example": "Permanent"
+        }
+      },
+      "qualityScore": {
+        "QualityScore": {
+          "description": "The quality score is based on a borrower's credit history, collateral, and the likelihood of repayment.\n"
+        }
+      },
+      "riskMeasures": {
+        "items": {
+          "RiskMeasure": {
+            "properties": {
+              "name": {
+                "CreditRankingScaleName": {
+                  "description": "Most commonly used credit ranking scales. Possible Values: StandardAndPoors, MoodysInvestors. Also other values: Original, 1, 2, 3, Current. \n",
+                  "example": "StandardAndPoors"
+                }
+              },
+              "level": {
+                "RiskLevel": {
+                  "description": "Specifies the customer\u2019s money laundering risk. Possible values: High, Medium, Low, NotDetermined\n",
+                  "example": "Permanent"
+                }
+              },
+              "date": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "codes": {
+                "description": "Additional risk measure codes. Possible values: RiskRatingCode\n",
+                "items": {
+                  "GenericCode": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the code in PascalCase.\n",
+                        "example": "AccountingGroup"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic code definition."
+                  }
+                }
+              }
+            },
+            "description": "Laundary risk measure of an individual. \n"
+          }
+        }
+      },
+      "creditRankingScales": {
+        "description": "Borrower credit ranking scores \n",
+        "items": {
+          "CreditRankingScale": {
+            "properties": {
+              "name": {
+                "CreditRankingScaleName": {
+                  "description": "Most commonly used credit ranking scales. Possible Values: StandardAndPoors, MoodysInvestors. Also other values: Original, 1, 2, 3, Current. \n",
+                  "example": "StandardAndPoors"
+                }
+              },
+              "score": {
+                "example": "AAA"
+              },
+              "date": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "codes": {
+                "description": "Additional ranking scale codes. Possible values: RiskRatingCode\n",
+                "items": {
+                  "GenericCode": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the code in PascalCase.\n",
+                        "example": "AccountingGroup"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic code definition."
+                  }
+                }
+              }
+            },
+            "description": "A Credit Ranking Scale is a system used to evaluate the creditworthiness of a borrower, which can be an individual, a business, a government, or a corporation.\n"
+          }
+        }
+      },
+      "bankruptcy": {
+        "BankruptcyProfile": {
+          "properties": {
+            "chapter": {
+              "description": "The section on the Bankruptcy Code that sets out the rules and procedures for a particular type of bankruptcy. Possible Values: 7, 11, 13, 12, and 9.\n",
+              "example": "11"
+            },
+            "status": {
+              "description": "Bankruptcy status. Possible values: Petition, Discharged, DebtReaffirmation, DebtReaffirmationRescinded, PlanConfirmed, PlanCompleted, Withdrawn.\n",
+              "example": "Petition"
+            },
+            "statementOption": {
+              "description": "Statement option. Possible Values: RegularBillingStatement,  BankruptcyBillingStatement\n",
+              "example": "RegularBillingStatement"
+            }
+          }
+        }
+      },
+      "paymentHistoryFrequency": {
+        "description": "Indicates the frequency that the history profile payment status is established. Values are dependent upon credit bureau standards.\n",
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "paymentHistoryOption": {
+        "description": "Indicates whether the Payment History Profile will be recalculated. Possible Values: Default, NotRecalculate, RecalculateAndSetToDefault, RecalculateAndSetToNot.\n",
+        "example": "NotRecalculate"
+      }
+    }
+  }
+}

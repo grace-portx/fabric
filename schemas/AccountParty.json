@@ -1,0 +1,42 @@
+{
+  "AccountParty": {
+    "required": [
+      "partyAccountRole",
+      "partyId",
+      "partyType"
+    ],
+    "properties": {
+      "partyId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "partyType": {
+        "PartyType": {
+          "description": "Possible values are:\n Person,\n Organization. Also other types of servicer entities: ServicerOfficer, ExternalOrganization\n",
+          "example": "Person"
+        }
+      },
+      "partyAccountRole": {
+        "AccountPartyRole": {
+          "description": "Type of the account party role. Some possibles values are: Comaker, Cosigner, AccountOwner, AccountSigner, LiquidityManager, Endorser, LimitManager, PaymentManager, Reader, BackupManager, SettlementManager, FundManagementCompany, TransferAgent, FundAccountant, Registrar, InvestmentManager, Custodian, Auditor, PayingAgent, CashCorrespondent, DataProvider, FinalAgent, Investor, FirstAgent, Intermediary, Distributor, Concentrator, UnderlyingClient1, UnderlyingClient2, TransmittingAgent, FundBroker, FinancialAdvisor, ContactPersonAtInstructingPartyInstitution, ContactPersonAtExecutingPartyInstitution, NameOfAgentToOrder, PrimeBroker, Internal, LegalGuardian, DecisionMaker, Guarantor, LoanLender, LoanBorrower, LoanCoBorrower, PrimaryOwner, Trustee, CustodianForMinor, Nominee, SecondaryOwner, Executor, Beneficiary, PrimaryServicerOfficer, SecondaryServicerOfficer, AccountOpenningOfficer, CustomerServiceOfficer, PowerOfAttorney, ContingentBeneficiary, Fiduciary, \n",
+          "example": "AccountOwner"
+        }
+      },
+      "partyAccountRoleCode": {
+        "description": "Bank defined party account role.",
+        "example": "50"
+      },
+      "partyName": {
+        "readOnly": true,
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      },
+      "employeeIndicator": {
+        "description": "Indicates whether is a bank employer. \n"
+      }
+    }
+  }
+}

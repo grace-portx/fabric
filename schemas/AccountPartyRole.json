@@ -1,0 +1,6 @@
+{
+  "AccountPartyRole": {
+    "description": "Type of the account party role. Some possibles values are: Comaker, Cosigner, AccountOwner, AccountSigner, LiquidityManager, Endorser, LimitManager, PaymentManager, Reader, BackupManager, SettlementManager, FundManagementCompany, TransferAgent, FundAccountant, Registrar, InvestmentManager, Custodian, Auditor, PayingAgent, CashCorrespondent, DataProvider, FinalAgent, Investor, FirstAgent, Intermediary, Distributor, Concentrator, UnderlyingClient1, UnderlyingClient2, TransmittingAgent, FundBroker, FinancialAdvisor, ContactPersonAtInstructingPartyInstitution, ContactPersonAtExecutingPartyInstitution, NameOfAgentToOrder, PrimeBroker, Internal, LegalGuardian, DecisionMaker, Guarantor, LoanLender, LoanBorrower, LoanCoBorrower, PrimaryOwner, Trustee, CustodianForMinor, Nominee, SecondaryOwner, Executor, Beneficiary, PrimaryServicerOfficer, SecondaryServicerOfficer, AccountOpenningOfficer, CustomerServiceOfficer, PowerOfAttorney, ContingentBeneficiary, Fiduciary, \n",
+    "example": "AccountOwner"
+  }
+}

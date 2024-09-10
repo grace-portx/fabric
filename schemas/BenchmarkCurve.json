@@ -1,0 +1,5 @@
+{
+  "BenchmarkCurve": {
+    "description": "Specifies a benchmark curve name. Possible ISO 20022 compliant values are: WIBOR, Treasury, TIBOR, TELBOR, SWAP, STIBOR, PRIBOR, Pfandbriefe, NIBOR, MuniAAA, MOSPRIM, LIBOR, LIBID, JIBAR, ISDAFIX, GCFRepo, FutureSWAP, EuroSwiss, EURODOLLAR, Euribor, EONIASwaps, EONIA, CIBOR, CDOR, BUBOR, BBSW\n\n\n   \n"
+  }
+}

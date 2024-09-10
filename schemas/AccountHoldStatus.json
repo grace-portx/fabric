@@ -1,0 +1,5 @@
+{
+  "AccountHoldStatus": {
+    "description": "Possible Values: Release, Active, Changed, Cleared, Exclusion, Decisioned, Marched, Total, Reversal, Transferred.\n"
+  }
+}

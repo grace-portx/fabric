@@ -1,0 +1,7 @@
+{
+  "BSARiskCode": {
+    "maximum": 10,
+    "description": "Used to identify customers that present a risk to the bank as defined by the Bank Secrecy Act. For example, use this code to identify and monitor accounts suspected of fraud, kiting or money laundering.\n",
+    "example": 0
+  }
+}

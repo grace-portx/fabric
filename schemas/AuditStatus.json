@@ -1,0 +1,5 @@
+{
+  "AuditStatus": {
+    "description": "Maintenance status of a resource. Possible values: Requested, Created, Changed, Deleted\n"
+  }
+}

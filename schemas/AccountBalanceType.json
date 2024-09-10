@@ -1,0 +1,7 @@
+{
+  "AccountBalanceType": {
+    "title": "Balance Type",
+    "description": "Account Balance Type. Possible Values: Asset, positive transaction amount increases balance; Liability,  positive transaction amount decreases balance; Equity.\n",
+    "example": "Asset"
+  }
+}

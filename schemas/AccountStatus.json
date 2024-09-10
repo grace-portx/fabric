@@ -1,0 +1,6 @@
+{
+  "AccountStatus": {
+    "description": "Specifies the current primary status of an account. Possible values are:\n Enabled, \n Dormant,\n Disable,\n Deleted,\n Pending, \n Form.\n Pending, \n Denied, \n Review,\n Approve,\n ChargeOff,\n Active,\n PaymentPastDue,\n Bankruptcy,\n AuthorizationProhibited,\n InterestProhibited,\n Closed, Restricted.\n",
+    "example": "Active"
+  }
+}

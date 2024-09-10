@@ -1,0 +1,5 @@
+{
+  "AccountHoldType": {
+    "description": "Possible Values: Amount, holds any amount for any purpose; Check, holds the entire amount of a check or a partial amount until the check clears; StopPayment, stop payment on a check; Caution, a hold occurs when there is suspicious activity detected on the account. Values for payments: Payments, PaymentReversal, PaymentAdjustment, PaymentAuthorization.\n"
+  }
+}

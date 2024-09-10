@@ -1,0 +1,336 @@
+{
+  "AccountHoldResponse": {
+    "properties": {
+      "accountId": {
+        "AccountId": {
+          "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+          "example": "033-DDA-123456"
+        }
+      },
+      "accountNumber": {
+        "AccountNumber": {
+          "description": "The account number or Basic Bank Account Number (BBAN). A Basic Bank Account Number (BBAN) is a bank account number that includes the domestic bank code, branch identifier, and account number. It is a unique identifier for a bank account within a specific country.\n",
+          "example": "012345678"
+        }
+      },
+      "accountType": {
+        "AccountType": {
+          "description": "Type of the account. Some possible ISO 20022 compliant values are: \n Checking,\n CardAccount,\n CashPayment, \n Charges, \n CashIncome, \n Commission, \n ClearingParticipantSettlementAccount,\n LimitedLiquiditySavingsAccount,\n MarginalLending, \n MoneyMarket, \n NonResidentExternal, \n Overdraft, \n OverNightDeposit, \n Settlement, \n Salary, \n Savings, \n Tax, \n TransactingAccount,\n CashTrading,\n VirtualAccount,\n CreditCard,\n DebitCard,\n Universal, \n Investment, \n EpurseCard,\n CertificateOfDeposit,\n MoneyMarketChecking, \n RetirementAccount, \n StockOrBond,\n PrePaid, \n FleetCard, \n Cash, \n DebitAccount, \n CreditAccount, \n Benefit,\n HealthSavingsAccount,\n FlexibleSpendingAccount,\n ForBenefitOf,\n Estate,\n ClientTrustAccount, \n LawyersTrustAccount,\n KeoghPlanAccount,\n UniformTransfersToMinorsAct,\n UniformGiftsToMinorsAct,\n ReserveFunds,\n SelfDirectedBrokerage,\n IRA,\n Annuity,\n ExternalAccount,\n Loan.\n",
+          "example": "Checking"
+        }
+      },
+      "ownershipType": {
+        "AccountOwnershipType": {
+          "description": "Specifies the type of account ownership. Possible ISO 20022 compliant values names are:\n JointAccountWithSurvivorshipRights, JointAccountInCommon, CustodialAccount, SingleOwnerAccount, JointAccount, Corporation, Organization, Business, FormalPartnership, FormalTrust, Nominee, NonProfitOrganization, NotForProfitOrganization, ForProfit, EUResidualEntity, USGovernmentOrganization, GovernmentOrganization, LimitedLiabilityCompany, RegisteredInvestmentCompany, Entrepreneurial, Unincorporated, LimitedPartnership, LimitedLiabilityPartnership, BareOwner, Usufructuary, Fiduciary, ServicerEmployeeAccount, BusinessTrust, FamilyTrust, Estate, PublicFunds, NonUSGovernmentOrganization, Church, Club. More general possible values: Direct, Indirect. \n",
+          "example": "SingleOwnerAccount"
+        }
+      },
+      "numberOfHolds": {
+        "description": "Number of holds related to the account\n"
+      },
+      "holds": {
+        "items": {
+          "AccountHold": {
+            "description": "An account hold restricts an account holder from accessing funds. A hold prevents access to an account or restricts some transactions from occurring in the account. A deposit of a large check, an out-of-state check, or a foreign check may trigger an account hold. A hold may occur when there is suspicious activity detected on the account.\n",
+            "AccountHoldRequest": {
+              "description": "An account hold restricts an account holder from accessing funds. A hold prevents access to an account or restricts some transactions from occurring in the account. A deposit of a large check, an out-of-state check, or a foreign check may trigger an account hold. A hold may occur when there is suspicious activity detected on the account.\n",
+              "PaymentIdentifiers": {
+                "properties": {
+                  "identifiers": {
+                    "items": {
+                      "PaymentIdentification": {
+                        "required": [
+                          "number"
+                        ],
+                        "properties": {
+                          "number": {
+                            "description": "Unique and unambiguous identification of a payment."
+                          },
+                          "schemeName": {
+                            "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                            "example": "UETR"
+                          },
+                          "issuer": {
+                            "description": "Entity that assigns the identification.",
+                            "example": "Banc of California"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "description": "Set of elements used to reference a payment instruction."
+              },
+              "properties": {
+                "holdId": {
+                  "Id": {
+                    "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+                  }
+                },
+                "holdType": {
+                  "AccountHoldType": {
+                    "description": "Possible Values: Amount, holds any amount for any purpose; Check, holds the entire amount of a check or a partial amount until the check clears; StopPayment, stop payment on a check; Caution, a hold occurs when there is suspicious activity detected on the account. Values for payments: Payments, PaymentReversal, PaymentAdjustment, PaymentAuthorization.\n"
+                  }
+                },
+                "valueDate": {
+                  "description": "Date/time that the hold was created or should take effect.\n",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "codes": {
+                  "description": "Additional transaction codes.",
+                  "items": {
+                    "GenericTransactionCode": {
+                      "required": [
+                        "code",
+                        "codeName",
+                        "codeType"
+                      ],
+                      "properties": {
+                        "codeType": {
+                          "description": "Code type in PascalCase form. Possible values are: DetailBAI, SummaryBAI, TransactionCode.\n",
+                          "example": "DetailBAI"
+                        },
+                        "name": {
+                          "description": "Name of the code in PascalCase. Possible values: ResponseCode, PromotionCode, Domain, Family, Subfamily, MT940, SourceCode, TaxDeferredContributionCode.\n"
+                        },
+                        "value": {
+                          "description": "Code value.",
+                          "example": "195"
+                        },
+                        "description": {
+                          "Title": {
+                            "example": "This is a Title."
+                          }
+                        }
+                      },
+                      "description": "Generic transaction code definition."
+                    }
+                  }
+                },
+                "bookingDate": {
+                  "description": "Date and time when an entry is posted to an account on the account servicer's books.\nUsage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.\n",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "releaseDate": {
+                  "description": "Date/time that the hold should be released. \n",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "ageOffDate": {
+                  "description": "Date by when the payment will age off and no longer be searchable.\n",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "exclusionDate": {
+                  "description": "Date by when the account will be excluded from payment float processing.\n",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "expirationDate": {
+                  "description": "Date the payment float process expires.\n",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "actualReleaseDate": {
+                  "description": "Date/time that the hold was actually released. \n",
+                  "DateAndTime": {
+                    "example": "2022-04-17T08:00:00Z"
+                  }
+                },
+                "floatAmount": {
+                  "description": "Payment amount that entered the payment float process",
+                  "PositiveAmount": {
+                    "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                    "example": "100"
+                  }
+                },
+                "amount": {
+                  "description": "Payment amount",
+                  "PositiveAmount": {
+                    "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                    "example": "100"
+                  }
+                },
+                "check": {
+                  "Check": {
+                    "properties": {
+                      "checkType": {
+                        "description": "Specifies the type of the check. Possible values are: \nCustomerCheque, CertifiedCustomerCheque, BankCheque, Draft, ElectronicDraft.\n"
+                      },
+                      "amount": {
+                        "description": "Check amount\n",
+                        "PositiveAmount": {
+                          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                          "example": "100"
+                        }
+                      },
+                      "currency": {
+                        "description": "Check currency\n",
+                        "CurrencyCode": {
+                          "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                          "example": "USD"
+                        }
+                      },
+                      "checkNumber": {
+                        "description": "The number on the face of the check indicating the id of that check in a series.\n"
+                      },
+                      "issuer": {
+                        "description": "Party that issued the check.",
+                        "example": "Jhon Smith"
+                      },
+                      "availabilityDate": {
+                        "description": "Indicates when the amount of money will become available. Usage: This type of information is used in the US and is linked to particular instruments such as cheques.\n Example: When a cheque is deposited, it will be booked on the deposit day, but the amount of money will only be accessible as of the indicated availability day (according to national banking regulations).\n",
+                        "DateAndTime": {
+                          "example": "2022-04-17T08:00:00Z"
+                        }
+                      },
+                      "availabilityFloat": {
+                        "description": "It refers to the time delay between when a check is deposited and when the funds become available for withdrawal. Possible Values: ImmediateWithdrawal, LocalCheck, NonLocalCheck\n"
+                      },
+                      "identifiers": {
+                        "description": "Check identifiers. Possible scheme names: Reference.\n",
+                        "items": {
+                          "GenericIdentification": {
+                            "required": [
+                              "number",
+                              "schemeName"
+                            ],
+                            "properties": {
+                              "number": {
+                                "description": "Unique and unambiguous identification.",
+                                "example": "123-45-6789"
+                              },
+                              "schemeName": {
+                                "description": "Name of the identification scheme.\n"
+                              },
+                              "issuer": {
+                                "description": "Entity that assigns the identification.",
+                                "example": "UnitedStates"
+                              },
+                              "issueDate": {
+                                "Date": {
+                                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                  "example": "2022-04-17"
+                                }
+                              },
+                              "expirationDate": {
+                                "Date": {
+                                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                  "example": "2022-04-17"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "codes": {
+                        "description": "Codes to clasify the check. Possible code names: AccountCode\n",
+                        "items": {
+                          "GenericCode": {
+                            "required": [
+                              "name",
+                              "value"
+                            ],
+                            "properties": {
+                              "name": {
+                                "description": "Name of the code in PascalCase.\n",
+                                "example": "AccountingGroup"
+                              },
+                              "value": {
+                                "description": "Code value.",
+                                "example": "195"
+                              },
+                              "description": {
+                                "Title": {
+                                  "example": "This is a Title."
+                                }
+                              }
+                            },
+                            "description": "Generic code definition."
+                          }
+                        }
+                      }
+                    },
+                    "description": "Characteristics of a check"
+                  }
+                }
+              }
+            },
+            "properties": {
+              "holdId": {
+                "Id": {
+                  "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+                }
+              },
+              "accountId": {
+                "AccountId": {
+                  "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+                  "example": "033-DDA-123456"
+                }
+              },
+              "status": {
+                "AccountHoldStatus": {
+                  "description": "Possible Values: Release, Active, Changed, Cleared, Exclusion, Decisioned, Marched, Total, Reversal, Transferred.\n"
+                }
+              },
+              "statusReason": {
+                "StatusReason": {
+                  "description": "Reason for the status. Possible Values: AbortedClearingTimeout, AbortedClearingFatalError, AbortedSettlementTimeout, AbortedSettlementFatalError,TimeoutCreditorAgent, TimeoutInstructedAgent, OfflineAgent, OfflineCreditorAgent, ErrorCreditorAgent, ErrorInstructedAgent, TimeoutDebtorAgent,IncorrectAccountNumber, InvalidDebtorAccountNumber,InvalidCreditorAccountNumber, ClosedAccountNumber,ClosedDebtorAccountNumber, BlockedAccount,ClosedCreditorAccountNumber, InvalidBranchCode,InvalidAccountCurrency, InvalidDebtorAccountCurrency,InvalidCreditorAccountCurrency, InvalidAccountType,InvalidDebtorAccountType,InvalidCreditorAccountType,AccountDetailsChanged, CardNumberInvalid, TransactionForbidden, InvalidBankOperationCode, TransactionNotSupported, InvalidAgentCountry, InvalidDebtorAgentCountry, InvalidCreditorAgentCountry, UnsuccesfulDirectDebit, InvalidAccessRights,PaymentNotReceived, AgentSuspended,CreditorAgentSuspended, NotAllowedBookTransfer, ForbiddenReturnPayment, IncorrectAgent, ZeroAmount, NotAllowedAmount, NotAllowedCurrency, InsufficientFunds, Duplication, TooLowAmount, BlockedAmount, WrongAmount, InvalidControlSum, InvalidTransactionCurrency, InvalidAmount, AmountExceedsClearingSystemLimit, AmountExceedsAgreedLimit, AmountBelowClearingSystemMinimum, InvalidGroupControlSum, InvalidPaymentInfoControlSum, InvalidNumberOfTransactions,InvalidGroupNumberOfTransactions, InvalidPaymentInfoNumberOfTransactions, LimitExceeded, ZeroAmountNotApplied, AmountExceedsSettlementLimit, InconsistenWithEndCustomer, MissingCreditorAddress, UnrecognisedInitiatingParty, UnknownEndCustomer, MissingDebtorAddress, MissingDebtorName, InvalidCountry, InvalidDebtorCountry, InvalidCreditorCountry, InvalidCountryOfResidence, InvalidDebtorCountryOfResidence, InvalidCreditorCountryOfResidence, InvalidIdentificationCode, InvalidDebtorIdentificationCode, InvalidCreditorIdentificationCode, InvalidContactDetails, InvalidChargeBearerCode, InvalidNameLength, MissingName, MissingCreditorName, AccountProxyInvalid, CheckERI, RequestedExecutionDateOrRequestedCollectionDateTooFarInFuture, RequestedExecutionDateOrRequestedCollectionDateTooFarInPast, ElementIsNotToBeUsedAtB-andC-Level, MandateChangesNotAllowed, InformationOnMandateChangesMissing, CreditorIdentifierIncorrect, CreditorIdentifierNotUnambiguouslyAtTransaction-Level, OriginalDebtorAccountIsNotToBeUsed, OriginalDebtorAgentIsNotToBeUsed, ElementContentIncludesMoreThan140Characters, ElementContentFormallyIncorrect, ElementNotAdmitted, ValuesWillBeSetToNextTARGETday, DecimalPointsNotCompatibleWithCurrency, RequiredCompulsoryElementMissing, COREandB2BwithinOnemessage, ChequeSettledOnCreditorAccount, CreditorBankIsNotRegistered, IncorrectCurrency, RequestedByCustomer, DebtorBankIsNotRegistered,ElectronicSignaturesCorrect, OrderCancelled, OrderNotCancelled, OrderRejected, OrderForwardedForPostprocessing, TransferOrder, ProcessingOK, DecompressionError, DecryptionError, DataSignRequested, UnknownDataSignFormat, SignerCertificateRevoked, SignerCertificateNotValid, IncorrectSignerCertificate, SignerCertificationAuthoritySignerNotValid, NotAllowedPayment, NotAllowedAccount, NotAllowedNumberOfTransaction, Signer1CertificateRevoked, Signer1CertificateNotValid, IncorrectSigner1Certificate, SignerCertificationAuthoritySigner1NotValid, UserDoesNotExist, IdenticalSignatureFound, PublicKeyVersionIncorrect, DifferentOrderDataInSignatures, RepeatOrder, ElectronicSignatureRightsInsufficient, Signer2CertificateRevoked, Signer2CertificateNotValid, IncorrectSigner2Certificate, SignerCertificationAuthoritySigner2NotValid, WaitingTimeExpired, OrderFileDeleted, UserSignedMultipleTimes, UserNotYetActivated, InvalidDate, InvalidCreationDate, InvalidNonProcessingDate, FutureDateNotSupported, InvalidCutOffDate, ExecutionDateChanged, DuplicateMessageID, DuplicatePaymentInformationID, DuplicateTransaction, DuplicateEndToEndID, DuplicateInstructionID, DuplicatePayment, CorrespondentBankNotPossible, BalanceInfoRequest, SettlementFailed, SettlementSystemNotAvailable, ERIOptionNotSupported, InvalidFileFormat, SyntaxError, InvalidPaymentTypeInformation, InvalidServiceLevelCode, InvalidLocalInstrumentCode, InvalidCategoryPurposeCode, InvalidPurpose, InvalidEndToEndId, InvalidChequeNumber, BankSystemProcessingError, ClearingRequestAborted, PaymentTransferredAndTracked, PaymentTransferredAndNotTracked, CreditDebitNotConfirmed, CreditPendingDocuments, CreditPendingFunds, DeliveredWithServiceLevel, DeliveredWIthoutServiceLevel, CorrespondingOriginalFileStillNotSent, NoMandate, MissingMandatoryInformationInMandate, CollectionNotDue, RefundRequestByEndCustomer, EndCustomerDeceased, NotSpecifiedReasonCustomerGenerated, NotSpecifiedReasonAgentGenerated, Narrative, NoERI, BankIdentifierIncorrect, InvalidBankIdentifier, InvalidDebtorBankIdentifier, InvalidCreditorBankIdentifier, InvalidBICIdentifier, InvalidDebtorBICIdentifier, InvalidCreditorBICIdentifier, InvalidClearingSystemMemberIdentifier, InvalidDebtorClearingSystemMemberIdentifier, InvalidCreditorClearingSystemMemberIdentifier, InvalidIntermediaryAgent, MissingCreditorSchemeId, RMessageConflict, ReceiverCustomerInformation,NotUniqueTransactionReference, MissingDebtorAccountOrIdentification, MissingDebtorNameOrAddress, MissingCreditorNameOrAddress, RegulatoryReason, RegulatoryInformationInvalid, TaxInformationInvalid, RemittanceInformationInvalid, RemittanceInformationTruncated, InvalidStructuredCreditorReference, InvalidCharacterSet, InvalidDebtorAgentServiceID, InvalidPartyID, ValidRequestForCancellationAcknowledged, UETRFlaggedForCancellation, NetworkStopOfUETR, RequestForCancellationForwarded, RequestForCancellationDeliveryAcknowledgement, SpecificServiceOfferedByDebtorAgent, SpecificServiceOfferedByCreditorAgent, ServiceofClearingSystem, CreditorNotOnWhitelistOfDebtor, CreditorOnBlacklistOfDebtor, MaximumNumberOfDirectDebitTransactionsExceeded, MaximumDirectDebitTransactionAmountExceeded, TransmissonAborted, NoDataAvailable, FileNonReadable, IncorrectFileStructure, TokenInvalid, SenderTokenNotFound, ReceiverTokenNotFound, TokenMissing, TokenCounterpartyMismatch, TokenSingleUse, TokenSuspended, TokenValueLimitExceeded, TokenExpired, InvalidCutOffTime, TransmissionSuccessful, TransferToSignByHand, AuthorisationCancelled, FollowingCancellationRequest, Fraud, NotCompliantGeneric, NoAnswerFromCustomer, ReturnUponUnableToApply, UnduePayment, AlreadyAcceptedRTP, AlreadyExpiredRTP, AlreadyRefusedRTP, AlreadyRejectedRTP, AttachementsNotSupported, ExpiryDateTimeReached, ExpiryDateTooLong, FraudulentOrigin, IncorrectExpiryDateTime, InitialRTPNeverReceived, NonAgreedRTP, NoPaymentGuarantee, PayerOrPayerRTPSPNotReachable, RTPNotSupportedForDebtor, RTPReceivedCanBeProcessed, RTPServiceProviderIdentifierIncorrect, TypeOfPaymentInstrumentNotSupported, UnknownCreditor, OriginalTransactionNotEligibleForRequestedReturn, RequestForCancellationNotFound, SettlementNotReceived\n",
+                  "example": "BlockedAccount"
+                }
+              },
+              "statusReasonDescription": {
+                "Description": {
+                  "example": "This is a description."
+                }
+              },
+              "availableCredit": {
+                "description": "Account available credit.\n",
+                "PositiveAmount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                  "example": "100"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "description": "An account hold restricts an account holder from accessing funds. A hold prevents access to an account or restricts some transactions from occurring in the account. A deposit of a large check, an out-of-state check, or a foreign check may trigger an account hold. A hold may occur when there is suspicious activity detected on the account.\n",
+    "PaymentIdentifiers": {
+      "properties": {
+        "identifiers": {
+          "items": {
+            "PaymentIdentification": {
+              "required": [
+                "number"
+              ],
+              "properties": {
+                "number": {
+                  "description": "Unique and unambiguous identification of a payment."
+                },
+                "schemeName": {
+                  "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                  "example": "UETR"
+                },
+                "issuer": {
+                  "description": "Entity that assigns the identification.",
+                  "example": "Banc of California"
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "Set of elements used to reference a payment instruction."
+    }
+  }
+}

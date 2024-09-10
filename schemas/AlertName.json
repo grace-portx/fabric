@@ -1,0 +1,6 @@
+{
+  "AlertName": {
+    "description": "Service alert human readable identifier in Pascal case. An alert notification received by the bank. Possible values: CreditBureauAlert, CustomerAlert,  PaymentCard, LostBook, TwoSignaturesRequired, PledgedAsCollateral, DeathOnAccount, Bankruptcy, NoDisclosure, Caution, DuplicateBookIssued, PowerOfAttorney, DoNotReopen.\n",
+    "example": "CreditBureauAlert"
+  }
+}
