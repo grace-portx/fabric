@@ -1,0 +1,6 @@
+{
+  "InterestRateType": {
+    "description": "Specifies the type of interest rate. Some ISO 20022 compliant values are: Fixed, Forfeit, Variable, StepUp, Scheduled, Unscheduled, Discount, FixedRateUnderlyingExposureForLife, FixedRateUnderlyingExposureWithCompulsoryFutureSwitchToFloating, FixedWithFuturePeriodicResets, FloatingLinkedToIndex, FloatingRateUnderlyingExposureForLife, FloatingRateUnderlyingExposureWithCap, FloatingRateUnderlyingExposureWithFloor, FloatingRateUnderlyingExposureWithFloorAndCap, Modular, ObligorSwapped, SwicthOptionality, Tiered, StepFrequency, RateIndex, IndexFrequency.\n",
+    "example": "Fixed"
+  }
+}

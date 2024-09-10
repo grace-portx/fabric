@@ -1,0 +1,33 @@
+{
+  "GenericIdentification": {
+    "required": [
+      "number",
+      "schemeName"
+    ],
+    "properties": {
+      "number": {
+        "description": "Unique and unambiguous identification.",
+        "example": "123-45-6789"
+      },
+      "schemeName": {
+        "description": "Name of the identification scheme.\n"
+      },
+      "issuer": {
+        "description": "Entity that assigns the identification.",
+        "example": "UnitedStates"
+      },
+      "issueDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "expirationDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      }
+    }
+  }
+}

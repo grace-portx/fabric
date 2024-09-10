@@ -1,0 +1,6 @@
+{
+  "LoanRecourseType": {
+    "description": "For indirect loans, the Recourse Code indicates the type of recourse that the financial institution has on the loan. Possible Values:\n NoRecourse, PartialRecourse, FullRecourse, FullRepurchase, PartialRepurchase, LimitedRepurchase, AsPerAgreement. \n",
+    "example": "FullRecourse"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "LedgerAccountNumber": {
+    "description": "Ledger account number used to identify different accounts. Also used for grouping and categorizing accounts. To make it easy for readers to locate specific accounts or to know what they're looking at instantly, each account typically contains human readable codes.\n",
+    "example": "1-001"
+  }
+}

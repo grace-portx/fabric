@@ -1,0 +1,6 @@
+{
+  "LoanStatus": {
+    "description": "Specifies the current state of an account. Possible  values names are:\n Pending, \n Form,\n Denied, \n Review,\n Approve,\n Withdrawn,\n Disable,\n Funded,\n Deleted,\n WriteDown,\n WrittenOff,\n Active,\n PaymentPastDue,\n Foreclosure,\n Bankruptcy.\n",
+    "example": "Withdrawn"
+  }
+}

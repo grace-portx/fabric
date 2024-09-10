@@ -1,0 +1,6 @@
+{
+  "JobTitle": {
+    "description": "Title of the function in an organization.",
+    "example": "Head of Documentation"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "GenericContact": {
+    "properties": {
+      "channelType": {
+        "description": "Communication device number or electronic address used for communication: Fax, Email, Mobile, Phone.\n",
+        "CommunicationChannelName": {
+          "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+          "example": "Email"
+        }
+      },
+      "identification": {
+        "CommunicationChannelIdentification": {
+          "description": "Communication value such as phone number or email address.",
+          "example": "011-02010020202"
+        }
+      }
+    },
+    "description": "Communication device number or electronic address used for communication."
+  }
+}

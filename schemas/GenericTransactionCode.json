@@ -1,0 +1,28 @@
+{
+  "GenericTransactionCode": {
+    "required": [
+      "code",
+      "codeName",
+      "codeType"
+    ],
+    "properties": {
+      "codeType": {
+        "description": "Code type in PascalCase form. Possible values are: DetailBAI, SummaryBAI, TransactionCode.\n",
+        "example": "DetailBAI"
+      },
+      "name": {
+        "description": "Name of the code in PascalCase. Possible values: ResponseCode, PromotionCode, Domain, Family, Subfamily, MT940, SourceCode, TaxDeferredContributionCode.\n"
+      },
+      "value": {
+        "description": "Code value.",
+        "example": "195"
+      },
+      "description": {
+        "Title": {
+          "example": "This is a Title."
+        }
+      }
+    },
+    "description": "Generic transaction code definition."
+  }
+}

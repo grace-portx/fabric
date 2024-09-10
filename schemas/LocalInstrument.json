@@ -1,0 +1,6 @@
+{
+  "LocalInstrument": {
+    "description": "This element is used to specify a local clearing option and/or qualify the service or service level. For ACH service Level offers more detailed information about the authorization method of the ACH transaction. Posible values for ACH Entry Class or SEC code: PPD, CCD, CTX\n",
+    "example": "CCD"
+  }
+}

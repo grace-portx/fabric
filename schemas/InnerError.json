@@ -1,0 +1,13 @@
+{
+  "InnerError": {
+    "properties": {
+      "code": {
+        "description": "A short string indicating the error code reported. Safe for programmatic use.\n"
+      },
+      "message": {
+        "description": "The description of the error code\n"
+      }
+    },
+    "description": "An object containing more specific information than the current object about the error.\n"
+  }
+}

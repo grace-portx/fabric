@@ -1,0 +1,17 @@
+{
+  "LoanCollateralRatioFormula": {
+    "properties": {
+      "name": {
+        "description": "Name of the formula.\n"
+      },
+      "ratio": {
+        "description": "The ratio used to determine underwriting criteria of the property.\n",
+        "PositiveAmount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+          "example": "100"
+        }
+      }
+    },
+    "description": "The underlying ratio formula refers to the method used by financial institutions to determine the collateral required for a loan. This method takes into account the borrower's financial health, the collateral provided, and the market conditions.\n"
+  }
+}

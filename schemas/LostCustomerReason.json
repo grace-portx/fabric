@@ -1,0 +1,6 @@
+{
+  "LostCustomerReason": {
+    "description": "Used for regulatory purposes by the bank to track how long closed account history has been maintained for a customer. Possible values are: \n Competition, Deceased, Dissatisfied, Moved, MergedEntity, CeasedOperation\n",
+    "example": "Deceased"
+  }
+}

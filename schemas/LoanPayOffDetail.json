@@ -1,0 +1,22 @@
+{
+  "LoanPayOffDetail": {
+    "properties": {
+      "balanceOptions": {
+        "description": "Indicates pay-off options for the loan.\n",
+        "items": {
+          "description": "Possible Values: NotNegativeInterest, NotNegativeEscrow, IncludeNegativeInterest, IncludeEscrow, IncludeNegativeEscrow.\n"
+        }
+      },
+      "displayIndicator": {
+        "description": "Indicates wether the pay-off amount is displayed.\n"
+      },
+      "calculationMethodOptions": {
+        "description": "Indicates method options for the pay off calculation.\n",
+        "items": {
+          "description": "Possible Values: Default, ScheduledBalance, 365Days, 12DaysInPeriod, OmitCurrentInterest, 12DaysInPeriod, IncludeInterestDueDate, CurrentBalance, 360Days\n"
+        }
+      }
+    },
+    "description": "Detail information of Loan Pay Off\n"
+  }
+}

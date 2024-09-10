@@ -1,0 +1,265 @@
+{
+  "InterestCalculationDescriptor": {
+    "properties": {
+      "name": {
+        "InterestName": {
+          "description": "Name in PascalCase of the interest that applies to the account. For instance, Deposit. Also identifications of the interest or charge.\n",
+          "example": "Deposit"
+        }
+      },
+      "code": {
+        "description": "Interest code used by the account servicer.\n"
+      },
+      "enableIndicator": {
+        "description": "Indicates whether the interest is enabled for automatic charge.\n",
+        "example": true
+      },
+      "dayCountBasis": {
+        "InterestDayCountBasis": {
+          "description": "An interest day count basis is a method used to calculate interest accrual over a period of time for loans and bonds. The method involves determining the number of days over which interest is being calculated, known as the accrual period. The resulting accrual period is then divided by a certain number to calculate the daily interest rate, which is applied to the principal balance to determine the interest payment. Possible Values: ActualActual, Actual360, Actual365, 365365, 360360, Monthly78ths, 365360, ActualSchedule, ScheduleSchedule.\n",
+          "example": "Actual360"
+        }
+      },
+      "calculationMethodOption": {
+        "InterestComputationParameter": {
+          "description": "Specifies a parameter that apply at the interest day count basis. Possible Values:  LastInterest,  EqualPayment, InterestAndPrincipal, InterestSeparatedm, Amortized, AddOn, NegativeAmortization, Simple, FHLMC. \n",
+          "example": "LastInterest"
+        }
+      },
+      "nextInterestDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "term": {
+        "description": "The period funds are earning interest.",
+        "TemporalDuration": {
+          "required": [
+            "unit"
+          ],
+          "properties": {
+            "unit": {
+              "description": "Unit that describes the duration.",
+              "TemporalUnit": {
+                "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+                "example": "Months"
+              }
+            },
+            "value": {
+              "maximum": 999,
+              "description": "Value of the duration in number of units."
+            }
+          },
+          "description": "Describes a temporal duration.\n"
+        }
+      },
+      "calculationFrequency": {
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "balances": {
+        "description": "Total amounts related to an interest",
+        "items": {
+          "Balance": {
+            "required": [
+              "balanceName"
+            ],
+            "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+            "Period": {
+              "DatePeriod": {
+                "properties": {
+                  "fromDateTime": {
+                    "description": "Date and time at which the period starts.",
+                    "DateAndTime": {
+                      "example": "2022-04-17T08:00:00Z"
+                    }
+                  },
+                  "upToDateTime": {
+                    "description": "Date and time at which the period ends.",
+                    "DateAndTime": {
+                      "example": "2022-04-17T08:00:00Z"
+                    }
+                  }
+                }
+              },
+              "properties": {
+                "periodNumber": {
+                  "description": "Sequence number of the period."
+                },
+                "periodName": {
+                  "PeriodName": {
+                    "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                  }
+                }
+              }
+            },
+            "properties": {
+              "balanceName": {
+                "BalanceName": {
+                  "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                  "example": "Available"
+                }
+              },
+              "amount": {
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              },
+              "count": {
+                "description": "Number of transactions added to the amount.\n"
+              },
+              "currency": {
+                "CurrencyCode": {
+                  "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                  "example": "USD"
+                }
+              },
+              "calculationDate": {
+                "description": "Specifies the date and time at which the balance is calculated.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "codes": {
+                "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                "items": {
+                  "GenericCode": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the code in PascalCase.\n",
+                        "example": "AccountingGroup"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic code definition."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "description": "Set of parameters used to calculate an interest.\n",
+    "InterestCalculationRate": {
+      "properties": {
+        "rateName": {
+          "RateName": {
+            "description": "Specifies the name of the rate. Possible values: Prior, Original, Actual, LastAnniversary, Effective, Current, Future, Base, Floor, Ceiling, OverSplit, UnderSplit.\n",
+            "example": "Actual"
+          }
+        },
+        "rateTierName": {
+          "RateName": {
+            "description": "Specifies the name of the rate. Possible values: Prior, Original, Actual, LastAnniversary, Effective, Current, Future, Base, Floor, Ceiling, OverSplit, UnderSplit.\n",
+            "example": "Actual"
+          }
+        },
+        "percentage": {
+          "Percentage": {
+            "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+            "example": "25"
+          }
+        },
+        "amount": {
+          "description": "Maximum amount range\n",
+          "PositiveAmount": {
+            "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+            "example": "100"
+          }
+        },
+        "currency": {
+          "CurrencyCode": {
+            "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+            "example": "USD"
+          }
+        }
+      },
+      "description": "Rate attributes \n"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "ImmigrationStatus": {
+    "description": "Immigration status of an individual. Possible values: Resident, NonResident, ResidentAlien, NonResidentAlien.\n",
+    "example": "Permanent"
+  }
+}

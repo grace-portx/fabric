@@ -1,0 +1,146 @@
+{
+  "LedgerAccountTransactionsResponse": {
+    "required": [
+      "accountId",
+      "accountNumber",
+      "accountType",
+      "transactions"
+    ],
+    "properties": {
+      "accountId": {
+        "AccountId": {
+          "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+          "example": "033-DDA-123456"
+        }
+      },
+      "accountNumber": {
+        "LedgerAccountNumber": {
+          "description": "Ledger account number used to identify different accounts. Also used for grouping and categorizing accounts. To make it easy for readers to locate specific accounts or to know what they're looking at instantly, each account typically contains human readable codes.\n",
+          "example": "1-001"
+        }
+      },
+      "accountType": {
+        "LedgerAccountType": {
+          "description": "Type of the Ledger Account or Internal Bank Account. Possible values: GeneralLedger, DetailedLedger, Holding, Mirrow, Clearing, CheckDisbursed.\n",
+          "example": "GeneralLedger"
+        }
+      },
+      "currentBalance": {
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "transactions": {
+        "description": "Ledger Account Transactions",
+        "items": {
+          "LedgerTransaction": {
+            "required": [
+              "creationDate",
+              "status",
+              "transactionId"
+            ],
+            "properties": {
+              "transactionId": {
+                "TransactionId": {
+                  "description": "Unique reference as assigned by the account servicing institution to unambiguously identify the transaction.",
+                  "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+                }
+              },
+              "amount": {
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              },
+              "creditDebitIndicator": {
+                "CreditDebitIndicator": {
+                  "description": "Specifies if an operation is an increase or a decrease. Possible values names are:\nCredit,\nDebit.\n",
+                  "example": "Credit"
+                }
+              },
+              "description": {
+                "Description": {
+                  "example": "This is a description."
+                }
+              },
+              "status": {
+                "TransactionStatus": {
+                  "description": "Specifies the status of an entry on the books of the account servicer. Some possible ISO 20022 compliant values are: \n Booked, Future, Information, Pending.\n",
+                  "example": "Booked"
+                }
+              },
+              "reversalIndicator": {
+                "ReversalIndicator": {
+                  "description": "Indicates whether or not the transaction is the result of a reversal.\nUsage: This element should only be present if the entry is the result of a reversal.\nIf the CreditDebitIndicator is Credit and ReversalIndicator is Yes, the original operation was a debit entry.\nIf the CreditDebitIndicator is Debit and ReversalIndicator is Yes, the original operation was a credit entry.\n"
+                }
+              },
+              "creationDate": {
+                "description": "Date and time at which the transaction is created.\n",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "valueDate": {
+                "description": "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit entry.\n  Usage: If entry status is pending and value date is present, then the value date refers to an expected/requested value date.\n",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "bookingDate": {
+                "description": "Date and time when an entry is posted to an account on the account servicer's books.\nUsage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.\n",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "codes": {
+                "description": "Additional transaction codes.",
+                "items": {
+                  "GenericTransactionCode": {
+                    "required": [
+                      "code",
+                      "codeName",
+                      "codeType"
+                    ],
+                    "properties": {
+                      "codeType": {
+                        "description": "Code type in PascalCase form. Possible values are: DetailBAI, SummaryBAI, TransactionCode.\n",
+                        "example": "DetailBAI"
+                      },
+                      "name": {
+                        "description": "Name of the code in PascalCase. Possible values: ResponseCode, PromotionCode, Domain, Family, Subfamily, MT940, SourceCode, TaxDeferredContributionCode.\n"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic transaction code definition."
+                  }
+                }
+              },
+              "currentBalance": {
+                "description": "The current balance at the transaction creation date.",
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              },
+              "supplementaryData": {
+                "SupplementaryData": {
+                  "description": "Additional information that cannot be captured in the structured elements and/or any other specific block. If this information need to be converted in ISO Messages, must be ISO 20022 compliant: it requires development of a compliant message extension model and its components must be registered in the ISO 20022 Data Dictionary. https://www.iso20022.org/catalogue-messages/additional-content-messages/supplementary-data\n"
+                }
+              }
+            },
+            "description": "Posting to an account that results in an increase or decrease to a balance."
+          }
+        }
+      }
+    }
+  }
+}

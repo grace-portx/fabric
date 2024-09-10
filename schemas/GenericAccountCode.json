@@ -1,0 +1,18 @@
+{
+  "GenericAccountCode": {
+    "required": [
+      "value"
+    ],
+    "properties": {
+      "name": {
+        "description": "Name of the code. Possible values are: AccountingGroup, CostCenter, DistributionGroup. Also values that may be overlayed on the identification: AccountSubtype, AccountType. Also MICR numbers: MicrAccountNumber, The account number portion of a draft or line of credit MICR line. Other possible values: TaxIncentiveType, Preferredlanguage, FundsDelayedReason, DeliveryMethod.\n",
+        "example": "AccountingGroup"
+      },
+      "value": {
+        "description": "Code value.",
+        "example": "195"
+      }
+    },
+    "description": "Generic account code definition."
+  }
+}

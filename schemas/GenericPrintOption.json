@@ -1,0 +1,19 @@
+{
+  "GenericPrintOption": {
+    "properties": {
+      "name": {
+        "PrintOptionName": {
+          "description": "Name of the print Option. Possible Values: ACHTransaction\n"
+        }
+      },
+      "options": {
+        "items": {
+          "PrintOption": {
+            "description": "Print Option. Possible Values for ACHTransaction: Name, SocialSecurityNumber. \n"
+          }
+        }
+      }
+    },
+    "description": "Print options for the account or parties"
+  }
+}

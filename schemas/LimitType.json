@@ -1,0 +1,6 @@
+{
+  "LimitType": {
+    "description": "Specifies the type of risk management limit. \n       Bilateral, NetBilateral, IndirectBilateral, Global, MandatoryBilateral, DiscretionaryBilateral, DirectDebit, SingleCustomerDirectDebit, SingleFinancialInstitutionDirectDebit, TotalDailyCustomerDirectDebit, TotalDailyFinancialInstitutionDirectDebit, AutoCollateralisation, UnsecuredCredit, ExternalGuarantee, Revolving, NotRevolving.\n",
+    "example": "DirectDebit"
+  }
+}

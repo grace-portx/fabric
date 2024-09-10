@@ -1,0 +1,6 @@
+{
+  "InterestComputationParameter": {
+    "description": "Specifies a parameter that apply at the interest day count basis. Possible Values:  LastInterest,  EqualPayment, InterestAndPrincipal, InterestSeparatedm, Amortized, AddOn, NegativeAmortization, Simple, FHLMC. \n",
+    "example": "LastInterest"
+  }
+}

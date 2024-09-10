@@ -1,0 +1,17 @@
+{
+  "LoanCollateralLien": {
+    "properties": {
+      "name": {
+        "description": "Name of the lien.\n"
+      },
+      "amount": {
+        "description": "The amount of the lien.\n",
+        "PositiveAmount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+          "example": "100"
+        }
+      }
+    },
+    "description": "Legal claim against a piece of property. It represents a debt, which the lender can enforce by taking legal action against the property.\n"
+  }
+}

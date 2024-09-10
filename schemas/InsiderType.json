@@ -1,0 +1,6 @@
+{
+  "InsiderType": {
+    "description": "The insider type information is used to provide info to Regulation 0.  The Regulation 0 is a Federal Reserve regulation that places limits and stipulations on the credit extensions a member bank can offer to its executive officers, principal shareholders, and directors. Possible values: \n   Director, Employee, Officer, PrincipalShareholder, Shareholder, Executive, ServiceCorporationEmployee, Child, Spouse, Parent, Relative, AffiliateFinancialInstitution, HoldingCompany, MainShareHolder, RelationshipInterest.\n   \n   \n",
+    "example": "Director"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "LoanContractTranche": {
+    "properties": {
+      "sequenceNumber": {
+        "description": "Unique sequence number of the tranche.\n",
+        "example": "1"
+      },
+      "expectedDate": {
+        "description": "Expected tranche payment date.",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "dueDate": {
+        "description": "Loan tranche due date.",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "amount": {
+        "description": "Amount of the tranche as defined in the loan contract.\n",
+        "PositiveAmount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+          "example": "100"
+        }
+      },
+      "duration": {
+        "description": "Loan tranche duration.\n",
+        "TemporalDuration": {
+          "required": [
+            "unit"
+          ],
+          "properties": {
+            "unit": {
+              "description": "Unit that describes the duration.",
+              "TemporalUnit": {
+                "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+                "example": "Months"
+              }
+            },
+            "value": {
+              "maximum": 999,
+              "description": "Value of the duration in number of units."
+            }
+          },
+          "description": "Describes a temporal duration.\n"
+        }
+      }
+    },
+    "description": "Provides details of a tranche defined for the loan contract.\n"
+  }
+}

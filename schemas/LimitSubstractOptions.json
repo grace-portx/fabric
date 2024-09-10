@@ -1,0 +1,5 @@
+{
+  "LimitSubstractOptions": {
+    "description": "Indicates which balance is subtracted determine the available limit. Possible values: CurrentPrincipalBalance, CurrentMaximumCredit, FundsNotAvailableAfterPayOff, FundsAvailableAtPayOff, LongTermDebtAdvances.\n"
+  }
+}

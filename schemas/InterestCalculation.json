@@ -1,0 +1,1273 @@
+{
+  "InterestCalculation": {
+    "properties": {
+      "name": {
+        "InterestName": {
+          "description": "Name in PascalCase of the interest that applies to the account. For instance, Deposit. Also identifications of the interest or charge.\n",
+          "example": "Deposit"
+        }
+      },
+      "interestCode": {
+        "description": "Interest calculation code used by the account servicer.\n"
+      },
+      "dayCountBasis": {
+        "InterestDayCountBasis": {
+          "description": "An interest day count basis is a method used to calculate interest accrual over a period of time for loans and bonds. The method involves determining the number of days over which interest is being calculated, known as the accrual period. The resulting accrual period is then divided by a certain number to calculate the daily interest rate, which is applied to the principal balance to determine the interest payment. Possible Values: ActualActual, Actual360, Actual365, 365365, 360360, Monthly78ths, 365360, ActualSchedule, ScheduleSchedule.\n",
+          "example": "Actual360"
+        }
+      },
+      "calculationMethodOption": {
+        "InterestComputationParameter": {
+          "description": "Specifies a parameter that apply at the interest day count basis. Possible Values:  LastInterest,  EqualPayment, InterestAndPrincipal, InterestSeparatedm, Amortized, AddOn, NegativeAmortization, Simple, FHLMC. \n",
+          "example": "LastInterest"
+        }
+      },
+      "accruedDate": {
+        "description": "An accrued date is a hypothetical point in time when the interest should have been paid.\n",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "nextInterestDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "lastInterestDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "term": {
+        "description": "The period funds are earning interest.",
+        "TemporalDuration": {
+          "required": [
+            "unit"
+          ],
+          "properties": {
+            "unit": {
+              "description": "Unit that describes the duration.",
+              "TemporalUnit": {
+                "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+                "example": "Months"
+              }
+            },
+            "value": {
+              "maximum": 999,
+              "description": "Value of the duration in number of units."
+            }
+          },
+          "description": "Describes a temporal duration.\n"
+        }
+      },
+      "enableIndicator": {
+        "description": "Indicates whether the interest is enabled for automatic charge.\n",
+        "example": true
+      },
+      "compoundingMethod": {
+        "description": "Indicates the compounding method used for interest calculations.\n",
+        "InterestCompoundingMethod": {
+          "description": "Inteterst compounding method:  Possible Values: Simple, Daily, Continuous.\n",
+          "example": "Deposit"
+        }
+      },
+      "compoundingFrequency": {
+        "description": "Frequency of the interest calculation and compounded during the term.\n",
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "calculationFrequency": {
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "oneDayInterest": {
+        "PositiveAmount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+          "example": "100"
+        }
+      },
+      "payment": {
+        "description": "Details on the interest payment.\n",
+        "AccountChargePayment": {
+          "properties": {
+            "frequency": {
+              "description": "Indicates the schedule for paying to accounts.\n",
+              "Frequency": {
+                "description": "Specifies an event frequency",
+                "DatePeriod": {
+                  "properties": {
+                    "fromDateTime": {
+                      "description": "Date and time at which the period starts.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    },
+                    "upToDateTime": {
+                      "description": "Date and time at which the period ends.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    }
+                  }
+                },
+                "properties": {
+                  "cycleType": {
+                    "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+                  },
+                  "cycle": {
+                    "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+                    "example": "Monthly"
+                  },
+                  "every": {
+                    "maximum": 999,
+                    "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+                    "example": 15
+                  },
+                  "weekDay": {
+                    "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+                    "example": "Tuesday"
+                  },
+                  "weekNumbers": {
+                    "items": {
+                      "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                      "example": "1st"
+                    }
+                  },
+                  "days": {
+                    "items": {
+                      "description": "Day of the Month\n",
+                      "Day": {
+                        "maximum": 31,
+                        "description": "Specifies the date in a month.",
+                        "example": 30
+                      }
+                    }
+                  },
+                  "months": {
+                    "items": {
+                      "description": "Month of the Year within an Annual cycle.\n",
+                      "Month": {
+                        "description": "Specifies a month number.",
+                        "example": "12"
+                      }
+                    }
+                  },
+                  "startDay": {
+                    "MonthDay": {
+                      "description": "A particular point in the year expressed in the MM-DD format.",
+                      "example": "04-17"
+                    }
+                  },
+                  "numberOfTimes": {
+                    "description": "Number of times the event will be repeated.\n",
+                    "example": 4
+                  }
+                }
+              }
+            },
+            "paymentType": {
+              "AccountPaymentMethodType": {
+                "description": "Specifies the type of interest payment. Possible values are: Compound, Checking, Savings, Check, Capitalize, TransferToAccount, CertificateOfDeposit, Deposit, DepositLoan, Loan.\n",
+                "example": "Compound"
+              }
+            },
+            "paymentTypeOptions": {
+              "items": {
+                "description": "Options on the payment method or account identifier. Possible values: AllPrimary, Primary, Secondary\n",
+                "example": "Primary"
+              }
+            },
+            "paymentName": {
+              "description": "Human readable pascal case identifier of the payment concept. Possible values: CreditBack, Interest.\n"
+            },
+            "accountId": {
+              "description": "The account id that receives interest credits.\n",
+              "AccountId": {
+                "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+                "example": "033-DDA-123456"
+              }
+            },
+            "referenceNumber": {
+              "description": "The reference number of the interest pay to the account.\n",
+              "Id": {
+                "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+              }
+            },
+            "paymentDate": {
+              "description": "Last payment date\n",
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "lastPaid": {
+              "PositiveAmount": {
+                "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                "example": "100"
+              }
+            },
+            "codes": {
+              "description": "Additional payment codes. Posible values: PaymentCalculus, specifies how the credit back portion of an automatic service charge is calculated. PaymentReference, additional payment reference to link with other parts of the system.\n",
+              "items": {
+                "GenericCode": {
+                  "required": [
+                    "name",
+                    "value"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the code in PascalCase.\n",
+                      "example": "AccountingGroup"
+                    },
+                    "value": {
+                      "description": "Code value.",
+                      "example": "195"
+                    },
+                    "description": {
+                      "Title": {
+                        "example": "This is a Title."
+                      }
+                    }
+                  },
+                  "description": "Generic code definition."
+                }
+              }
+            }
+          },
+          "description": "Set of attributes related to the account payment. \n"
+        }
+      },
+      "balances": {
+        "description": "Total amounts related to an interest. Possible Values: \nCurrentEarned, 2021AsOfDate, 2020AsOfDate, 2019AsOfDate, CutOffAvailable, CutOffAverageAvailable, CutOffAverageLedger, CutOffAverageMinimumLedger, CutOffLedger, CutOffMinimumLedger\n",
+        "items": {
+          "Balance": {
+            "required": [
+              "balanceName"
+            ],
+            "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+            "Period": {
+              "DatePeriod": {
+                "properties": {
+                  "fromDateTime": {
+                    "description": "Date and time at which the period starts.",
+                    "DateAndTime": {
+                      "example": "2022-04-17T08:00:00Z"
+                    }
+                  },
+                  "upToDateTime": {
+                    "description": "Date and time at which the period ends.",
+                    "DateAndTime": {
+                      "example": "2022-04-17T08:00:00Z"
+                    }
+                  }
+                }
+              },
+              "properties": {
+                "periodNumber": {
+                  "description": "Sequence number of the period."
+                },
+                "periodName": {
+                  "PeriodName": {
+                    "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                  }
+                }
+              }
+            },
+            "properties": {
+              "balanceName": {
+                "BalanceName": {
+                  "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                  "example": "Available"
+                }
+              },
+              "amount": {
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              },
+              "count": {
+                "description": "Number of transactions added to the amount.\n"
+              },
+              "currency": {
+                "CurrencyCode": {
+                  "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                  "example": "USD"
+                }
+              },
+              "calculationDate": {
+                "description": "Specifies the date and time at which the balance is calculated.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "codes": {
+                "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                "items": {
+                  "GenericCode": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the code in PascalCase.\n",
+                        "example": "AccountingGroup"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic code definition."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "renewal": {
+        "InterestRenewalDetails": {
+          "properties": {
+            "maturityNoticeOptions": {
+              "description": "Indicates wether the maturity information is printed on the combined Maturity, Interest and Rate Change notification.  \n",
+              "items": {
+                "description": "Possible Values: MaturityNotPrinted, indicates maturity information is not printed; ForecastMaturity, indicates maturity information is printed for all accounts only when maturity is forecast; AutomaticRenewal, indicates maturity information is printed only for automatically renewable account; AtMaturity, indicates maturity information is printed only at maturity; NonAutomaticRenewal,  indicates maturity information is printed only non-renewable accounts.\n"
+              }
+            },
+            "rateAtMaturityOptions": {
+              "description": "Indicates, for single maturity accounts, the rate used to accrue interest after maturity, and the length of time the rate is in effect.\n",
+              "items": {
+                "description": "Possible Values: CurrentRate, indicates the  current interest rate is effective after maturity; MaturityPeriod, indicates an account ceases to accrue after the Maturity Rate Period: CurrentRateInPeriod; MaturityRate.\n"
+              }
+            },
+            "changeNoticeOption": {
+              "description": "Indicates whether rate change notices are produced. Possible Values: Default; NoNotifications, indicates that rate change notices are not produced; RateChanges, indicates that Rate Change Notices are produced;  RateForecast,  indicates that Rate Change Notices are produced during rate change forecasting.\n"
+            },
+            "noticePrintOptions": {
+              "description": "Indicates rate change notice print options. Notification will include information about FloorRate, CeilingRate, PreviousRate, CapRate, IndexDescription.\n",
+              "items": {
+                "description": "Possible Values: FloorRate, CeilingRate, PreviousRate, CapRate, IndexDescription.\n"
+              }
+            },
+            "maturityRateDays": {
+              "description": "The number of days after maturity that single maturity accounts accrue interest. \n"
+            },
+            "maturityRate": {
+              "description": "The interest rate effective after maturity.\n",
+              "Percentage": {
+                "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                "example": "25"
+              }
+            },
+            "renewalType": {
+              "description": "The renewal type indicates whether an account automatically renews at maturity. Possible Values: NoTerm, indicates the account has no term; Automatic, indicates automatically renewal; SingleMaturity, indicates not automatically renewed.\n"
+            },
+            "rateFrequency": {
+              "Frequency": {
+                "description": "Specifies an event frequency",
+                "DatePeriod": {
+                  "properties": {
+                    "fromDateTime": {
+                      "description": "Date and time at which the period starts.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    },
+                    "upToDateTime": {
+                      "description": "Date and time at which the period ends.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    }
+                  }
+                },
+                "properties": {
+                  "cycleType": {
+                    "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+                  },
+                  "cycle": {
+                    "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+                    "example": "Monthly"
+                  },
+                  "every": {
+                    "maximum": 999,
+                    "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+                    "example": 15
+                  },
+                  "weekDay": {
+                    "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+                    "example": "Tuesday"
+                  },
+                  "weekNumbers": {
+                    "items": {
+                      "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                      "example": "1st"
+                    }
+                  },
+                  "days": {
+                    "items": {
+                      "description": "Day of the Month\n",
+                      "Day": {
+                        "maximum": 31,
+                        "description": "Specifies the date in a month.",
+                        "example": 30
+                      }
+                    }
+                  },
+                  "months": {
+                    "items": {
+                      "description": "Month of the Year within an Annual cycle.\n",
+                      "Month": {
+                        "description": "Specifies a month number.",
+                        "example": "12"
+                      }
+                    }
+                  },
+                  "startDay": {
+                    "MonthDay": {
+                      "description": "A particular point in the year expressed in the MM-DD format.",
+                      "example": "04-17"
+                    }
+                  },
+                  "numberOfTimes": {
+                    "description": "Number of times the event will be repeated.\n",
+                    "example": 4
+                  }
+                }
+              }
+            },
+            "term": {
+              "TemporalDuration": {
+                "required": [
+                  "unit"
+                ],
+                "properties": {
+                  "unit": {
+                    "description": "Unit that describes the duration.",
+                    "TemporalUnit": {
+                      "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+                      "example": "Months"
+                    }
+                  },
+                  "value": {
+                    "maximum": 999,
+                    "description": "Value of the duration in number of units."
+                  }
+                },
+                "description": "Describes a temporal duration.\n"
+              }
+            },
+            "productId": {
+              "ProductId": {
+                "description": "Identification of the product offered by a financial institution to its customers.\n",
+                "example": "PD_CA_0002"
+              }
+            }
+          },
+          "description": "Detailed interest attributes related to rate change at maturity.\n"
+        }
+      },
+      "cycle": {
+        "InterestCycle": {
+          "properties": {
+            "firstDateRate": {
+              "Percentage": {
+                "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                "example": "25"
+              }
+            },
+            "daysProcessed": {
+              "description": "The number of calendar days processed during the current interest cycle.\n"
+            },
+            "totalDays": {
+              "description": "The total number of days into the current interest period.\n"
+            },
+            "balances": {
+              "description": "Total amounts related to an interest cycle.",
+              "items": {
+                "Balance": {
+                  "required": [
+                    "balanceName"
+                  ],
+                  "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+                  "Period": {
+                    "DatePeriod": {
+                      "properties": {
+                        "fromDateTime": {
+                          "description": "Date and time at which the period starts.",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        },
+                        "upToDateTime": {
+                          "description": "Date and time at which the period ends.",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        }
+                      }
+                    },
+                    "properties": {
+                      "periodNumber": {
+                        "description": "Sequence number of the period."
+                      },
+                      "periodName": {
+                        "PeriodName": {
+                          "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "balanceName": {
+                      "BalanceName": {
+                        "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                        "example": "Available"
+                      }
+                    },
+                    "amount": {
+                      "Amount": {
+                        "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                        "example": "100"
+                      }
+                    },
+                    "count": {
+                      "description": "Number of transactions added to the amount.\n"
+                    },
+                    "currency": {
+                      "CurrencyCode": {
+                        "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                        "example": "USD"
+                      }
+                    },
+                    "calculationDate": {
+                      "description": "Specifies the date and time at which the balance is calculated.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    },
+                    "codes": {
+                      "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                      "items": {
+                        "GenericCode": {
+                          "required": [
+                            "name",
+                            "value"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the code in PascalCase.\n",
+                              "example": "AccountingGroup"
+                            },
+                            "value": {
+                              "description": "Code value.",
+                              "example": "195"
+                            },
+                            "description": {
+                              "Title": {
+                                "example": "This is a Title."
+                              }
+                            }
+                          },
+                          "description": "Generic code definition."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Set of parameters used to calculate an interest cycle.\n"
+        }
+      },
+      "lastCalculus": {
+        "description": "The amount of automatic interest that was last posted to the account.\n",
+        "PositiveAmount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+          "example": "100"
+        }
+      },
+      "reportingIndicator": {
+        "description": "Identifies whether interest paid is reportable.\n"
+      },
+      "reportingOptions": {
+        "items": {
+          "InterestReportingOption": {
+            "description": "Identifies options for the interest payment. Possible values: ToGovernment, ToBorrower. \n",
+            "example": "Deposit"
+          }
+        }
+      },
+      "form": {
+        "TaxForm": {
+          "required": [
+            "formName"
+          ],
+          "properties": {
+            "formName": {
+              "description": "Form name requested. Possible Values: W-8BEN, W-8BEN-E, W-8ECI, W-8EXP, W-8IMY, W-9, W-8, 1042-S, 1099-INT, 1099-OID.\n",
+              "example": "W-8"
+            },
+            "taxRate": {
+              "description": "Indicates the tax rate provided by the IRS on the form.",
+              "PositiveAmount": {
+                "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                "example": "100"
+              }
+            },
+            "onFileIndicator": {
+              "description": "Indicates weather the bank establish the appropriate tax treatment of any interest or other income earned on the account related to the form.\n"
+            },
+            "taxStatus": {
+              "description": "Exempt, Expired, Certified, Signed\n",
+              "example": "Exempt"
+            },
+            "certificationDate": {
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "expirationDate": {
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            }
+          },
+          "description": "Information of the form requested by the tax payer. \n"
+        }
+      },
+      "annualPercentageYieldFrequency": {
+        "description": "The frequency used in calculating the Regulation DD Annual Percentage Yield (APY) when the financial institution requires interest to be withdrawn (i.e. compounding interest is not an option.) The Regulation DD Compound Frequency overrides the interest frequency only in computing the APY. For example, an account with interest paid monthly by check but disclosed as annual compounding.\n",
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "annualPercentageYield": {
+        "description": "Annual Percentage Yield (APY) is a measure used in finance to express the total return on an investment, taking into account both the interest earned and the appreciation in the investment's value, over a specified period. It is expressed as a percentage and is often used for fixed income securities such as bonds, and money market accounts.\n",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "daysSinceLastAnniversary": {
+        "description": "The number of calendar days processed since the last anniversary date\n"
+      }
+    },
+    "description": "Set of parameters used to calculate an interest.\n",
+    "InterestRateDetails": {
+      "properties": {
+        "rates": {
+          "description": "Rates involve on interest calculation.",
+          "items": {
+            "InterestCalculationRate": {
+              "properties": {
+                "rateName": {
+                  "RateName": {
+                    "description": "Specifies the name of the rate. Possible values: Prior, Original, Actual, LastAnniversary, Effective, Current, Future, Base, Floor, Ceiling, OverSplit, UnderSplit.\n",
+                    "example": "Actual"
+                  }
+                },
+                "rateTierName": {
+                  "RateName": {
+                    "description": "Specifies the name of the rate. Possible values: Prior, Original, Actual, LastAnniversary, Effective, Current, Future, Base, Floor, Ceiling, OverSplit, UnderSplit.\n",
+                    "example": "Actual"
+                  }
+                },
+                "percentage": {
+                  "Percentage": {
+                    "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                    "example": "25"
+                  }
+                },
+                "amount": {
+                  "description": "Maximum amount range\n",
+                  "PositiveAmount": {
+                    "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                    "example": "100"
+                  }
+                },
+                "currency": {
+                  "CurrencyCode": {
+                    "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                    "example": "USD"
+                  }
+                }
+              },
+              "description": "Rate attributes \n"
+            }
+          }
+        },
+        "rateType": {
+          "InterestRateType": {
+            "description": "Specifies the type of interest rate. Some ISO 20022 compliant values are: Fixed, Forfeit, Variable, StepUp, Scheduled, Unscheduled, Discount, FixedRateUnderlyingExposureForLife, FixedRateUnderlyingExposureWithCompulsoryFutureSwitchToFloating, FixedWithFuturePeriodicResets, FloatingLinkedToIndex, FloatingRateUnderlyingExposureForLife, FloatingRateUnderlyingExposureWithCap, FloatingRateUnderlyingExposureWithFloor, FloatingRateUnderlyingExposureWithFloorAndCap, Modular, ObligorSwapped, SwicthOptionality, Tiered, StepFrequency, RateIndex, IndexFrequency.\n",
+            "example": "Fixed"
+          }
+        },
+        "rateTieredType": {
+          "InterestTieredRateType": {
+            "description": "Specifies the type of tiered interest rate. Possible values:\n Whole, Split, Dynamic.\n",
+            "example": "Whole"
+          }
+        },
+        "rateAmountType": {
+          "BalanceName": {
+            "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+            "example": "Available"
+          }
+        },
+        "pastDueOptions": {
+          "description": "Indicates how the Past Due Rate is applied to past due loans. After a loan payment is past due after certain days, interest is earned retroactively from the payment due date.\n",
+          "items": {
+            "description": "Possible Values: NotChange, indicates interest rate is not changed after it is past due; PastDueRate, indicates loan earn at the interest past due rate after being past due for certain days; RatePlusAdjuster, indicates the rate  adjuster is automatically added to a  interest rate after being past due for certain days; DaysAdjusterAddedAsPercentage, indicates the rate  adjuster is a percentage and it is  automatically added to a  interest rate after being past due for certain days; OverridesFloorOrCeiling, indicates that the adjusted rate can override the floor or ceiling rate.\n"
+          }
+        },
+        "variableInterests": {
+          "items": {
+            "VariableInterestChanges": {
+              "properties": {
+                "leadDays": {
+                  "description": "Number of days prior to the event to do a review.\n",
+                  "Day": {
+                    "maximum": 31,
+                    "description": "Specifies the date in a month.",
+                    "example": 30
+                  }
+                },
+                "nextChangeDate": {
+                  "description": "Next date at which the interest rate is to be adjusted.\n",
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                },
+                "lastChangeDate": {
+                  "description": "Last date at which the interest rate was adjusted.\n",
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                },
+                "changes": {
+                  "items": {
+                    "VariableInterestCalculation": {
+                      "properties": {
+                        "referenceRateName": {
+                          "description": "Identifies the reference index for the debt instrument.\n",
+                          "BenchmarkCurve": {
+                            "description": "Specifies a benchmark curve name. Possible ISO 20022 compliant values are: WIBOR, Treasury, TIBOR, TELBOR, SWAP, STIBOR, PRIBOR, Pfandbriefe, NIBOR, MuniAAA, MOSPRIM, LIBOR, LIBID, JIBAR, ISDAFIX, GCFRepo, FutureSWAP, EuroSwiss, EURODOLLAR, Euribor, EONIASwaps, EONIA, CIBOR, CDOR, BUBOR, BBSW\n\n\n   \n"
+                          }
+                        },
+                        "rateType": {
+                          "InterestRateType": {
+                            "description": "Specifies the type of interest rate. Some ISO 20022 compliant values are: Fixed, Forfeit, Variable, StepUp, Scheduled, Unscheduled, Discount, FixedRateUnderlyingExposureForLife, FixedRateUnderlyingExposureWithCompulsoryFutureSwitchToFloating, FixedWithFuturePeriodicResets, FloatingLinkedToIndex, FloatingRateUnderlyingExposureForLife, FloatingRateUnderlyingExposureWithCap, FloatingRateUnderlyingExposureWithFloor, FloatingRateUnderlyingExposureWithFloorAndCap, Modular, ObligorSwapped, SwicthOptionality, Tiered, StepFrequency, RateIndex, IndexFrequency.\n",
+                            "example": "Fixed"
+                          }
+                        },
+                        "calculationMethod": {
+                          "VariableInterestMethod": {
+                            "description": "Specifies the variable interest method. Possible Values:  PointSpread, FactorSpread, PercentageVariance, NotPercentageVariance.\n",
+                            "example": "PointSpread"
+                          }
+                        },
+                        "spread": {
+                          "description": "Percentage factor used to calculate the rate changes. If the spread entered is 13.000 and the rate in the specification is 11.0000%, the rate over will be 12.4300% (11 x 1.13). If the spread entered is -13.000, the rate over will be 9.5700% (11 x .87).\n",
+                          "Percentage": {
+                            "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                            "example": "25"
+                          }
+                        },
+                        "basisPointSpread": {
+                          "description": "Provides the number of basis points added to (if positive) or deducted from (if negative) the underlying reference rate to calculate the actual interest rate applicable. Basis points are a unit of measurement used to describe the change in interest rates. One basis point is equal to 0.01%, or one hundredth of a percent. Therefore, 50 basis points is equivalent to 0.50%, and 100 basis points is equivalent to 1%.\n"
+                        },
+                        "pointSpread": {
+                          "description": "Percentage to be added to or deducted from the index rate to calculate the effective rate. If the point spread entered is 1.5000 and the rate in the specification is 11.0000%, the rate over will be 12.5000%. If the point spread entered is -1.5000, the rate over will be 9.5000%. \n",
+                          "Percentage": {
+                            "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                            "example": "25"
+                          }
+                        },
+                        "productId": {
+                          "ProductId": {
+                            "description": "Identification of the product offered by a financial institution to its customers.\n",
+                            "example": "PD_CA_0002"
+                          }
+                        },
+                        "effectiveDate": {
+                          "description": "Date on which the new interest rate change will be effective.\n",
+                          "DateAndTime": {
+                            "example": "2022-04-17T08:00:00Z"
+                          }
+                        },
+                        "frequency": {
+                          "description": "Date on which the new interest rate change will be effective.\n",
+                          "Frequency": {
+                            "description": "Specifies an event frequency",
+                            "DatePeriod": {
+                              "properties": {
+                                "fromDateTime": {
+                                  "description": "Date and time at which the period starts.",
+                                  "DateAndTime": {
+                                    "example": "2022-04-17T08:00:00Z"
+                                  }
+                                },
+                                "upToDateTime": {
+                                  "description": "Date and time at which the period ends.",
+                                  "DateAndTime": {
+                                    "example": "2022-04-17T08:00:00Z"
+                                  }
+                                }
+                              }
+                            },
+                            "properties": {
+                              "cycleType": {
+                                "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+                              },
+                              "cycle": {
+                                "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+                                "example": "Monthly"
+                              },
+                              "every": {
+                                "maximum": 999,
+                                "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+                                "example": 15
+                              },
+                              "weekDay": {
+                                "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+                                "example": "Tuesday"
+                              },
+                              "weekNumbers": {
+                                "items": {
+                                  "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                                  "example": "1st"
+                                }
+                              },
+                              "days": {
+                                "items": {
+                                  "description": "Day of the Month\n",
+                                  "Day": {
+                                    "maximum": 31,
+                                    "description": "Specifies the date in a month.",
+                                    "example": 30
+                                  }
+                                }
+                              },
+                              "months": {
+                                "items": {
+                                  "description": "Month of the Year within an Annual cycle.\n",
+                                  "Month": {
+                                    "description": "Specifies a month number.",
+                                    "example": "12"
+                                  }
+                                }
+                              },
+                              "startDay": {
+                                "MonthDay": {
+                                  "description": "A particular point in the year expressed in the MM-DD format.",
+                                  "example": "04-17"
+                                }
+                              },
+                              "numberOfTimes": {
+                                "description": "Number of times the event will be repeated.\n",
+                                "example": 4
+                              }
+                            }
+                          }
+                        },
+                        "increaseOnlyIndicator": {
+                          "description": "Indicates whether the rate only increases.\n"
+                        },
+                        "ceilingRate": {
+                          "description": "Rate of interest finalized from the higher range of rates.\n",
+                          "PositivePercentage": {
+                            "description": "Value expressed as a positive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                            "example": "25"
+                          }
+                        },
+                        "floorRate": {
+                          "description": "Rate of interest finalized from the lower range of rates.\n",
+                          "PositivePercentage": {
+                            "description": "Value expressed as a positive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                            "example": "25"
+                          }
+                        }
+                      },
+                      "description": "Specifies the parameters to be used for variable interest.\n"
+                    }
+                  }
+                }
+              },
+              "description": "Specifies the parameters to be used for variable interest. Details of frequency for interest rate adjustment.\n",
+              "VariableInterestCalculation": {
+                "properties": {
+                  "referenceRateName": {
+                    "description": "Identifies the reference index for the debt instrument.\n",
+                    "BenchmarkCurve": {
+                      "description": "Specifies a benchmark curve name. Possible ISO 20022 compliant values are: WIBOR, Treasury, TIBOR, TELBOR, SWAP, STIBOR, PRIBOR, Pfandbriefe, NIBOR, MuniAAA, MOSPRIM, LIBOR, LIBID, JIBAR, ISDAFIX, GCFRepo, FutureSWAP, EuroSwiss, EURODOLLAR, Euribor, EONIASwaps, EONIA, CIBOR, CDOR, BUBOR, BBSW\n\n\n   \n"
+                    }
+                  },
+                  "rateType": {
+                    "InterestRateType": {
+                      "description": "Specifies the type of interest rate. Some ISO 20022 compliant values are: Fixed, Forfeit, Variable, StepUp, Scheduled, Unscheduled, Discount, FixedRateUnderlyingExposureForLife, FixedRateUnderlyingExposureWithCompulsoryFutureSwitchToFloating, FixedWithFuturePeriodicResets, FloatingLinkedToIndex, FloatingRateUnderlyingExposureForLife, FloatingRateUnderlyingExposureWithCap, FloatingRateUnderlyingExposureWithFloor, FloatingRateUnderlyingExposureWithFloorAndCap, Modular, ObligorSwapped, SwicthOptionality, Tiered, StepFrequency, RateIndex, IndexFrequency.\n",
+                      "example": "Fixed"
+                    }
+                  },
+                  "calculationMethod": {
+                    "VariableInterestMethod": {
+                      "description": "Specifies the variable interest method. Possible Values:  PointSpread, FactorSpread, PercentageVariance, NotPercentageVariance.\n",
+                      "example": "PointSpread"
+                    }
+                  },
+                  "spread": {
+                    "description": "Percentage factor used to calculate the rate changes. If the spread entered is 13.000 and the rate in the specification is 11.0000%, the rate over will be 12.4300% (11 x 1.13). If the spread entered is -13.000, the rate over will be 9.5700% (11 x .87).\n",
+                    "Percentage": {
+                      "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                      "example": "25"
+                    }
+                  },
+                  "basisPointSpread": {
+                    "description": "Provides the number of basis points added to (if positive) or deducted from (if negative) the underlying reference rate to calculate the actual interest rate applicable. Basis points are a unit of measurement used to describe the change in interest rates. One basis point is equal to 0.01%, or one hundredth of a percent. Therefore, 50 basis points is equivalent to 0.50%, and 100 basis points is equivalent to 1%.\n"
+                  },
+                  "pointSpread": {
+                    "description": "Percentage to be added to or deducted from the index rate to calculate the effective rate. If the point spread entered is 1.5000 and the rate in the specification is 11.0000%, the rate over will be 12.5000%. If the point spread entered is -1.5000, the rate over will be 9.5000%. \n",
+                    "Percentage": {
+                      "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                      "example": "25"
+                    }
+                  },
+                  "productId": {
+                    "ProductId": {
+                      "description": "Identification of the product offered by a financial institution to its customers.\n",
+                      "example": "PD_CA_0002"
+                    }
+                  },
+                  "effectiveDate": {
+                    "description": "Date on which the new interest rate change will be effective.\n",
+                    "DateAndTime": {
+                      "example": "2022-04-17T08:00:00Z"
+                    }
+                  },
+                  "frequency": {
+                    "description": "Date on which the new interest rate change will be effective.\n",
+                    "Frequency": {
+                      "description": "Specifies an event frequency",
+                      "DatePeriod": {
+                        "properties": {
+                          "fromDateTime": {
+                            "description": "Date and time at which the period starts.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          },
+                          "upToDateTime": {
+                            "description": "Date and time at which the period ends.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          }
+                        }
+                      },
+                      "properties": {
+                        "cycleType": {
+                          "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+                        },
+                        "cycle": {
+                          "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+                          "example": "Monthly"
+                        },
+                        "every": {
+                          "maximum": 999,
+                          "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+                          "example": 15
+                        },
+                        "weekDay": {
+                          "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+                          "example": "Tuesday"
+                        },
+                        "weekNumbers": {
+                          "items": {
+                            "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                            "example": "1st"
+                          }
+                        },
+                        "days": {
+                          "items": {
+                            "description": "Day of the Month\n",
+                            "Day": {
+                              "maximum": 31,
+                              "description": "Specifies the date in a month.",
+                              "example": 30
+                            }
+                          }
+                        },
+                        "months": {
+                          "items": {
+                            "description": "Month of the Year within an Annual cycle.\n",
+                            "Month": {
+                              "description": "Specifies a month number.",
+                              "example": "12"
+                            }
+                          }
+                        },
+                        "startDay": {
+                          "MonthDay": {
+                            "description": "A particular point in the year expressed in the MM-DD format.",
+                            "example": "04-17"
+                          }
+                        },
+                        "numberOfTimes": {
+                          "description": "Number of times the event will be repeated.\n",
+                          "example": 4
+                        }
+                      }
+                    }
+                  },
+                  "increaseOnlyIndicator": {
+                    "description": "Indicates whether the rate only increases.\n"
+                  },
+                  "ceilingRate": {
+                    "description": "Rate of interest finalized from the higher range of rates.\n",
+                    "PositivePercentage": {
+                      "description": "Value expressed as a positive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                      "example": "25"
+                    }
+                  },
+                  "floorRate": {
+                    "description": "Rate of interest finalized from the lower range of rates.\n",
+                    "PositivePercentage": {
+                      "description": "Value expressed as a positive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+                      "example": "25"
+                    }
+                  }
+                },
+                "description": "Specifies the parameters to be used for variable interest.\n"
+              }
+            }
+          }
+        }
+      },
+      "description": "Set of attributes related to the rate change.\n"
+    }
+  }
+}

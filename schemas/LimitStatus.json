@@ -1,0 +1,6 @@
+{
+  "LimitStatus": {
+    "description": "Specifies the current status of a limit. \n       Possible values are: Enabled, Disabled, Deleted, Requested, NotAuthorized (The limit is not authorized by the customer). Other values: CustomerEnrolled, CustomerNotEnrolled, InstitutionEnrolled.\n",
+    "example": "Requested"
+  }
+}

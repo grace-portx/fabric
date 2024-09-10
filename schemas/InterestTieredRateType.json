@@ -1,0 +1,6 @@
+{
+  "InterestTieredRateType": {
+    "description": "Specifies the type of tiered interest rate. Possible values:\n Whole, Split, Dynamic.\n",
+    "example": "Whole"
+  }
+}

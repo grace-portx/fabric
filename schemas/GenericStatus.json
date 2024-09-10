@@ -1,0 +1,29 @@
+{
+  "GenericStatus": {
+    "properties": {
+      "statusType": {
+        "description": "Pascal case status type. Possible Values: NSFInstruction, RegulationDD, IRA. Pays, InBox, CashReserve, ChargeOff, RestrictedAccount, AccountVerification, ClassCode, LegalEntity, PrivacyNoticed\n",
+        "example": "RegulationDD"
+      },
+      "statusName": {
+        "description": "Pascal case status name. Possibles Values for IRA status type: NotEligible, Eligible, DistributionDisability, DistributionDeath, DistributionNormal, AccountLinked, AccountNotLinked. Possible values for Pays: Enable, Disable; InBox: NewMessage, Empty; CashReserve: HasCashReserve, DoNotHave; RestrictedAccount: IsRestricted, NotRestricted; ChargeOff: BankSubmitted, Automatic, IntegratedProcessingAutomatic, IntegratedProcessingClosed. PassbookSavings: NotOnline, Online, Manual. AccountVerification: Valid, NotValid. OverdraftProtection: Enable, Disable. ClassCode: New, NotNew. DefaultStatus: Inminent, NotDefault. LegalEntity: LegalEntityCustomer. PrivacyNoticed:  CustomerCanBeDisclosed, CustomerOptOut, CustomerNotOptOut\n",
+        "example": "Active"
+      },
+      "dateAndTime": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "reasonComment": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "statusReason": {
+        "description": "Pascal case status reason. Possible Values: NSFInstruction, RegulationDD, IRA.\n",
+        "example": "RegulationDD"
+      }
+    },
+    "description": "Generic status definition."
+  }
+}

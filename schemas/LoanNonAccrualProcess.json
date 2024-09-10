@@ -1,0 +1,6 @@
+{
+  "LoanNonAccrualProcess": {
+    "description": "Specifies the current Non Accrual process of a Loan. Possible values names are: PastDueXDays, InterestAutomaticAdjustment, ManuallyWithAutomaticReturn, ManuallyWithOutAutomaticReturn, PastDueWillOutAutomatic.\n",
+    "example": "PastDueXDays"
+  }
+}

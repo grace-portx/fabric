@@ -1,0 +1,6 @@
+{
+  "LoanPaymentType": {
+    "description": "Possible values are: \n Interest,\n Principal,\n Curtailment.\n",
+    "example": "Principal"
+  }
+}

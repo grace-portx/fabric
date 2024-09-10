@@ -1,0 +1,48 @@
+{
+  "LedgerAccountDescriptor": {
+    "required": [
+      "accountId",
+      "accountNumber",
+      "accountType",
+      "name"
+    ],
+    "properties": {
+      "accountId": {
+        "AccountId": {
+          "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+          "example": "033-DDA-123456"
+        }
+      },
+      "accountNumber": {
+        "LedgerAccountNumber": {
+          "description": "Ledger account number used to identify different accounts. Also used for grouping and categorizing accounts. To make it easy for readers to locate specific accounts or to know what they're looking at instantly, each account typically contains human readable codes.\n",
+          "example": "1-001"
+        }
+      },
+      "accountBranchId": {
+        "ServicerBranchId": {
+          "description": "Identification of the account servicer institution at branch level or center level. To overlay the codes to produce a unique identifier the following expresion is used: BranchRegionCode-BranchSubdivisionCode.\n",
+          "example": "SEA_1"
+        }
+      },
+      "accountType": {
+        "LedgerAccountType": {
+          "description": "Type of the Ledger Account or Internal Bank Account. Possible values: GeneralLedger, DetailedLedger, Holding, Mirrow, Clearing, CheckDisbursed.\n",
+          "example": "GeneralLedger"
+        }
+      },
+      "name": {
+        "AccountName": {
+          "description": "Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.",
+          "example": "Hermes PD_CA 0002"
+        }
+      },
+      "status": {
+        "AccountStatus": {
+          "description": "Specifies the current primary status of an account. Possible values are:\n Enabled, \n Dormant,\n Disable,\n Deleted,\n Pending, \n Form.\n Pending, \n Denied, \n Review,\n Approve,\n ChargeOff,\n Active,\n PaymentPastDue,\n Bankruptcy,\n AuthorizationProhibited,\n InterestProhibited,\n Closed, Restricted.\n",
+          "example": "Active"
+        }
+      }
+    }
+  }
+}

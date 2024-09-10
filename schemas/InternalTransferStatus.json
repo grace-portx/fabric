@@ -1,0 +1,6 @@
+{
+  "InternalTransferStatus": {
+    "description": "Indicates the status of an internal transfer. Possible values:\n Received, Rejected, Pending, Accepted, MemoPosted, HardPosted Cleared, Expired. \n      A memo post is a transaction that has not yet been posted but is included in the current day\u2019s available balance until the nightly ledger update. During the ledger update, the transaction is processed and Cleared for the next day.\n The amount of a transaction is temporarily added to or subtracted from the current available balance until the nightly processing at which time the transaction is scheduled to post the next business day.\nThe reduction in your Current Balance by a Memo Post debit does not remove funds from your account; it only reduces the amount of your then Current Balance.\n",
+    "example": "Accepted"
+  }
+}

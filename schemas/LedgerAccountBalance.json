@@ -1,0 +1,35 @@
+{
+  "LedgerAccountBalance": {
+    "required": [
+      "amount",
+      "balanceName"
+    ],
+    "properties": {
+      "balanceName": {
+        "LedgerBalanceName": {
+          "description": "Specifies the nature of the ledger balance. Possible Values are:  Closing, Pending, Posted, Available.\n",
+          "example": "Closing"
+        }
+      },
+      "amount": {
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "currency": {
+        "CurrencyCode": {
+          "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+          "example": "USD"
+        }
+      },
+      "calculationDate": {
+        "description": "Specifies the date and time at which the balance is calculated.",
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      }
+    },
+    "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n"
+  }
+}

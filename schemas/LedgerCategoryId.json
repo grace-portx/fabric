@@ -1,0 +1,6 @@
+{
+  "LedgerCategoryId": {
+    "description": "Unique identifier for the ledger account category. Is a grouping of Ledger Accounts. Its balance is equal to the sum of the balances of all contained accounts. \n",
+    "example": "1"
+  }
+}

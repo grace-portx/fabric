@@ -1,0 +1,6 @@
+{
+  "LoanReviewDateEvent": {
+    "description": "Indicates the changes on a loan when the Review Date is passed. Possible Values:\nAdvanceTransactionDisable, the AdvanceTransaction Restriction will be disabel; PaymentDisable, the Payment Restriction will be disabel; ElegibleForHAMP,  indicates the loan is eligible for the Home Affordability Modification Program (HAMP); 60MonthEscrow, indicates that during escrow analysis, escrow deficits will be spread over a 60 month period beginning on the Review Date; 12MonthEscrow, indicates that during escrow analysis, escrow deficits will be spread over a 12 month period beginning on the Review Date; HAMPNotUsed, indicates the Home Affordability Modification Program (HAMP) is not being used for loan modification; BACurtailmentCharge, indicates the loan is eligible for the SBA Curtailment Charge. During the repayment period the loan is to be charged the 21-day reducing penalty for any principal curtailments over 20% of the principal balance or a payoff.\n",
+    "example": "ElegibleForHAMP"
+  }
+}

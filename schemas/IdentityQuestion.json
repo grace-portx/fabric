@@ -1,0 +1,35 @@
+{
+  "IdentityQuestion": {
+    "properties": {
+      "question": {
+        "description": "The text with the question.\n",
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "questionId": {
+        "description": "Unique identifier of the security question used to identify the customer. Possible values: PlaceOfBirth, County, FavoriteColor, FavoriteNumber, FavoriteDate.\n",
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "identityQuestionType": {
+        "IdentityQuestionType": {
+          "description": "Security questions. Possible Values: MotherMaidenName, CityOfBirth, HighSchoolName, FatherMiddleName, SchoolMascot, ResidenceCounty, MotherBirthMonth, 1stEmployerName, ElementarySchoolName, 1stChildMiddleName, PetName, AnniversaryDate, ResidenceCityIn2000, FirstCar, FavoriteArtist, FavoriteColor, FavoriteHobby, FavoriteMovie, FavoriteSportTeam, FavoriteTeacher\n",
+          "example": "FavoriteColor"
+        }
+      },
+      "answer": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "message": {
+        "Description": {
+          "example": "This is a description."
+        }
+      }
+    },
+    "description": "Additional ways to verify the identity of the customer. This is especially helpful when a customer does not have proper identification with them at the time or when there is a need to request additional identification from a customer.\n"
+  }
+}

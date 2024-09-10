@@ -1,0 +1,6 @@
+{
+  "InterestCompoundingMethod": {
+    "description": "Inteterst compounding method:  Possible Values: Simple, Daily, Continuous.\n",
+    "example": "Deposit"
+  }
+}

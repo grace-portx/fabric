@@ -1,0 +1,38 @@
+{
+  "InterestCalculationRate": {
+    "properties": {
+      "rateName": {
+        "RateName": {
+          "description": "Specifies the name of the rate. Possible values: Prior, Original, Actual, LastAnniversary, Effective, Current, Future, Base, Floor, Ceiling, OverSplit, UnderSplit.\n",
+          "example": "Actual"
+        }
+      },
+      "rateTierName": {
+        "RateName": {
+          "description": "Specifies the name of the rate. Possible values: Prior, Original, Actual, LastAnniversary, Effective, Current, Future, Base, Floor, Ceiling, OverSplit, UnderSplit.\n",
+          "example": "Actual"
+        }
+      },
+      "percentage": {
+        "Percentage": {
+          "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+          "example": "25"
+        }
+      },
+      "amount": {
+        "description": "Maximum amount range\n",
+        "PositiveAmount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+          "example": "100"
+        }
+      },
+      "currency": {
+        "CurrencyCode": {
+          "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+          "example": "USD"
+        }
+      }
+    },
+    "description": "Rate attributes \n"
+  }
+}

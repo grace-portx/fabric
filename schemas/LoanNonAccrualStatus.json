@@ -1,0 +1,6 @@
+{
+  "LoanNonAccrualStatus": {
+    "description": "Specifies the current Non Accrual state of a Loan. Possible values names are: NonAccrual, Accrual.\n",
+    "example": "NonAccrual"
+  }
+}

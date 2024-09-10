@@ -1,0 +1,24 @@
+{
+  "GenericCode": {
+    "required": [
+      "name",
+      "value"
+    ],
+    "properties": {
+      "name": {
+        "description": "Name of the code in PascalCase.\n",
+        "example": "AccountingGroup"
+      },
+      "value": {
+        "description": "Code value.",
+        "example": "195"
+      },
+      "description": {
+        "Title": {
+          "example": "This is a Title."
+        }
+      }
+    },
+    "description": "Generic code definition."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "LedgerAccountType": {
+    "description": "Type of the Ledger Account or Internal Bank Account. Possible values: GeneralLedger, DetailedLedger, Holding, Mirrow, Clearing, CheckDisbursed.\n",
+    "example": "GeneralLedger"
+  }
+}

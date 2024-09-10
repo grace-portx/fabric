@@ -1,0 +1,6 @@
+{
+  "InterestReportingOption": {
+    "description": "Identifies options for the interest payment. Possible values: ToGovernment, ToBorrower. \n",
+    "example": "Deposit"
+  }
+}

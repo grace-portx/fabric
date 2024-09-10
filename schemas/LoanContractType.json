@@ -1,0 +1,6 @@
+{
+  "LoanContractType": {
+    "description": "Type of the loan contract. Possible values: \nRegular, MasterAgreement, MasterCommitment, LineOfCredit, LetterOfCredit, Tranche, MasterMorgage.\n",
+    "example": "Regular"
+  }
+}

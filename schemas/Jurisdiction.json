@@ -1,0 +1,28 @@
+{
+  "Jurisdiction": {
+    "description": "Area with a set of laws under the control of a system which are different from neighbouring areas\n",
+    "Place": {
+      "properties": {
+        "countrySubdivision": {
+          "CountrySubdivision": {
+            "description": "Name of a country subdivision such as state, region, county.",
+            "example": "Oregon"
+          }
+        },
+        "townName": {
+          "TownName": {
+            "description": "Name of a built-up area, with defined boundaries, and a local government. Also city name.\n",
+            "example": "San Diego"
+          }
+        },
+        "country": {
+          "CountryCode": {
+            "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+            "example": "US"
+          }
+        }
+      },
+      "description": "Town, CountrySubdivision and Country ."
+    }
+  }
+}

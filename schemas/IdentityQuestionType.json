@@ -1,0 +1,6 @@
+{
+  "IdentityQuestionType": {
+    "description": "Security questions. Possible Values: MotherMaidenName, CityOfBirth, HighSchoolName, FatherMiddleName, SchoolMascot, ResidenceCounty, MotherBirthMonth, 1stEmployerName, ElementarySchoolName, 1stChildMiddleName, PetName, AnniversaryDate, ResidenceCityIn2000, FirstCar, FavoriteArtist, FavoriteColor, FavoriteHobby, FavoriteMovie, FavoriteSportTeam, FavoriteTeacher\n",
+    "example": "FavoriteColor"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "InterestName": {
+    "description": "Name in PascalCase of the interest that applies to the account. For instance, Deposit. Also identifications of the interest or charge.\n",
+    "example": "Deposit"
+  }
+}

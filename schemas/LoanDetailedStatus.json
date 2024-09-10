@@ -1,0 +1,92 @@
+{
+  "LoanDetailedStatus": {
+    "properties": {
+      "status": {
+        "LoanStatus": {
+          "description": "Specifies the current state of an account. Possible  values names are:\n Pending, \n Form,\n Denied, \n Review,\n Approve,\n Withdrawn,\n Disable,\n Funded,\n Deleted,\n WriteDown,\n WrittenOff,\n Active,\n PaymentPastDue,\n Foreclosure,\n Bankruptcy.\n",
+          "example": "Withdrawn"
+        }
+      },
+      "statusDateAndTime": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      },
+      "details": {
+        "description": "Detailed loan status list. Possible Values: RegulationDD, Analysis.\n",
+        "items": {
+          "GenericStatus": {
+            "properties": {
+              "statusType": {
+                "description": "Pascal case status type. Possible Values: NSFInstruction, RegulationDD, IRA. Pays, InBox, CashReserve, ChargeOff, RestrictedAccount, AccountVerification, ClassCode, LegalEntity, PrivacyNoticed\n",
+                "example": "RegulationDD"
+              },
+              "statusName": {
+                "description": "Pascal case status name. Possibles Values for IRA status type: NotEligible, Eligible, DistributionDisability, DistributionDeath, DistributionNormal, AccountLinked, AccountNotLinked. Possible values for Pays: Enable, Disable; InBox: NewMessage, Empty; CashReserve: HasCashReserve, DoNotHave; RestrictedAccount: IsRestricted, NotRestricted; ChargeOff: BankSubmitted, Automatic, IntegratedProcessingAutomatic, IntegratedProcessingClosed. PassbookSavings: NotOnline, Online, Manual. AccountVerification: Valid, NotValid. OverdraftProtection: Enable, Disable. ClassCode: New, NotNew. DefaultStatus: Inminent, NotDefault. LegalEntity: LegalEntityCustomer. PrivacyNoticed:  CustomerCanBeDisclosed, CustomerOptOut, CustomerNotOptOut\n",
+                "example": "Active"
+              },
+              "dateAndTime": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "reasonComment": {
+                "Description": {
+                  "example": "This is a description."
+                }
+              },
+              "statusReason": {
+                "description": "Pascal case status reason. Possible Values: NSFInstruction, RegulationDD, IRA.\n",
+                "example": "RegulationDD"
+              }
+            },
+            "description": "Generic status definition."
+          }
+        }
+      },
+      "processEvents": {
+        "description": "Account process event list defined by the account servicer. Possible list values: YearEndProcessed, MonthEndProcessed, ManuallyControlled\n",
+        "items": {}
+      },
+      "openDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "fundedDate": {
+        "description": "Date on which the loan was funded or closed",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "disbursalDate": {
+        "description": "Date on which loan amount is disbursed.",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "accrualStatus": {
+        "LoanNonAccrualStatus": {
+          "description": "Specifies the current Non Accrual state of a Loan. Possible values names are: NonAccrual, Accrual.\n",
+          "example": "NonAccrual"
+        }
+      },
+      "nonAccrualProcess": {
+        "LoanNonAccrualProcess": {
+          "description": "Specifies the current Non Accrual process of a Loan. Possible values names are: PastDueXDays, InterestAutomaticAdjustment, ManuallyWithAutomaticReturn, ManuallyWithOutAutomaticReturn, PastDueWillOutAutomatic.\n",
+          "example": "PastDueXDays"
+        }
+      },
+      "renegotiatedIndicator": {
+        "description": "Indicates whether a loan is a product of renegotiation. If a loan has been renegotiated, it has replaced a previous loan that may have been in default.\n"
+      },
+      "convertedLoanIndicator": {
+        "description": "Indicates whether the loan is coverted. In the context of a mortgage, a converted loan is a type of loan where the mortgage note's face value can be increased, or decreased, at the option of the lender.\n"
+      }
+    },
+    "description": "Specifies the current state of a loan."
+  }
+}

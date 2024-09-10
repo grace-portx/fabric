@@ -1,0 +1,46 @@
+{
+  "LimitHistory": {
+    "properties": {
+      "originalAmount": {
+        "description": "Amount limit",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "originalLimitType": {
+        "LimitType": {
+          "description": "Specifies the type of risk management limit. \n       Bilateral, NetBilateral, IndirectBilateral, Global, MandatoryBilateral, DiscretionaryBilateral, DirectDebit, SingleCustomerDirectDebit, SingleFinancialInstitutionDirectDebit, TotalDailyCustomerDirectDebit, TotalDailyFinancialInstitutionDirectDebit, AutoCollateralisation, UnsecuredCredit, ExternalGuarantee, Revolving, NotRevolving.\n",
+          "example": "DirectDebit"
+        }
+      },
+      "details": {
+        "items": {
+          "LimitHistoryDetail": {
+            "properties": {
+              "amount": {
+                "description": "Amount limit",
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              },
+              "enabledDate": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "disableDate": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            },
+            "description": "Detail of the limit history\n"
+          }
+        }
+      }
+    },
+    "description": "Historic values of a Limit\n"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "InterestRenewalDetails": {
+    "properties": {
+      "maturityNoticeOptions": {
+        "description": "Indicates wether the maturity information is printed on the combined Maturity, Interest and Rate Change notification.  \n",
+        "items": {
+          "description": "Possible Values: MaturityNotPrinted, indicates maturity information is not printed; ForecastMaturity, indicates maturity information is printed for all accounts only when maturity is forecast; AutomaticRenewal, indicates maturity information is printed only for automatically renewable account; AtMaturity, indicates maturity information is printed only at maturity; NonAutomaticRenewal,  indicates maturity information is printed only non-renewable accounts.\n"
+        }
+      },
+      "rateAtMaturityOptions": {
+        "description": "Indicates, for single maturity accounts, the rate used to accrue interest after maturity, and the length of time the rate is in effect.\n",
+        "items": {
+          "description": "Possible Values: CurrentRate, indicates the  current interest rate is effective after maturity; MaturityPeriod, indicates an account ceases to accrue after the Maturity Rate Period: CurrentRateInPeriod; MaturityRate.\n"
+        }
+      },
+      "changeNoticeOption": {
+        "description": "Indicates whether rate change notices are produced. Possible Values: Default; NoNotifications, indicates that rate change notices are not produced; RateChanges, indicates that Rate Change Notices are produced;  RateForecast,  indicates that Rate Change Notices are produced during rate change forecasting.\n"
+      },
+      "noticePrintOptions": {
+        "description": "Indicates rate change notice print options. Notification will include information about FloorRate, CeilingRate, PreviousRate, CapRate, IndexDescription.\n",
+        "items": {
+          "description": "Possible Values: FloorRate, CeilingRate, PreviousRate, CapRate, IndexDescription.\n"
+        }
+      },
+      "maturityRateDays": {
+        "description": "The number of days after maturity that single maturity accounts accrue interest. \n"
+      },
+      "maturityRate": {
+        "description": "The interest rate effective after maturity.\n",
+        "Percentage": {
+          "description": "Value expressed as a positive or negarive percentage, rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.\n    total number of digits: 11\n    number of digits in fractional part: 10\n    Max Value: 100\n",
+          "example": "25"
+        }
+      },
+      "renewalType": {
+        "description": "The renewal type indicates whether an account automatically renews at maturity. Possible Values: NoTerm, indicates the account has no term; Automatic, indicates automatically renewal; SingleMaturity, indicates not automatically renewed.\n"
+      },
+      "rateFrequency": {
+        "Frequency": {
+          "description": "Specifies an event frequency",
+          "DatePeriod": {
+            "properties": {
+              "fromDateTime": {
+                "description": "Date and time at which the period starts.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "upToDateTime": {
+                "description": "Date and time at which the period ends.",
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            }
+          },
+          "properties": {
+            "cycleType": {
+              "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+            },
+            "cycle": {
+              "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+              "example": "Monthly"
+            },
+            "every": {
+              "maximum": 999,
+              "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+              "example": 15
+            },
+            "weekDay": {
+              "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+              "example": "Tuesday"
+            },
+            "weekNumbers": {
+              "items": {
+                "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                "example": "1st"
+              }
+            },
+            "days": {
+              "items": {
+                "description": "Day of the Month\n",
+                "Day": {
+                  "maximum": 31,
+                  "description": "Specifies the date in a month.",
+                  "example": 30
+                }
+              }
+            },
+            "months": {
+              "items": {
+                "description": "Month of the Year within an Annual cycle.\n",
+                "Month": {
+                  "description": "Specifies a month number.",
+                  "example": "12"
+                }
+              }
+            },
+            "startDay": {
+              "MonthDay": {
+                "description": "A particular point in the year expressed in the MM-DD format.",
+                "example": "04-17"
+              }
+            },
+            "numberOfTimes": {
+              "description": "Number of times the event will be repeated.\n",
+              "example": 4
+            }
+          }
+        }
+      },
+      "term": {
+        "TemporalDuration": {
+          "required": [
+            "unit"
+          ],
+          "properties": {
+            "unit": {
+              "description": "Unit that describes the duration.",
+              "TemporalUnit": {
+                "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+                "example": "Months"
+              }
+            },
+            "value": {
+              "maximum": 999,
+              "description": "Value of the duration in number of units."
+            }
+          },
+          "description": "Describes a temporal duration.\n"
+        }
+      },
+      "productId": {
+        "ProductId": {
+          "description": "Identification of the product offered by a financial institution to its customers.\n",
+          "example": "PD_CA_0002"
+        }
+      }
+    },
+    "description": "Detailed interest attributes related to rate change at maturity.\n"
+  }
+}

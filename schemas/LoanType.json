@@ -1,0 +1,6 @@
+{
+  "LoanType": {
+    "description": "Type of the account. Possible BIAN compliant values are: \n Loan,\n Personal,\n Consumer,  \n Corporate, \n Lease, \n Syndicated, \n Mortgage,\n Conforming,\n Merchandising,\n LineOfCredit,\n RevolvingCredit,\n LoanAgainstSecurities,\n DirectDepositAdvance\n",
+    "example": "Personal"
+  }
+}

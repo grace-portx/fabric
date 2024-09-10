@@ -1,0 +1,6 @@
+{
+  "LedgerBalanceName": {
+    "description": "Specifies the nature of the ledger balance. Possible Values are:  Closing, Pending, Posted, Available.\n",
+    "example": "Closing"
+  }
+}

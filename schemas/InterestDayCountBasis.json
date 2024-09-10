@@ -1,0 +1,6 @@
+{
+  "InterestDayCountBasis": {
+    "description": "An interest day count basis is a method used to calculate interest accrual over a period of time for loans and bonds. The method involves determining the number of days over which interest is being calculated, known as the accrual period. The resulting accrual period is then divided by a certain number to calculate the daily interest rate, which is applied to the principal balance to determine the interest payment. Possible Values: ActualActual, Actual360, Actual365, 365365, 360360, Monthly78ths, 365360, ActualSchedule, ScheduleSchedule.\n",
+    "example": "Actual360"
+  }
+}

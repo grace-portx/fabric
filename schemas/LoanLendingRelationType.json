@@ -1,0 +1,6 @@
+{
+  "LoanLendingRelationType": {
+    "description": "Type of lending relationship betweent the lender and the borrower. Possible Values:\nDirect, Dealer, BoughtParticipation, SoldParticipation, ServicedParticipation, Indirect.\n",
+    "example": "Direct"
+  }
+}
