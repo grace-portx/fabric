@@ -1,0 +1,6 @@
+{
+  "PaymentType": {
+    "description": "Specifies the type of Payment. Possible values: LiquidityTransfer, OnUs, ACH, Wire, NotOnUs.   \n",
+    "example": "OnUs"
+  }
+}

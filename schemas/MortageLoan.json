@@ -1,0 +1,54 @@
+{
+  "MortageLoan": {
+    "properties": {
+      "fHAStateNumber": {
+        "description": "Federal Housing Administration's (FHA) two-digit state code, which is used to identify the state where a mortgage loan is originated or where the property is located.\n",
+        "example": "99"
+      },
+      "fHACountyNumber": {
+        "description": "Federal Housing Administration's (FHA) two-digit county code, which is used to identify the state where a mortgage loan is originated or where the property is located.\n",
+        "example": "88"
+      },
+      "censusTract": {
+        "CensusTract": {
+          "description": "A census tract, census area, census district or meshblock is a geographic region defined for the purpose of taking a census\n",
+          "example": "12345"
+        }
+      },
+      "censusBlock": {
+        "CensusBlock": {
+          "description": "Census blocks are used to partition counties into smaller areas for the purpose of collecting and presenting census data.\n",
+          "example": "1234"
+        }
+      },
+      "cBSACode": {
+        "CBSACode": {
+          "description": "Core-based statistical area. Metropolitan statistical area (MSA) is the formal definition of a region that consists of a city and surrounding communities that are linked by social and economic factors. Micropolitan Statistical Areas (MISA) are CBSAs associated with at least one urban cluster that has a population of at least 10,000, but less than 50,000.  The micropolitan statistical area comprises the central county or counties or equivalent entities containing the core, plus adjacent outlying counties having a high degree of social and economic integration with the central county as measured through commuting.\n",
+          "example": "49780"
+        }
+      },
+      "cBSAType": {
+        "CBSAType": {
+          "description": "Type of Core-based statistical area. Possible values: MSA, MISA\n",
+          "example": "MSA"
+        }
+      },
+      "hMDAReportingIndicator": {
+        "description": "Indicates whether the loan is subject of HMDA reporting. The Home Mortgage Disclosure Act (HMDA) is a federal law in the United States that requires most mortgage lenders to report information about the mortgage loans they originate or purchase. \n"
+      },
+      "hMDAOcupationStatus": {
+        "description": "Indicates whether the property associated with a mortgage loan is owner-occupied, investor-owned, or vacant. Possible Values: OwnerOccupied, InvestorOwned, Vacant.\n",
+        "example": "Vacant"
+      },
+      "hMDAPropertyType": {
+        "description": "Indicates the type of property associated with a mortgage loan. Possible values: OneToFourFamily, MultiFamily, SingleFamily, ManufacturedHome.\n",
+        "example": "OneToFourFamily"
+      },
+      "programs": {
+        "description": "Mortgage programs are financing options offered by various government agencies, private lenders, and other organizations to help individuals and families purchase or refinance real estate. Possible Values: FHA, FmHA, VA, HomeImprovement, USDA, Jumbo.\n",
+        "example": "FHA"
+      }
+    },
+    "description": "Mortage information of a Loan\n"
+  }
+}

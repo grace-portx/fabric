@@ -1,0 +1,179 @@
+{
+  "PaymentInitiation": {
+    "required": [
+      "amount",
+      "debtorAccountId",
+      "paymentMethod"
+    ],
+    "PaymentIdentifiers": {
+      "properties": {
+        "identifiers": {
+          "items": {
+            "PaymentIdentification": {
+              "required": [
+                "number"
+              ],
+              "properties": {
+                "number": {
+                  "description": "Unique and unambiguous identification of a payment."
+                },
+                "schemeName": {
+                  "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                  "example": "UETR"
+                },
+                "issuer": {
+                  "description": "Entity that assigns the identification.",
+                  "example": "Banc of California"
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "Set of elements used to reference a payment instruction."
+    },
+    "TransactionCodes": {
+      "properties": {
+        "domain": {
+          "BankTransactionDomain": {
+            "description": "Specifies the bank transaction code domain. Some possible ISO 20022 compliant values are: \n Payments, CashManagement, Loans, Deposits, TradeServices, Syndications, Securities, \n AccountManagement, \n",
+            "example": "Payments"
+          }
+        },
+        "family": {
+          "BankTransactionFamily": {
+            "description": "Specifies the bank transaction family. Some possible ISO 20022 compliant values are: \n For Payments domain: CustomerCardTransactions, MerchantCardTransactions, IssuedCreditTransfers\n",
+            "example": "CustomerCardTransactions"
+          }
+        },
+        "subFamily": {
+          "BankTransactionSubfamily": {
+            "description": "Specifies the bank transaction subfamily. Some possible ISO 20022 compliant values are: \n For CustomerCardTransactions family: CashDeposit, CashWithdrawal, SmartCardPayment, PointOfSalePaymentDebitCard, CreditCardPayment, CrossBorderCreditCardPayment, CrossBorderCashWithdrawal, InternalBookTransfer, PrincipalPayment, LoanAdvance, \n",
+            "example": "CreditCardPayment"
+          }
+        },
+        "codes": {
+          "description": "Additional transaction codes.",
+          "items": {
+            "GenericTransactionCode": {
+              "required": [
+                "code",
+                "codeName",
+                "codeType"
+              ],
+              "properties": {
+                "codeType": {
+                  "description": "Code type in PascalCase form. Possible values are: DetailBAI, SummaryBAI, TransactionCode.\n",
+                  "example": "DetailBAI"
+                },
+                "name": {
+                  "description": "Name of the code in PascalCase. Possible values: ResponseCode, PromotionCode, Domain, Family, Subfamily, MT940, SourceCode, TaxDeferredContributionCode.\n"
+                },
+                "value": {
+                  "description": "Code value.",
+                  "example": "195"
+                },
+                "description": {
+                  "Title": {
+                    "example": "This is a Title."
+                  }
+                }
+              },
+              "description": "Generic transaction code definition."
+            }
+          }
+        }
+      },
+      "description": "Generic transaction code definition."
+    },
+    "properties": {
+      "paymentMethod": {
+        "PaymentMethod": {
+          "description": "Specifies the means of payment that will be used to move the amount of money. Possible values are:  Check, CreditTransfer. More specific values: ECheck, CreditCard, CommercialCreditCard, CheckCard, BusinessCheck, PinlessDebit, PINDebit, POS, Cash, ACHCredit, LockBox, RemoteCapture, EFTCredit, FedWire, ACHDebit, EFT, MoneyOrder, Coupon.\n",
+          "example": "CreditTransfer"
+        }
+      },
+      "paymentType": {
+        "PaymentType": {
+          "description": "Specifies the type of Payment. Possible values: LiquidityTransfer, OnUs, ACH, Wire, NotOnUs.   \n",
+          "example": "OnUs"
+        }
+      },
+      "amount": {
+        "description": "Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.\n",
+        "Amount": {
+          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+          "example": "100"
+        }
+      },
+      "paymentReasons": {
+        "items": {
+          "PaymentPurpose": {
+            "description": "Underlying reason for the payment transaction.\nUsage: Purpose is used to provide information concerning the nature of the payment. Possible Values: BillerSubscriberIdentification, BankLoanDelayedDrawFunding, BankLoanFees, BankLoanFundingMemo, BankLoanAccruedInterestPayment, BankLoanPrincipalPaydown, CardBulkClearing, CardPaymentWithCashBack, CashDisbursementCashSettlement, CashDisbursementWithSurcharging, CardDeferredPayment, OriginalCredit, QuasiCash, EPurseTopUp, FeeCollection, MobileTopUp, AccountManagement, CashManagementTransfer, CollectionPayment, CashDisbursementCashManagement, Deposit, IntraCompanyPayment, IntraPartyPayment, LiquidityManagement, Netting, BondForward, CrossCurrencyIRS, CCPClearedInitialMargin, CCPClearedVariationMargin, CCPClearedInitialMarginSegregatedCash, CreditDefaultSwap, CrossProduct, CreditSupport, CreditLine, EquityOption, EquitySwap, ExoticOption, ExchangeTradedDerivatives, FixedIncome, ForwardBrokerOwnedCashCollateral, ForwardClientOwnedCashCollateral, ForwardBrokerOwnedCashCollateralSegregated, ForwardClientOwnedSegregatedCashCollateral, DailyMarginOnListedDerivatives, MBSBrokerOwnedCashCollateral, MBSClientOwnedCashCollateral, FuturesInitialMargin, FuturesInitialMarginClientOwnedSegregatedCashCollateral, ClientOwnedOCCPledgedCollateral, OTCOptionBrokerOwnedCashCollateral, OTCOptionClientOwnedCashCollateral,  OTCOptionBrokerOwnedSegregatedCashCollateral, OTCOptionClientOwnedCashSegregatedCashCollateral, FXOption, OTCDerivatives, RepurchaseAgreement, BilateralRepoBrokerOwnedCollateral, RepoClientOwnedCollateral, BilateralRepoBrokerOwnedSegregatedCashCollateral, BilateralRepoClientOwnedSegregatedCashCollateral, ReverseRepurchaseAgreement, SecuritiesBuySellSellBuyBack, SingleCurrencyIRSExotic, SingleCurrencyIRS, SecuritiesCrossProducts, BrokerOwnedCollateralShortSale, ClientOwnedCollateralShortSale, ShortSell, SecuritiesLendingAndBorrowing, SecuredLoan, SwapBrokerOwnedCashCollateral, SwapClientOwnedCashCollateral, Swaption, SwapsBrokerOwnedSegregatedCashCollateral, SwapsClientOwnedSegregatedCashCollateral, ToBeAnnounced, TBABrokerOwnedCashCollateral, TBAClientOwnedCashCollateral, TreasuryCrossProduct, AgriculturalTransfer, AccountsReceivablesEntry, BusinessExpenses, BackOfficeConversionEntry, CommercialPayment, Copyright, PurchaseSaleOfGoods, PurchaseSaleOfGoodsAndServices, PurchaseSaleOfGoodsAndServicesWithCashBack, LicenseFee, MobileP2BPayment, PointOfPurchaseEntry, Royalties, PurchaseSaleOfServices, ServiceCharges, Subscription, SupplierPayment, Commercial, CharityPayment, ConsumerThirdPartyConsolidatedPayment, MobileP2PPayment, GuaranteedEPayment, EPaymentReturn, NonGuaranteedEPayment, Epayment, CarLoanPrincipalRepayment, CompensationPayment, DebitCollectionPayment, GovernmentInsurance, PropertyLoanRepayment, PropertyLoanSettlement, InsurancePremiumCar, InsurancePremiumRefund, PaymentOfInsuranceClaim, InsurancePremium, Interest, LaborInsurance, LifeInsurance, Loan, LoanRepayment, PaymentBasedOnEnforcementOrder, PropertyInsurance, RentalLeaseGeneral, RecurringInstallmentPayment, TrustFund, ForwardForeignExchange, ForeignExchangeRelatedNetting, AdministrativeManagement, AdvancePayment, BearerCheckDomestic, BearerCheckForeign, BuildingMaintenance, BondForwardNetting, CapitalBuilding, CapitalBuildingRetirement, CreditCardPayment, CreditCardBill, CancellationFee, CardGeneratedDirectDebit, TradeSettlementPayment, Costs, CarparkCharges, DebitCardPayment, PrintedOrderDisbursement, DeliverAgainstPayment, Education, FactorUpdateRelatedPayment, FinancialAidInCaseOfNaturalDisaster, LatePaymentOfFeesAndCharges, PaymentOfFees, Gift, GovernmentPayment, IrrevocableCreditCardPayment, IrrevocableDebitCardPayment, InstalmentHirePurchaseAgreement, Installment, InvoicePayment, MultiCurrenyCheckDomestic, MultiCurrenyCheckForeign, MultipleServiceTypes, NotOtherwiseSpecified, OrderChequeDomestic, OrderChequeForeign, OpeningFee, PreauthorizedDebit, PaymentTerms, RepresentedCheckEntry, ReceiptPayment, Rebate, Refund, Rent, AccountOverdraftRepayment, ReimbursementOfAPreviousErroneousTransaction, BilateralRepoInternetNetting, RoundRobin, ReimbursementReceivedCreditTransfer, RelatedRequestToPay, ReceiveAgainstPayment, PaymentSlipInstruction, SplitPayments, Study, TBAPairOffNetting, TelecommunicationsBill, TownCouncilServiceCharges, TelephoneInitiatedTransaction, TMPGClaimPayment, TriPartyRepoInterest, TriPartyRepoNetting, TruncatedPaymentSlip, TravellerCheque, InternetInitiatedTransaction, InstantPayments, InstantPaymentsCancellation, InstantPaymentsForDonations, InstantPaymentsInECommerceWithoutAddressData, InstantPaymentsInECommerceWithAddressData, InstantPaymentsInECommerce, InstantPaymentsAtPOS, InstantPaymentsReturn, InstantPaymentsUnattendedVendingMachineWith2FA, InstantPaymentsUnattendedVendingMachineWithout2FA, Annuity, CustodianManagementFeeInhouse, CapitalFallingDueInhouse, CommodityTransfer, Derivatives, Dividend, ForeignExchange, Hedging, InvestmentAndSecurities, PreciousMetal, Savings, Securities, SecuritiesPurchaseInhouse, TreasuryPayment, UnitTrustPurchase, FuturesNettingPayment, Futures, AnesthesiaServices, ConvalescentCareFacility, DurableMedicaleEquipment, DentalServices, HomeHealthCare, HealthInsurance, HospitalCare, IntermediateCareFacility, LongTermCareFacility, MedicalAidFundContribution, MedicalAidRefund, MedicalServices, VisionCare, CreditDefaultEventPayment, SwapContractFinalPayment, SwapContractPartialPayment, SwapContractResetPayment, SwapContractUpfrontPayment, AdvisoryDonationCopyrightServices, ActiveEmploymentPolicy, Allowance, AlimonyPayment, BabyBonusScheme, ChildBenefit, UnemploymentDisabilityBenefit, BonusPayment, CashCompensationHelplessnessDisability, Commission, CompanySocialLoanPaymentToBank, GuaranteeFundRightsPayment, GovermentWarLegislationTransfer, HousingRelatedContribution, Payroll, PensionFundContribution, PensionPayment, PricePayment, RehabilitationSupport, SalaryPayment, SalaryPensionSumPayment, SocialSecurityBenefit, LendingBuyInNetting, LendingCashCollateralFreeMovement, LendingFees, LendingEquityMarkedToMarketCashCollateral, LendingFixedIncomeMarkedToMarketCashCollateral, LendingUnspecifiedTypeOfMarkedToMarketCashCollateral, LendingRebatePayments, LendingRevenuePayments, LendingClaimPayment, EstateTax, ForeignWorkerLevy, GoodsServicesTax, HousingTax, IncomeTax, NetIncomeTax, PropertyTax, RoadTax, TaxPayment, ValueAddedTaxPayment, WithHolding, TaxRefund, TrailerFeePayment, TrailerFeeRebate, NonUSMutualFundTrailerFeePayment, NonUSMutualFundTrailerFeeRebatePayment, Air, Bus, Ferry, Railway, RoadPricing, CableTVBill, ElectricityBill, Energies, GasBill, NetworkCharge, NetworkCommunication, OtherTelecomRelatedBill, TelephoneBill, Utilities, WaterBill, Bonds, CorporateActions-Bonds, CorporateActions-Equities, CreditCard, DebitCard, Diners, Equities, FleetCard, LowValueCredit, LowValueDebit, MoneyMarket, RapidPaymentInstruction, GamblingOrWageringPayment, LotteryPayment, Amex, ATM, AuthenticatedCollections, PropertyCompletionPayment, PropertyDeposit, PropertyLoanDisbursement, PropertyLoanRefinancing, GovernmentFamilyAllowance, GovernmentHousingAllowance, CashPenalties.\n",
+            "example": "CashManagementTransfer"
+          }
+        }
+      },
+      "debtorAccountId": {
+        "AccountId": {
+          "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+          "example": "033-DDA-123456"
+        }
+      },
+      "creditorAccountId": {
+        "AccountId": {
+          "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+          "example": "033-DDA-123456"
+        }
+      },
+      "purpose": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "paymentProcessing": {
+        "PaymentProcessingDetail": {
+          "properties": {
+            "instructionPriority": {
+              "InstructionPriority": {
+                "description": "Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply to the processing of the instruction. Possible ISO Complaiant values are: High, Normal.\n",
+                "example": "123456789"
+              }
+            },
+            "serviceLevel": {
+              "ServiceLevel": {
+                "description": "Specifies a pre-agreed service between the parties. Some ISO complaiant values from ExternalServiceLevel1Code are:\nBookTransaction, TrackedCustomerCreditTransfer, TrackedStopAndRecall, TrackedOutboundCorporateTransfer, TrackedFinancialInstitutionTransfe, NonurgentPriorityPayment, NonurgentPayment, EBAPriorityService, SameDayValue, DomesticChequeClearingAndSettlement, UrgentPayment, UrgentPaymentNetSettlement, InstantCreditTransferOrInstantDirectDebit, ServiceRequestToPay, ScheckVerarbeitungAustria, TrackedCaseManagement, TrackedInboundCustomerCreditTransfer, TrackedInstantCustomerCreditTransfer, TrackedLowValueCrossBorderCustomerCreditTransfer.\n",
+                "example": "BookTransaction"
+              }
+            },
+            "clearingChannel": {
+              "ClearingSystem": {
+                "description": "Specifies the clearing system identification. Some ISO complaiant values from ExternalCashClearingSystem1Code are:\n USFedACH, USFedNow, USFedwireFunds, ACH, EBAEuro1Step1, CanadaACSS, Albania, Austrian, NewZealand, Azerbaijan, BosniaHerzegovina, SwedenBGC, Ecuador, Barbados, Belgium, Bulgaria, Bahamas, Botswana, Finland, BankOfJapanNet, Italy, Philippines, CanadaCAD, SpainCAM, CentralBankOfArubaCSM, CentraleBankVanCura\u00e7aoEnSintMaartenCSM, Ireland, Peru, USTCHChips,UnitedKingdom, China, CentralInteroperabilityService, ColumbiaCEDEC, ColumbiaCENIT, ColumbiaCUD, DenmarkDDK,Denmark, EBAEuro1, GermanyELS, Germany, ECB, USTCHEPN, EBAStep1, ForeignExchangeYenClearing, FasterPaymentsServices, Ghana, HongKongCHAT, HongKongFPS, Croatia, Greece, Hungary, SpainIberpayInstantPayments, DEandNLEquens, IndiaImmediatePaymentService, Jordan, Kenya, Luxemburg, SriLanka, Latvia, CanadaLVTS, LynxCanada, Singapore, SouthAfrica, MacaoRTGS, Malta, Mauritius, Namibia, Norway, NorwayNICSReal, AustraliaNPP, USNSS, NewZealandRTGS, Switzerland, AustraliaPDS, Egypt, FrancePNS, AustrianCSM, Angola, Venezuela, RomaniaEPO, RomaniaGSRS, RTGS, GermanyRTGSPlus, RTRCanada, RPSAndSEPAClearer, Chili, SwedenSEC, euroSIC, SIC, SICIP, Slovania, SpainES, Portugal, SwedenSSK, EBAClearingSTEP2, UnitedKingdomGBP, FranceFR, USTCHRealTime, Target, Thailand, Thailand-NITMX, Tanzania, Netherlands, TrinidadAndTobago, CanadaUSBE, Uganda, IndiaUnifiedPaymentsInterface, VocaLink, EBASTEP2XCT, Zengin, Zimbabwe, Zambia, Iceland, NorwayRTGS, NGInterswitch, P27RealTime, P27, UnitedKingdomUKD, SingaporeSCRIPS, RIXRTGSSverigesRiksbank\n",
+                "example": "ACH"
+              }
+            },
+            "localInstrument": {
+              "LocalInstrument": {
+                "description": "This element is used to specify a local clearing option and/or qualify the service or service level. For ACH service Level offers more detailed information about the authorization method of the ACH transaction. Posible values for ACH Entry Class or SEC code: PPD, CCD, CTX\n",
+                "example": "CCD"
+              }
+            },
+            "categoryPurpose": {
+              "CategoryPurpose": {
+                "description": "Specifies the high level purpose of the instruction based on a set of pre-defined categories.\n Usage: This is used by the initiating party to provide information concerning the processing of the payment. It is likely to trigger special processing by any of the agents involved in the payment chain. Some ISO complaiant values are from ExternalCategoryPurpose1Code: \n  BonusPayment, CashManagementTransfer, CardBulkClearing, CreditCardPayment, TradeSettlementPayment, DebitCardPayment, Dividend, DeliverAgainstPayment, Epayment,FeeCollectionAndInterest, FeeCollection,PersontoPersonPayment, GovernmentPayment, Hedging, IrrevocableCreditCardPayment, IrrevocableDebitCardPayment, IntraCompanyPayment, Interest, LockboxTransactions, Loan, Commercial, Consumer, PensionPayment, Represented, ReimbursementReceivedCreditTransfer, ReceiveAgainstPayment, SalaryPayment, Securities, SocialSecurityBenefit, SupplierPayment, TaxPayment, Trade, TreasuryPayment, ValueAddedTaxPayment, WithHolding, CashManagementSweepAccount, CashManagementTopAccount, CashManagementZeroBalanceAccount\n",
+                "example": "SalaryPayment"
+              }
+            }
+          },
+          "description": "Provides further details of the type of payment."
+        }
+      },
+      "chargeBearerType": {
+        "ChargeBearerType": {
+          "description": "Specifies which party(ies) will pay charges due for processing of the instruction.\nBorneByDebtor, BorneByCreditor,  Shared, FollowingServiceLevel\n",
+          "example": "Shared"
+        }
+      }
+    }
+  }
+}

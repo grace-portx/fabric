@@ -1,0 +1,80 @@
+{
+  "Metadata": {
+    "properties": {
+      "error": {
+        "description": "An error the data may have during a permisive validation.\n",
+        "readOnly": true,
+        "Error": {
+          "required": [
+            "code",
+            "message"
+          ],
+          "properties": {
+            "code": {
+              "description": "A broad categorization of the error. A short string indicating the error code reported. Safe for programmatic use.\n",
+              "example": "InvalidRequest"
+            },
+            "message": {
+              "description": "A human-readable representation of the error. This may change over time and is not safe for programmatic use.\n",
+              "example": "Invalid Request"
+            },
+            "details": {
+              "description": "An array of details about specific errors that led to this reported error.\n",
+              "items": {
+                "ErrorDetail": {
+                  "required": [
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "code": {
+                      "description": "A short string indicating the error code reported. Safe for programmatic use.\n",
+                      "example": "InvalidRequest"
+                    },
+                    "message": {
+                      "description": "A human-readable representation of the error. This may change over time and is not safe for programmatic use.\n",
+                      "example": "Invalid Request"
+                    },
+                    "target": {
+                      "description": "The target of the error.\n",
+                      "example": "Invalid Request"
+                    }
+                  }
+                }
+              }
+            },
+            "innerError": {
+              "InnerError": {
+                "properties": {
+                  "code": {
+                    "description": "A short string indicating the error code reported. Safe for programmatic use.\n"
+                  },
+                  "message": {
+                    "description": "The description of the error code\n"
+                  }
+                },
+                "description": "An object containing more specific information than the current object about the error.\n"
+              }
+            },
+            "debugMessage": {
+              "description": "Message used to debug the root cause of the error. Contents should not be used in consumer's business logic. Can change at any time and should only be used for consumer to communicate with the data provider about an issue.\n"
+            },
+            "documentationUrl": {
+              "description": "URI reference that identifies the\nproblem type.  This specification encourages that, when dereferenced, it provide human-readable documentation for the problem type.\n",
+              "example": "/errors/invalid-credentials"
+            }
+          }
+        }
+      },
+      "storage": {
+        "Metadata_storage": {
+          "properties": {
+            "deleteOption": {}
+          },
+          "description": "Storage indication about a data.\n"
+        }
+      }
+    },
+    "description": "A set of data that describes and gives information about other data.\n"
+  }
+}

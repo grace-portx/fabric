@@ -1,0 +1,37 @@
+{
+  "PartyGenericIdentification": {
+    "required": [
+      "number",
+      "schemeName"
+    ],
+    "properties": {
+      "number": {
+        "description": "Unique and unambiguous identification of an organization.",
+        "example": "123-45-6789"
+      },
+      "schemeName": {
+        "PartySchemeName": {
+          "description": "Name of the identification scheme, in PascalCase form. Possible values are: \nBankPartyIdentification\nCentralBankIdentificationNumber\nClearingIdentificationNumber\nCertificateOfIncorporationNumber\nCountryIdentificationCode\nCustomerNumber\nDataUniversalNumberingSystem\nEmployerIdentificationNumber\nGS1GLNIdentifier\nSIREN\nSIRET\nBusinessDomainIdentifier\nBusinessOtherIdentification\nAlienRegistrationNumber\nPassportNumber\nCustomerIdentificationNumber\nDriversLicenseNumber\nEmployeeIdentificationNumber\nNationalIdentityNumber\nSocialSecurityNumber\nTelephoneNumber\nTaxIdentificationNumber\nPersonCommercialIdentification\nLEIIdentifier\nBICIdentifier\n",
+          "example": "TaxIdentificationNumber"
+        }
+      },
+      "issuer": {
+        "description": "Entity that assigns the identification.",
+        "example": "UnitedStates"
+      },
+      "issueDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "expirationDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      }
+    },
+    "description": "Unique and unambiguous way to identify a party."
+  }
+}

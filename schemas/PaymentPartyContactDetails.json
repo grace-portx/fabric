@@ -1,0 +1,39 @@
+{
+  "PaymentPartyContactDetails": {
+    "properties": {
+      "contactMethods": {
+        "items": {
+          "GenericContact": {
+            "properties": {
+              "channelType": {
+                "description": "Communication device number or electronic address used for communication: Fax, Email, Mobile, Phone.\n",
+                "CommunicationChannelName": {
+                  "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                  "example": "Email"
+                }
+              },
+              "identification": {
+                "CommunicationChannelIdentification": {
+                  "description": "Communication value such as phone number or email address.",
+                  "example": "011-02010020202"
+                }
+              }
+            },
+            "description": "Communication device number or electronic address used for communication."
+          }
+        }
+      },
+      "preferredMethod": {
+        "description": "Preferred method used to reach the contact, in PascalCase form. Possible values are:  \nLetter, Email, Phone, Fax, MobileOrCellPhone.\n",
+        "example": "Email"
+      },
+      "preferredLanguage": {
+        "PreferredLanguage": {
+          "description": "Language of the contact person. Names according to the language list provided in the ISO 639-1 codes. Some possible values: Chinese, Spanish, French, English, Japanese, Italian, German, Default.\n",
+          "example": "English"
+        }
+      }
+    },
+    "description": "Specifies the contact details of a person."
+  }
+}

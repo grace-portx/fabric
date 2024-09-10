@@ -1,0 +1,6 @@
+{
+  "PaymentCardId": {
+    "description": "Identification assigned by the card provider. A cardId is a unique identifier associated with a specific cardholder. Establishing the card ID is the first step. The card ID is used as the card reference. When a card is replaced, a new card ID must be requested for the new PAN.  \n  \n",
+    "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+  }
+}

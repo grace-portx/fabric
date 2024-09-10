@@ -1,0 +1,6 @@
+{
+  "OfferId": {
+    "description": "Card provider unique reference to the card payment offer.\n",
+    "example": "101854"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "PersonIdentification": {
+    "required": [
+      "number",
+      "schemeName"
+    ],
+    "properties": {
+      "schemeName": {
+        "description": "Name of the identification scheme in PascalCase form. Possible values are: \nAlienRegistrationNumber, PassportNumber,  CustomerIdentificationNumber, DriversLicenseNumber, EmployeeIdentificationNumber, NationalIdentityNumber, SocialSecurityNumber, TelephoneNumber,  TaxIdentificationNumber, ForeignTaxIdentificationNumber, PersonCommercialIdentification, StateIdentificationNumber, MilitaryIdCard, BirthMarriageCertificateNumber, MarriageCertificateNumber, BirthCertificateNumber, CountryTerritoriIdCard, DriverLicenseNumber,  WageTaxStatementFormNumber, GovernmentDocumentNumber, HealthInsuranceCard, CertificateOfIncorporationNumber, CertificateOfOrganizationNumber, CertificateOfPartnershipNumber, ForwardHealthMedicaIdCard, MexicanConsularIdCard, DLNTaxExemptNumber, PhotoIdCard, PermantResidentCard, TribalIdCard, UtilityBillInvoiceNumber, VoterUniqueIdentifier, WisconsinCRISSearch, PropertyTaxBillNumber, MedicareCardId, OrganizationalDocumentNumber, CertificationOfTrustNumber, EstateDomiciliaryLetterNumber, TaxReturnFormNumber, MinorIdCard, EmploymentAuthorizationCard, StateDocumentNumber, TravelDocumentNumber, StateIssuedPermitNumber, TaxId\n",
+        "example": "SocialSecurityNumber"
+      }
+    },
+    "PartyIdInformation": {
+      "properties": {
+        "number": {
+          "description": "Unique and unambiguous identification.",
+          "example": "123-45-6789"
+        },
+        "issuer": {
+          "description": "Entity that assigns the identification.",
+          "example": "Baltimore"
+        },
+        "country": {
+          "CountryCode": {
+            "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+            "example": "US"
+          }
+        },
+        "countrySubdivisionCode": {
+          "CountrySubdivisionCode": {
+            "description": "Code to identify a name of a unit resulting from the division of a country, dependency, or other area of special geopolitical interest contained in ISO 3166-1, on the basis of country names obtained from the United Nations (ISO 3166-2: Country subdivision code).\n",
+            "example": "AR-B"
+          }
+        },
+        "issueDate": {
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        },
+        "applyDate": {
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        },
+        "expirationDate": {
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        },
+        "verificationDate": {
+          "description": "Verification or certification date.\n",
+          "Date": {
+            "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+            "example": "2022-04-17"
+          }
+        },
+        "foreingIDIndicator": {
+          "description": "Indicates whether the identifications is from a foreing country."
+        },
+        "taxIDIndicator": {
+          "description": "Indicates whether the identifications is Tax Id."
+        },
+        "displayOption": {
+          "PartyDisplayOption": {
+            "description": "Indicates display options for party attributes. Possible Values: TaxIdMasked\n"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "PaymentCardIdentification": {
+    "properties": {
+      "number": {
+        "description": "Identification assigned by an institution or internally to connect to other applications.\n"
+      },
+      "schemeName": {
+        "description": "Name of the identification scheme, in PascalCase. Possible values are: MemberNumber, CardNumber, NonTransToken.\n",
+        "example": "MemberNumber"
+      },
+      "issuer": {
+        "description": "Entity that assigns the identification."
+      }
+    }
+  }
+}

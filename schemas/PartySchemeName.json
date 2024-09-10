@@ -1,0 +1,6 @@
+{
+  "PartySchemeName": {
+    "description": "Name of the identification scheme, in PascalCase form. Possible values are: \nBankPartyIdentification\nCentralBankIdentificationNumber\nClearingIdentificationNumber\nCertificateOfIncorporationNumber\nCountryIdentificationCode\nCustomerNumber\nDataUniversalNumberingSystem\nEmployerIdentificationNumber\nGS1GLNIdentifier\nSIREN\nSIRET\nBusinessDomainIdentifier\nBusinessOtherIdentification\nAlienRegistrationNumber\nPassportNumber\nCustomerIdentificationNumber\nDriversLicenseNumber\nEmployeeIdentificationNumber\nNationalIdentityNumber\nSocialSecurityNumber\nTelephoneNumber\nTaxIdentificationNumber\nPersonCommercialIdentification\nLEIIdentifier\nBICIdentifier\n",
+    "example": "TaxIdentificationNumber"
+  }
+}

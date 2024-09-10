@@ -1,0 +1,6 @@
+{
+  "ProductId": {
+    "description": "Identification of the product offered by a financial institution to its customers.\n",
+    "example": "PD_CA_0002"
+  }
+}

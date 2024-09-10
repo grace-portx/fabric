@@ -1,0 +1,375 @@
+{
+  "PartyProfile": {
+    "properties": {
+      "riskLevel": {
+        "RiskLevel": {
+          "description": "Specifies the customer\u2019s money laundering risk. Possible values: High, Medium, Low, NotDetermined\n",
+          "example": "Permanent"
+        }
+      },
+      "riskCategories": {
+        "items": {
+          "RiskMeasure": {
+            "properties": {
+              "name": {
+                "CreditRankingScaleName": {
+                  "description": "Most commonly used credit ranking scales. Possible Values: StandardAndPoors, MoodysInvestors. Also other values: Original, 1, 2, 3, Current. \n",
+                  "example": "StandardAndPoors"
+                }
+              },
+              "level": {
+                "RiskLevel": {
+                  "description": "Specifies the customer\u2019s money laundering risk. Possible values: High, Medium, Low, NotDetermined\n",
+                  "example": "Permanent"
+                }
+              },
+              "date": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              },
+              "codes": {
+                "description": "Additional risk measure codes. Possible values: RiskRatingCode\n",
+                "items": {
+                  "GenericCode": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the code in PascalCase.\n",
+                        "example": "AccountingGroup"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic code definition."
+                  }
+                }
+              }
+            },
+            "description": "Laundary risk measure of an individual. \n"
+          }
+        }
+      },
+      "bSARiskCode": {
+        "BSARiskCode": {
+          "maximum": 10,
+          "description": "Used to identify customers that present a risk to the bank as defined by the Bank Secrecy Act. For example, use this code to identify and monitor accounts suspected of fraud, kiting or money laundering.\n",
+          "example": 0
+        }
+      },
+      "creditReview": {
+        "CreditReview": {
+          "properties": {
+            "frequency": {
+              "Frequency": {
+                "description": "Specifies an event frequency",
+                "DatePeriod": {
+                  "properties": {
+                    "fromDateTime": {
+                      "description": "Date and time at which the period starts.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    },
+                    "upToDateTime": {
+                      "description": "Date and time at which the period ends.",
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    }
+                  }
+                },
+                "properties": {
+                  "cycleType": {
+                    "description": "Specifies a cycle type. Possible values: Temporal, AtMaturity, InterestCycle, FromLastStatement, LastDay, AutoPay.\n"
+                  },
+                  "cycle": {
+                    "description": "Specifies a temporal cycle. Possible values:  Annual, Monthly, Quarterly, SemiAnnual, Weekly, Daily, Once, IntraDay, Overnight, TenDays, Fortnightly, TriggeredByMovement, Never, Rate, OnCreditEvent, Upfront, OnExpiry, Hourly, TriAnnual, Bimonthly, OnDemand, Shift, TwiceAWeek, XDays, XWeeks, XMonths, XYears, XQuaters, XSemiYears, XTwoWeeks\n",
+                    "example": "Monthly"
+                  },
+                  "every": {
+                    "maximum": 999,
+                    "description": "Custom cycle definition. Number of XDays, XWeeks, XMonths, XYears. \n",
+                    "example": 15
+                  },
+                  "weekDay": {
+                    "description": "Day of the week. Possible Values: Monday, Tuesday, Wednesday, Thursday, Friday.\n",
+                    "example": "Tuesday"
+                  },
+                  "weekNumbers": {
+                    "items": {
+                      "description": "Number to select one week day of a Month. Possible Values: 1st, 2nd, 3th, 4th, 5th\n",
+                      "example": "1st"
+                    }
+                  },
+                  "days": {
+                    "items": {
+                      "description": "Day of the Month\n",
+                      "Day": {
+                        "maximum": 31,
+                        "description": "Specifies the date in a month.",
+                        "example": 30
+                      }
+                    }
+                  },
+                  "months": {
+                    "items": {
+                      "description": "Month of the Year within an Annual cycle.\n",
+                      "Month": {
+                        "description": "Specifies a month number.",
+                        "example": "12"
+                      }
+                    }
+                  },
+                  "startDay": {
+                    "MonthDay": {
+                      "description": "A particular point in the year expressed in the MM-DD format.",
+                      "example": "04-17"
+                    }
+                  },
+                  "numberOfTimes": {
+                    "description": "Number of times the event will be repeated.\n",
+                    "example": 4
+                  }
+                }
+              }
+            },
+            "lastReviewDate": {
+              "description": "Date and time if the last credit review.\n",
+              "DateAndTime": {
+                "example": "2022-04-17T08:00:00Z"
+              }
+            },
+            "nextReviewDate": {
+              "description": "Date and time if the next credit review.\n",
+              "DateAndTime": {
+                "example": "2022-04-17T08:00:00Z"
+              }
+            },
+            "creditQuality": {
+              "CreditQuality": {
+                "description": "Credit quality rating of an issuer or financial obligation. Possible Values: DefaultImminent, ExtremelySpeculative, HighGrade, HighlySpeculative, InDefault, LowerMediumGrade, NonInvestmentGradeSpeculative, Prime, SubstantialRisk, UpperMediumGrade\n",
+                "example": "UpperMediumGrade"
+              }
+            },
+            "creditRankingScales": {
+              "items": {
+                "CreditRankingScale": {
+                  "properties": {
+                    "name": {
+                      "CreditRankingScaleName": {
+                        "description": "Most commonly used credit ranking scales. Possible Values: StandardAndPoors, MoodysInvestors. Also other values: Original, 1, 2, 3, Current. \n",
+                        "example": "StandardAndPoors"
+                      }
+                    },
+                    "score": {
+                      "example": "AAA"
+                    },
+                    "date": {
+                      "DateAndTime": {
+                        "example": "2022-04-17T08:00:00Z"
+                      }
+                    },
+                    "codes": {
+                      "description": "Additional ranking scale codes. Possible values: RiskRatingCode\n",
+                      "items": {
+                        "GenericCode": {
+                          "required": [
+                            "name",
+                            "value"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the code in PascalCase.\n",
+                              "example": "AccountingGroup"
+                            },
+                            "value": {
+                              "description": "Code value.",
+                              "example": "195"
+                            },
+                            "description": {
+                              "Title": {
+                                "example": "This is a Title."
+                              }
+                            }
+                          },
+                          "description": "Generic code definition."
+                        }
+                      }
+                    }
+                  },
+                  "description": "A Credit Ranking Scale is a system used to evaluate the creditworthiness of a borrower, which can be an individual, a business, a government, or a corporation.\n"
+                }
+              }
+            },
+            "creditReportAddressIndicatorCode": {
+              "description": "is a code or marker used by credit reporting agencies to indicate a match or mismatch between the address supplied in an inquiry and the address they have on file for a consumer.\n"
+            },
+            "creditReportAddressIndicatorDate": {
+              "DateAndTime": {
+                "example": "2022-04-17T08:00:00Z"
+              }
+            },
+            "consumerCreditReportInformation": {
+              "description": "Information provided by the Consumer Credit Report.\n",
+              "Description": {
+                "example": "This is a description."
+              }
+            },
+            "consumerCreditReportDate": {
+              "DateAndTime": {
+                "example": "2022-04-17T08:00:00Z"
+              }
+            }
+          },
+          "description": "A credit review is a periodic assessment of an individual\u2019s or businesses' credit profile.\n"
+        }
+      },
+      "creditBureauReportCode": {
+        "description": "Code used for reporting to the credit bureaus. This code is used to report the trade line of a credit account to the credit bureau agencies. \n",
+        "example": "30"
+      },
+      "eCOACode": {
+        "description": "The ECOA code indicates how customer account information is reported to the Credit Bureau in keeping with the Equal Credit Opportunity Act.\n"
+      },
+      "cTRExemptIndicator": {
+        "description": "Currency transaction report (CTR) exemption. A CTR is a report that must be filed by banks for any transaction involving currency of $10,000 or more. However, certain entities and transactions are exempt from this reporting requirement.\n"
+      },
+      "oFACReportingIndicator": {
+        "description": "Indicates whether the party is to be excluded from OFAC Reporting.\n"
+      },
+      "previousFinancialInstitution": {
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      },
+      "referredByWhom": {
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      },
+      "moneyLaunderingCheck": {
+        "MoneyLaunderingCheck": {
+          "description": "Specifies the status of money laundering identification procedures. Possible Values: PassedNotChecked, ExemptBelowLimit, ClientMoneyTypeExempt, AuthorizedCredit, PostalOrElectronicPaymentExempt\n",
+          "example": "AuthorizedCredit"
+        }
+      },
+      "knowYourCustomerCheck": {
+        "KnowYourCustomerCheckType": {
+          "description": "Specifies the type of Know Your Customer (KYC) or anti-money laundering due diligence to which the investor has been subjected. Possible Values: Ordinary, Simple, Enhanced.\n",
+          "example": "Ordinary"
+        }
+      },
+      "timeAtCurrentAddress": {
+        "TemporalDuration": {
+          "required": [
+            "unit"
+          ],
+          "properties": {
+            "unit": {
+              "description": "Unit that describes the duration.",
+              "TemporalUnit": {
+                "description": "Specifies a temporal unit. Possible values are: Days, Months, Weeks, Years.\n",
+                "example": "Months"
+              }
+            },
+            "value": {
+              "maximum": 999,
+              "description": "Value of the duration in number of units."
+            }
+          },
+          "description": "Describes a temporal duration.\n"
+        }
+      },
+      "dateAtCurrentAddress": {
+        "description": "Date of Residence in the current household.\n",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "yearsAtCurrentAddress": {},
+      "sourceOfWealth": {
+        "description": "Indicates the main sources of the money.",
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "politicalAffiliation": {
+        "description": "Indicates the political affiliation of the Party. Possible values could be: Democrat, Independent, Republican.\n"
+      },
+      "lostCustomerDate": {
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "lostCustomerReason": {
+        "LostCustomerReason": {
+          "description": "Used for regulatory purposes by the bank to track how long closed account history has been maintained for a customer. Possible values are: \n Competition, Deceased, Dissatisfied, Moved, MergedEntity, CeasedOperation\n",
+          "example": "Deceased"
+        }
+      },
+      "customerType": {
+        "CustomerType": {
+          "description": "A customer type of a bank account can be classified into different categories based on the account's features, purpose, and benefits. Possible Values: Personal, Business, Consumer, Organization, ThirdParty, Estate, Employer.\n",
+          "example": "Consumer"
+        }
+      },
+      "servicerAlerts": {
+        "description": "Customer alerts to be received by the account servicer.",
+        "items": {
+          "ServicerAlert": {
+            "properties": {
+              "alertName": {
+                "AlertName": {
+                  "description": "Service alert human readable identifier in Pascal case. An alert notification received by the bank. Possible values: CreditBureauAlert, CustomerAlert,  PaymentCard, LostBook, TwoSignaturesRequired, PledgedAsCollateral, DeathOnAccount, Bankruptcy, NoDisclosure, Caution, DuplicateBookIssued, PowerOfAttorney, DoNotReopen.\n",
+                  "example": "CreditBureauAlert"
+                }
+              },
+              "alertType": {
+                "AlertType": {
+                  "description": "An alert notification type. Possible values: Warning, Urgent, Teller.\n",
+                  "example": "Warning"
+                }
+              },
+              "alertCode": {
+                "description": "Service alert identifier or code, used to arrange multiple alerts and warnings in a sequence.\n"
+              },
+              "message": {
+                "Description": {
+                  "example": "This is a description."
+                }
+              },
+              "lastAlertDate": {
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              }
+            },
+            "description": "Customer alerts to be received by the account servicer.\n"
+          }
+        }
+      },
+      "insiderType": {
+        "InsiderType": {
+          "description": "The insider type information is used to provide info to Regulation 0.  The Regulation 0 is a Federal Reserve regulation that places limits and stipulations on the credit extensions a member bank can offer to its executive officers, principal shareholders, and directors. Possible values: \n   Director, Employee, Officer, PrincipalShareholder, Shareholder, Executive, ServiceCorporationEmployee, Child, Spouse, Parent, Relative, AffiliateFinancialInstitution, HoldingCompany, MainShareHolder, RelationshipInterest.\n   \n   \n",
+          "example": "Director"
+        }
+      }
+    }
+  }
+}

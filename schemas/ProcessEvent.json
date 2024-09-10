@@ -1,0 +1,62 @@
+{
+  "ProcessEvent": {
+    "properties": {
+      "name": {
+        "description": "Human readable pascal case identifier of the process event. Possible list values: YearEndProcessed, MonthEndProcessed, ManuallyControlled\n"
+      },
+      "description": {
+        "Title": {
+          "example": "This is a Title."
+        }
+      },
+      "spotDates": {
+        "items": {
+          "SpotDate": {
+            "properties": {
+              "name": {
+                "SpotDateName": {
+                  "description": "Possible values por projected dates: Forecast, Expiration, LastNonFinancial, Escheat. Possible values for past dates: IRALastRollOver. Other possible values: EffectiveDate, ResponseByDate.\n",
+                  "example": "Expiration"
+                }
+              },
+              "date": {
+                "DateAndTime": {
+                  "example": "2022-04-17T08:00:00Z"
+                }
+              }
+            },
+            "description": "Relevant date"
+          }
+        }
+      },
+      "codes": {
+        "description": "Codes related to the external provider account. Possible Values: LookUpReference\n",
+        "items": {
+          "GenericCode": {
+            "required": [
+              "name",
+              "value"
+            ],
+            "properties": {
+              "name": {
+                "description": "Name of the code in PascalCase.\n",
+                "example": "AccountingGroup"
+              },
+              "value": {
+                "description": "Code value.",
+                "example": "195"
+              },
+              "description": {
+                "Title": {
+                  "example": "This is a Title."
+                }
+              }
+            },
+            "description": "Generic code definition."
+          }
+        }
+      }
+    },
+    "description": "Account process event list defined by the account servicer.\n"
+  }
+}

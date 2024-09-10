@@ -1,0 +1,5 @@
+{
+  "PrintOption": {
+    "description": "Print Option. Possible Values for ACHTransaction: Name, SocialSecurityNumber. \n"
+  }
+}

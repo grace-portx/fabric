@@ -1,0 +1,31 @@
+{
+  "PastDueTimes": {
+    "properties": {
+      "number": {
+        "description": "Number of times a payment is past due on a period.\n"
+      },
+      "fromDay": {
+        "Day": {
+          "maximum": 31,
+          "description": "Specifies the date in a month.",
+          "example": 30
+        }
+      },
+      "toDay": {
+        "Day": {
+          "maximum": 31,
+          "description": "Specifies the date in a month.",
+          "example": 30
+        }
+      },
+      "authorizedAccount": {
+        "description": "Specifies the account on which the power of attorney applies.\n",
+        "AccountId": {
+          "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+          "example": "033-DDA-123456"
+        }
+      }
+    },
+    "description": "Counts the times an obligations is past due\n"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "PartyShortName": {
+    "description": "Short name or nickname by which a party is known and which is usually used to identify that party.",
+    "example": "Jane"
+  }
+}

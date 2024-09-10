@@ -1,0 +1,73 @@
+{
+  "PaymentCardHistory": {
+    "properties": {
+      "lastCardId": {
+        "PaymentCardId": {
+          "description": "Identification assigned by the card provider. A cardId is a unique identifier associated with a specific cardholder. Establishing the card ID is the first step. The card ID is used as the card reference. When a card is replaced, a new card ID must be requested for the new PAN.  \n  \n",
+          "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+        }
+      },
+      "lastActivityDate": {
+        "description": "The most recent date the debit card was used to complete a transaction.",
+        "Date": {
+          "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+          "example": "2022-04-17"
+        }
+      },
+      "lastForeingTransferMonth": {
+        "Month": {
+          "description": "Specifies a month number.",
+          "example": "12"
+        }
+      },
+      "balances": {
+        "description": "Total amounts",
+        "items": {
+          "TotalAmount": {
+            "properties": {
+              "name": {},
+              "period": {
+                "Period": {
+                  "DatePeriod": {
+                    "properties": {
+                      "fromDateTime": {
+                        "description": "Date and time at which the period starts.",
+                        "DateAndTime": {
+                          "example": "2022-04-17T08:00:00Z"
+                        }
+                      },
+                      "upToDateTime": {
+                        "description": "Date and time at which the period ends.",
+                        "DateAndTime": {
+                          "example": "2022-04-17T08:00:00Z"
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "periodNumber": {
+                      "description": "Sequence number of the period."
+                    },
+                    "periodName": {
+                      "PeriodName": {
+                        "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                      }
+                    }
+                  }
+                }
+              },
+              "amount": {
+                "description": "Total of the transaction amounts.",
+                "Amount": {
+                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                  "example": "100"
+                }
+              }
+            },
+            "description": "Total amount of transactions labeled by a name."
+          }
+        }
+      }
+    }
+  }
+}

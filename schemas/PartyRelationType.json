@@ -1,0 +1,6 @@
+{
+  "PartyRelationType": {
+    "description": "Type of relation between parties.  Possible values Between Organizations and persons are: ResponsibleParty, Owner, ControlPerson, BeneficialOwner, PrimaryContact, SecondaryContact, VicePresident, President, Treasurer, Secretary, Partner. Between Persons and Organizations: Business, Organization. For Trusts: Trustor, Trustee.  Between organizations: Subsidiary, ParentOrganization, Branch. Between parties and external entities: AccountOpenningOfficer, CustomerServiceOfficer, PrimaryServicerOfficer,  SecondaryServicerOfficer, SalesPerson, ReferralOfficer. Between financial institutions: AffiliateFinancialInstitution, HoldingCompany. Between persons: Spouse, Aunt, Brother, Companion, Daugther, Father, Friend, Granddaugther, Grandmother, Grandfather, Grandson, Husband, Mother, Nephew, Niece, Sister, Son, Uncle, Wife, Child, Grandparent. Grandchild, Sibling, Parent, Partner.\n",
+    "example": "PrimaryServicerOfficer"
+  }
+}

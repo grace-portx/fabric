@@ -1,0 +1,6 @@
+{
+  "MoneyLaunderingCheck": {
+    "description": "Specifies the status of money laundering identification procedures. Possible Values: PassedNotChecked, ExemptBelowLimit, ClientMoneyTypeExempt, AuthorizedCredit, PostalOrElectronicPaymentExempt\n",
+    "example": "AuthorizedCredit"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "PartyStatus": {
+    "description": "Specifies the current primary status of a party. Possible values are:\n GoodStanding, FraudAlert, BadCustomer, Active, Delinquent, Default, HighRisk, UnderReview. Other possible values: PersonalBankruptcy, GrowingConcern, WatchLoan, InReceivership, Chapter11, Liquidation.\n",
+    "example": "GoodStanding"
+  }
+}

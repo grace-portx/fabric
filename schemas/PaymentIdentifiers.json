@@ -1,0 +1,29 @@
+{
+  "PaymentIdentifiers": {
+    "properties": {
+      "identifiers": {
+        "items": {
+          "PaymentIdentification": {
+            "required": [
+              "number"
+            ],
+            "properties": {
+              "number": {
+                "description": "Unique and unambiguous identification of a payment."
+              },
+              "schemeName": {
+                "description": "Name of other payment identificaction. For instance,\nISOInitiationMessageIdentifier, InstructionIdentification\n  (Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period), UETR (Universally unique identifier to provide an end-to-end reference of a payment transaction),  ExecutionIdentification, EndToEndIdentification, InstructionIdentification, TransactionIdentification, ClearingSystemReference, CreditorReference, CounterpartyReference, UniqueTradeIdentifier, ClearingBrokerIdentification, UniqueTradeIdentifier, ClearingBrokerIdentification, CommonIdentification, ReferenceNumber, TracerNumber, DraftNumber.\n",
+                "example": "UETR"
+              },
+              "issuer": {
+                "description": "Entity that assigns the identification.",
+                "example": "Banc of California"
+              }
+            }
+          }
+        }
+      }
+    },
+    "description": "Set of elements used to reference a payment instruction."
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "PrivacyNoticeOption": {
+    "description": "Privacy notice option. Possible Values: CustomerCanBeDisclosed, CustomerOptOut\n"
+  }
+}

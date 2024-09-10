@@ -1,0 +1,281 @@
+{
+  "PaymentCardTransactionDetail": {
+    "properties": {
+      "cardId": {
+        "PaymentCardId": {
+          "description": "Identification assigned by the card provider. A cardId is a unique identifier associated with a specific cardholder. Establishing the card ID is the first step. The card ID is used as the card reference. When a card is replaced, a new card ID must be requested for the new PAN.  \n  \n",
+          "example": "0dd926fe-1ca2-11ed-861d-0242ac120002"
+        }
+      },
+      "cardNumber": {
+        "PrimaryAccountNumber": {
+          "description": "Primary Account Number (PAN) of the card.\n",
+          "example": "1234567890123456789"
+        }
+      },
+      "merchantCategoryCode": {
+        "MerchantCategoryCode": {
+          "description": "Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.\n",
+          "example": "482"
+        }
+      },
+      "merchantName": {
+        "description": "Merchant Name",
+        "PartyShortName": {
+          "description": "Short name or nickname by which a party is known and which is usually used to identify that party.",
+          "example": "Jane"
+        },
+        "example": "Food Store"
+      },
+      "merchantAddress": {
+        "PostalAddress": {
+          "properties": {
+            "addressCode": {
+              "description": "This code is used to identify parties that share the same address or to associate an existing address with a specific party. Providing this code eliminates the need to separately enter the address details.\n"
+            },
+            "addressBookIndicator": {
+              "description": "If true, the address is kept in the system even if the person is no longer a customer.\n"
+            },
+            "addressType": {
+              "description": "Specifies the type of address, in PascalCase form. Possible values are:  PhysicalAddress, Postal, POBox, Residential, Permanent, Temporary, Business\n",
+              "example": "Postal"
+            },
+            "addressPurpose": {
+              "description": "Specifies the purpose of an address, in PascalCase form. Possible values are: \nMailTo, \nDeliveryTo,\nBilling,\nTax,\nForeignTaxRecipient\nPlaceOfOperation,\nPlaceOfRegistration,\nMarketing, Statements, Business, Administrative, PreviousPlace, Headquarter, BranchStore, Property, Military, Secondary, Personal.\n",
+              "example": "Billing"
+            },
+            "primaryIndicator": {
+              "PrimaryContactIndicator": {
+                "description": "Indicates whether the contact informacion is primary. \n"
+              }
+            },
+            "careOf": {
+              "description": "Identifies an addressee that is accepting the correspondence for the intended recipient. Using care of ensures the correspondence reaches the right recipient rather than getting returned to the sender.\n",
+              "example": "C/O Company Name"
+            },
+            "department": {
+              "description": "Identification of a division of a large Organization or building.",
+              "example": "A"
+            },
+            "subDepartment": {
+              "description": "Identification of a sub-division of a large Organization or building.",
+              "example": "B"
+            },
+            "streetName": {
+              "description": "Name of a street or thoroughfare.",
+              "example": "First Street"
+            },
+            "firstCrossStreetName": {
+              "description": "Name of a the first cross street."
+            },
+            "secondCrossStreetName": {
+              "description": "Name of a the second cross street.",
+              "example": "Second Street"
+            },
+            "buildingNumber": {
+              "description": "Number that identifies the position of a building or house on a street.",
+              "example": "11407"
+            },
+            "buildingName": {
+              "description": "Name of the building or house.",
+              "example": "Tall Tower"
+            },
+            "floor": {
+              "description": "Floor or storey within a building.",
+              "example": "20"
+            },
+            "postBox": {
+              "description": "Numbered box in a post office, assigned to a person or Organization, where letters are kept until called for.",
+              "example": "MY779"
+            },
+            "room": {
+              "description": "Building room number.",
+              "example": "22"
+            },
+            "postCode": {
+              "PostCode": {
+                "description": "Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail. In US may consists of two parts: the five-digit ZIP Code '97062' and the ZIP+4 Code '6884'.\n",
+                "example": "97062-6884"
+              }
+            },
+            "carrierRoute": {
+              "CarrierRoute": {
+                "description": "A Carrier Route is a designated geographic area assigned to individual postal carriers by the United States Postal Service (USPS) to facilitate efficient mail delivery within specific regions.\n",
+                "example": "C001"
+              }
+            },
+            "censusTract": {
+              "CensusTract": {
+                "description": "A census tract, census area, census district or meshblock is a geographic region defined for the purpose of taking a census\n",
+                "example": "12345"
+              }
+            },
+            "censusBlock": {
+              "CensusBlock": {
+                "description": "Census blocks are used to partition counties into smaller areas for the purpose of collecting and presenting census data.\n",
+                "example": "1234"
+              }
+            },
+            "cBSACode": {
+              "CBSACode": {
+                "description": "Core-based statistical area. Metropolitan statistical area (MSA) is the formal definition of a region that consists of a city and surrounding communities that are linked by social and economic factors. Micropolitan Statistical Areas (MISA) are CBSAs associated with at least one urban cluster that has a population of at least 10,000, but less than 50,000.  The micropolitan statistical area comprises the central county or counties or equivalent entities containing the core, plus adjacent outlying counties having a high degree of social and economic integration with the central county as measured through commuting.\n",
+                "example": "49780"
+              }
+            },
+            "cBSAType": {
+              "CBSAType": {
+                "description": "Type of Core-based statistical area. Possible values: MSA, MISA\n",
+                "example": "MSA"
+              }
+            },
+            "foreignIndicator": {
+              "description": "Indicates whether the postal address is from a foreing country."
+            },
+            "townName": {
+              "TownName": {
+                "description": "Name of a built-up area, with defined boundaries, and a local government. Also city name.\n",
+                "example": "San Diego"
+              }
+            },
+            "townLocationName": {
+              "description": "Specific location name within the town.",
+              "example": "Clackamas"
+            },
+            "districtName": {
+              "description": "Identifies a subdivision within a country sub-division.",
+              "example": "Columbia"
+            },
+            "countyName": {
+              "description": "Identifies a county within a country sub-division.",
+              "example": "Cook"
+            },
+            "countrySubDivision": {
+              "CountrySubdivision": {
+                "description": "Name of a country subdivision such as state, region, county.",
+                "example": "Oregon"
+              }
+            },
+            "countrySubDivisionCode": {
+              "CountrySubdivisionCode": {
+                "description": "Code to identify a name of a unit resulting from the division of a country, dependency, or other area of special geopolitical interest contained in ISO 3166-1, on the basis of country names obtained from the United Nations (ISO 3166-2: Country subdivision code).\n",
+                "example": "AR-B"
+              }
+            },
+            "country": {
+              "CountryCode": {
+                "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+                "example": "US"
+              }
+            },
+            "addressLine": {
+              "description": "Information that locates and identifies a specific address, as defined by postal services, presented in free format text.",
+              "items": {
+                "example": "11407 Sw Amu st, Suite MY777"
+              }
+            },
+            "temporaryIndicator": {
+              "description": "Indicates whether the address is temporary or not.",
+              "example": true
+            },
+            "period": {
+              "description": "The period of use of the address information. Could be also used as a recurring anual period.\n",
+              "DatePeriod": {
+                "properties": {
+                  "fromDateTime": {
+                    "description": "Date and time at which the period starts.",
+                    "DateAndTime": {
+                      "example": "2022-04-17T08:00:00Z"
+                    }
+                  },
+                  "upToDateTime": {
+                    "description": "Date and time at which the period ends.",
+                    "DateAndTime": {
+                      "example": "2022-04-17T08:00:00Z"
+                    }
+                  }
+                }
+              }
+            },
+            "codes": {
+              "description": "Codes related to postal address or internal handling codes asociated with the address. Possible Values: HandlingCode, HandlingCodeOption.\n",
+              "items": {
+                "GenericCode": {
+                  "required": [
+                    "name",
+                    "value"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the code in PascalCase.\n",
+                      "example": "AccountingGroup"
+                    },
+                    "value": {
+                      "description": "Code value.",
+                      "example": "195"
+                    },
+                    "description": {
+                      "Title": {
+                        "example": "This is a Title."
+                      }
+                    }
+                  },
+                  "description": "Generic code definition."
+                }
+              }
+            },
+            "identifiers": {
+              "description": "Postal address identifiers are used to identify parties that share the same address or to associate an existing address with a specific party. Possible scheme name values: AddressIdentifier.\n",
+              "items": {
+                "GenericIdentification": {
+                  "required": [
+                    "number",
+                    "schemeName"
+                  ],
+                  "properties": {
+                    "number": {
+                      "description": "Unique and unambiguous identification.",
+                      "example": "123-45-6789"
+                    },
+                    "schemeName": {
+                      "description": "Name of the identification scheme.\n"
+                    },
+                    "issuer": {
+                      "description": "Entity that assigns the identification.",
+                      "example": "UnitedStates"
+                    },
+                    "issueDate": {
+                      "Date": {
+                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                        "example": "2022-04-17"
+                      }
+                    },
+                    "expirationDate": {
+                      "Date": {
+                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                        "example": "2022-04-17"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Information that locates and identifies a specific address, as defined by postal services.\n"
+        }
+      },
+      "offerId": {
+        "OfferId": {
+          "description": "Card provider unique reference to the card payment offer.\n",
+          "example": "101854"
+        }
+      },
+      "offerTitle": {
+        "OfferTitle": {
+          "description": "Short description of the offer\n",
+          "example": "Save 20%"
+        }
+      }
+    },
+    "description": "Payment Card Transaction details.\n"
+  }
+}

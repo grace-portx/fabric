@@ -1,0 +1,6 @@
+{
+  "PaymentStatus": {
+    "description": "Indicates the status of a payment. ISO Complaiant values:\nAcceptedTechnicalValidation, Received, Rejected, Pending, AcceptedCustomerProfile, AcceptedSettlementInProcess, AcceptedSettlementCompleted, Accepted, AcceptedCancellationRequest, RejectedCancellationRequest, AcceptedWithChange, PendingCancellationRequest, AcceptedCreditSettlementCompleted, PaymentCancelled,\n AcceptedSettlementCompletedCreditorAccount, AcceptedCustomerProfile, AcceptedFundsChecked, AcceptedandChequeIssued, AcceptedSettlementCompletedDebitorAccount, AcceptedWithoutPosting, Blocked, CashPickedUpByCreditor, PartiallyAcceptedTechnicalCorrect, Presented, AcceptedClearingProcessed, ServicerDeadlineMissed\n",
+    "example": "AcceptedSettlementCompleted"
+  }
+}

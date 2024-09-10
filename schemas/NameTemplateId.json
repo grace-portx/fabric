@@ -1,0 +1,6 @@
+{
+  "NameTemplateId": {
+    "description": "Template used to display the party name. This is an external id provided by the account servicer. \n",
+    "example": "1"
+  }
+}

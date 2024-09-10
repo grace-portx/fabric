@@ -1,0 +1,5 @@
+{
+  "PartyDisplayOption": {
+    "description": "Indicates display options for party attributes. Possible Values: TaxIdMasked\n"
+  }
+}

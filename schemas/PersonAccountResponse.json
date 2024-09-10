@@ -1,0 +1,491 @@
+{
+  "PersonAccountResponse": {
+    "required": [
+      "accounts",
+      "personId",
+      "personName"
+    ],
+    "properties": {
+      "personId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "personName": {
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      },
+      "accounts": {
+        "items": {
+          "AccountDescriptor": {
+            "required": [
+              "accountId",
+              "accountType",
+              "currency",
+              "ownershipType",
+              "parties",
+              "status"
+            ],
+            "properties": {
+              "accountId": {
+                "readOnly": true,
+                "AccountId": {
+                  "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+                  "example": "033-DDA-123456"
+                }
+              },
+              "accountNumber": {
+                "readOnly": true,
+                "AccountNumber": {
+                  "description": "The account number or Basic Bank Account Number (BBAN). A Basic Bank Account Number (BBAN) is a bank account number that includes the domestic bank code, branch identifier, and account number. It is a unique identifier for a bank account within a specific country.\n",
+                  "example": "012345678"
+                }
+              },
+              "accountBranchCode": {
+                "readOnly": true,
+                "ServicerBranchId": {
+                  "description": "Identification of the account servicer institution at branch level or center level. To overlay the codes to produce a unique identifier the following expresion is used: BranchRegionCode-BranchSubdivisionCode.\n",
+                  "example": "SEA_1"
+                }
+              },
+              "codes": {
+                "readOnly": true,
+                "items": {
+                  "GenericCode": {
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the code in PascalCase.\n",
+                        "example": "AccountingGroup"
+                      },
+                      "value": {
+                        "description": "Code value.",
+                        "example": "195"
+                      },
+                      "description": {
+                        "Title": {
+                          "example": "This is a Title."
+                        }
+                      }
+                    },
+                    "description": "Generic code definition."
+                  }
+                }
+              },
+              "identifiers": {
+                "readOnly": true,
+                "items": {
+                  "AccountIdentification": {
+                    "properties": {
+                      "number": {
+                        "description": "Identification assigned by an institution or internally to connect to other applications.\n"
+                      },
+                      "schemeName": {
+                        "description": "Name of the identification scheme, in PascalCase. Possible ISO 20022 compliant values names are:\nIssuerIdentificationNumber, BBANIdentifier, CHIPSUniversalIdentifier, UPICIdentifier, IBANIdentifier. Other possible values: CreditBackIdentification, UniversalLoanIdentifier, CommitmentNumber, RecordNumber, FlexDataRecordNumber, RegistrationNumber, ExternalAccountId\n",
+                        "example": "BBANIdentifier"
+                      },
+                      "issuer": {
+                        "description": "Entity that assigns the identification."
+                      }
+                    }
+                  }
+                }
+              },
+              "accountType": {
+                "readOnly": true,
+                "AccountType": {
+                  "description": "Type of the account. Some possible ISO 20022 compliant values are: \n Checking,\n CardAccount,\n CashPayment, \n Charges, \n CashIncome, \n Commission, \n ClearingParticipantSettlementAccount,\n LimitedLiquiditySavingsAccount,\n MarginalLending, \n MoneyMarket, \n NonResidentExternal, \n Overdraft, \n OverNightDeposit, \n Settlement, \n Salary, \n Savings, \n Tax, \n TransactingAccount,\n CashTrading,\n VirtualAccount,\n CreditCard,\n DebitCard,\n Universal, \n Investment, \n EpurseCard,\n CertificateOfDeposit,\n MoneyMarketChecking, \n RetirementAccount, \n StockOrBond,\n PrePaid, \n FleetCard, \n Cash, \n DebitAccount, \n CreditAccount, \n Benefit,\n HealthSavingsAccount,\n FlexibleSpendingAccount,\n ForBenefitOf,\n Estate,\n ClientTrustAccount, \n LawyersTrustAccount,\n KeoghPlanAccount,\n UniformTransfersToMinorsAct,\n UniformGiftsToMinorsAct,\n ReserveFunds,\n SelfDirectedBrokerage,\n IRA,\n Annuity,\n ExternalAccount,\n Loan.\n",
+                  "example": "Checking"
+                }
+              },
+              "ownershipType": {
+                "readOnly": true,
+                "AccountOwnershipType": {
+                  "description": "Specifies the type of account ownership. Possible ISO 20022 compliant values names are:\n JointAccountWithSurvivorshipRights, JointAccountInCommon, CustodialAccount, SingleOwnerAccount, JointAccount, Corporation, Organization, Business, FormalPartnership, FormalTrust, Nominee, NonProfitOrganization, NotForProfitOrganization, ForProfit, EUResidualEntity, USGovernmentOrganization, GovernmentOrganization, LimitedLiabilityCompany, RegisteredInvestmentCompany, Entrepreneurial, Unincorporated, LimitedPartnership, LimitedLiabilityPartnership, BareOwner, Usufructuary, Fiduciary, ServicerEmployeeAccount, BusinessTrust, FamilyTrust, Estate, PublicFunds, NonUSGovernmentOrganization, Church, Club. More general possible values: Direct, Indirect. \n",
+                  "example": "SingleOwnerAccount"
+                }
+              },
+              "name": {
+                "readOnly": true,
+                "AccountName": {
+                  "description": "Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.",
+                  "example": "Hermes PD_CA 0002"
+                }
+              },
+              "accountPurpose": {
+                "readOnly": true,
+                "Description": {
+                  "example": "This is a description."
+                }
+              },
+              "currency": {
+                "readOnly": true,
+                "CurrencyCode": {
+                  "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                  "example": "USD"
+                }
+              },
+              "status": {
+                "readOnly": true,
+                "AccountStatus": {
+                  "description": "Specifies the current primary status of an account. Possible values are:\n Enabled, \n Dormant,\n Disable,\n Deleted,\n Pending, \n Form.\n Pending, \n Denied, \n Review,\n Approve,\n ChargeOff,\n Active,\n PaymentPastDue,\n Bankruptcy,\n AuthorizationProhibited,\n InterestProhibited,\n Closed, Restricted.\n",
+                  "example": "Active"
+                }
+              },
+              "parties": {
+                "readOnly": true,
+                "items": {
+                  "AccountParty": {
+                    "required": [
+                      "partyAccountRole",
+                      "partyId",
+                      "partyType"
+                    ],
+                    "properties": {
+                      "partyId": {
+                        "Id": {
+                          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+                        }
+                      },
+                      "partyType": {
+                        "PartyType": {
+                          "description": "Possible values are:\n Person,\n Organization. Also other types of servicer entities: ServicerOfficer, ExternalOrganization\n",
+                          "example": "Person"
+                        }
+                      },
+                      "partyAccountRole": {
+                        "AccountPartyRole": {
+                          "description": "Type of the account party role. Some possibles values are: Comaker, Cosigner, AccountOwner, AccountSigner, LiquidityManager, Endorser, LimitManager, PaymentManager, Reader, BackupManager, SettlementManager, FundManagementCompany, TransferAgent, FundAccountant, Registrar, InvestmentManager, Custodian, Auditor, PayingAgent, CashCorrespondent, DataProvider, FinalAgent, Investor, FirstAgent, Intermediary, Distributor, Concentrator, UnderlyingClient1, UnderlyingClient2, TransmittingAgent, FundBroker, FinancialAdvisor, ContactPersonAtInstructingPartyInstitution, ContactPersonAtExecutingPartyInstitution, NameOfAgentToOrder, PrimeBroker, Internal, LegalGuardian, DecisionMaker, Guarantor, LoanLender, LoanBorrower, LoanCoBorrower, PrimaryOwner, Trustee, CustodianForMinor, Nominee, SecondaryOwner, Executor, Beneficiary, PrimaryServicerOfficer, SecondaryServicerOfficer, AccountOpenningOfficer, CustomerServiceOfficer, PowerOfAttorney, ContingentBeneficiary, Fiduciary, \n",
+                          "example": "AccountOwner"
+                        }
+                      },
+                      "partyAccountRoleCode": {
+                        "description": "Bank defined party account role.",
+                        "example": "50"
+                      },
+                      "partyName": {
+                        "readOnly": true,
+                        "PartyName": {
+                          "description": "Name by which a party is known and which is usually used to identify that party.",
+                          "example": "Jane Birkin"
+                        }
+                      },
+                      "employeeIndicator": {
+                        "description": "Indicates whether is a bank employer. \n"
+                      }
+                    }
+                  }
+                }
+              },
+              "relatedAccounts": {
+                "readOnly": true,
+                "items": {
+                  "RelatedAccount": {
+                    "required": [
+                      "accountId"
+                    ],
+                    "properties": {
+                      "accountRelationType": {
+                        "AccountRelationType": {
+                          "description": "Account relation role. Possible values are:\n   Parent,\n   Child, AssociatedAccount, IRAAccount, CombinedStatement, SecondaryCombinedStatement, SummaryAccount, CompesatingAccount. Payment related values: Authorized \n",
+                          "example": "Child"
+                        }
+                      },
+                      "accountId": {
+                        "AccountId": {
+                          "description": "Identification assigned by the account service institution (Servicer). Could be encoded (UUID). Also may be used as composite account identifier when overlaying the account code parts. <branch-type-subtype-number>   \n\n   \n",
+                          "example": "033-DDA-123456"
+                        }
+                      },
+                      "accountNumber": {
+                        "readOnly": true,
+                        "AccountNumber": {
+                          "description": "The account number or Basic Bank Account Number (BBAN). A Basic Bank Account Number (BBAN) is a bank account number that includes the domestic bank code, branch identifier, and account number. It is a unique identifier for a bank account within a specific country.\n",
+                          "example": "012345678"
+                        }
+                      },
+                      "accountType": {
+                        "readOnly": true,
+                        "RelatedAccountType": {
+                          "description": "Type of the account. Some possible ISO 20022 compliant values are: \n Checking,\n CardAccount,\n CashPayment, \n Charges, \n CashIncome, \n Commission, \n ClearingParticipantSettlementAccount,\n LimitedLiquiditySavingsAccount,\n MarginalLending, \n MoneyMarket, \n NonResidentExternal, \n Overdraft, \n OverNightDeposit, \n Settlement, \n Salary, \n Savings, \n Tax, \n TransactingAccount,\n CashTrading,\n VirtualAccount,\n CreditCard,\n DebitCard,\n Universal, \n Investment, \n EpurseCard,\n CertificateOfDeposit,\n MoneyMarketChecking, \n RetirementAccount, \n StockOrBond,\n PrePaid, \n FleetCard, \n Cash, \n DebitAccount, \n CreditAccount, \n Benefit,\n HealthSavingsAccount,\n FlexibleSpendingAccount,\n ForBenefitOf,\n Estate,\n ClientTrustAccount, \n LawyersTrustAccount,\n KeoghPlanAccount,\n UniformTransfersToMinorsAct,\n UniformGiftsToMinorsAct,\n ReserveFunds,\n SelfDirectedBrokerage,\n Loan,\n Ledger.\n",
+                          "example": "Checking"
+                        }
+                      },
+                      "name": {
+                        "readOnly": true,
+                        "AccountName": {
+                          "description": "Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.",
+                          "example": "Hermes PD_CA 0002"
+                        }
+                      },
+                      "balances": {
+                        "description": "Account balances",
+                        "readOnly": true,
+                        "items": {
+                          "Balance": {
+                            "required": [
+                              "balanceName"
+                            ],
+                            "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+                            "Period": {
+                              "DatePeriod": {
+                                "properties": {
+                                  "fromDateTime": {
+                                    "description": "Date and time at which the period starts.",
+                                    "DateAndTime": {
+                                      "example": "2022-04-17T08:00:00Z"
+                                    }
+                                  },
+                                  "upToDateTime": {
+                                    "description": "Date and time at which the period ends.",
+                                    "DateAndTime": {
+                                      "example": "2022-04-17T08:00:00Z"
+                                    }
+                                  }
+                                }
+                              },
+                              "properties": {
+                                "periodNumber": {
+                                  "description": "Sequence number of the period."
+                                },
+                                "periodName": {
+                                  "PeriodName": {
+                                    "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                                  }
+                                }
+                              }
+                            },
+                            "properties": {
+                              "balanceName": {
+                                "BalanceName": {
+                                  "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                                  "example": "Available"
+                                }
+                              },
+                              "amount": {
+                                "Amount": {
+                                  "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                                  "example": "100"
+                                }
+                              },
+                              "count": {
+                                "description": "Number of transactions added to the amount.\n"
+                              },
+                              "currency": {
+                                "CurrencyCode": {
+                                  "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                                  "example": "USD"
+                                }
+                              },
+                              "calculationDate": {
+                                "description": "Specifies the date and time at which the balance is calculated.",
+                                "DateAndTime": {
+                                  "example": "2022-04-17T08:00:00Z"
+                                }
+                              },
+                              "codes": {
+                                "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                                "items": {
+                                  "GenericCode": {
+                                    "required": [
+                                      "name",
+                                      "value"
+                                    ],
+                                    "properties": {
+                                      "name": {
+                                        "description": "Name of the code in PascalCase.\n",
+                                        "example": "AccountingGroup"
+                                      },
+                                      "value": {
+                                        "description": "Code value.",
+                                        "example": "195"
+                                      },
+                                      "description": {
+                                        "Title": {
+                                          "example": "This is a Title."
+                                        }
+                                      }
+                                    },
+                                    "description": "Generic code definition."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "balances": {
+                "readOnly": true,
+                "items": {
+                  "Balance": {
+                    "required": [
+                      "balanceName"
+                    ],
+                    "description": "Numerical representation of the net increases and decreases in an account at a specific point in time.\n",
+                    "Period": {
+                      "DatePeriod": {
+                        "properties": {
+                          "fromDateTime": {
+                            "description": "Date and time at which the period starts.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          },
+                          "upToDateTime": {
+                            "description": "Date and time at which the period ends.",
+                            "DateAndTime": {
+                              "example": "2022-04-17T08:00:00Z"
+                            }
+                          }
+                        }
+                      },
+                      "properties": {
+                        "periodNumber": {
+                          "description": "Sequence number of the period."
+                        },
+                        "periodName": {
+                          "PeriodName": {
+                            "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+                          }
+                        }
+                      }
+                    },
+                    "properties": {
+                      "balanceName": {
+                        "BalanceName": {
+                          "description": "Specifies the nature of the balance. Possible values: Current, Available, Pending, Opening, Blocked, Previous, RelatedBalance, OnHold, PendingLedger, Collected, LastAnniversary, Accrued, CurrentAccrued, PreviousAccrued, CurrentWithLastCalculus, CarriedAdjustment, PaidWithPenalties, Accrued, Penalty, CollectionLedger, LastLedger, CurrentLedger, Ledger, MinimumAvailable, MinimumLedger, Withheld, CurrentBooked, CurrentBook, LastDeposit, FloatAmount, Average, RegulationDDAvailable. Loan Balances: CashProceeds, the amount that a customer actually received, exclusive of insurance premiums, fees, and unearned discount; FinancedExpenses, indicates the amount of expenses an institution has financed for a borrower;  TotalInterest; AdditionalInterest, if the date of the first payment is beyond one month from the note date, the interest for the odd days will be earned during the first interest period; DeferredUnsecuredPrincipal, is the outstanding balance of an unsecured debt. The DUPB includes any accrued interest that is yet to be paid by the borrower. The deferral typically occurs due to bankruptcy or debt relief proceedings, which temporarily halt collection efforts by the original creditor; Charge Balances: Earned, RealTimeDeliveryMaximum, Current, Financed, Prepaid, CurrentEarned, CurrentEarnedOtherEscrow, InterestPaidToDate, InterestPaidThisYear, InterestPaidPreviousYear, InterestPaidLastStatement, InterestPaidThisYear, RevolvingCreditPaid, BasePaidToDate, TotalPastDue, Escrow, OtherEscrow, FinalAmount, FinalInterestAmount, Chapter4PreviousYear, Payments: Delinquent, FixPayment, Transaction, LoanPayOff\n",
+                          "example": "Available"
+                        }
+                      },
+                      "amount": {
+                        "Amount": {
+                          "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: -9999999999999.99999999\n",
+                          "example": "100"
+                        }
+                      },
+                      "count": {
+                        "description": "Number of transactions added to the amount.\n"
+                      },
+                      "currency": {
+                        "CurrencyCode": {
+                          "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+                          "example": "USD"
+                        }
+                      },
+                      "calculationDate": {
+                        "description": "Specifies the date and time at which the balance is calculated.",
+                        "DateAndTime": {
+                          "example": "2022-04-17T08:00:00Z"
+                        }
+                      },
+                      "codes": {
+                        "description": "Bank defined codes to clasify balances. Possible values: BalanceCategory, BalanceType, PartyAgreementNumber.\n",
+                        "items": {
+                          "GenericCode": {
+                            "required": [
+                              "name",
+                              "value"
+                            ],
+                            "properties": {
+                              "name": {
+                                "description": "Name of the code in PascalCase.\n",
+                                "example": "AccountingGroup"
+                              },
+                              "value": {
+                                "description": "Code value.",
+                                "example": "195"
+                              },
+                              "description": {
+                                "Title": {
+                                  "example": "This is a Title."
+                                }
+                              }
+                            },
+                            "description": "Generic code definition."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "audit": {
+                "readOnly": true,
+                "Audit": {
+                  "properties": {
+                    "status": {
+                      "AuditStatus": {
+                        "description": "Maintenance status of a resource. Possible values: Requested, Created, Changed, Deleted\n"
+                      }
+                    },
+                    "creationDate": {
+                      "Date": {
+                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                        "example": "2022-04-17"
+                      }
+                    },
+                    "lastModificacionChannel": {
+                      "CommunicationChannelName": {
+                        "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                        "example": "Email"
+                      }
+                    },
+                    "lastModificationDate": {
+                      "Date": {
+                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                        "example": "2022-04-17"
+                      }
+                    },
+                    "channels": {
+                      "description": "Activity audit throught communication channles",
+                      "items": {
+                        "AuditChannel": {
+                          "properties": {
+                            "lastActivityDate": {
+                              "Date": {
+                                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                                "example": "2022-04-17"
+                              }
+                            },
+                            "name": {
+                              "CommunicationChannelName": {
+                                "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                                "example": "Email"
+                              }
+                            },
+                            "activityType": {
+                              "AuditActivityType": {
+                                "description": "Maintenance activity of a resource. Possible values: Transaction, Modification, Deposit, Withdrawal, Creation, DirectDeposit, CardActivation, CardActivationByCallerId, CardActivationByCodeAndCallerId, Closure\n"
+                              }
+                            },
+                            "amount": {
+                              "PositiveAmount": {
+                                "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                                "example": "100"
+                              }
+                            }
+                          },
+                          "description": "Audit Information by Channel. Captures data, activity and maintenance details.\n"
+                        }
+                      }
+                    }
+                  },
+                  "description": "Resource Audit Information. Captures the creation, modification and maintenance details.\n"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

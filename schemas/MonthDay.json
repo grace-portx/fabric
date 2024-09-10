@@ -1,0 +1,6 @@
+{
+  "MonthDay": {
+    "description": "A particular point in the year expressed in the MM-DD format.",
+    "example": "04-17"
+  }
+}

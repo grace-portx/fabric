@@ -1,0 +1,6 @@
+{
+  "PreferredLanguage": {
+    "description": "Language of the contact person. Names according to the language list provided in the ISO 639-1 codes. Some possible values: Chinese, Spanish, French, English, Japanese, Italian, German, Default.\n",
+    "example": "English"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "Month": {
+    "description": "Specifies a month number.",
+    "example": "12"
+  }
+}

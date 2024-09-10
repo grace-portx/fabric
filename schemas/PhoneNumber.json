@@ -1,0 +1,6 @@
+{
+  "PhoneNumber": {
+    "description": "The collection of information which identifies a specific phone or FAX number as defined by telecom services.",
+    "example": "+1-555-1234567"
+  }
+}

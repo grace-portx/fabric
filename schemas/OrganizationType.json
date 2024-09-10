@@ -1,0 +1,6 @@
+{
+  "OrganizationType": {
+    "description": "Specifies the legal standing of the organization. Possible values are: Government, FinancialInstitution, SoleProprietorship, UnincorporatedAssociation,  LimitedLiabilityPartnership, LimitedLiabilityCompany, LimitedPartnership, FormalPartnership, GeneralPartnership, Business, Corporation, NotForProfit, ForProfit, NonProfit, Club, Supranational, Sovereign, Municipal, Province, State, County, National, ExemptionTrust, LivingTrust, EmployeeTrust, RevocableTrust, IrrovocableTrust, NakedTrust, FamilyTrust, BussinesTrust, CliffordTrust, FormalTrust, PublicAgency, Association, Church.\n",
+    "example": "Corporation"
+  }
+}

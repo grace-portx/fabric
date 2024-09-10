@@ -1,0 +1,6 @@
+{
+  "PartyName": {
+    "description": "Name by which a party is known and which is usually used to identify that party.",
+    "example": "Jane Birkin"
+  }
+}

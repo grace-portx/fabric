@@ -1,0 +1,18 @@
+{
+  "PaymentCardArt": {
+    "properties": {
+      "styleId": {
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "label": {
+        "description": "Display label for the specific image"
+      },
+      "imageUri": {
+        "description": "The [URI](https://datatracker.ietf.org/doc/html/rfc2397) link\nof a PNG, JPG or GIF image with proportions defined by\n[ISO 8710 ID-1](https://en.wikipedia.org/wiki/ISO/IEC_7810) with 340x210 ratio and\nwidth no greater than 512 pixels. The image at this URI must be accessible at all\ntimes, with no additional authentication headers. Typically this is an image resource\nlocated in the data provider's public web site or Content Delivery Network        \n\n\n \n"
+      }
+    },
+    "description": "Art associated with the card"
+  }
+}

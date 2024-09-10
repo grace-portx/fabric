@@ -1,0 +1,5 @@
+{
+  "PeriodName": {
+    "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "Phone": {
+    "required": [
+      "number"
+    ],
+    "properties": {
+      "number": {
+        "PhoneNumber": {
+          "description": "The collection of information which identifies a specific phone or FAX number as defined by telecom services.",
+          "example": "+1-555-1234567"
+        }
+      },
+      "extension": {
+        "description": "Phone Number Extension."
+      },
+      "country": {
+        "CountryCallingCode": {
+          "description": "Country calling codes, country dial-in codes, international subscriber dialing (ISD) codes, or most commonly, telephone country codes. Country codes are defined by the International Telecommunication Union (ITU) in ITU-T standards E.123 and E.164. The prefixes enable international direct dialing (IDD).\n"
+        }
+      },
+      "phoneType": {
+        "description": "Type of phone address. Possible values are:  \nMobile, Landline, Fax, Pager, Modem.\n"
+      },
+      "phonePurpose": {
+        "description": "Purpose of the phone address. Possible values are:   Business, Personal, International.\n"
+      },
+      "foreignIndicator": {
+        "description": "Indicates whether is a foreign phone number"
+      },
+      "primaryIndicator": {
+        "PrimaryContactIndicator": {
+          "description": "Indicates whether the contact informacion is primary. \n"
+        }
+      },
+      "preferredHourOfDay": {
+        "TimeOfTheDay": {
+          "properties": {
+            "hour": {
+              "example": "12"
+            },
+            "timeZone": {
+              "TimeZone": {
+                "description": "A time zone is an area which observes a uniform standard time for legal, commercial and social purposes. Some possible values: Pacific, Mountain, Central, Eastern, GreenwichMean\n",
+                "example": "Pacific"
+              }
+            },
+            "timeOfTheDay": {
+              "description": "Time of the day. Possible Values: AfterMidnight, after midnight and  before business day; AfterBusinessDay, after business day and before midnight.\n"
+            }
+          }
+        }
+      },
+      "comment": {
+        "Description": {
+          "example": "This is a description."
+        }
+      },
+      "period": {
+        "description": "The period of use of the phone information.",
+        "DatePeriod": {
+          "properties": {
+            "fromDateTime": {
+              "description": "Date and time at which the period starts.",
+              "DateAndTime": {
+                "example": "2022-04-17T08:00:00Z"
+              }
+            },
+            "upToDateTime": {
+              "description": "Date and time at which the period ends.",
+              "DateAndTime": {
+                "example": "2022-04-17T08:00:00Z"
+              }
+            }
+          }
+        }
+      },
+      "codes": {
+        "items": {
+          "GenericCode": {
+            "required": [
+              "name",
+              "value"
+            ],
+            "properties": {
+              "name": {
+                "description": "Name of the code in PascalCase.\n",
+                "example": "AccountingGroup"
+              },
+              "value": {
+                "description": "Code value.",
+                "example": "195"
+              },
+              "description": {
+                "Title": {
+                  "example": "This is a Title."
+                }
+              }
+            },
+            "description": "Generic code definition."
+          }
+        }
+      },
+      "identifiers": {
+        "description": "Phone identifiers are used to identify parties that share the same phone or to associate an existing phones with a specific party. Possible scheme name values: PhoneIdentifier.\n",
+        "items": {
+          "GenericIdentification": {
+            "required": [
+              "number",
+              "schemeName"
+            ],
+            "properties": {
+              "number": {
+                "description": "Unique and unambiguous identification.",
+                "example": "123-45-6789"
+              },
+              "schemeName": {
+                "description": "Name of the identification scheme.\n"
+              },
+              "issuer": {
+                "description": "Entity that assigns the identification.",
+                "example": "UnitedStates"
+              },
+              "issueDate": {
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              },
+              "expirationDate": {
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              }
+            }
+          }
+        }
+      },
+      "lastUpdatedDate": {
+        "DateAndTime": {
+          "example": "2022-04-17T08:00:00Z"
+        }
+      }
+    },
+    "description": "Collection of information that identifies a phone address."
+  }
+}

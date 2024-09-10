@@ -1,0 +1,60 @@
+{
+  "PaymentAccount": {
+    "properties": {
+      "name": {
+        "AccountName": {
+          "description": "Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.",
+          "example": "Hermes PD_CA 0002"
+        }
+      },
+      "currency": {
+        "CurrencyCode": {
+          "description": "Three contiguous letters for the representation of currencies and funds. Valid currency codes are registered with the ISO 4217 Maintenance Agency. \n",
+          "example": "USD"
+        }
+      },
+      "accountBranchId": {
+        "ServicerBranchId": {
+          "description": "Identification of the account servicer institution at branch level or center level. To overlay the codes to produce a unique identifier the following expresion is used: BranchRegionCode-BranchSubdivisionCode.\n",
+          "example": "SEA_1"
+        }
+      },
+      "accountNumber": {
+        "AccountNumber": {
+          "description": "The account number or Basic Bank Account Number (BBAN). A Basic Bank Account Number (BBAN) is a bank account number that includes the domestic bank code, branch identifier, and account number. It is a unique identifier for a bank account within a specific country.\n",
+          "example": "012345678"
+        }
+      },
+      "accountType": {
+        "AccountType": {
+          "description": "Type of the account. Some possible ISO 20022 compliant values are: \n Checking,\n CardAccount,\n CashPayment, \n Charges, \n CashIncome, \n Commission, \n ClearingParticipantSettlementAccount,\n LimitedLiquiditySavingsAccount,\n MarginalLending, \n MoneyMarket, \n NonResidentExternal, \n Overdraft, \n OverNightDeposit, \n Settlement, \n Salary, \n Savings, \n Tax, \n TransactingAccount,\n CashTrading,\n VirtualAccount,\n CreditCard,\n DebitCard,\n Universal, \n Investment, \n EpurseCard,\n CertificateOfDeposit,\n MoneyMarketChecking, \n RetirementAccount, \n StockOrBond,\n PrePaid, \n FleetCard, \n Cash, \n DebitAccount, \n CreditAccount, \n Benefit,\n HealthSavingsAccount,\n FlexibleSpendingAccount,\n ForBenefitOf,\n Estate,\n ClientTrustAccount, \n LawyersTrustAccount,\n KeoghPlanAccount,\n UniformTransfersToMinorsAct,\n UniformGiftsToMinorsAct,\n ReserveFunds,\n SelfDirectedBrokerage,\n IRA,\n Annuity,\n ExternalAccount,\n Loan.\n",
+          "example": "Checking"
+        }
+      },
+      "routingNumber": {
+        "ABANumber": {
+          "description": "The routing number (sometimes referred to as an ABA routing number, regarding the American Bankers Association) is a sequence of nine digits used by banks to identify specific financial institutions within the United States.  \n",
+          "example": "012345678"
+        }
+      },
+      "identifiers": {
+        "items": {
+          "AccountIdentification": {
+            "properties": {
+              "number": {
+                "description": "Identification assigned by an institution or internally to connect to other applications.\n"
+              },
+              "schemeName": {
+                "description": "Name of the identification scheme, in PascalCase. Possible ISO 20022 compliant values names are:\nIssuerIdentificationNumber, BBANIdentifier, CHIPSUniversalIdentifier, UPICIdentifier, IBANIdentifier. Other possible values: CreditBackIdentification, UniversalLoanIdentifier, CommitmentNumber, RecordNumber, FlexDataRecordNumber, RegistrationNumber, ExternalAccountId\n",
+                "example": "BBANIdentifier"
+              },
+              "issuer": {
+                "description": "Entity that assigns the identification."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

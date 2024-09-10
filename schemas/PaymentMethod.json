@@ -1,0 +1,6 @@
+{
+  "PaymentMethod": {
+    "description": "Specifies the means of payment that will be used to move the amount of money. Possible values are:  Check, CreditTransfer. More specific values: ECheck, CreditCard, CommercialCreditCard, CheckCard, BusinessCheck, PinlessDebit, PINDebit, POS, Cash, ACHCredit, LockBox, RemoteCapture, EFTCredit, FedWire, ACHDebit, EFT, MoneyOrder, Coupon.\n",
+    "example": "CreditTransfer"
+  }
+}

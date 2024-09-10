@@ -1,0 +1,6 @@
+{
+  "ProductStatus": {
+    "description": "Specifies the current status of a product. Possible values are:\n Enable, Disable.\n",
+    "example": "GoodStanding"
+  }
+}

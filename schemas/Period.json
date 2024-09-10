@@ -1,0 +1,30 @@
+{
+  "Period": {
+    "DatePeriod": {
+      "properties": {
+        "fromDateTime": {
+          "description": "Date and time at which the period starts.",
+          "DateAndTime": {
+            "example": "2022-04-17T08:00:00Z"
+          }
+        },
+        "upToDateTime": {
+          "description": "Date and time at which the period ends.",
+          "DateAndTime": {
+            "example": "2022-04-17T08:00:00Z"
+          }
+        }
+      }
+    },
+    "properties": {
+      "periodNumber": {
+        "description": "Sequence number of the period."
+      },
+      "periodName": {
+        "PeriodName": {
+          "description": "Time of the year or previous. Possible Values: YearToDate, MonthToDate, PreviousYear, BeginningPreviousYear, QuarterToDate, PreviousQuarter, YearEnd\n"
+        }
+      }
+    }
+  }
+}

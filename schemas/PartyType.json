@@ -1,0 +1,6 @@
+{
+  "PartyType": {
+    "description": "Possible values are:\n Person,\n Organization. Also other types of servicer entities: ServicerOfficer, ExternalOrganization\n",
+    "example": "Person"
+  }
+}

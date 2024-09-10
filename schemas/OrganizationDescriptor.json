@@ -1,0 +1,206 @@
+{
+  "OrganizationDescriptor": {
+    "required": [
+      "name",
+      "organizationId",
+      "organizationType"
+    ],
+    "properties": {
+      "organizationId": {
+        "description": "Organization identifier code assigned by the account service institution.",
+        "Id": {
+          "example": "5fb9d4d6-1a3c-11ed-861d-0242ac120002"
+        }
+      },
+      "organizationType": {
+        "OrganizationType": {
+          "description": "Specifies the legal standing of the organization. Possible values are: Government, FinancialInstitution, SoleProprietorship, UnincorporatedAssociation,  LimitedLiabilityPartnership, LimitedLiabilityCompany, LimitedPartnership, FormalPartnership, GeneralPartnership, Business, Corporation, NotForProfit, ForProfit, NonProfit, Club, Supranational, Sovereign, Municipal, Province, State, County, National, ExemptionTrust, LivingTrust, EmployeeTrust, RevocableTrust, IrrovocableTrust, NakedTrust, FamilyTrust, BussinesTrust, CliffordTrust, FormalTrust, PublicAgency, Association, Church.\n",
+          "example": "Corporation"
+        }
+      },
+      "identifiers": {
+        "items": {
+          "OrganizationIdentification": {
+            "description": "Unique and unambiguous way to identify an Organization.",
+            "PartyIdInformation": {
+              "properties": {
+                "number": {
+                  "description": "Unique and unambiguous identification.",
+                  "example": "123-45-6789"
+                },
+                "issuer": {
+                  "description": "Entity that assigns the identification.",
+                  "example": "Baltimore"
+                },
+                "country": {
+                  "CountryCode": {
+                    "description": "Country name obtained from the United Nations (ISO 3166, Alpha-2 code).\n",
+                    "example": "US"
+                  }
+                },
+                "countrySubdivisionCode": {
+                  "CountrySubdivisionCode": {
+                    "description": "Code to identify a name of a unit resulting from the division of a country, dependency, or other area of special geopolitical interest contained in ISO 3166-1, on the basis of country names obtained from the United Nations (ISO 3166-2: Country subdivision code).\n",
+                    "example": "AR-B"
+                  }
+                },
+                "issueDate": {
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                },
+                "applyDate": {
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                },
+                "expirationDate": {
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                },
+                "verificationDate": {
+                  "description": "Verification or certification date.\n",
+                  "Date": {
+                    "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                    "example": "2022-04-17"
+                  }
+                },
+                "foreingIDIndicator": {
+                  "description": "Indicates whether the identifications is from a foreing country."
+                },
+                "taxIDIndicator": {
+                  "description": "Indicates whether the identifications is Tax Id."
+                },
+                "displayOption": {
+                  "PartyDisplayOption": {
+                    "description": "Indicates display options for party attributes. Possible Values: TaxIdMasked\n"
+                  }
+                }
+              }
+            },
+            "properties": {
+              "schemeName": {
+                "description": "Name of the identification scheme, in PascalCase form. Possible values are: \nBankPartyIdentification\nCentralBankIdentificationNumber\nClearingIdentificationNumber\nCertificateOfIncorporationNumber\nCountryIdentificationCode\nCustomerNumber\nDataUniversalNumberingSystem\nEmployerIdentificationNumber\nGS1GLNIdentifier\nSIREN\nSIRET\nTaxIdentificationNumber\nBusinessDomainIdentifier\nBusinessOtherIdentification\nEmployerIdentificationNumber\nBICIdentifier\nLEIIdentifier\nExternalOrganizationNumber,\nExternalOrganizationType, \nExternalOrganizationId,\nMemberNumber.\n",
+                "example": "TaxIdentificationNumber"
+              },
+              "issuer": {
+                "description": "Entity that assigns the identification.",
+                "example": "UnitedStates"
+              },
+              "issueDate": {
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              },
+              "expirationDate": {
+                "Date": {
+                  "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                  "example": "2022-04-17"
+                }
+              },
+              "displayOption": {
+                "PartyDisplayOption": {
+                  "description": "Indicates display options for party attributes. Possible Values: TaxIdMasked\n"
+                }
+              }
+            }
+          }
+        }
+      },
+      "name": {
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      },
+      "shortName": {
+        "PartyShortName": {
+          "description": "Short name or nickname by which a party is known and which is usually used to identify that party.",
+          "example": "Jane"
+        }
+      },
+      "legalName": {
+        "description": "Official name under which an organization is registered.\n",
+        "PartyShortName": {
+          "description": "Short name or nickname by which a party is known and which is usually used to identify that party.",
+          "example": "Jane"
+        }
+      },
+      "tradingName": {
+        "description": "Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another.\n",
+        "PartyName": {
+          "description": "Name by which a party is known and which is usually used to identify that party.",
+          "example": "Jane Birkin"
+        }
+      },
+      "audit": {
+        "Audit": {
+          "properties": {
+            "status": {
+              "AuditStatus": {
+                "description": "Maintenance status of a resource. Possible values: Requested, Created, Changed, Deleted\n"
+              }
+            },
+            "creationDate": {
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "lastModificacionChannel": {
+              "CommunicationChannelName": {
+                "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                "example": "Email"
+              }
+            },
+            "lastModificationDate": {
+              "Date": {
+                "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                "example": "2022-04-17"
+              }
+            },
+            "channels": {
+              "description": "Activity audit throught communication channles",
+              "items": {
+                "AuditChannel": {
+                  "properties": {
+                    "lastActivityDate": {
+                      "Date": {
+                        "description": "A particular point in the progression of time in a calendar year expressed in the YYYY-MM-DD format.",
+                        "example": "2022-04-17"
+                      }
+                    },
+                    "name": {
+                      "CommunicationChannelName": {
+                        "description": "Channel used to communicate with a party. Possible Values: Email, Fax, File, Online, PostalService, LiveSupport, ATM, IVR, Kiosk, Mobile, OnlineBanking, Phone, SMS, Card, InPerson, Operator, VRU, Telebanc, Notice, ExceptionReport, Statement, TextMessage, Teller, Walkin, Voice, Web, Retailer, WesternUnion, Electronic, CenterView.\n",
+                        "example": "Email"
+                      }
+                    },
+                    "activityType": {
+                      "AuditActivityType": {
+                        "description": "Maintenance activity of a resource. Possible values: Transaction, Modification, Deposit, Withdrawal, Creation, DirectDeposit, CardActivation, CardActivationByCallerId, CardActivationByCodeAndCallerId, Closure\n"
+                      }
+                    },
+                    "amount": {
+                      "PositiveAmount": {
+                        "description": "Number of monetary units where the size of the decimal part is defined by the currency.\nNote: \ntotal number of digits: 21\nnumber of digits in fractional part: 8\nmaxInclusive: 9999999999999.99999999\nminInclusive: 0\n",
+                        "example": "100"
+                      }
+                    }
+                  },
+                  "description": "Audit Information by Channel. Captures data, activity and maintenance details.\n"
+                }
+              }
+            }
+          },
+          "description": "Resource Audit Information. Captures the creation, modification and maintenance details.\n"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "ProductPartyRelationType": {
+    "description": "Type of relation between parties and a Financial Product.  Possible values: ParentProvider\n",
+    "example": "ParentProvider"
+  }
+}
